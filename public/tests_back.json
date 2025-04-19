@@ -1,0 +1,869 @@
+﻿[
+    {
+        "aktiv":  null,
+        "befundzeit":  "am selben Tag bei Eingang bis 12:00 Uhr",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP TSH",
+                              "url":  "/docs/sop_tsh.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 7-17 Uhr",
+        "ebm":  "32687",
+        "einheit":  "mg/dl",
+        "goae":  "3504",
+        "hinweise":  [
+                         "Nüchtern empfohlen",
+                         "Medikamenteneinnahme dokumentieren"
+                     ],
+        "id":  "123456",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "11580-8",
+        "material":  [
+                         "Serum",
+                         "Plasma (EDTA)"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Thyreotropin (TSH)",
+        "synonyme":  [
+                         "TSH",
+                         "Schilddrüsenhormon",
+                         "Thyreotropin"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "innerhalb von 2 Stunden",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32456",
+        "einheit":  "10^6/µl",
+        "goae":  "3565",
+        "hinweise":  [
+
+                     ],
+        "id":  "654321",
+        "kategorie":  "Infektionsdiagnostik",
+        "lagerung":  "Raumtemperatur, max. 6h",
+        "loinc":  "1988-5",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "CRP",
+        "synonyme":  [
+                         "C-reaktives Protein",
+                         "Entzündungsmarker"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32104",
+        "einheit":  "µmol/l",
+        "goae":  "3548",
+        "hinweise":  [
+
+                     ],
+        "id":  "H001",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "789-8",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.2,
+        "name":  "Erythrozyten",
+        "synonyme":  [
+                         "RBC"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32986",
+        "einheit":  "µmol/l",
+        "goae":  "3520",
+        "hinweise":  [
+
+                     ],
+        "id":  "H002",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "6690-2",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.2,
+        "name":  "Leukozyten",
+        "synonyme":  [
+                         "WBC"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32364",
+        "einheit":  "mg/dl",
+        "goae":  "3531",
+        "hinweise":  [
+
+                     ],
+        "id":  "H003",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "777-3",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.2,
+        "name":  "Thrombozyten",
+        "synonyme":  [
+                         "PLT"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32331",
+        "einheit":  "fl",
+        "goae":  "3510",
+        "hinweise":  [
+
+                     ],
+        "id":  "H004",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "4544-3",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.2,
+        "name":  "Hämatokrit",
+        "synonyme":  [
+                         "Hkt"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32328",
+        "einheit":  "mg/dl",
+        "goae":  "3525",
+        "hinweise":  [
+
+                     ],
+        "id":  "H005",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "787-2",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.2,
+        "name":  "MCV",
+        "synonyme":  [
+                         "mittleres Erythrozytenvolumen"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32671",
+        "einheit":  "µmol/l",
+        "goae":  "3547",
+        "hinweise":  [
+
+                     ],
+        "id":  "H006",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "785-6",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.2,
+        "name":  "MCH",
+        "synonyme":  [
+                         "mittlerer Hb-Gehalt"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32027",
+        "einheit":  "IU/l",
+        "goae":  "3555",
+        "hinweise":  [
+
+                     ],
+        "id":  "H007",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "786-4",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.2,
+        "name":  "MCHC",
+        "synonyme":  [
+                         "mittlere Hb-Konzentration"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32422",
+        "einheit":  "U/l",
+        "goae":  "3577",
+        "hinweise":  [
+
+                     ],
+        "id":  "H008",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "788-0",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.2,
+        "name":  "RDW",
+        "synonyme":  [
+                         "Erythrozytenverteilungsbreite"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "am selben Tag",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "Mo-Fr",
+        "ebm":  "32102",
+        "einheit":  "pg",
+        "goae":  "3574",
+        "hinweise":  [
+
+                     ],
+        "id":  "H009",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt",
+        "loinc":  "4679-7",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Retikulozyten",
+        "synonyme":  [
+                         "Retiks"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "am selben Tag",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "Mo-Fr",
+        "ebm":  "32864",
+        "einheit":  "µmol/l",
+        "goae":  "3523",
+        "hinweise":  [
+                         "nur bei pathologischen Auffälligkeiten"
+                     ],
+        "id":  "H010",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt",
+        "loinc":  "58410-2",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Blutausstrich",
+        "synonyme":  [
+                         "Differenzierung manuell"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32209",
+        "einheit":  "ng/ml",
+        "goae":  "3592",
+        "hinweise":  [
+                         "Nüchtern empfohlen"
+                     ],
+        "id":  "K001",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt",
+        "loinc":  "2345-7",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "Glukose",
+        "synonyme":  [
+                         "BZ",
+                         "Blutzucker"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32159",
+        "einheit":  "fl",
+        "goae":  "3571",
+        "hinweise":  [
+
+                     ],
+        "id":  "K002",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt",
+        "loinc":  "2160-0",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "Kreatinin",
+        "synonyme":  [
+
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32625",
+        "einheit":  "ng/ml",
+        "goae":  "3511",
+        "hinweise":  [
+
+                     ],
+        "id":  "K003",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt",
+        "loinc":  "3094-0",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "Harnstoff",
+        "synonyme":  [
+
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32603",
+        "einheit":  "fl",
+        "goae":  "3553",
+        "hinweise":  [
+
+                     ],
+        "id":  "K004",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt",
+        "loinc":  "2951-2",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "Natrium",
+        "synonyme":  [
+                         "Na+"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32865",
+        "einheit":  "10^3/µl",
+        "goae":  "3587",
+        "hinweise":  [
+                         "Hämolyse vermeiden"
+                     ],
+        "id":  "K005",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt",
+        "loinc":  "2823-3",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "Kalium",
+        "synonyme":  [
+                         "K+"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32230",
+        "einheit":  "fl",
+        "goae":  "3543",
+        "hinweise":  [
+
+                     ],
+        "id":  "K006",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt",
+        "loinc":  "2075-0",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "Chlorid",
+        "synonyme":  [
+                         "Cl-"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32106",
+        "einheit":  "fl",
+        "goae":  "3535",
+        "hinweise":  [
+
+                     ],
+        "id":  "K007",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt",
+        "loinc":  "17861-6",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "Calcium",
+        "synonyme":  [
+                         "Ca2+"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "am selben Tag",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "Mo–Fr",
+        "ebm":  "32146",
+        "einheit":  "ng/ml",
+        "goae":  "3582",
+        "hinweise":  [
+
+                     ],
+        "id":  "K008",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt",
+        "loinc":  "1742-6",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.4,
+        "name":  "ALAT",
+        "synonyme":  [
+                         "GPT"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "am selben Tag",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "Mo–Fr",
+        "ebm":  "32617",
+        "einheit":  "g/l",
+        "goae":  "3568",
+        "hinweise":  [
+
+                     ],
+        "id":  "K009",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt",
+        "loinc":  "1920-8",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.4,
+        "name":  "ASAT",
+        "synonyme":  [
+                         "GOT"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "am selben Tag",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "Mo–Fr",
+        "ebm":  "32711",
+        "einheit":  "mmol/l",
+        "goae":  "3585",
+        "hinweise":  [
+
+                     ],
+        "id":  "K010",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt",
+        "loinc":  "2324-2",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.4,
+        "name":  "Gamma-GT",
+        "synonyme":  [
+                         "GGT"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "am selben Tag",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "Mo–Fr",
+        "ebm":  "32970",
+        "einheit":  "pg",
+        "goae":  "3513",
+        "hinweise":  [
+                         "Citratverhältnis beachten"
+                     ],
+        "id":  "G001",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt, max. 4h",
+        "loinc":  "14979-9",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "PTT",
+        "synonyme":  [
+                         "aPTT"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "am selben Tag",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "Mo–Fr",
+        "ebm":  "32001",
+        "einheit":  "µmol/l",
+        "goae":  "3586",
+        "hinweise":  [
+
+                     ],
+        "id":  "G002",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt",
+        "loinc":  "3255-7",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Fibrinogen",
+        "synonyme":  [
+
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "am selben Tag",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "Mo–Fr",
+        "ebm":  "32823",
+        "einheit":  "fl",
+        "goae":  "3572",
+        "hinweise":  [
+
+                     ],
+        "id":  "G003",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt",
+        "loinc":  "30000-4",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Thrombinzeit",
+        "synonyme":  [
+                         "TZ"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "am selben Tag",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "Mo–Fr",
+        "ebm":  "32108",
+        "einheit":  "s",
+        "goae":  "3557",
+        "hinweise":  [
+
+                     ],
+        "id":  "G004",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt",
+        "loinc":  "27822-2",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.6,
+        "name":  "Antithrombin III",
+        "synonyme":  [
+                         "AT III"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "innerhalb von 2 Stunden",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32657",
+        "einheit":  "fl",
+        "goae":  "3529",
+        "hinweise":  [
+
+                     ],
+        "id":  "G005",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt",
+        "loinc":  "48067-3",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.6,
+        "name":  "D-Dimere",
+        "synonyme":  [
+
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "2 Tage",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "Mo–Fr",
+        "ebm":  "32115",
+        "einheit":  "s",
+        "goae":  "3502",
+        "hinweise":  [
+
+                     ],
+        "id":  "G006",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt",
+        "loinc":  "27822-2",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.6,
+        "name":  "Protein C",
+        "synonyme":  [
+
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "2 Tage",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "Mo–Fr",
+        "ebm":  "32645",
+        "einheit":  "%",
+        "goae":  "3523",
+        "hinweise":  [
+
+                     ],
+        "id":  "G007",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt",
+        "loinc":  "27823-0",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.6,
+        "name":  "Protein S",
+        "synonyme":  [
+
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "3 Tage",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "Mo–Fr",
+        "ebm":  "32435",
+        "einheit":  "fl",
+        "goae":  "3500",
+        "hinweise":  [
+
+                     ],
+        "id":  "G008",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt",
+        "loinc":  "30242-2",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.7,
+        "name":  "Lupus-Antikoagulans",
+        "synonyme":  [
+
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "2 Tage",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "Mo–Fr",
+        "ebm":  "32134",
+        "einheit":  "µmol/l",
+        "goae":  "3576",
+        "hinweise":  [
+
+                     ],
+        "id":  "G009",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt",
+        "loinc":  "27810-7",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.7,
+        "name":  "Faktor VIII",
+        "synonyme":  [
+
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "2 Tage",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "Mo–Fr",
+        "ebm":  "32370",
+        "einheit":  "s",
+        "goae":  "3503",
+        "hinweise":  [
+
+                     ],
+        "id":  "G010",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt",
+        "loinc":  "27811-5",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.7,
+        "name":  "Faktor IX",
+        "synonyme":  [
+
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "2 Tage",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "Mo–Fr",
+        "ebm":  "32370",
+        "einheit":  "s",
+        "goae":  "3503",
+        "hinweise":  [
+
+                     ],
+        "id":  "G011",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt",
+        "loinc":  "27811-5",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.7,
+        "name":  "Faktor X",
+        "synonyme":  [
+
+                     ]
+    }
+]

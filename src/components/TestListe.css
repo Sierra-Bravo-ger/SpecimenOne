@@ -1,0 +1,64 @@
+.test-liste-container {
+  max-width: 100%;
+}
+
+/* Suchleisten-bezogene Stile wurden in Suchleiste.css zentralisiert */
+
+.tests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.test-karte {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.test-karte:hover {
+  transform: translateY(-3px);
+}
+
+.test-karte h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #6abf7b; /* Material 3 Primary Color */
+}
+
+.kategorie {
+  display: inline-block;
+  background-color: #e8f5eb;
+  color: #6abf7b;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  margin-bottom: 0.8rem;
+}
+
+/* Dark mode styling for category tags */
+.dark-theme .kategorie {
+  background-color: #1e4d2b;
+  color: #8fd69b;
+}
+
+.test-karte-material {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.synonyme {
+  color: #666;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.keine-tests {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}

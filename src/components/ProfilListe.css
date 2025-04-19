@@ -1,0 +1,111 @@
+.profil-liste-container {
+  margin-top: 1rem;
+}
+
+.profil-karte {
+  background-color: white;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.profil-header {
+  padding: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.profil-info {
+  flex: 1;
+}
+
+.profil-info h3 {
+  margin: 0;
+  color: var(--md-sys-color-primary, #34eb8c);
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.profil-beschreibung {
+  margin: 0;
+  color: var(--md-sys-color-on-surface-variant, #49454F);
+  font-size: 0.9rem;
+}
+
+.profil-kategorie {
+  display: inline-block;
+  background-color: var(--md-sys-color-primary-container, #d0f9e3);
+  color: var(--md-sys-color-on-primary-container, #003921);
+  font-size: 0.8rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  margin-top: 0.5rem;
+}
+
+.profil-expand-icon {
+  color: var(--md-sys-color-on-surface-variant, #49454F);
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.profil-tests {
+  padding: 0 1.2rem 1.2rem 1.2rem;
+  border-top: 1px solid var(--md-sys-color-surface-variant, #E7E0EC);
+}
+
+.profil-tests-header {
+  font-weight: 500;
+  margin-top: 1rem;
+  margin-bottom: 0.8rem;
+  color: var(--md-sys-color-on-surface, #1C1B1F);
+}
+
+.profil-tests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.profil-test-item {
+  background-color: var(--md-sys-color-surface-variant, #E7E0EC);
+  padding: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.profil-test-item:hover {
+  transform: translateY(-3px);
+}
+
+.profil-test-name {
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  color: var(--md-sys-color-on-surface-variant, #49454F);
+}
+
+.profil-test-detail {
+  font-size: 0.9rem;
+  color: var(--md-sys-color-on-surface-variant, #49454F);
+}
+
+.profil-test-synonyme {
+  margin-top: 0.4rem;
+  color: var(--md-sys-color-outline, #79747E);
+  font-size: 0.8rem;
+}
+
+.keine-profile,
+.keine-tests-info {
+  text-align: center;
+  padding: 2rem;
+  color: var(--md-sys-color-on-surface-variant, #49454F);
+}

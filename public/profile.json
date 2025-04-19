@@ -1,0 +1,51 @@
+[
+  {
+    "id": "P001",
+    "name": "Kleines Blutbild",
+    "beschreibung": "Grundlegende hämatologische Parameter",
+    "tests": ["H001", "H002", "H003", "H004", "H005", "H006", "H007", "H008"],
+    "kategorie": "Hämatologie"
+  },
+  {
+    "id": "P002",
+    "name": "Großes Blutbild",
+    "beschreibung": "Erweiterte hämatologische Parameter",
+    "tests": ["H001", "H002", "H003", "H004", "H005", "H006", "H007", "H008", "H009"],
+    "kategorie": "Hämatologie"
+  },
+    {
+    "id": "P007",
+    "name": "Retikulozyten",
+    "beschreibung": "Erweiterte hämatologische Parameter",
+    "tests": ["H009"],
+    "kategorie": "Hämatologie"
+  },
+  {
+    "id": "P003",
+    "name": "Klinische Chemie Basis",
+    "beschreibung": "Grundlegende klinisch-chemische Parameter",
+    "tests": ["K001", "K002", "K003", "K004", "K005", "K006", "K007"],
+    "kategorie": "Klinische Chemie"
+  },
+  {
+    "id": "P004",
+    "name": "Leberwerte",
+    "beschreibung": "Parameter zur Beurteilung der Leberfunktion",
+    "tests": ["K008", "K009", "K010"],
+    "kategorie": "Klinische Chemie"
+  },
+  {
+    "id": "P005",
+    "name": "Gerinnungsstatus",
+    "beschreibung": "Parameter zur Beurteilung der Blutgerinnung",
+    "tests": ["G001", "G002", "G003"],
+    "kategorie": "Gerinnung"
+  },
+  {
+    "id": "P006",
+    "name": "Schilddrüsenparameter",
+    "beschreibung": "Parameter zur Beurteilung der Schilddrüsenfunktion",
+    "tests": ["K011"],
+    "kategorie": "Klinische Chemie"
+  }
+]

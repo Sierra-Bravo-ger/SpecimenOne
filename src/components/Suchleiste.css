@@ -1,0 +1,68 @@
+.suche-container {
+  margin-bottom: 2rem;
+  position: relative;
+  width: 100%;
+}
+
+.suche-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--md-sys-color-outline, #79747E);
+  border-radius: 28px;
+  background-color: var(--md-sys-color-surface, #FFFBFE);
+  color: var(--md-sys-color-on-surface, #1C1B1F);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.suche-input:focus {
+  outline: none;
+  border-color: var(--md-sys-color-primary, #6abf7b);
+  box-shadow: 0 0 0 2px rgba(106, 191, 123, 0.2);
+}
+
+.suche-clear-button {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--md-sys-color-outline, #79747E);
+  border-radius: 50%;
+}
+
+.suche-clear-button:hover {
+  background-color: var(--md-sys-color-surface-variant, #E7E0EC);
+}
+
+.suche-filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.suche-filter-chip {
+  background-color: var(--md-sys-color-surface-variant, #E7E0EC);
+  color: var(--md-sys-color-on-surface-variant, #49454F);
+  border: none;
+  border-radius: 16px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.suche-filter-chip.aktiv {
+  background-color: var(--md-sys-color-primary-container, #EADDFF);
+  color: var(--md-sys-color-on-primary-container, #21005E);
+}

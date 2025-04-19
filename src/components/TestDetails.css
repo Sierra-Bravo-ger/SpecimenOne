@@ -1,0 +1,79 @@
+.test-details-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.test-details-container {
+  background-color: white;
+  border-radius: 28px;
+  padding: 2rem;
+  max-width: 90%;
+  width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.test-details-container h2 {
+  color: #6abf7b;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.details-section {
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 0;
+}
+
+.details-section h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  color: #49454F;
+  font-weight: 500;
+}
+
+.details-section p {
+  margin-bottom: 0.4rem;
+}
+
+.details-section ul {
+  padding-left: 1.5rem;
+}
+
+.details-section li {
+  margin-bottom: 0.3rem;
+}
+
+/* Neue Actions-Leiste für Buttons */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+/* Styling für die Material-Divider */
+md-divider {
+  margin: 1rem 0;
+  opacity: 0.6;
+}

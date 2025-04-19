@@ -1,0 +1,115 @@
+/* Material Theme Anpassungen für das Labor-Test-Menü */
+:root {
+  /* Material 3 Farbschema - Light Mode (Default) */
+  --md-sys-color-primary: #6abf7b;
+  --md-sys-color-on-primary: #FFFFFF;
+  --md-sys-color-primary-container: #e8f5eb;
+  --md-sys-color-on-primary-container: #1e4d2b;
+  --md-sys-color-secondary: #625B71;
+  --md-sys-color-on-secondary: #FFFFFF;
+  --md-sys-color-secondary-container: #E8DEF8;
+  --md-sys-color-on-secondary-container: #1E192B;
+  --md-sys-color-tertiary: #7D5260;
+  --md-sys-color-on-tertiary: #FFFFFF;
+  --md-sys-color-tertiary-container: #FFD8E4;
+  --md-sys-color-on-tertiary-container: #370B1E;
+  --md-sys-color-error: #B3261E;
+  --md-sys-color-on-error: #FFFFFF;
+  --md-sys-color-error-container: #F9DEDC;
+  --md-sys-color-on-error-container: #410E0B;
+  --md-sys-color-surface: #FFFBFE;
+  --md-sys-color-on-surface: #1C1B1F;
+  --md-sys-color-surface-variant: #E7E0EC;
+  --md-sys-color-on-surface-variant: #49454F;
+  --md-sys-color-outline: #79747E;
+  --md-sys-color-outline-variant: #C4C7C5;
+  
+  /* Material 3 Typografie */
+  --md-sys-typescale-headline-large-font: 'Roboto';
+  --md-sys-typescale-headline-large-size: 2rem;
+  --md-sys-typescale-headline-large-weight: 400;
+  
+  /* Material 3 Form-Faktoren */
+  --md-sys-shape-corner-small: 8px;
+  --md-sys-shape-corner-medium: 12px;
+  --md-sys-shape-corner-large: 16px;
+  --md-sys-shape-corner-extra-large: 28px;
+  
+  /* Transitions für Theme-Wechsel */
+  --theme-transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Dark Mode Theme */
+.dark-theme {
+  --md-sys-color-primary: #83d991;
+  --md-sys-color-on-primary: #132e1c;
+  --md-sys-color-primary-container: #1e4d2b;
+  --md-sys-color-on-primary-container: #b8f2c4;
+  --md-sys-color-secondary: #CCC2DC;
+  --md-sys-color-on-secondary: #332D41;
+  --md-sys-color-secondary-container: #4A4458;
+  --md-sys-color-on-secondary-container: #E8DEF8;
+  --md-sys-color-tertiary: #EFB8C8;
+  --md-sys-color-on-tertiary: #492532;
+  --md-sys-color-tertiary-container: #633B48;
+  --md-sys-color-on-tertiary-container: #FFD8E4;
+  --md-sys-color-error: #F2B8B5;
+  --md-sys-color-on-error: #601410;
+  --md-sys-color-error-container: #8C1D18;
+  --md-sys-color-on-error-container: #F9DEDC;
+  --md-sys-color-background: #1C1B1F;
+  --md-sys-color-on-background: #E6E1E5;
+  --md-sys-color-surface: #1C1B1F;
+  --md-sys-color-on-surface: #E6E1E5;
+  --md-sys-color-surface-variant: #49454F;
+  --md-sys-color-on-surface-variant: #CAC4D0;
+  --md-sys-color-outline: #938F99;
+  --md-sys-color-outline-variant: #49454F;
+}
+
+/* Theme transition classes */
+body, .app-container, .app-header, .test-karte, .profil-karte, .search-input,
+.tab-button, .test-details-container, .app-footer {
+  transition: var(--theme-transition);
+}
+
+/* Material Components Anpassungen */
+md-outlined-text-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+md-filled-button, md-text-button {
+  margin: 4px;
+}
+
+md-circular-progress {
+  margin: 40px auto;
+  display: block;
+}
+
+/* Utility-Klassen */
+.md-elevation-1 {
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.12), 
+              0px 1px 1px 0px rgba(0, 0, 0, 0.08);
+}
+
+.md-elevation-2 {
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.11), 
+              0px 3px 8px 0px rgba(0, 0, 0, 0.08);
+}
+
+.md-elevation-3 {
+  box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.10), 
+              0px 1px 18px 0px rgba(0, 0, 0, 0.08);
+}
+
+.md-elevation-4 {
+  box-shadow: 0px 12px 17px 0px rgba(0, 0, 0, 0.11), 
+              0px 5px 22px 0px rgba(0, 0, 0, 0.07);
+}
+
+.md-elevation-5 {
+  box-shadow: 0px 16px 24px 0px rgba(0, 0, 0, 0.12), 
+              0px 6px 30px 0px rgba(0, 0, 0, 0.08);
+}

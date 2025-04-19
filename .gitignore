@@ -1,0 +1,66 @@
+// filepath: c:\Projekte\labor-test-menu\.gitignore
+
+# Abhängigkeiten
+/node_modules
+/.pnp
+.pnp.js
+
+# Build-Verzeichnisse
+/dist
+/dist-ssr
+/build
+
+# Umgebungsvariablen
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Testabdeckung
+/coverage
+
+# Temporäre Dateien
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.idea
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Lokale Testdateien
+/cypress/videos/
+/cypress/screenshots/
+
+# Spezifisch für Ihr Projekt
+/temp_csv
+*.csv
+*.xlsx
+*.xls
+*.bak
+/data-backup
+
+# Lokale Konfigurationsdateien
+*.local.json
+
+# PowerShell Skript Logs
+*-log.txt
+*_output.json
+
+# Entwicklungsnotizen
+TODO.md
+NOTES.md
+copilot_rules.md
