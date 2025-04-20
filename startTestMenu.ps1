@@ -19,7 +19,7 @@ function IsAllowedHost($req) {
 }
 
 # startTestMenu.ps1
-# Startet einen lokalen Webserver für Labor Test Menu
+# Startet einen lokalen Webserver für SpecimenOne
 
 # Parameter für den Server
 

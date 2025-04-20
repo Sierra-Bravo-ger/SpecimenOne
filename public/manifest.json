@@ -1,6 +1,6 @@
 {
-  "name": "Labor Test-Menü",
-  "short_name": "Labor Tests",
+  "name": "SpecimenOne",
+  "short_name": "SpecimenOne",
   "description": "Offline-fähiges Labor-Test-Menü für medizinische Einrichtungen",
   "start_url": "/",
   "display": "standalone",

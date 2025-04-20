@@ -2,16 +2,47 @@
 
 Eine moderne React-basierte Web-Anwendung zur Anzeige und Verwaltung von Labortests für medizinisches Personal.
 
+## Schnellstart
+
+### Lokale Entwicklung
+
+```powershell
+# Installieren der Abhängigkeiten
+npm install
+
+# Starten des Entwicklungsservers
+npm run dev
+```
+Die Anwendung ist dann unter http://localhost:5173 verfügbar.
+
+### Docker-Deployment
+
+```powershell
+# Container bauen und starten
+docker build -t specimenone:latest .
+docker run -d -p 8100:80 --name specimenone specimenone:latest
+```
+Die Anwendung ist dann unter http://localhost:8100 verfügbar.
+
+### Docker Compose
+
+```powershell
+# Mit Docker Compose starten
+docker compose up -d
+```
+
+### Portainer-Deployment
+
+1. Lade die `compose-portainer.yaml` in Portainer hoch
+2. Erstelle einen neuen Stack mit dieser Datei
+3. Deploye den Stack
+
 ## Funktionen
 
-### UI-Komponenten und Design
-- Responsive Benutzeroberfläche vollständig auf Deutsch
-- Integration von Material Design 3 (MDC Web) für ein modernes Look & Feel
-- Komponenten für TestListe, TestDetails und Suchleiste
-- Lösung von Kompatibilitätsproblemen mit Material Web Components durch Verwendung von react-icons/md
-- Angepasstes Farbschema mit Pastelgrün (#6abf7b) statt Standard-Material-Purple
-- Dark Mode mit entsprechend angepasstem Farbschema
-- Intuitive Farbcodierung für verschiedene Laborfachbereiche:
+### UI-Komponenten
+- Responsive Benutzeroberfläche auf Deutsch mit Material Design 3
+- Dark Mode mit angepasstem Farbschema (Pastelgrün #6abf7b statt Standard-Purple)
+- Intuitive Farbcodierung der Laborfachbereiche:
   - Hämatologie: Rot
   - Klinische Chemie: Braun
   - Gerinnung: Grün
@@ -22,71 +53,46 @@ Eine moderne React-basierte Web-Anwendung zur Anzeige und Verwaltung von Laborte
   - Infektionsdiagnostik: Braun
 
 ### Kernfunktionalitäten
-- Erweiterte Suchfunktion für Tests, die Namen, Synonyme und Fachbereiche durchsucht
-- Detaillierte Ansicht für Labortests mit strukturierten Informationen
-- Separate Suchleistenkomponente für bessere Wartbarkeit
-- Dark Mode Toggle für bessere Benutzerfreundlichkeit in verschiedenen Umgebungen
-
-### Test-Profil-Funktionalität
-- Profile.json für die Gruppierung zusammengehöriger Tests (z.B. "Kleines Blutbild", "Großes Blutbild")
-- Tab-Navigation zur Umschaltung zwischen Einzeltest-Ansicht und Profil-Ansicht
-- ProfilListe-Komponente für Tests nach klinisch relevanten Profilen
+- Erweiterte Suchfunktion für Tests (Namen, Synonyme, Fachbereiche)
+- Detaillierte Testansicht mit strukturierten Informationen
+- Test-Profil-Funktionalität zur Gruppierung zusammengehöriger Tests
+- Tab-Navigation für Einzeltest- und Profil-Ansicht
+- Abrechnungsinformationen (einheit, ebm, goae)
 
 ### Datenmanagement
-- Erweiterte Testdaten mit zusätzlichen Feldern (einheit, ebm, goae)
-- Angepasste TestDetails-Komponente zur Anzeige der neuen Felder
-- Abrechnungsinformationen in der Detailansicht
-
-### Datenkonvertierung und Wartung
-- PowerShell-Skripte für bidirektionale Konvertierung zwischen JSON und CSV:
-  - convertJsonToCsv.ps1: Exportiert Tests in CSV-Format
-  - convertCsvToJson.ps1: Importiert bearbeitete CSV zurück ins JSON-Format
-- Korrekte Datenstruktur-Erhaltung durch Referenz-JSON
-- Excel-Kompatibilität:
-  - Flexible Erkennung von Trennzeichen (Komma/Semikolon)
-  - Unterstützung für verschiedene Pipe-getrennte Wertformate
-  - Robuste Verarbeitung von Excel-modifizierten Dateien
+- PowerShell-Skripte für Konvertierung zwischen JSON und CSV:
+  ```powershell
+  # JSON zu CSV konvertieren
+  .\convertJsonToCsv.ps1
+  
+  # CSV zu JSON konvertieren
+  .\convertCsvToJson.ps1
+  ```
+- Excel-kompatible Import/Export-Funktionalität
 
 ## Technologie
 
 - React 18+ mit Vite als Build-Tool
 - Material Design 3 Komponenten
 - Responsive Design für Desktop und mobile Ansichten
-- Dunkelmodus-Unterstützung
-- Anpassbares Farbschema
+- Docker-Container für einfache Bereitstellung
 
 ## Projektstruktur
 
 ```
 specimenone/
-├── src/
-│   ├── components/
-│   │   ├── Suchleiste.jsx
-│   │   ├── TestListe.jsx
-│   │   ├── TestDetails.jsx
-│   │   ├── ProfilListe.jsx
-│   │   └── DarkModeToggle.jsx
-│   ├── data/
-│   │   ├── tests.json
-│   │   └── profile.json
-│   ├── App.jsx
-│   └── main.jsx
-├── scripts/
-│   ├── convertJsonToCsv.ps1
-│   └── convertCsvToJson.ps1
-└── README.md
+├── src/                  # Quellcode der React-Anwendung
+│   ├── components/       # React-Komponenten
+│   ├── App.jsx           # Hauptkomponente
+│   └── main.jsx          # Einstiegspunkt
+├── public/               # Statische Dateien
+│   ├── profile.json      # Test-Profil-Definitionen
+│   └── tests.json        # Testdaten
+├── Dockerfile            # Docker-Konfiguration
+├── compose.yaml          # Docker Compose Konfiguration
+├── compose-portainer.yaml # Portainer Stack Konfiguration
+└── *.ps1                 # PowerShell-Hilfsskripte
 ```
-
-## Optimierungen
-
-- Zentralisierte Suchfunktion ohne Redundanz
-- Optimierte Dark Mode Lesbarkeit mit angepassten Kontrasteinstellungen
-- Verbesserte Darstellung der Kategorie-Tags im Dark Mode
-- Durchgängige visuelle Konsistenz mit Farbcodierung der Laborfachbereiche:
-  - Einheitliche Farbgebung für Testnamen in Kartenansicht, Detailansicht und Profilansicht
-  - Farbliche Übereinstimmung zwischen Testname und Kategorie-Tag
-  - Verbesserte visuelle Orientierung und schnellere Erkennung von Testtypen auf einen Blick
-- Effiziente Datenkonvertierung mit Strukturerhaltung
 
 ## Lizenz
 

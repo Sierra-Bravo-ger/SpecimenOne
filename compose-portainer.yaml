@@ -1,0 +1,9 @@
+# filepath: c:\Projekte\SpecimenOne\compose-portainer.yaml
+version: '3'
+
+services:
+  specimenone:
+    image: sierrabravoger/specimenone:latest
+    ports:
+      - "8100:80"  # Standard-Portbindung
+    restart: unless-stopped

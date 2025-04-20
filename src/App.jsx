@@ -159,10 +159,10 @@ function App() {
               )}
             </div>
           </>
-        )}
-      </main>
+        )}      
+        </main>
       <footer className="app-footer">
-        <p>© {new Date().getFullYear()} Labor Test-Menü</p>
+        <p>© {new Date().getFullYear()} SpecimenOne</p>
       </footer>
     </div>
   )

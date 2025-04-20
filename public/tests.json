@@ -5,7 +5,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32968",
         "einheit":  "Sekunden",
         "goae":  "3511",
@@ -33,7 +33,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32969",
         "einheit":  "Sekunden",
         "goae":  "3512",
@@ -59,7 +59,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32970",
         "einheit":  "Sekunden",
         "goae":  "3513",
@@ -85,7 +85,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32001",
         "einheit":  "mg/dl",
         "goae":  "3586",
@@ -111,7 +111,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32823",
         "einheit":  "Sekunden",
         "goae":  "3572",
@@ -137,7 +137,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32108",
         "einheit":  "mg/dl",
         "goae":  "3557",
@@ -163,7 +163,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32657",
         "einheit":  "mg/dl",
         "goae":  "3529",
@@ -449,7 +449,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32986",
         "einheit":  "10^3/µl",
         "goae":  "3520",
@@ -475,9 +475,9 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32104",
-        "einheit":  "10^9/µl",
+        "einheit":  "10^6/µl",
         "goae":  "3548",
         "hinweise":  [
 
@@ -501,7 +501,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32987",
         "einheit":  "g/dl",
         "goae":  "3521",
@@ -527,7 +527,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32364",
         "einheit":  "10^3/µl",
         "goae":  "3531",
@@ -553,7 +553,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32331",
         "einheit":  "%",
         "goae":  "3510",
@@ -579,7 +579,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32328",
         "einheit":  "fl",
         "goae":  "3525",
@@ -605,7 +605,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32671",
         "einheit":  "pg",
         "goae":  "3547",
@@ -631,7 +631,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32027",
         "einheit":  "g/dl",
         "goae":  "3555",
@@ -657,7 +657,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32422",
         "einheit":  null,
         "goae":  "3577",
@@ -683,7 +683,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32102",
         "einheit":  "10^3/µl",
         "goae":  "3574",
@@ -709,7 +709,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32103",
         "einheit":  "g/dl",
         "goae":  "3575",
@@ -735,7 +735,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32104",
         "einheit":  "%",
         "goae":  "3576",
@@ -787,7 +787,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32102",
         "einheit":  "10^3/µl",
         "goae":  "3574",
@@ -813,7 +813,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32103",
         "einheit":  "%",
         "goae":  "3575",
@@ -839,7 +839,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32104",
         "einheit":  "10^3/µl",
         "goae":  "3576",
@@ -865,7 +865,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32105",
         "einheit":  "%",
         "goae":  "3577",
@@ -891,7 +891,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32106",
         "einheit":  "10^3/µl",
         "goae":  "3578",
@@ -917,7 +917,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32107",
         "einheit":  "%",
         "goae":  "3579",
@@ -943,7 +943,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32108",
         "einheit":  "10^3/µl",
         "goae":  "3580",
@@ -969,7 +969,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32109",
         "einheit":  "%",
         "goae":  "3581",
@@ -995,7 +995,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32110",
         "einheit":  "‰",
         "goae":  "3582",
@@ -1013,7 +1013,7 @@
         "name":  "Fragmentozyten",
         "synonyme":  [
                          "Helm-Cells",
-                         "Fragis"
+                         "Fraggis"
                      ]
     },
     {
@@ -1022,7 +1022,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32209",
         "einheit":  "mg/dl",
         "goae":  "3592",
@@ -1049,7 +1049,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32159",
         "einheit":  "mg/dl",
         "goae":  "3571",
@@ -1076,7 +1076,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32625",
         "einheit":  "mg/dl",
         "goae":  "3511",
@@ -1103,7 +1103,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32603",
         "einheit":  "mmol/l",
         "goae":  "3553",
@@ -1129,7 +1129,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32865",
         "einheit":  "mmol/l",
         "goae":  "3587",
@@ -1155,7 +1155,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32230",
         "einheit":  "mmol/l",
         "goae":  "3543",
@@ -1181,7 +1181,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32106",
         "einheit":  "mmol/l",
         "goae":  "3535",
@@ -1207,7 +1207,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32146",
         "einheit":  "U/l",
         "goae":  "3582",
@@ -1235,7 +1235,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32617",
         "einheit":  "U/l",
         "goae":  "3568",
@@ -1263,7 +1263,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32711",
         "einheit":  "U/l",
         "goae":  "3585",
@@ -1285,14 +1285,14 @@
     },
     {
         "aktiv":  null,
-        "befundzeit":  "am selben Tag bei Eingang bis 12:00 Uhr",
+        "befundzeit":  "3 Stunden",
         "dokumente":  [
                           {
                               "titel":  "SOP TSH",
                               "url":  "/docs/sop_tsh.pdf"
                           }
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32687",
         "einheit":  "mg/dl",
         "goae":  "3504",
@@ -1305,24 +1305,22 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "11580-8",
         "material":  [
-                         "Serum",
-                         "Plasma (EDTA)"
+                         "Serum"
                      ],
         "mindestmenge_ml":  0.5,
-        "name":  "Thyreotropin (TSH)",
+        "name":  "TSH",
         "synonyme":  [
-                         "TSH",
-                         "Schilddrüsenhormon",
+                         "Thyreoidea-stimulierendes Hormon",
                          "Thyreotropin"
                      ]
     },
     {
         "aktiv":  null,
-        "befundzeit":  "innerhalb von 2 Stunden",
+        "befundzeit":  "2 Stunden",
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32456",
         "einheit":  "mg/dl",
         "goae":  "3565",

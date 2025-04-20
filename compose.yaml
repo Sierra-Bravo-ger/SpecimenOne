@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  specimenone:
+    image: sierrabravoger/specimenone:latest
+    container_name: specimenone    
+    ports:
+      - "0.0.0.0:8100:80"  # Explizites Binding an alle Interfaces, externe Port 8100, interne Port 80
+    restart: unless-stopped
+    # Optional: Umgebungsvariablen
+    # environment:
+    #   - API_URL=https://api.example.com
+    # Optional: Volumes für persistente Daten
+    # volumes:
+    #   - ./public/tests.json:/usr/share/nginx/html/tests.json
+    #   - ./public/profile.json:/usr/share/nginx/html/profile.json
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:80/index.html"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    # Verwende das Standard-Bridge-Netzwerk
+
+# Falls Sie später weitere Services hinzufügen möchten (z.B. eine API)
+# api:
+#   image: specimenone-api:latest
+#   container_name: specimenone-api
+#   restart: unless-stopped
+#   ports:
+#     - "3000:3000"
+#   depends_on:
+#     - specimenone
