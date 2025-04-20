@@ -25,13 +25,22 @@ function ProfilListe({ tests, profile }) {
   const handleCloseDetails = () => {
     setSelectedTest(null);
   };
+  // Sortiere Profile nach sortierNummer (falls vorhanden) oder nach ID als Fallback
+  const sortedProfiles = [...profile].sort((a, b) => {
+    // Primär nach sortierNummer sortieren, falls vorhanden
+    if (a.sortierNummer !== undefined && b.sortierNummer !== undefined) {
+      return a.sortierNummer - b.sortierNummer;
+    }
+    // Sekundär nach ID sortieren
+    return a.id.localeCompare(b.id);
+  });
 
   return (
     <div className="profil-liste-container">
       {profile.length === 0 ? (
         <p className="keine-profile">Keine Profile gefunden.</p>
       ) : (
-        profile.map(profil => {
+        sortedProfiles.map(profil => {
           const isExpanded = expandedProfiles.includes(profil.id);
           const profilTests = tests.filter(test => 
             profil.tests.includes(test.id)
@@ -40,7 +49,12 @@ function ProfilListe({ tests, profile }) {
           return (
             <div key={profil.id} className="profil-karte md-elevation-2">
               <div className="profil-header" onClick={() => toggleProfile(profil.id)}>                <md-ripple></md-ripple>                <div className="profil-info">
-                  <h3 className={`kategorie-text-${profil.kategorie.toLowerCase().replace(/\s+/g, '-')}`}>{profil.name}</h3>
+                  <div className="profil-title-row">
+                    <h3 className={`kategorie-text-${profil.kategorie.toLowerCase().replace(/\s+/g, '-')}`}>{profil.name}</h3>
+                    {profil.sortierNummer !== undefined && (
+                      <span className="sortier-nummer">{profil.sortierNummer}</span>
+                    )}
+                  </div>
                   <p className="profil-beschreibung">{profil.beschreibung}</p>
                   <p className={`profil-kategorie kategorie-${profil.kategorie.toLowerCase().replace(/\s+/g, '-')}`}>{profil.kategorie}</p>
                 </div>

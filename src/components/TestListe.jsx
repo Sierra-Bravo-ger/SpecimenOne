@@ -16,25 +16,41 @@ function TestListe({ tests }) {
   const handleCloseDetails = () => {
     setSelectedTest(null)
   }
-  
+    // Sortiere Tests nach sortierNummer (falls vorhanden) oder nach ID als Fallback
+  const sortedTests = [...tests].sort((a, b) => {
+    // Primär nach sortierNummer sortieren, falls vorhanden
+    if (a.sortierNummer !== undefined && b.sortierNummer !== undefined) {
+      return a.sortierNummer - b.sortierNummer;
+    }
+    // Sekundär nach ID sortieren
+    return a.id.localeCompare(b.id);
+  });
+
   return (
     <div className="test-liste-container">      
       {tests.length === 0 ? (
         <p className="keine-tests">Keine Tests gefunden.</p>
       ) : (
         <div className="tests-grid">
-          {tests.map(test => (
+          {sortedTests.map(test => (
             <div 
               key={test.id} 
               className="test-karte md-elevation-2"
               onClick={() => handleTestClick(test)}
             >              <md-ripple></md-ripple>
-              <h3 className={`test-titel kategorie-text-${test.kategorie.toLowerCase().replace(/\s+/g, '-')}`}>{test.name}</h3>
+              <div className="test-header">
+                <h3 className={`test-titel kategorie-text-${test.kategorie.toLowerCase().replace(/\s+/g, '-')}`}>
+                  {test.name}
+                </h3>
+                {test.sortierNummer !== undefined && (
+                  <span className="sortier-nummer">{test.sortierNummer}</span>
+                )}
+              </div>
               <p className={`kategorie kategorie-${test.kategorie.toLowerCase().replace(/\s+/g, '-')}`}>{test.kategorie}</p>
               <div className="test-karte-material">
                 <strong>Material:</strong> {test.material.join(', ')}
               </div>
-              {test.synonyme.length > 0 && (
+              {test.synonyme?.length > 0 && (
                 <div className="synonyme">
                   <small>{test.synonyme.join(', ')}</small>
                 </div>

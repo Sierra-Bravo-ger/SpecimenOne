@@ -8,18 +8,19 @@
 .app-header {
   background-color: #6abf7b; /* Material 3 Primary Color */
   color: white;
-  padding: 0.5rem;
+  padding: 0.75rem 1.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
 .app-title {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  flex: 1;
 }
 
 .app-logo {
@@ -28,15 +29,17 @@
 }
 
 .large-logo {
-  height: 250px;
+  height: 80px;
   width: auto;
-  margin: 0.5rem 0;
+  margin-right: 1rem;
   filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
 }
 
 .app-header h1 {
   margin: 0;
   font-size: 1.8rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-weight: 500;
 }
 
 main {

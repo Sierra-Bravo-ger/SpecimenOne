@@ -53,11 +53,14 @@ docker compose up -d
   - Infektionsdiagnostik: Braun
 
 ### Kernfunktionalitäten
-- Erweiterte Suchfunktion für Tests (Namen, Synonyme, Fachbereiche)
+- Erweiterte Suchfunktion für Tests (Namen, Synonyme, Fachbereiche, LOINC-Codes, Test-IDs)
 - Detaillierte Testansicht mit strukturierten Informationen
 - Test-Profil-Funktionalität zur Gruppierung zusammengehöriger Tests
-- Tab-Navigation für Einzeltest- und Profil-Ansicht
+- Tab-Navigation für Einzeltest-, Profil- und Tabellenansicht
+- Hierarchische Drilldown-Tabelle mit erweiterbaren Details nach Kategorie
 - Abrechnungsinformationen (einheit, ebm, goae)
+- Sortiernummern für Tests und Profile zur besseren Pflegbarkeit
+- Optimierte Druckausgabe der Testdetails mit eigenem Druckfenster (SOP auf Knopfdruck)
 
 ### Datenmanagement
 - PowerShell-Skripte für Konvertierung zwischen JSON und CSV:
@@ -94,6 +97,16 @@ specimenone/
 └── *.ps1                 # PowerShell-Hilfsskripte
 ```
 
-## Lizenz
+## Lizenzen
 
-Dieses Projekt steht unter der [MIT License](./LICENSE).
+ - Dieses Projekt steht unter der [MIT License](./LICENSE).
+
+##
+
+Das Docker Image basiert auf:
+
+- **Alpine Linux 20** – MIT License  
+  [https://alpinelinux.org](https://alpinelinux.org)  
+  [MIT License Text](https://opensource.org/licenses/MIT)
+
+Weitere Abhängigkeiten siehe GitHub-Repo.

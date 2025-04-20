@@ -1,0 +1,174 @@
+.drilldown-table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: var(--md-sys-color-surface, #FFFBFE);
+}
+
+.drilldown-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.drilldown-table thead tr {
+  background-color: var(--md-sys-color-primary-container, #E8F5E9);
+  color: var(--md-sys-color-on-primary-container, #1B1B1F);
+}
+
+.drilldown-table th,
+.drilldown-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant, #C4C7C5);
+}
+
+.drilldown-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Gruppenzeilen */
+.group-row {
+  cursor: pointer;
+  background-color: var(--md-sys-color-secondary-container, #E8F5E9);
+  transition: background-color 0.2s;
+}
+
+.group-row:hover {
+  background-color: var(--md-sys-color-surface-variant, #E7E0EC);
+}
+
+.group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+}
+
+.group-name {
+  flex: 1;
+}
+
+.group-count {
+  background-color: var(--md-sys-color-primary, #6abf7b);
+  color: var(--md-sys-color-on-primary, #FFFFFF);
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-size: 0.8rem;
+  margin-right: 1rem;
+}
+
+.group-expand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Datenzeilen */
+.data-row {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.data-row:hover {
+  background-color: var(--md-sys-color-surface-variant, #E7E0EC);
+}
+
+/* Detailzeilen */
+.detail-row {
+  background-color: var(--md-sys-color-surface-variant, #F5F5F5);
+}
+
+.detail-content {
+  padding: 1rem;
+  border-top: 1px dashed var(--md-sys-color-outline-variant, #C4C7C5);
+}
+
+/* Expand-Button */
+.expand-cell {
+  width: 40px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.expand-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--md-sys-color-on-surface-variant, #49454F);
+  font-size: 1.2rem;
+  padding: 4px;
+}
+
+.expand-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+}
+
+/* Keine Daten */
+.no-data-message {
+  padding: 2rem;
+  text-align: center;
+  color: var(--md-sys-color-on-surface-variant, #49454F);
+}
+
+/* Farbcodierung für Laborkategorien */
+.category-hämatologie {
+  border-left: 4px solid #f44336; /* Rot */
+}
+
+.category-klinische-chemie {
+  border-left: 4px solid #795548; /* Braun */
+}
+
+.category-gerinnung {
+  border-left: 4px solid #4CAF50; /* Grün */
+}
+
+.category-immunologie {
+  border-left: 4px solid #2196F3; /* Blau */
+}
+
+.category-mikrobiologie {
+  border-left: 4px solid #9C27B0; /* Violett */
+}
+
+.category-endokrinologie {
+  border-left: 4px solid #FFC107; /* Amber/Gold */
+}
+
+.category-virologie {
+  border-left: 4px solid #00BCD4; /* Hellblau */
+}
+
+.category-infektionsdiagnostik {
+  border-left: 4px solid #795548; /* Braun */
+}
+
+/* Dark Mode Anpassungen */
+.dark-theme .drilldown-table-container {
+  background-color: var(--md-sys-color-surface, #1C1B1F);
+}
+
+.dark-theme .drilldown-table thead tr {
+  background-color: var(--md-sys-color-surface-variant, #3E3E42);
+  color: var(--md-sys-color-on-surface-variant, #E6E1E5);
+}
+
+.dark-theme .group-row {
+  background-color: var(--md-sys-color-surface-variant, #3E3E42);
+}
+
+.dark-theme .detail-row {
+  background-color: var(--md-sys-color-surface-variant, #2D2D30);
+}
+
+.dark-theme .drilldown-table th,
+.dark-theme .drilldown-table td {
+  border-bottom: 1px solid var(--md-sys-color-outline-variant, #49454F);
+}

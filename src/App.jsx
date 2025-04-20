@@ -3,6 +3,8 @@ import './App.css'
 import './material-theme.css'
 import TestListe from './components/TestListe'
 import ProfilListe from './components/ProfilListe'
+import DrilldownTable from './components/DrilldownTable'
+import TestDetails from './components/TestDetails'
 import Suchleiste from './components/Suchleiste'
 import '@material/web/button/filled-button.js'
 import '@material/web/button/text-button.js'
@@ -15,12 +17,14 @@ import * as MaterialDesign from "react-icons/md"
 function App() {
   const [tests, setTests] = useState([])
   const [profile, setProfile] = useState([])
-  const [ansicht, setAnsicht] = useState('tests') // 'tests' oder 'profile'
+  const [ansicht, setAnsicht] = useState('tests') // 'tests', 'profile' oder 'tabelle'
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
   const [suchbegriff, setSuchbegriff] = useState('')
   const [selectedKategorie, setSelectedKategorie] = useState('Alle')
   const [darkMode, setDarkMode] = useState(false)
+  const [selectedTest, setSelectedTest] = useState(null)
+  const [showTestDetails, setShowTestDetails] = useState(false)
   // Effect to handle dark mode changes
   useEffect(() => {
     if (darkMode) {
@@ -29,6 +33,40 @@ function App() {
       document.body.classList.remove('dark-theme');
     }
   }, [darkMode]);
+  
+  // Überprüfen der URL-Parameter beim Laden
+  useEffect(() => {
+    // Nur ausführen, wenn Tests geladen sind
+    if (tests.length === 0) return;
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const testId = urlParams.get('test');
+    
+    if (testId) {
+      const foundTest = tests.find(test => test.id === testId);
+      if (foundTest) {
+        setSelectedTest(foundTest);
+        setShowTestDetails(true);
+      }
+    }
+  }, [tests]);
+  
+  // Überprüfen der URL-Parameter beim Laden
+  useEffect(() => {
+    // Nur ausführen, wenn Tests geladen sind
+    if (tests.length === 0) return;
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const testId = urlParams.get('test');
+    
+    if (testId) {
+      const foundTest = tests.find(test => test.id === testId);
+      if (foundTest) {
+        setSelectedTest(foundTest);
+        setShowTestDetails(true);
+      }
+    }
+  }, [tests]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -56,7 +94,9 @@ function App() {
     }
 
     fetchData()
-  }, [])  // Filterung für Suche und Kategorie implementieren
+  }, [])  
+
+  // Filterung für Suche und Kategorie implementieren  
   const filteredTests = tests.filter(test => {
     // Erst nach Kategorie filtern
     if (selectedKategorie !== 'Alle' && test.kategorie !== selectedKategorie) {
@@ -84,6 +124,14 @@ function App() {
     if (test.kategorie && test.kategorie.toLowerCase().includes(searchTerm)) {
       return true;
     }
+    // Suche in LOINC-Code
+    if (test.loinc && test.loinc.toLowerCase().includes(searchTerm)) {
+      return true;
+    }
+    // Suche in Test-ID
+    if (test.id && test.id.toLowerCase().includes(searchTerm)) {
+      return true;
+    }
     return false;
   });
   // Filterung für Profile mit Berücksichtigung der Kategorie
@@ -102,17 +150,35 @@ function App() {
            profil.beschreibung.toLowerCase().includes(searchTerm) || 
            profil.kategorie.toLowerCase().includes(searchTerm);
   });
-
   const handleSuchbegriffChange = (newValue) => {
     setSuchbegriff(newValue);
   };
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
+  
+  // Funktion zum Öffnen der Testdetails
+  const openTestDetails = (test) => {
+    setSelectedTest(test);
+    setShowTestDetails(true);
+  };
+  
+  // Funktion zum Schließen der Testdetails
+  const closeTestDetails = () => {
+    setShowTestDetails(false);
+    
+    // URL-Parameter entfernen, wenn vorhanden
+    if (window.location.search) {
+      const url = new URL(window.location);
+      url.search = '';
+      window.history.replaceState({}, '', url);
+    }
+  };
   return (
-    <div className={`app-container ${darkMode ? 'dark-theme' : ''}`}>
-      <header className="app-header">        <div className="app-title">
+    <div className={`app-container ${darkMode ? 'dark-theme' : ''}`}>      <header className="app-header">
+        <div className="app-title">
           <img src="/images/icon-512x512.png" alt="SpecimenOne Logo" className="app-logo large-logo" />
+          <h1>SpecimenOne</h1>
         </div>
         <button className="theme-toggle" onClick={toggleDarkMode} aria-label="Farbmodus wechseln">
           {darkMode ? <MaterialDesign.MdLightMode /> : <MaterialDesign.MdDarkMode />}
@@ -129,9 +195,7 @@ function App() {
                 onSuchbegriffChange={handleSuchbegriffChange}
                 selectedKategorie={selectedKategorie}
                 onKategorieChange={setSelectedKategorie}
-              />
-
-              <div className="ansicht-tabs">
+              />              <div className="ansicht-tabs">
                 <div className="tabs-container">
                   <button 
                     className={`tab-button ${ansicht === 'tests' ? 'active' : ''}`}
@@ -145,6 +209,12 @@ function App() {
                   >
                     <MaterialDesign.MdFolderOpen style={{marginRight: '0.5rem'}} /> Test-Profile
                   </button>
+                  <button 
+                    className={`tab-button ${ansicht === 'tabelle' ? 'active' : ''}`}
+                    onClick={() => setAnsicht('tabelle')}
+                  >
+                    <MaterialDesign.MdTableView style={{marginRight: '0.5rem'}} /> Tabellen-Ansicht
+                  </button>
                 </div>
               </div>
             </div>
@@ -157,13 +227,59 @@ function App() {
               {ansicht === 'profile' && (
                 <ProfilListe tests={tests} profile={filteredProfile} />
               )}
+              
+              {ansicht === 'tabelle' && (
+                <DrilldownTable 
+                  data={filteredTests}
+                  columns={[
+                    { id: 'id', label: 'Test ID', width: '10%' },
+                    { id: 'name', label: 'Test', width: '30%' },
+                    { 
+                      id: 'material', 
+                      label: 'Material', 
+                      width: '30%',
+                      render: (item) => Array.isArray(item.material) ? item.material.join(', ') : item.material
+                    },
+                    { id: 'befundzeit', label: 'TAT', width: '15%' }
+                  ]}
+                  groupBy="kategorie"
+                  renderDetail={(test) => (
+                    <div className="test-quick-details">
+                      {test.synonyme?.length > 0 && (
+                        <p><strong>Synonyme:</strong> {test.synonyme.join(', ')}</p>
+                      )}
+                      <p><strong>LOINC:</strong> {test.loinc || 'N/A'}</p>
+                      <p><strong>Lagerung:</strong> {test.lagerung}</p>
+                      <p><strong>Durchführung:</strong> {test.durchführung}</p>
+                      {(test.ebm || test.goae) && (
+                        <p>
+                          <strong>Abrechnung:</strong> {' '}
+                          {test.ebm && <span>EBM: {test.ebm}</span>} {' '}
+                          {test.goae && <span>GOÄ: {test.goae}</span>}
+                        </p>
+                      )}                      <div style={{marginTop: '10px'}}>
+                        <md-filled-button onClick={() => openTestDetails(test)}>
+                          Details anzeigen
+                        </md-filled-button>
+                      </div>
+                    </div>
+                  )}
+                />
+              )}
             </div>
           </>
         )}      
-        </main>
-      <footer className="app-footer">
+        </main>      <footer className="app-footer">
         <p>© {new Date().getFullYear()} SpecimenOne</p>
       </footer>
+      
+      {/* Test-Details Dialog */}
+      {showTestDetails && selectedTest && (
+        <TestDetails 
+          test={selectedTest}
+          onClose={closeTestDetails}
+        />
+      )}
     </div>
   )
 }

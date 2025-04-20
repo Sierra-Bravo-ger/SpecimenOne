@@ -24,10 +24,29 @@
   transform: translateY(-3px);
 }
 
+.test-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
 .test-karte h3 {
   margin-top: 0;
   margin-bottom: 0.5rem;
   color: #6abf7b; /* Material 3 Primary Color - Standard Farbe */
+  flex: 1;
+}
+
+.sortier-nummer {
+  background-color: #6abf7b;
+  color: white;
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-left: 8px;
+  min-width: 24px;
+  text-align: center;
 }
 
 /* Farbcodierung für Überschriften basierend auf Kategorie */

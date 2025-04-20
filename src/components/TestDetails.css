@@ -49,6 +49,128 @@
   font-size: 1.1rem;
   margin-bottom: 0.8rem;
   color: #49454F;
+}
+
+/* Druckoptimierte Styles */
+@media print {
+  /* Verberge alles außer dem Test-Detail */
+  body * {
+    visibility: hidden;
+  }
+  
+  /* Nur die Test-Details sichtbar machen */
+  .test-details-container,
+  .test-details-container * {
+    visibility: visible;
+  }
+  
+  /* Overlay ausblenden, Container positionieren */
+  .test-details-overlay {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+  }
+    /* Container für Druck optimieren */
+  .test-details-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    padding: 1cm;
+    box-shadow: none;
+    overflow: visible;
+    break-inside: auto; /* Erlaubt Umbrüche innerhalb des Containers */
+  }
+    /* Close-Button und Aktionen ausblenden */
+  .close-button,
+  .actions,
+  md-filled-button,
+  md-text-button {
+    display: none !important; /* Wichtig, um andere Stile zu überschreiben */
+    visibility: hidden !important; /* Doppelte Absicherung */
+    opacity: 0;
+  }
+  
+  /* Optimierte Darstellung der Überschrift */
+  .test-details-container h2 {
+    color: #000;
+    font-size: 24pt;
+    margin-bottom: 0.5cm;
+    break-after: avoid; /* Kein Seitenumbruch nach der Überschrift */
+  }
+  
+  /* Abschnitte optimieren */
+  .details-section {
+    break-inside: avoid; /* Moderne Eigenschaft statt page-break-inside */
+    page-break-inside: avoid; /* Fallback für ältere Browser */
+    margin-bottom: 0.5cm;
+  }
+    /* Abschnittstitel optimieren */
+  .details-section h3 {
+    color: #000;
+    font-size: 12pt;
+    font-weight: bold;
+    border-bottom: 1px solid #aaa;
+    padding-bottom: 0.1cm;
+    margin-top: 0.3cm;
+    margin-bottom: 0.2cm;
+  }
+  
+  /* Trennlinien optimieren */
+  md-divider {
+    margin: 0.2cm 0;
+    border-top: 1px dashed #ccc;
+  }
+  
+  /* Textoptimierung */
+  .details-section p, 
+  .details-section ul {
+    font-size: 10pt;
+    margin-bottom: 0.1cm;
+    line-height: 1.3;
+  }
+    /* Links für Druck optimieren */
+  .details-section a {
+    text-decoration: underline;
+    color: #000;
+  }
+  
+  /* Optimierte Seitenränder */
+  @page {
+    margin: 0.5cm;
+    size: auto;
+  }
+  
+  /* Verhindern von leeren Seiten durch absolute Positionierung */
+  body {
+    height: auto !important;
+    min-height: auto !important;
+  }
+  
+  /* Volle Höhe des Content-Bereichs nutzen */
+  .test-details-container {
+    height: auto !important;
+    max-height: none !important;
+  }
+  
+  /* Header und Footer deaktivieren */
+  @page {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  /* Verstecke explizit alle anderen Elemente außerhalb vom Overlay */
+  html > body > :not(.test-details-overlay) {
+    display: none !important;
+  }
+}
+
+.details-section h3 {
   font-weight: 500;
 }
 
