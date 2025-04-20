@@ -31,14 +31,13 @@ function TestDetails({ test, onClose }) {
       onClose();
     }
   };
-
   return (
     <div className="test-details-overlay" onClick={handleOverlayClick}>      <div className="test-details-container md-elevation-5">
         <md-text-button className="close-button" onClick={onClose}>
           <MaterialDesign.MdClose style={{fontSize: "24px"}} />
         </md-text-button>
         
-        <h2>{test.name}</h2>
+        <h2 className={`kategorie-text-${test.kategorie.toLowerCase().replace(/\s+/g, '-')}`}>{test.name}</h2>
         
         {test.synonyme.length > 0 && (
           <div className="details-section">

@@ -39,12 +39,10 @@ function ProfilListe({ tests, profile }) {
           
           return (
             <div key={profil.id} className="profil-karte md-elevation-2">
-              <div className="profil-header" onClick={() => toggleProfile(profil.id)}>
-                <md-ripple></md-ripple>
-                <div className="profil-info">
-                  <h3>{profil.name}</h3>
+              <div className="profil-header" onClick={() => toggleProfile(profil.id)}>                <md-ripple></md-ripple>                <div className="profil-info">
+                  <h3 className={`kategorie-text-${profil.kategorie.toLowerCase().replace(/\s+/g, '-')}`}>{profil.name}</h3>
                   <p className="profil-beschreibung">{profil.beschreibung}</p>
-                  <p className="profil-kategorie">{profil.kategorie}</p>
+                  <p className={`profil-kategorie kategorie-${profil.kategorie.toLowerCase().replace(/\s+/g, '-')}`}>{profil.kategorie}</p>
                 </div>
                 <div className="profil-expand-icon">
                   {isExpanded ? 

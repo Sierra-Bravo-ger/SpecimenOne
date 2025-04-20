@@ -27,7 +27,59 @@
 .test-karte h3 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  color: #6abf7b; /* Material 3 Primary Color */
+  color: #6abf7b; /* Material 3 Primary Color - Standard Farbe */
+}
+
+/* Farbcodierung für Überschriften basierend auf Kategorie */
+.test-karte h3.kategorie-text-hämatologie, 
+.test-karte h3.kategorie-text-haematologie,
+.test-details-container h2.kategorie-text-hämatologie,
+.test-details-container h2.kategorie-text-haematologie,
+.profil-info h3.kategorie-text-hämatologie,
+.profil-info h3.kategorie-text-haematologie {
+  color: #c74a4a;
+}
+
+.test-karte h3.kategorie-text-klinische-chemie,
+.test-details-container h2.kategorie-text-klinische-chemie,
+.profil-info h3.kategorie-text-klinische-chemie {
+  color: #9c6b3c;
+}
+
+.test-karte h3.kategorie-text-gerinnung,
+.test-details-container h2.kategorie-text-gerinnung,
+.profil-info h3.kategorie-text-gerinnung {
+  color: #4a995c;
+}
+
+.test-karte h3.kategorie-text-immunologie,
+.test-details-container h2.kategorie-text-immunologie,
+.profil-info h3.kategorie-text-immunologie {
+  color: #4a72c7;
+}
+
+.test-karte h3.kategorie-text-mikrobiologie,
+.test-details-container h2.kategorie-text-mikrobiologie,
+.profil-info h3.kategorie-text-mikrobiologie {
+  color: #8d4ac7;
+}
+
+.test-karte h3.kategorie-text-endokrinologie,
+.test-details-container h2.kategorie-text-endokrinologie,
+.profil-info h3.kategorie-text-endokrinologie {
+  color: #c79c4a;
+}
+
+.test-karte h3.kategorie-text-virologie,
+.test-details-container h2.kategorie-text-virologie,
+.profil-info h3.kategorie-text-virologie {
+  color: #3d99c2;
+}
+
+.test-karte h3.kategorie-text-infektionsdiagnostik,
+.test-details-container h2.kategorie-text-infektionsdiagnostik,
+.profil-info h3.kategorie-text-infektionsdiagnostik {
+  color: #9c6b3c;
 }
 
 .kategorie {
@@ -40,10 +92,86 @@
   margin-bottom: 0.8rem;
 }
 
+/* Farbcodierung für verschiedene Fachbereiche */
+.kategorie-hämatologie, .kategorie-haematologie {
+  background-color: #ffe8e8;
+  color: #c74a4a;
+}
+
+.kategorie-klinische-chemie {
+  background-color: #f5eee4;
+  color: #9c6b3c;
+}
+
+.kategorie-gerinnung {
+  background-color: #e8f5eb;
+  color: #4a995c;
+}
+
+.kategorie-immunologie {
+  background-color: #e8efff;
+  color: #4a72c7;
+}
+
+.kategorie-mikrobiologie {
+  background-color: #f5e8ff;
+  color: #8d4ac7;
+}
+
+.kategorie-endokrinologie {
+  background-color: #fff5e8;
+  color: #c79c4a;
+}
+
+.kategorie-virologie {
+  background-color: #eff8ff;
+  color: #3d99c2;
+}
+
+.kategorie-infektionsdiagnostik {
+  background-color: #f5eee4;
+  color: #9c6b3c;
+}
+
 /* Dark mode styling for category tags */
 .dark-theme .kategorie {
   background-color: #1e4d2b;
   color: #8fd69b;
+}
+
+.dark-theme .kategorie-hämatologie, .dark-theme .kategorie-haematologie {
+  background-color: #3d1414;
+  color: #ff9191;
+}
+
+.dark-theme .kategorie-klinische-chemie {
+  background-color: #362818;
+  color: #d9a875;
+}
+
+.dark-theme .kategorie-gerinnung {
+  background-color: #1e4d2b;
+  color: #8fd69b;
+}
+
+.dark-theme .kategorie-immunologie {
+  background-color: #1a253d;
+  color: #8da7e6;
+}
+
+.dark-theme .kategorie-mikrobiologie {
+  background-color: #2d1a3d;
+  color: #c69aef;
+}
+
+.dark-theme .kategorie-endokrinologie {
+  background-color: #3d2d1a;
+  color: #ebc382;
+}
+
+.dark-theme .kategorie-virologie {
+  background-color: #182b35;
+  color: #7ccef5;
 }
 
 .test-karte-material {

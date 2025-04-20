@@ -11,6 +11,15 @@ Eine moderne React-basierte Web-Anwendung zur Anzeige und Verwaltung von Laborte
 - Lösung von Kompatibilitätsproblemen mit Material Web Components durch Verwendung von react-icons/md
 - Angepasstes Farbschema mit Pastelgrün (#6abf7b) statt Standard-Material-Purple
 - Dark Mode mit entsprechend angepasstem Farbschema
+- Intuitive Farbcodierung für verschiedene Laborfachbereiche:
+  - Hämatologie: Rot
+  - Klinische Chemie: Braun
+  - Gerinnung: Grün
+  - Immunologie: Blau
+  - Mikrobiologie: Violett
+  - Endokrinologie: Amber/Gold
+  - Virologie: Hellblau
+  - Infektionsdiagnostik: Braun
 
 ### Kernfunktionalitäten
 - Erweiterte Suchfunktion für Tests, die Namen, Synonyme und Fachbereiche durchsucht
@@ -49,7 +58,7 @@ Eine moderne React-basierte Web-Anwendung zur Anzeige und Verwaltung von Laborte
 ## Projektstruktur
 
 ```
-labor-test-menu/
+specimenone/
 ├── src/
 │   ├── components/
 │   │   ├── Suchleiste.jsx
@@ -73,6 +82,10 @@ labor-test-menu/
 - Zentralisierte Suchfunktion ohne Redundanz
 - Optimierte Dark Mode Lesbarkeit mit angepassten Kontrasteinstellungen
 - Verbesserte Darstellung der Kategorie-Tags im Dark Mode
+- Durchgängige visuelle Konsistenz mit Farbcodierung der Laborfachbereiche:
+  - Einheitliche Farbgebung für Testnamen in Kartenansicht, Detailansicht und Profilansicht
+  - Farbliche Übereinstimmung zwischen Testname und Kategorie-Tag
+  - Verbesserte visuelle Orientierung und schnellere Erkennung von Testtypen auf einen Blick
 - Effiziente Datenkonvertierung mit Strukturerhaltung
 
 ## Lizenz
