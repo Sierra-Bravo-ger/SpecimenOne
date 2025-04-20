@@ -19,6 +19,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
   const [suchbegriff, setSuchbegriff] = useState('')
+  const [selectedKategorie, setSelectedKategorie] = useState('Alle')
   const [darkMode, setDarkMode] = useState(false)
   // Effect to handle dark mode changes
   useEffect(() => {
@@ -55,9 +56,18 @@ function App() {
     }
 
     fetchData()
-  }, [])
-  // Filterung für Suche implementieren
-  const filteredTests = !suchbegriff ? tests : tests.filter(test => {
+  }, [])  // Filterung für Suche und Kategorie implementieren
+  const filteredTests = tests.filter(test => {
+    // Erst nach Kategorie filtern
+    if (selectedKategorie !== 'Alle' && test.kategorie !== selectedKategorie) {
+      return false;
+    }
+    
+    // Wenn kein Suchbegriff, dann nur nach Kategorie filtern
+    if (!suchbegriff) {
+      return true;
+    }
+    
     const searchTerm = suchbegriff.toLowerCase();
     
     // Suche im Namen
@@ -76,9 +86,17 @@ function App() {
     }
     return false;
   });
-
-  // Filterung für Profile
-  const filteredProfile = !suchbegriff ? profile : profile.filter(profil => {
+  // Filterung für Profile mit Berücksichtigung der Kategorie
+  const filteredProfile = profile.filter(profil => {
+    // Erst nach Kategorie filtern
+    if (selectedKategorie !== 'Alle' && profil.kategorie !== selectedKategorie) {
+      return false;
+    }
+    
+    // Wenn kein Suchbegriff, dann nur nach Kategorie filtern
+    if (!suchbegriff) {
+      return true;
+    }
     const searchTerm = suchbegriff.toLowerCase();
     return profil.name.toLowerCase().includes(searchTerm) || 
            profil.beschreibung.toLowerCase().includes(searchTerm) || 
@@ -108,8 +126,9 @@ function App() {
           <>
             <div className="search-and-tabs">              <Suchleiste 
                 suchbegriff={suchbegriff} 
-                onSuchbegriffChange={handleSuchbegriffChange} 
-                placeholder="Suche nach Tests, Synonymen oder Fachbereichen"
+                onSuchbegriffChange={handleSuchbegriffChange}
+                selectedKategorie={selectedKategorie}
+                onKategorieChange={setSelectedKategorie}
               />
 
               <div className="ansicht-tabs">

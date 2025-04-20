@@ -450,39 +450,13 @@
 
                       ],
         "durchführung":  "24. Jul",
-        "ebm":  "32104",
-        "einheit":  "10^9/µl",
-        "goae":  "3548",
-        "hinweise":  [
-
-                     ],
-        "id":  "H001",
-        "kategorie":  "Hämatologie",
-        "lagerung":  "Raumtemperatur",
-        "loinc":  "789-8",
-        "material":  [
-                         "EDTA-Blut"
-                     ],
-        "mindestmenge_ml":  0.2,
-        "name":  "Erythrozyten",
-        "synonyme":  [
-                         "RBC"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "1 Stunde",
-        "dokumente":  [
-
-                      ],
-        "durchführung":  "24. Jul",
         "ebm":  "32986",
         "einheit":  "10^3/µl",
         "goae":  "3520",
         "hinweise":  [
 
                      ],
-        "id":  "H002",
+        "id":  "H001",
         "kategorie":  "Hämatologie",
         "lagerung":  "Raumtemperatur",
         "loinc":  "6690-2",
@@ -502,13 +476,65 @@
 
                       ],
         "durchführung":  "24. Jul",
+        "ebm":  "32104",
+        "einheit":  "10^9/µl",
+        "goae":  "3548",
+        "hinweise":  [
+
+                     ],
+        "id":  "H002",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "789-8",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.2,
+        "name":  "Erythrozyten",
+        "synonyme":  [
+                         "RBC"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24. Jul",
+        "ebm":  "32987",
+        "einheit":  "g/dl",
+        "goae":  "3521",
+        "hinweise":  [
+
+                     ],
+        "id":  "H003",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "6690-3",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.2,
+        "name":  "Hämoglobin",
+        "synonyme":  [
+                         "HB"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24. Jul",
         "ebm":  "32364",
         "einheit":  "10^3/µl",
         "goae":  "3531",
         "hinweise":  [
 
                      ],
-        "id":  "H003",
+        "id":  "H004",
         "kategorie":  "Hämatologie",
         "lagerung":  "Raumtemperatur",
         "loinc":  "777-3",
@@ -534,7 +560,7 @@
         "hinweise":  [
 
                      ],
-        "id":  "H004",
+        "id":  "H005",
         "kategorie":  "Hämatologie",
         "lagerung":  "Raumtemperatur",
         "loinc":  "4544-3",
@@ -560,7 +586,7 @@
         "hinweise":  [
 
                      ],
-        "id":  "H005",
+        "id":  "H006",
         "kategorie":  "Hämatologie",
         "lagerung":  "Raumtemperatur",
         "loinc":  "787-2",
@@ -586,7 +612,7 @@
         "hinweise":  [
 
                      ],
-        "id":  "H006",
+        "id":  "H007",
         "kategorie":  "Hämatologie",
         "lagerung":  "Raumtemperatur",
         "loinc":  "785-6",
@@ -607,12 +633,12 @@
                       ],
         "durchführung":  "24. Jul",
         "ebm":  "32027",
-        "einheit":  "mg/dl",
+        "einheit":  "g/dl",
         "goae":  "3555",
         "hinweise":  [
 
                      ],
-        "id":  "H007",
+        "id":  "H008",
         "kategorie":  "Hämatologie",
         "lagerung":  "Raumtemperatur",
         "loinc":  "786-4",
@@ -638,14 +664,14 @@
         "hinweise":  [
 
                      ],
-        "id":  "H008",
+        "id":  "H009",
         "kategorie":  "Hämatologie",
         "lagerung":  "Raumtemperatur",
         "loinc":  "788-0",
         "material":  [
                          "EDTA-Blut"
                      ],
-        "mindestmenge_ml":  0.2,
+        "mindestmenge_ml":  0.5,
         "name":  "RDW",
         "synonyme":  [
                          "Erythrozytenverteilungsbreite"
@@ -659,12 +685,12 @@
                       ],
         "durchführung":  "24. Jul",
         "ebm":  "32102",
-        "einheit":  "Promille",
+        "einheit":  "10^3/µl",
         "goae":  "3574",
         "hinweise":  [
 
                      ],
-        "id":  "H009",
+        "id":  "H010",
         "kategorie":  "Hämatologie",
         "lagerung":  "gekühlt",
         "loinc":  "4679-7",
@@ -672,14 +698,66 @@
                          "EDTA-Blut"
                      ],
         "mindestmenge_ml":  0.5,
-        "name":  "Retikulozyten",
+        "name":  "Retikulozyten Absolut",
         "synonyme":  [
-                         "Retiks"
+                         "Retis"
                      ]
     },
     {
         "aktiv":  null,
-        "befundzeit":  "am selben Tag",
+        "befundzeit":  "2 Stunde",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24. Jul",
+        "ebm":  "32103",
+        "einheit":  "g/dl",
+        "goae":  "3575",
+        "hinweise":  [
+
+                     ],
+        "id":  "H011",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt",
+        "loinc":  "4679-8",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.6,
+        "name":  "Retikulozyten Absolut-Hb",
+        "synonyme":  [
+                         "Reti-Hb"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "3 Stunde",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24. Jul",
+        "ebm":  "32104",
+        "einheit":  "%",
+        "goae":  "3576",
+        "hinweise":  [
+
+                     ],
+        "id":  "H012",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt",
+        "loinc":  "4679-9",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.7,
+        "name":  "Retikulozyten Absolut",
+        "synonyme":  [
+                         "Retis %"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "Mo-Fr 7-17Uhr",
         "dokumente":  [
 
                       ],
@@ -690,7 +768,7 @@
         "hinweise":  [
                          "nur bei pathologischen Auffälligkeiten"
                      ],
-        "id":  "H010",
+        "id":  "H013",
         "kategorie":  "Hämatologie",
         "lagerung":  "gekühlt",
         "loinc":  "58410-2",
@@ -701,6 +779,241 @@
         "name":  "Blutausstrich",
         "synonyme":  [
                          "Differenzierung manuell"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24. Jul",
+        "ebm":  "32102",
+        "einheit":  "10^3/µl",
+        "goae":  "3574",
+        "hinweise":  [
+
+                     ],
+        "id":  "H014",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt",
+        "loinc":  "4679-7",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Neutrophile Absolut",
+        "synonyme":  [
+                         "Neutro#"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "2 Stunde",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24. Jul",
+        "ebm":  "32103",
+        "einheit":  "%",
+        "goae":  "3575",
+        "hinweise":  [
+
+                     ],
+        "id":  "H015",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt",
+        "loinc":  "4679-8",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.6,
+        "name":  "Neutrophile Relativ",
+        "synonyme":  [
+                         "Neutro%"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "3 Stunde",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24. Jul",
+        "ebm":  "32104",
+        "einheit":  "10^3/µl",
+        "goae":  "3576",
+        "hinweise":  [
+
+                     ],
+        "id":  "H016",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt",
+        "loinc":  "4679-9",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.7,
+        "name":  "Lymphozyten Absolut",
+        "synonyme":  [
+                         "Lymph#"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "4 Stunde",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24. Jul",
+        "ebm":  "32105",
+        "einheit":  "%",
+        "goae":  "3577",
+        "hinweise":  [
+
+                     ],
+        "id":  "H017",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt",
+        "loinc":  "4679-10",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.8,
+        "name":  "Lymphozyten Relativ",
+        "synonyme":  [
+                         "Lymph%"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "5 Stunde",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24. Jul",
+        "ebm":  "32106",
+        "einheit":  "10^3/µl",
+        "goae":  "3578",
+        "hinweise":  [
+
+                     ],
+        "id":  "H018",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt",
+        "loinc":  "4679-11",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.9,
+        "name":  "Monozyten Absolut",
+        "synonyme":  [
+                         "Mono#"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "6 Stunde",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24. Jul",
+        "ebm":  "32107",
+        "einheit":  "%",
+        "goae":  "3579",
+        "hinweise":  [
+
+                     ],
+        "id":  "H019",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt",
+        "loinc":  "4679-12",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  1,
+        "name":  "Monozyten Relativ",
+        "synonyme":  [
+                         "Mono%"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "7 Stunde",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24. Jul",
+        "ebm":  "32108",
+        "einheit":  "10^3/µl",
+        "goae":  "3580",
+        "hinweise":  [
+
+                     ],
+        "id":  "H020",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt",
+        "loinc":  "4679-13",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  1.1,
+        "name":  "Eosinophile Absolut",
+        "synonyme":  [
+                         "Eo#"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "8 Stunde",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24. Jul",
+        "ebm":  "32109",
+        "einheit":  "%",
+        "goae":  "3581",
+        "hinweise":  [
+
+                     ],
+        "id":  "H021",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt",
+        "loinc":  "4679-14",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  1.2,
+        "name":  "Eosinophile Relativ",
+        "synonyme":  [
+                         "Eo%"
+                     ]
+    },
+    {
+        "aktiv":  null,
+        "befundzeit":  "9 Stunde",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24. Jul",
+        "ebm":  "32110",
+        "einheit":  "‰",
+        "goae":  "3582",
+        "hinweise":  [
+
+                     ],
+        "id":  "H022",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt",
+        "loinc":  "4679-15",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  1.3,
+        "name":  "Fragmentozyten",
+        "synonyme":  [
+                         "Helm-Cells",
+                         "Fragis"
                      ]
     },
     {
@@ -753,7 +1066,8 @@
         "mindestmenge_ml":  0.3,
         "name":  "Kreatinin",
         "synonyme":  [
-
+                         "Crea",
+                         "Krea"
                      ]
     },
     {
@@ -779,7 +1093,8 @@
         "mindestmenge_ml":  0.3,
         "name":  "Harnstoff",
         "synonyme":  [
-
+                         "HNST",
+                         "UREA"
                      ]
     },
     {
@@ -1015,7 +1330,7 @@
 
                      ],
         "id":  "K012",
-        "kategorie":  "Klinische Chemie",
+        "kategorie":  "Infektionsdiagnostik",
         "lagerung":  "Raumtemperatur, max. 6h",
         "loinc":  "1988-5",
         "material":  [

@@ -3,21 +3,21 @@
     "id": "P001",
     "name": "Kleines Blutbild",
     "beschreibung": "Grundlegende hämatologische Parameter",
-    "tests": ["H001", "H002", "H003", "H004", "H005", "H006", "H007", "H008"],
+    "tests": ["H001", "H002", "H003", "H004", "H005", "H006", "H007", "H008", "H009"],
     "kategorie": "Hämatologie"
   },
   {
     "id": "P002",
-    "name": "Großes Blutbild",
-    "beschreibung": "Erweiterte hämatologische Parameter",
-    "tests": ["H001", "H002", "H003", "H004", "H005", "H006", "H007", "H008", "H009"],
+    "name": "Großes Blutbild, maschinell",
+    "beschreibung": "maschinelle Differenzierung (Großes Blutbild)",
+    "tests": ["H013", "H014", "H015", "H016", "H017", "H018", "H019", "H020", "H021"],
     "kategorie": "Hämatologie"
   },
     {
     "id": "P007",
     "name": "Retikulozyten",
-    "beschreibung": "Erweiterte hämatologische Parameter",
-    "tests": ["H009"],
+    "beschreibung": "maschinelle Differenzierung (Retikulozyten)",
+    "tests": ["H010", "H011", "H012"],
     "kategorie": "Hämatologie"
   },
   {
