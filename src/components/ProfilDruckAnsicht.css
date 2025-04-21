@@ -1,0 +1,263 @@
+.profil-print-container {
+  background-color: #fff;
+  color: #000;
+  padding: 2rem;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.print-controls {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  z-index: 100;
+}
+
+.print-button, .close-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.print-button {
+  background-color: var(--md-sys-color-primary, #6abf7b);
+  color: white;
+}
+
+.close-button {
+  background-color: #666;
+  color: white;
+}
+
+.print-content {
+  max-width: 210mm;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 20px;
+}
+
+.print-logo {
+  height: 60px;
+  width: auto;
+}
+
+.header-info {
+  flex: 1;
+}
+
+.header-info h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.subtitle {
+  margin: 4px 0 0 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.profile-meta {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.meta-row {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.meta-row:last-child {
+  margin-bottom: 0;
+}
+
+.meta-label {
+  font-weight: bold;
+  width: 150px;
+}
+
+.meta-value {
+  flex: 1;
+}
+
+.tests-overview {
+  margin-bottom: 30px;
+}
+
+.tests-overview h2 {
+  font-size: 18px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+}
+
+.tests-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.tests-table th, .tests-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.tests-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.tests-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tests-details h2 {
+  font-size: 18px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+}
+
+.test-detail-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  page-break-inside: avoid;
+}
+
+.test-detail-card h3 {
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 10px 15px;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.test-id {
+  background-color: var(--md-sys-color-primary, #6abf7b);
+  color: white;
+  font-size: 12px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.inactive-badge {
+  background-color: #ff6b6b;
+  color: white;
+  font-size: 12px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  margin-left: auto;
+}
+
+.test-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 15px;
+}
+
+.detail-group {
+  margin-bottom: 15px;
+}
+
+.detail-group h4 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.detail-group p {
+  margin: 0 0 6px 0;
+  font-size: 13px;
+}
+
+.hinweise-list {
+  margin: 0;
+  padding-left: 16px;
+}
+
+.hinweise-list li {
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+footer {
+  margin-top: 40px;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+}
+
+@media print {
+  /* Ausblenden der UI-Elemente beim Drucken */
+  .print-controls {
+    display: none !important;
+  }
+  
+  /* Grundlegende Druckeinstellungen */
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: white !important;
+    color: black !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  
+  /* Container-Anpassungen */
+  .profil-print-container {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    background-color: white !important;
+  }
+  
+  .print-content {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 1cm !important;
+  }
+
+  /* Seitenumbrüche */
+  .test-detail-card {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    margin-bottom: 1cm !important;
+  }
+  
+  .test-detail-grid {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+  
+  /* Seitenformat und Ränder */
+  @page {
+    size: A4 !important;
+    margin: 1.5cm !important;
+  }
+}
