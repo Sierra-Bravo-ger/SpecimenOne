@@ -47,11 +47,15 @@ lerna-debug.log*
 
 # Spezifisch für Ihr Projekt
 /temp_csv
-*.csv
+tests_exportiert*.csv
+tests_exportiert.csv
 *.xlsx
 *.xls
 *.bak
 /data-backup
+tests_importiert*.json
+profile_exportiert*.json
+profile_exportiert.json
 
 # Lokale Konfigurationsdateien
 *.local.json

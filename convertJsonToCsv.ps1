@@ -1,6 +1,6 @@
 ﻿# filepath: c:\Projekte\convertJsonToCsv.ps1
 # Input- und Output-Pfade
-$jsonPath = "tests_orig.json"
+$jsonPath = "public\tests.json"
 $csvPath = "tests_exportiert-$(Get-Date -Format yyyy-MM-dd-HH-mm-ss).csv"
 
 Write-Host "Starte Export von JSON-Daten..."
@@ -56,8 +56,8 @@ function ConvertTo-DokumenteString {
     return $result
 }
 
-# CSV-Header erstellen
-$csvHeader = $fieldNames -join ","
+# CSV-Header erstellen mit Semikolon als Trenner (deutsches Format)
+$csvHeader = $fieldNames -join ";"
 Set-Content -Path $csvPath -Value $csvHeader -Encoding UTF8
 
 # Daten in CSV schreiben
@@ -74,6 +74,18 @@ foreach ($test in $tests) {
             $formatted = ConvertTo-DokumenteString -dokumente $value
             $csvLine += """$formatted"""
         }
+        elseif ($field -eq "durchführung") {
+            # Spezielles Format für "durchführung", um Excel-Datumskonvertierung zu vermeiden
+            # Füge Apostroph am Anfang hinzu, damit Excel den Wert als Text behandelt
+            $formattedValue = "$value".Replace('"', '""').Replace(';', ',')
+            $csvLine += """'$formattedValue"""
+        }
+        elseif ($field -eq "mindestmenge_ml") {
+            # Spezielles Format für "mindestmenge_ml", um Excel-Zahlenkonvertierung zu vermeiden
+            # Füge Apostroph am Anfang hinzu, damit Excel den Wert als Text behandelt
+            $formattedValue = "$value".Replace('"', '""').Replace(';', ',')
+            $csvLine += """'$formattedValue"""
+        }
         elseif ($value -is [Array]) {
             $formatted = Format-ArrayForCsv -array $value
             $csvLine += """$formatted"""
@@ -82,13 +94,13 @@ foreach ($test in $tests) {
             $csvLine += $value.ToString().ToLower()
         }
         else {
-            # String-Werte mit Anführungszeichen umschließen und Kommas escapen
-            $formattedValue = "$value".Replace('"', '""')
+            # String-Werte mit Anführungszeichen umschließen und Semikolons escapen
+            $formattedValue = "$value".Replace('"', '""').Replace(';', ',')
             $csvLine += """$formattedValue"""
         }
     }
     
-    Add-Content -Path $csvPath -Value ($csvLine -join ",") -Encoding UTF8
+    Add-Content -Path $csvPath -Value ($csvLine -join ";") -Encoding UTF8
 }
 
 Write-Host "CSV erfolgreich erstellt unter: $csvPath"

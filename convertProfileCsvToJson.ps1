@@ -1,9 +1,9 @@
-﻿# Input- und Output-Pfade
-$csvPath = "tests_exportiert.csv"
-$jsonPath = "tests_importiert$(Get-Date -Format yyyy-MM-dd-HH-mm-ss).json"
-$referenceJsonPath = "tests_orig.json" # Referenz-JSON für die Struktur
+# Input- und Output-Pfade
+$csvPath = "profile_exportiert.csv"
+$jsonPath = "public\profile_importiert-$(Get-Date -Format yyyy-MM-dd-HH-mm-ss).json"
+$referenceJsonPath = "public\profile.json" # Referenz-JSON für die Struktur
 
-Write-Host "Starte Import von CSV-Daten..."
+Write-Host "Starte Import von Profil-CSV-Daten..."
 
 # CSV einlesen - mit flexiblen Trennzeichen, primär auf Semikolon eingestellt (deutsches Format)
 try {
@@ -46,7 +46,7 @@ Write-Host "Analysiere CSV-Struktur..."
 # Alle Spalten ermitteln
 $columns = $csv[0].PSObject.Properties.Name
 Write-Host "Gefundene Spalten: $($columns -join ', ')"
-Write-Host "Beginne Konvertierung von $($csv.Count) Tests..."
+Write-Host "Beginne Konvertierung von $($csv.Count) Profilen..."
 
 # Hilfsfunktion für Pipe-getrennte Felder
 function Split-PipeIfExists {
@@ -59,59 +59,21 @@ function Split-PipeIfExists {
     return $values
 }
 
-# Hilfsfunktion für Dokumente-Feld
-function ConvertFrom-DokumenteString {
-    param($dokumentText)
-    if ([string]::IsNullOrWhiteSpace($dokumentText) -or $dokumentText -eq ":") { return @() }
-    # Stellen Sie sicher, dass das Ergebnis immer ein Array ist, selbst bei nur einem Eintrag
-    $dokumente = $dokumentText -split "\s*[\|\\]\s*" | Where-Object { -not [string]::IsNullOrWhiteSpace($_) } | ForEach-Object {
-        $parts = $_ -split ":", 2
-        if ($parts.Count -ge 2) {
-            @{ titel = $parts[0].Trim(); url = $parts[1].Trim() }
-        } else {
-            @{ titel = $parts[0].Trim(); url = "" }
-        }
-    }
-    
-    # Stelle sicher, dass das Ergebnis immer ein Array ist
-    if ($null -eq $dokumente) { return @() }
-    if ($dokumente -isnot [Array]) { return @($dokumente) }
-    return $dokumente
-}
-
-# Lädt die Referenz-JSON um Strukturvergleich und mindestmenge_ml-Werte zu haben
-$referenceTests = @{}
+# Lädt die Referenz-JSON für die Strukturvalidierung
+$referenceProfiles = @{}
 if (Test-Path $referenceJsonPath) {
     try {
         $referenceJson = Get-Content -Path $referenceJsonPath -Raw | ConvertFrom-Json
-        foreach ($test in $referenceJson) {
-            if ($test.id) {
-                $referenceTests[$test.id] = $test
+        foreach ($profile in $referenceJson) {
+            if ($profile.id) {
+                $referenceProfiles[$profile.id] = $profile
             }
         }
-        Write-Host "Referenz-JSON mit $($referenceTests.Count) Tests geladen."
+        Write-Host "Referenz-JSON mit $($referenceProfiles.Count) Profilen geladen."
     }
     catch {
         Write-Host "Warnung: Konnte die Referenz-JSON nicht laden: $_" -ForegroundColor Yellow
     }
-}
-
-# Hilfsfunktion zum Konvertieren von mindestmenge_ml
-function Convert-Mindestmenge {
-    param($id, $value)
-    
-    # Wenn eine Referenz für diesen Test existiert, verwende den Wert daraus
-    if ($referenceTests.ContainsKey($id)) {
-        return $referenceTests[$id].mindestmenge_ml
-    }
-    
-    # Sonst parse den Wert direkt - keine Division durch 10!
-    if ([decimal]::TryParse($value, [ref]$null)) {
-        # Wir nehmen den Wert wie er ist und runden nur auf 1 Dezimalstelle
-        return [Math]::Round([decimal]$value, 1)
-    }
-    
-    return 0.5 # Default-Wert falls keine Konvertierung möglich
 }
 
 # Hilfsfunktion zum Konvertieren von Werten in passende Typen
@@ -122,34 +84,19 @@ function Convert-ToAppropriateType {
     if ([string]::IsNullOrWhiteSpace($value) -or $value -eq ":") {
         switch ($fieldName) {
             # Felder, die Arrays sein sollten
-            { $_ -in @("synonyme", "material", "hinweise", "dokumente") } { return @() }
+            { $_ -in @("tests") } { return @() }
             default { return $null }
         }
     }
-      # Konvertierung je nach Feldtyp
+    
+    # Konvertierung je nach Feldtyp
     switch ($fieldName) {
-        "synonyme" { return Split-PipeIfExists $value }
-        "material" { return Split-PipeIfExists $value }
-        "hinweise" { return Split-PipeIfExists $value }
-        "dokumente" { return ConvertFrom-DokumenteString $value }
-        "mindestmenge_ml" { 
-            # Entferne Apostroph-Präfix, falls vorhanden
-            if ($value -and $value.StartsWith("'")) {
-                $value = $value.Substring(1)
+        "tests" { return Split-PipeIfExists $value }
+        "sortierNummer" { 
+            if ([int]::TryParse($value, [ref]$null)) {
+                return [int]$value
             }
-            return Convert-Mindestmenge -id $id -value $value 
-        }
-        "durchführung" { 
-            # Entferne Apostroph-Präfix, falls vorhanden
-            if ($value -and $value.StartsWith("'")) {
-                return $value.Substring(1)
-            }
-            return $value 
-        }
-        "aktiv" { 
-            if ($value -eq "true" -or $value -eq "1") { return $true }
-            elseif ($value -eq "false" -or $value -eq "0") { return $false }
-            return $null
+            return 999 # Default-Wert falls keine Konvertierung möglich
         }
         default { return $value }
     }
@@ -158,40 +105,40 @@ function Convert-ToAppropriateType {
 # Alle Zeilen in strukturierte Objekte umwandeln
 $structured = $csv | ForEach-Object {
     $item = $_
-    $testObject = [ordered]@{}
+    $profileObject = [ordered]@{}
     
-    # Stelle zunächst die id bereit, damit wir sie für mindestmenge_ml verwenden können
+    # Stelle zunächst die id bereit
     $id = $item.id
     
     foreach ($column in $columns) {
         $value = $item.$column
         $convertedValue = Convert-ToAppropriateType -fieldName $column -value $value -id $id
-        $testObject[$column] = $convertedValue
+        $profileObject[$column] = $convertedValue
     }
     
-    [PSCustomObject]$testObject
+    [PSCustomObject]$profileObject
 }
 
-# Vorhandene tests.json-Struktur übernehmen
+# Vorhandene profile.json-Struktur übernehmen
 try {
     if (Test-Path $referenceJsonPath) {
         Write-Host "Verwende Referenz-JSON für Strukturvalidierung..."
         
         # Liste von Feldern, die immer Arrays sein sollten
-        $arrayFields = @("synonyme", "material", "hinweise", "dokumente")
+        $arrayFields = @("tests")
         
         # Stelle sicher, dass bestimmte Felder immer als Arrays gespeichert werden
-        foreach ($test in $structured) {
+        foreach ($profile in $structured) {
             foreach ($field in $arrayFields) {
-                if ($test.PSObject.Properties.Name -contains $field) {
-                    $fieldValue = $test.$field
+                if ($profile.PSObject.Properties.Name -contains $field) {
+                    $fieldValue = $profile.$field
                     
                     # Stelle sicher, dass Felder die Arrays sein sollten, auch wirklich Arrays sind
                     if ($null -eq $fieldValue) {
-                        $test.$field = @()
+                        $profile.$field = @()
                     }
                     elseif ($fieldValue -isnot [Array]) {
-                        $test.$field = @($fieldValue)
+                        $profile.$field = @($fieldValue)
                     }
                 }
             }
@@ -203,19 +150,16 @@ catch {
 }
 
 # Als JSON speichern mit korrekter Formatierung für Arrays
-$structuredJson = $structured | ConvertTo-Json -Depth 10
+$structuredJson = $structured | ConvertTo-Json -Depth 5
 
 # Einige Anpassungen an der JSON-Formatierung
 # - Stelle sicher, dass leere Arrays als [] und nicht als {} dargestellt werden
-$structuredJson = $structuredJson -replace '"hinweise":\s*\{\}', '"hinweise": []' `
-                                -replace '"dokumente":\s*\{\}', '"dokumente": []' `
-                                -replace '"material":\s*\{\}', '"material": []' `
-                                -replace '"synonyme":\s*\{\}', '"synonyme": []'
+$structuredJson = $structuredJson -replace '"tests":\s*\{\}', '"tests": []'
 
 # Speichere die bereinigte JSON
 $structuredJson | Set-Content -Path $jsonPath -Encoding UTF8
 
 Write-Host "JSON erfolgreich erstellt unter: $jsonPath"
 Write-Host "Statistik:"
-Write-Host "   - Tests importiert: $($structured.Count)"
-Write-Host "   - Felder pro Test: $($columns.Count)"
+Write-Host "   - Profile importiert: $($structured.Count)"
+Write-Host "   - Felder pro Profil: $($columns.Count)"

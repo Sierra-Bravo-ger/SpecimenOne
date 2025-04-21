@@ -5,7 +5,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32968",
         "einheit":  "Sekunden",
         "goae":  "3511",
@@ -21,6 +21,7 @@
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "Quick",
+        "sortierNummer":  "510",
         "synonyme":  [
                          "TPZ",
                          "PTZ",
@@ -33,7 +34,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32969",
         "einheit":  "Sekunden",
         "goae":  "3512",
@@ -49,6 +50,7 @@
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "PTT",
+        "sortierNummer":  "20",
         "synonyme":  [
                          "aPTT"
                      ]
@@ -59,7 +61,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32970",
         "einheit":  "Sekunden",
         "goae":  "3513",
@@ -75,6 +77,7 @@
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "INR",
+        "sortierNummer":  "30",
         "synonyme":  [
                          "International Normierte Relativzeit"
                      ]
@@ -85,7 +88,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32001",
         "einheit":  "mg/dl",
         "goae":  "3586",
@@ -101,6 +104,7 @@
                      ],
         "mindestmenge_ml":  0.6,
         "name":  "Fibrinogen nach Clauss",
+        "sortierNummer":  "40",
         "synonyme":  [
                          "FibC"
                      ]
@@ -111,7 +115,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32823",
         "einheit":  "Sekunden",
         "goae":  "3572",
@@ -127,6 +131,7 @@
                      ],
         "mindestmenge_ml":  0.6,
         "name":  "Thrombinzeit",
+        "sortierNummer":  "50",
         "synonyme":  [
                          "TZ"
                      ]
@@ -137,7 +142,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32108",
         "einheit":  "mg/dl",
         "goae":  "3557",
@@ -153,6 +158,7 @@
                      ],
         "mindestmenge_ml":  0.6,
         "name":  "Antithrombin III",
+        "sortierNummer":  "60",
         "synonyme":  [
                          "AT III"
                      ]
@@ -163,7 +169,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32657",
         "einheit":  "mg/dl",
         "goae":  "3529",
@@ -179,6 +185,7 @@
                      ],
         "mindestmenge_ml":  0.6,
         "name":  "D-Dimere",
+        "sortierNummer":  "70",
         "synonyme":  [
 
                      ]
@@ -205,6 +212,7 @@
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Protein C",
+        "sortierNummer":  "80",
         "synonyme":  [
 
                      ]
@@ -231,6 +239,7 @@
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Protein S",
+        "sortierNummer":  "90",
         "synonyme":  [
 
                      ]
@@ -257,6 +266,7 @@
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Faktor II",
+        "sortierNummer":  "100",
         "synonyme":  [
                          "Faktor 2"
                      ]
@@ -283,6 +293,7 @@
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Faktor V",
+        "sortierNummer":  "110",
         "synonyme":  [
                          "Faktor 5"
                      ]
@@ -309,6 +320,7 @@
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Faktor VII",
+        "sortierNummer":  "120",
         "synonyme":  [
                          "Faktor 7"
                      ]
@@ -335,6 +347,7 @@
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Faktor VIII",
+        "sortierNummer":  "130",
         "synonyme":  [
                          "Faktor 8"
                      ]
@@ -361,6 +374,7 @@
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Faktor IX",
+        "sortierNummer":  "140",
         "synonyme":  [
                          "Faktor 9"
                      ]
@@ -387,6 +401,7 @@
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Faktor X",
+        "sortierNummer":  "150",
         "synonyme":  [
                          "Faktor 10"
                      ]
@@ -413,6 +428,7 @@
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Faktor IIX",
+        "sortierNummer":  "160",
         "synonyme":  [
                          "Faktor 12"
                      ]
@@ -439,6 +455,7 @@
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Lupus-Antikoagulans",
+        "sortierNummer":  "170",
         "synonyme":  [
 
                      ]
@@ -449,7 +466,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32986",
         "einheit":  "10^3/µl",
         "goae":  "3520",
@@ -465,6 +482,7 @@
                      ],
         "mindestmenge_ml":  0.2,
         "name":  "Leukozyten",
+        "sortierNummer":  "180",
         "synonyme":  [
                          "WBC"
                      ]
@@ -475,9 +493,9 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32104",
-        "einheit":  "10^9/µl",
+        "einheit":  "10^6/µl",
         "goae":  "3548",
         "hinweise":  [
 
@@ -491,6 +509,7 @@
                      ],
         "mindestmenge_ml":  0.2,
         "name":  "Erythrozyten",
+        "sortierNummer":  "190",
         "synonyme":  [
                          "RBC"
                      ]
@@ -501,7 +520,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32987",
         "einheit":  "g/dl",
         "goae":  "3521",
@@ -517,6 +536,7 @@
                      ],
         "mindestmenge_ml":  0.2,
         "name":  "Hämoglobin",
+        "sortierNummer":  "200",
         "synonyme":  [
                          "HB"
                      ]
@@ -527,7 +547,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32364",
         "einheit":  "10^3/µl",
         "goae":  "3531",
@@ -543,6 +563,7 @@
                      ],
         "mindestmenge_ml":  0.2,
         "name":  "Thrombozyten",
+        "sortierNummer":  "210",
         "synonyme":  [
                          "PLT"
                      ]
@@ -553,7 +574,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32331",
         "einheit":  "%",
         "goae":  "3510",
@@ -569,6 +590,7 @@
                      ],
         "mindestmenge_ml":  0.2,
         "name":  "Hämatokrit",
+        "sortierNummer":  "220",
         "synonyme":  [
                          "Hkt"
                      ]
@@ -579,7 +601,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32328",
         "einheit":  "fl",
         "goae":  "3525",
@@ -595,6 +617,7 @@
                      ],
         "mindestmenge_ml":  0.2,
         "name":  "MCV",
+        "sortierNummer":  "230",
         "synonyme":  [
                          "mittleres Erythrozytenvolumen"
                      ]
@@ -605,7 +628,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32671",
         "einheit":  "pg",
         "goae":  "3547",
@@ -621,6 +644,7 @@
                      ],
         "mindestmenge_ml":  0.2,
         "name":  "MCH",
+        "sortierNummer":  "240",
         "synonyme":  [
                          "mittlerer Hb-Gehalt"
                      ]
@@ -631,7 +655,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32027",
         "einheit":  "g/dl",
         "goae":  "3555",
@@ -647,6 +671,7 @@
                      ],
         "mindestmenge_ml":  0.2,
         "name":  "MCHC",
+        "sortierNummer":  "250",
         "synonyme":  [
                          "mittlere Hb-Konzentration"
                      ]
@@ -657,7 +682,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32422",
         "einheit":  null,
         "goae":  "3577",
@@ -673,6 +698,7 @@
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "RDW",
+        "sortierNummer":  "260",
         "synonyme":  [
                          "Erythrozytenverteilungsbreite"
                      ]
@@ -683,7 +709,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32102",
         "einheit":  "10^3/µl",
         "goae":  "3574",
@@ -699,6 +725,7 @@
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "Retikulozyten Absolut",
+        "sortierNummer":  "270",
         "synonyme":  [
                          "Retis"
                      ]
@@ -709,7 +736,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32103",
         "einheit":  "g/dl",
         "goae":  "3575",
@@ -725,6 +752,7 @@
                      ],
         "mindestmenge_ml":  0.6,
         "name":  "Retikulozyten Absolut-Hb",
+        "sortierNummer":  "280",
         "synonyme":  [
                          "Reti-Hb"
                      ]
@@ -735,7 +763,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32104",
         "einheit":  "%",
         "goae":  "3576",
@@ -751,6 +779,7 @@
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Retikulozyten Absolut",
+        "sortierNummer":  "290",
         "synonyme":  [
                          "Retis %"
                      ]
@@ -777,6 +806,7 @@
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "Blutausstrich",
+        "sortierNummer":  "300",
         "synonyme":  [
                          "Differenzierung manuell"
                      ]
@@ -787,7 +817,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32102",
         "einheit":  "10^3/µl",
         "goae":  "3574",
@@ -803,6 +833,7 @@
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "Neutrophile Absolut",
+        "sortierNummer":  "310",
         "synonyme":  [
                          "Neutro#"
                      ]
@@ -813,7 +844,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32103",
         "einheit":  "%",
         "goae":  "3575",
@@ -829,6 +860,7 @@
                      ],
         "mindestmenge_ml":  0.6,
         "name":  "Neutrophile Relativ",
+        "sortierNummer":  "320",
         "synonyme":  [
                          "Neutro%"
                      ]
@@ -839,7 +871,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32104",
         "einheit":  "10^3/µl",
         "goae":  "3576",
@@ -855,6 +887,7 @@
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Lymphozyten Absolut",
+        "sortierNummer":  "330",
         "synonyme":  [
                          "Lymph#"
                      ]
@@ -865,7 +898,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32105",
         "einheit":  "%",
         "goae":  "3577",
@@ -881,6 +914,7 @@
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Lymphozyten Relativ",
+        "sortierNummer":  "340",
         "synonyme":  [
                          "Lymph%"
                      ]
@@ -891,7 +925,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32106",
         "einheit":  "10^3/µl",
         "goae":  "3578",
@@ -907,6 +941,7 @@
                      ],
         "mindestmenge_ml":  0.9,
         "name":  "Monozyten Absolut",
+        "sortierNummer":  "350",
         "synonyme":  [
                          "Mono#"
                      ]
@@ -917,7 +952,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32107",
         "einheit":  "%",
         "goae":  "3579",
@@ -933,6 +968,7 @@
                      ],
         "mindestmenge_ml":  1,
         "name":  "Monozyten Relativ",
+        "sortierNummer":  "360",
         "synonyme":  [
                          "Mono%"
                      ]
@@ -943,7 +979,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32108",
         "einheit":  "10^3/µl",
         "goae":  "3580",
@@ -959,6 +995,7 @@
                      ],
         "mindestmenge_ml":  1.1,
         "name":  "Eosinophile Absolut",
+        "sortierNummer":  "370",
         "synonyme":  [
                          "Eo#"
                      ]
@@ -969,7 +1006,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32109",
         "einheit":  "%",
         "goae":  "3581",
@@ -985,6 +1022,7 @@
                      ],
         "mindestmenge_ml":  1.2,
         "name":  "Eosinophile Relativ",
+        "sortierNummer":  "380",
         "synonyme":  [
                          "Eo%"
                      ]
@@ -995,7 +1033,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32110",
         "einheit":  "‰",
         "goae":  "3582",
@@ -1011,9 +1049,10 @@
                      ],
         "mindestmenge_ml":  1.3,
         "name":  "Fragmentozyten",
+        "sortierNummer":  "390",
         "synonyme":  [
                          "Helm-Cells",
-                         "Fragis"
+                         "Fraggis"
                      ]
     },
     {
@@ -1022,7 +1061,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32209",
         "einheit":  "mg/dl",
         "goae":  "3592",
@@ -1038,6 +1077,7 @@
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Glukose",
+        "sortierNummer":  "400",
         "synonyme":  [
                          "BZ",
                          "Blutzucker"
@@ -1049,7 +1089,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32159",
         "einheit":  "mg/dl",
         "goae":  "3571",
@@ -1065,6 +1105,7 @@
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Kreatinin",
+        "sortierNummer":  "410",
         "synonyme":  [
                          "Crea",
                          "Krea"
@@ -1076,7 +1117,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32625",
         "einheit":  "mg/dl",
         "goae":  "3511",
@@ -1092,6 +1133,7 @@
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Harnstoff",
+        "sortierNummer":  "420",
         "synonyme":  [
                          "HNST",
                          "UREA"
@@ -1103,7 +1145,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32603",
         "einheit":  "mmol/l",
         "goae":  "3553",
@@ -1119,6 +1161,7 @@
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Natrium",
+        "sortierNummer":  "430",
         "synonyme":  [
                          "Na+"
                      ]
@@ -1129,7 +1172,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32865",
         "einheit":  "mmol/l",
         "goae":  "3587",
@@ -1145,6 +1188,7 @@
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Kalium",
+        "sortierNummer":  "440",
         "synonyme":  [
                          "K+"
                      ]
@@ -1155,7 +1199,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32230",
         "einheit":  "mmol/l",
         "goae":  "3543",
@@ -1171,6 +1215,7 @@
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Chlorid",
+        "sortierNummer":  "450",
         "synonyme":  [
                          "Cl-"
                      ]
@@ -1181,7 +1226,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32106",
         "einheit":  "mmol/l",
         "goae":  "3535",
@@ -1197,6 +1242,7 @@
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Calcium",
+        "sortierNummer":  "460",
         "synonyme":  [
                          "Ca2+"
                      ]
@@ -1207,7 +1253,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32146",
         "einheit":  "U/l",
         "goae":  "3582",
@@ -1223,6 +1269,7 @@
                      ],
         "mindestmenge_ml":  0.4,
         "name":  "GPT",
+        "sortierNummer":  "470",
         "synonyme":  [
                          "Glutamat-Pyruvat-Transaminase",
                          "ALAT",
@@ -1235,7 +1282,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32617",
         "einheit":  "U/l",
         "goae":  "3568",
@@ -1251,6 +1298,7 @@
                      ],
         "mindestmenge_ml":  0.4,
         "name":  "GOT",
+        "sortierNummer":  "480",
         "synonyme":  [
                          "Glutamat-Oxalacetat-Transaminase",
                          "ASAT",
@@ -1263,7 +1311,7 @@
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32711",
         "einheit":  "U/l",
         "goae":  "3585",
@@ -1279,22 +1327,23 @@
                      ],
         "mindestmenge_ml":  0.4,
         "name":  "Gamma-GT",
+        "sortierNummer":  "490",
         "synonyme":  [
                          "GGT"
                      ]
     },
     {
         "aktiv":  null,
-        "befundzeit":  "am selben Tag bei Eingang bis 12:00 Uhr",
+        "befundzeit":  "3 Stunden",
         "dokumente":  [
                           {
                               "titel":  "SOP TSH",
                               "url":  "/docs/sop_tsh.pdf"
                           }
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32687",
-        "einheit":  "mg/dl",
+        "einheit":  "mU/l",
         "goae":  "3504",
         "hinweise":  [
                          "Nüchtern empfohlen",
@@ -1305,24 +1354,23 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "11580-8",
         "material":  [
-                         "Serum",
-                         "Plasma (EDTA)"
+                         "Serum"
                      ],
         "mindestmenge_ml":  0.5,
-        "name":  "Thyreotropin (TSH)",
+        "name":  "TSH",
+        "sortierNummer":  "500",
         "synonyme":  [
-                         "TSH",
-                         "Schilddrüsenhormon",
+                         "Thyreoidea-stimulierendes Hormon",
                          "Thyreotropin"
                      ]
     },
     {
         "aktiv":  null,
-        "befundzeit":  "innerhalb von 2 Stunden",
+        "befundzeit":  "2 Stunden",
         "dokumente":  [
 
                       ],
-        "durchführung":  "24. Jul",
+        "durchführung":  "24/7",
         "ebm":  "32456",
         "einheit":  "mg/dl",
         "goae":  "3565",
@@ -1338,6 +1386,7 @@
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "CRP",
+        "sortierNummer":  "10",
         "synonyme":  [
                          "C-reaktives Protein",
                          "Entzündungsmarker"

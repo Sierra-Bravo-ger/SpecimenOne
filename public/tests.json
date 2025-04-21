@@ -3,7 +3,10 @@
         "aktiv":  null,
         "befundzeit":  "1 Stunden",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP Quick",
+                              "url":  "/infobase/sop_Quick.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32968",
@@ -32,7 +35,10 @@
         "aktiv":  null,
         "befundzeit":  "1 Stunden",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP PTT",
+                              "url":  "/infobase/sop_PTT.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32969",
@@ -59,7 +65,10 @@
         "aktiv":  null,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP INR",
+                              "url":  "/infobase/sop_INR.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32970",
@@ -86,7 +95,10 @@
         "aktiv":  null,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP Fibrinogen nach Clauss",
+                              "url":  "/infobase/sop_Fibrinogen nach Clauss.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32001",
@@ -113,7 +125,10 @@
         "aktiv":  null,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP Thrombinzeit",
+                              "url":  "/infobase/sop_Thrombinzeit.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32823",
@@ -140,7 +155,10 @@
         "aktiv":  null,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP Antithrombin III",
+                              "url":  "/infobase/sop_Antithrombin III.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32108",
@@ -167,7 +185,10 @@
         "aktiv":  null,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP D-Dimere",
+                              "url":  "/infobase/sop_D-Dimere.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32657",
@@ -194,7 +215,10 @@
         "aktiv":  null,
         "befundzeit":  "Max. 7Tage",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP Protein C",
+                              "url":  "/infobase/sop_Protein C.pdf"
+                          }
                       ],
         "durchführung":  "Mi–Fr",
         "ebm":  "32115",
@@ -221,7 +245,10 @@
         "aktiv":  null,
         "befundzeit":  "Max. 7Tage",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP Protein S",
+                              "url":  "/infobase/sop_Protein S.pdf"
+                          }
                       ],
         "durchführung":  "Mi–Fr",
         "ebm":  "32645",
@@ -248,7 +275,10 @@
         "aktiv":  null,
         "befundzeit":  "am selben Tag",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP Faktor II",
+                              "url":  "/infobase/sop_Faktor II.pdf"
+                          }
                       ],
         "durchführung":  "Mo-Fr 7-17Uhr",
         "ebm":  "32131",
@@ -275,7 +305,10 @@
         "aktiv":  null,
         "befundzeit":  "am selben Tag",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP Faktor V",
+                              "url":  "/infobase/sop_Faktor V.pdf"
+                          }
                       ],
         "durchführung":  "Mo-Fr 7-17Uhr",
         "ebm":  "32132",
@@ -302,7 +335,10 @@
         "aktiv":  null,
         "befundzeit":  "am selben Tag",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP Faktor VII",
+                              "url":  "/infobase/sop_Faktor VII.pdf"
+                          }
                       ],
         "durchführung":  "Mo-Fr 7-17Uhr",
         "ebm":  "32133",
@@ -329,7 +365,10 @@
         "aktiv":  null,
         "befundzeit":  "am selben Tag",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP Faktor VIII",
+                              "url":  "/infobase/sop_Faktor VIII.pdf"
+                          }
                       ],
         "durchführung":  "Mo-Fr 7-17Uhr",
         "ebm":  "32134",
@@ -356,7 +395,10 @@
         "aktiv":  null,
         "befundzeit":  "am selben Tag",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP Faktor IX",
+                              "url":  "/infobase/sop_Faktor IX.pdf"
+                          }
                       ],
         "durchführung":  "Mo-Fr 7-17Uhr",
         "ebm":  "32370",
@@ -383,7 +425,10 @@
         "aktiv":  null,
         "befundzeit":  "am selben Tag",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP Faktor X",
+                              "url":  "/infobase/sop_Faktor X.pdf"
+                          }
                       ],
         "durchführung":  "Mo-Fr 7-17Uhr",
         "ebm":  "32370",
@@ -410,7 +455,10 @@
         "aktiv":  null,
         "befundzeit":  "Max. 7Tage",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP Faktor IIX",
+                              "url":  "/infobase/sop_Faktor IIX.pdf"
+                          }
                       ],
         "durchführung":  "Mi–Fr",
         "ebm":  "32371",
@@ -437,7 +485,10 @@
         "aktiv":  null,
         "befundzeit":  "Max. 7Tage",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP Lupus-Antikoagulans",
+                              "url":  "/infobase/sop_Lupus-Antikoagulans.pdf"
+                          }
                       ],
         "durchführung":  "Mi–Fr",
         "ebm":  "32435",
@@ -464,7 +515,10 @@
         "aktiv":  null,
         "befundzeit":  "1 Stunde",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32986",
@@ -491,7 +545,10 @@
         "aktiv":  null,
         "befundzeit":  "1 Stunde",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32104",
@@ -518,7 +575,10 @@
         "aktiv":  null,
         "befundzeit":  "1 Stunde",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32987",
@@ -545,7 +605,10 @@
         "aktiv":  null,
         "befundzeit":  "1 Stunde",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32364",
@@ -572,7 +635,10 @@
         "aktiv":  null,
         "befundzeit":  "1 Stunde",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32331",
@@ -599,7 +665,10 @@
         "aktiv":  null,
         "befundzeit":  "1 Stunde",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32328",
@@ -626,7 +695,10 @@
         "aktiv":  null,
         "befundzeit":  "1 Stunde",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32671",
@@ -653,7 +725,10 @@
         "aktiv":  null,
         "befundzeit":  "1 Stunde",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32027",
@@ -680,7 +755,10 @@
         "aktiv":  null,
         "befundzeit":  "1 Stunde",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32422",
@@ -707,7 +785,10 @@
         "aktiv":  null,
         "befundzeit":  "1 Stunde",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP Retikulozyten",
+                              "url":  "/infobase/Retikulozyten.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32102",
@@ -734,7 +815,10 @@
         "aktiv":  null,
         "befundzeit":  "2 Stunde",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP Retikulozyten",
+                              "url":  "/infobase/Retikulozyten.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32103",
@@ -761,7 +845,10 @@
         "aktiv":  null,
         "befundzeit":  "3 Stunde",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP Retikulozyten",
+                              "url":  "/infobase/Retikulozyten.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32104",
@@ -788,7 +875,10 @@
         "aktiv":  null,
         "befundzeit":  "Mo-Fr 7-17Uhr",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP großes Blutbild",
+                              "url":  "/infobase/großes Blutbild.pdf"
+                          }
                       ],
         "durchführung":  "Mo-Fr 7-17Uhr",
         "ebm":  "32864",
@@ -815,7 +905,10 @@
         "aktiv":  null,
         "befundzeit":  "1 Stunde",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP großes Blutbild",
+                              "url":  "/infobase/großes Blutbild.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32102",
@@ -842,7 +935,10 @@
         "aktiv":  null,
         "befundzeit":  "2 Stunde",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP großes Blutbild",
+                              "url":  "/infobase/großes Blutbild.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32103",
@@ -869,7 +965,10 @@
         "aktiv":  null,
         "befundzeit":  "3 Stunde",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP großes Blutbild",
+                              "url":  "/infobase/großes Blutbild.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32104",
@@ -896,7 +995,10 @@
         "aktiv":  null,
         "befundzeit":  "4 Stunde",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP großes Blutbild",
+                              "url":  "/infobase/großes Blutbild.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32105",
@@ -923,7 +1025,10 @@
         "aktiv":  null,
         "befundzeit":  "5 Stunde",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP großes Blutbild",
+                              "url":  "/infobase/großes Blutbild.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32106",
@@ -950,7 +1055,10 @@
         "aktiv":  null,
         "befundzeit":  "6 Stunde",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP großes Blutbild",
+                              "url":  "/infobase/großes Blutbild.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32107",
@@ -977,7 +1085,10 @@
         "aktiv":  null,
         "befundzeit":  "7 Stunde",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP großes Blutbild",
+                              "url":  "/infobase/großes Blutbild.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32108",
@@ -1004,7 +1115,10 @@
         "aktiv":  null,
         "befundzeit":  "8 Stunde",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP großes Blutbild",
+                              "url":  "/infobase/großes Blutbild.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32109",
@@ -1031,7 +1145,10 @@
         "aktiv":  null,
         "befundzeit":  "9 Stunde",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP Fragmentozyten",
+                              "url":  "/infobase/sop_Fragmentozyten.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32110",
@@ -1059,7 +1176,10 @@
         "aktiv":  null,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP Glukose",
+                              "url":  "/infobase/sop_Glukose.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32209",
@@ -1087,7 +1207,10 @@
         "aktiv":  null,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP Kreatinin",
+                              "url":  "/infobase/sop_Kreatinin.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32159",
@@ -1115,7 +1238,10 @@
         "aktiv":  null,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP Harnstoff",
+                              "url":  "/infobase/sop_Harnstoff.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32625",
@@ -1143,7 +1269,10 @@
         "aktiv":  null,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP Natrium",
+                              "url":  "/infobase/sop_Natrium.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32603",
@@ -1170,7 +1299,10 @@
         "aktiv":  null,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP Kalium",
+                              "url":  "/infobase/sop_Kalium.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32865",
@@ -1197,7 +1329,10 @@
         "aktiv":  null,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP Chlorid",
+                              "url":  "/infobase/sop_Chlorid.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32230",
@@ -1224,7 +1359,10 @@
         "aktiv":  null,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP Calcium",
+                              "url":  "/infobase/sop_Calcium.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32106",
@@ -1251,7 +1389,10 @@
         "aktiv":  null,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP GPT",
+                              "url":  "/infobase/sop_GPT.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32146",
@@ -1280,7 +1421,10 @@
         "aktiv":  null,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP GOT",
+                              "url":  "/infobase/sop_GOT.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32617",
@@ -1309,7 +1453,10 @@
         "aktiv":  null,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP Gamma-GT",
+                              "url":  "/infobase/sop_Gamma-GT.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32711",
@@ -1331,13 +1478,14 @@
         "synonyme":  [
                          "GGT"
                      ]
-    },    {
+    },
+    {
         "aktiv":  null,
         "befundzeit":  "3 Stunden",
         "dokumente":  [
                           {
                               "titel":  "SOP TSH",
-                              "url":  "/docs/sop_tsh.pdf"
+                              "url":  "/infobase/sop_TSH.pdf"
                           }
                       ],
         "durchführung":  "24/7",
@@ -1362,13 +1510,15 @@
                          "Thyreoidea-stimulierendes Hormon",
                          "Thyreotropin"
                      ]
-        
     },
     {
         "aktiv":  null,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
-
+                          {
+                              "titel":  "SOP CRP",
+                              "url":  "/infobase/sop_CRP.pdf"
+                          }
                       ],
         "durchführung":  "24/7",
         "ebm":  "32456",

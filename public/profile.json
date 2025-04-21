@@ -1,58 +1,100 @@
-[
-  {
-    "id": "P001",
-    "name": "Kleines Blutbild",
-    "sortierNummer": 10,
-    "beschreibung": "Grundlegende hämatologische Parameter",
-    "tests": ["H001", "H002", "H003", "H004", "H005", "H006", "H007", "H008", "H009"],
-    "kategorie": "Hämatologie"
-  },
-  {
-    "id": "P002",
-    "sortierNummer": 20,
-    "name": "Großes Blutbild, maschinell",
-    "beschreibung": "maschinelle Differenzierung (Großes Blutbild)",
-    "tests": ["H013", "H014", "H015", "H016", "H017", "H018", "H019", "H020", "H021"],
-    "kategorie": "Hämatologie"
-  },
+﻿[
     {
-    "id": "P007",
-    "sortierNummer": 30,
-    "name": "Retikulozyten",
-    "beschreibung": "maschinelle Differenzierung (Retikulozyten)",
-    "tests": ["H010", "H011", "H012"],
-    "kategorie": "Hämatologie"
-  },
-  {
-    "id": "P003",
-    "sortierNummer": 40,
-    "name": "Klinische Chemie Basis",
-    "beschreibung": "Grundlegende klinisch-chemische Parameter",
-    "tests": ["K001", "K002", "K003", "K004", "K005", "K006", "K007"],
-    "kategorie": "Klinische Chemie"
-  },
-  {
-    "id": "P004",
-    "name": "Leberwerte",
-    "beschreibung": "Parameter zur Beurteilung der Leberfunktion",
-    "tests": ["K008", "K009", "K010"],
-    "kategorie": "Klinische Chemie",
-    "sortierNummer": 50
-  },
-  {
-    "id": "P005",
-    "name": "Gerinnungsstatus",
-    "beschreibung": "Parameter zur Beurteilung der Blutgerinnung",
-    "tests": ["G001", "G002", "G003"],
-    "kategorie": "Gerinnung",
-    "sortierNummer": 60
-  },
-  {
-    "id": "P006",
-    "name": "Schilddrüsenparameter",
-    "beschreibung": "Parameter zur Beurteilung der Schilddrüsenfunktion",
-    "tests": ["K011"],
-    "kategorie": "Klinische Chemie",
-    "sortierNummer": 5
-  }
+        "beschreibung":  "Grundlegende hämatologische Parameter",
+        "id":  "P001",
+        "kategorie":  "Hämatologie",
+        "name":  "Kleines Blutbild",
+        "sortierNummer":  10,
+        "tests":  [
+                      "H001",
+                      "H002",
+                      "H003",
+                      "H004",
+                      "H005",
+                      "H006",
+                      "H007",
+                      "H008",
+                      "H009"
+                  ]
+    },
+    {
+        "beschreibung":  "maschinelle Differenzierung (Großes Blutbild)",
+        "id":  "P002",
+        "kategorie":  "Hämatologie",
+        "name":  "Großes Blutbild, maschinell",
+        "sortierNummer":  20,
+        "tests":  [
+                      "H013",
+                      "H014",
+                      "H015",
+                      "H016",
+                      "H017",
+                      "H018",
+                      "H019",
+                      "H020",
+                      "H021"
+                  ]
+    },
+    {
+        "beschreibung":  "maschinelle Differenzierung (Retikulozyten)",
+        "id":  "P007",
+        "kategorie":  "Hämatologie",
+        "name":  "Retikulozyten",
+        "sortierNummer":  30,
+        "tests":  [
+                      "H010",
+                      "H011",
+                      "H012"
+                  ]
+    },
+    {
+        "beschreibung":  "Grundlegende klinisch-chemische Parameter",
+        "id":  "P003",
+        "kategorie":  "Klinische Chemie",
+        "name":  "Klinische Chemie Basis",
+        "sortierNummer":  40,
+        "tests":  [
+                      "K001",
+                      "K002",
+                      "K003",
+                      "K004",
+                      "K005",
+                      "K006",
+                      "K007"
+                  ]
+    },
+    {
+        "beschreibung":  "Parameter zur Beurteilung der Leberfunktion",
+        "id":  "P004",
+        "kategorie":  "Klinische Chemie",
+        "name":  "Leberwerte",
+        "sortierNummer":  50,
+        "tests":  [
+                      "K008",
+                      "K009",
+                      "K010"
+                  ]
+    },
+    {
+        "beschreibung":  "Parameter zur Beurteilung der Blutgerinnung",
+        "id":  "P005",
+        "kategorie":  "Gerinnung",
+        "name":  "Gerinnungsstatus",
+        "sortierNummer":  60,
+        "tests":  [
+                      "G001",
+                      "G002",
+                      "G003"
+                  ]
+    },
+    {
+        "beschreibung":  "Parameter zur Beurteilung der Schilddrüsenfunktion",
+        "id":  "P006",
+        "kategorie":  "Klinische Chemie",
+        "name":  "Schilddrüsenparameter",
+        "sortierNummer":  5,
+        "tests":  [
+                      "K011"
+                  ]
+    }
 ]
