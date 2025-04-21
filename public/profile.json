@@ -88,13 +88,198 @@
                   ]
     },
     {
+        "beschreibung":  "Parameter zur Beurteilung der Nierenfunktion",
+        "id":  "P008",
+        "kategorie":  "Klinische Chemie",
+        "name":  "Nierenparameter",
+        "sortierNummer":  70,
+        "tests":  [
+                      "K002",
+                      "K003",
+                      "K004",
+                      "K005"
+                  ]
+    },
+    {
+        "beschreibung":  "Parameter zur Beurteilung des Elektrolythaushaltes",
+        "id":  "P009",
+        "kategorie":  "Klinische Chemie",
+        "name":  "Elektrolyte",
+        "sortierNummer":  80,
+        "tests":  [
+                      "K004",
+                      "K005",
+                      "K006"
+                  ]
+    },
+    {
+        "beschreibung":  "Parameter zur Beurteilung des Blutzuckerstoffwechsels",
+        "id":  "P010",
+        "kategorie":  "Klinische Chemie",
+        "name":  "Blutzucker",
+        "sortierNummer":  90,
+        "tests":  [
+                      "K001",
+                      "H023"
+                  ]
+    },
+    {
+        "beschreibung":  "Parameter zur Beurteilung des Lipidstoffwechsels",
+        "id":  "P011",
+        "kategorie":  "Klinische Chemie",
+        "name":  "Lipidstatus klein",
+        "sortierNummer":  100,
+        "tests":  [
+                      "K018",
+                      "K019",
+                      "K020",
+                      "K021",
+                      "K027"
+                  ]
+    },
+    {
+        "beschreibung":  "Parameter zur Beurteilung des Lipidstoffwechsels",
+        "id":  "P021",
+        "kategorie":  "Klinische Chemie",
+        "name":  "Lipidstatus groß",
+        "sortierNummer":  100,
+        "tests":  [
+                      "K018",
+                      "K019",
+                      "K020",
+                      "K021",
+                      "K022",
+                      "K023",
+                      "K024",
+                      "K025",
+                      "K026",
+                      "K027"
+                  ]
+    },    
+    {
+        "beschreibung":  "Parameter zur Beurteilung des Entzündungsstatus",
+        "id":  "P012",
+        "kategorie":  "Klinische Chemie",
+        "name":  "Entzündungsparameter",
+        "sortierNummer":  110,
+        "tests":  [
+                      "K022",
+                      "K023"
+                  ]
+    },
+    {
+        "beschreibung":  "Parameter zur Beurteilung des Eisenstoffwechsels",
+        "id":  "P013",
+        "kategorie":  "Klinische Chemie",
+        "name":  "Eisenparameter",
+        "sortierNummer":  120,
+        "tests":  [
+                      "K024",
+                      "K025",
+                      "K026"
+                  ]
+    },
+    {
+        "beschreibung":  "Parameter zur Beurteilung des Vitamin D-Status",
+        "id":  "P014",
+        "kategorie":  "Klinische Chemie",
+        "name":  "Vitamin D-Status",
+        "sortierNummer":  130,
+        "tests":  [
+                      "K027"
+                  ]
+    },
+    {
+        "beschreibung":  "Parameter zur Beurteilung des Vitamin B12-Status",
+        "id":  "P015",
+        "kategorie":  "Klinische Chemie",
+        "name":  "Vitamin B12-Status",
+        "sortierNummer":  140,
+        "tests":  [
+                      "K028"
+                  ]
+    },
+    {
+        "beschreibung": "Screening auf CMV-Infektion",
+        "id": "P016",
+        "kategorie": "Infektionsdiagnostik",
+        "name": "CMV-Serologie",
+        "sortierNummer": 150,
+        "tests": [
+            "F010",
+            "F010A"
+        ]
+    },
+    {
+        "beschreibung": "Screening auf Toxoplasmose-Infektion",
+        "id": "P017",
+        "kategorie": "Infektionsdiagnostik",
+        "name": "Toxoplasma-Serologie",
+        "sortierNummer": 160,
+        "tests": [
+            "F011",
+            "F011A"
+        ]
+    },
+    {
+        "beschreibung": "Screening auf Röteln-Infektion/Immunität",
+        "id": "P018",
+        "kategorie": "Infektionsdiagnostik",
+        "name": "Röteln-Serologie",
+        "sortierNummer": 170,
+        "tests": [
+            "F012",
+            "F012A"
+        ]
+    },
+    {
+        "beschreibung": "Screening auf Borreliose-Infektion",
+        "id": "P019",
+        "kategorie": "Infektionsdiagnostik",
+        "name": "Borreliose-Serologie",
+        "sortierNummer": 180,
+        "tests": [
+            "F013",
+            "F013A"
+        ]
+    },
+    {
+        "beschreibung": "TORCH-Screening in der Schwangerschaft",
+        "id": "P020",
+        "kategorie": "Infektionsdiagnostik",
+        "name": "TORCH-Screening",
+        "sortierNummer": 190,
+        "tests": [
+            "F010",
+            "F010A",
+            "F011",
+            "F011A",
+            "F012",
+            "F012A"
+        ]
+    },
+    {
+        "beschreibung": "Screening auf EBV-Infektion (Pfeiffersches Drüsenfieber)",
+        "id": "P021",
+        "kategorie": "Infektionsdiagnostik",
+        "name": "EBV-Serologie",
+        "sortierNummer": 200,
+        "tests": [
+            "F009A",
+            "F009B",
+            "F009C"
+        ]
+    },
+    {
         "beschreibung":  "Parameter zur Beurteilung der Schilddrüsenfunktion",
         "id":  "P006",
         "kategorie":  "Klinische Chemie",
         "name":  "Schilddrüsenparameter",
         "sortierNummer":  5,
         "tests":  [
-                      "K011"
+                      "E001",
+                      "E002",
+                      "E003"
                   ]
     }
 ]

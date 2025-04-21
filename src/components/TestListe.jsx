@@ -37,16 +37,19 @@ function TestListe({ tests }) {
               key={test.id} 
               className="test-karte md-elevation-2"
               onClick={() => handleTestClick(test)}
-            >              <md-ripple></md-ripple>
-              <div className="test-header">
-                <h3 className={`test-titel kategorie-text-${test.kategorie.toLowerCase().replace(/\s+/g, '-')}`}>
-                  {test.name}
+            >              <md-ripple></md-ripple>              <div className="test-header">
+                <h3 className={`test-titel kategorie-text-${test.kategorie ? test.kategorie.toLowerCase().replace(/\s+/g, '-') : 'nicht definiert'}`}>
+                  {test.name || 'Kein Name'}
                 </h3>
+                {/* Sortier-Nummer für Endbenutzer ausgeblendet 
                 {test.sortierNummer !== undefined && (
                   <span className="sortier-nummer">{test.sortierNummer}</span>
                 )}
+                */}
               </div>
-              <p className={`kategorie kategorie-${test.kategorie.toLowerCase().replace(/\s+/g, '-')}`}>{test.kategorie}</p>
+              <p className={`kategorie kategorie-${test.kategorie ? test.kategorie.toLowerCase().replace(/\s+/g, '-') : 'nicht definiert'}`}>
+                {test.kategorie || 'Keine Kategorie'}
+              </p>
               <div className="test-karte-material">
                 <strong>Material:</strong> {test.material.join(', ')}
               </div>

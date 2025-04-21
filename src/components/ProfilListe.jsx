@@ -48,12 +48,13 @@ function ProfilListe({ tests, profile }) {
           
           return (
             <div key={profil.id} className="profil-karte md-elevation-2">
-              <div className="profil-header" onClick={() => toggleProfile(profil.id)}>                <md-ripple></md-ripple>                <div className="profil-info">
-                  <div className="profil-title-row">
+              <div className="profil-header" onClick={() => toggleProfile(profil.id)}>                <md-ripple></md-ripple>                <div className="profil-info">                  <div className="profil-title-row">
                     <h3 className={`kategorie-text-${profil.kategorie.toLowerCase().replace(/\s+/g, '-')}`}>{profil.name}</h3>
+                    {/* Sortier-Nummer für Endbenutzer ausgeblendet 
                     {profil.sortierNummer !== undefined && (
                       <span className="sortier-nummer">{profil.sortierNummer}</span>
                     )}
+                    */}
                   </div>
                   <p className="profil-beschreibung">{profil.beschreibung}</p>
                   <p className={`profil-kategorie kategorie-${profil.kategorie.toLowerCase().replace(/\s+/g, '-')}`}>{profil.kategorie}</p>

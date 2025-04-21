@@ -120,34 +120,48 @@
 /* Farbcodierung für Laborkategorien */
 .category-hämatologie {
   border-left: 4px solid #f44336; /* Rot */
+  background-color: rgba(244, 67, 54, 0.05); /* Rot mit geringer Opazität */
 }
 
 .category-klinische-chemie {
   border-left: 4px solid #795548; /* Braun */
+  background-color: rgba(121, 85, 72, 0.05); /* Braun mit geringer Opazität */
 }
 
 .category-gerinnung {
   border-left: 4px solid #4CAF50; /* Grün */
+  background-color: rgba(76, 175, 80, 0.05); /* Grün mit geringer Opazität */
 }
 
 .category-immunologie {
   border-left: 4px solid #2196F3; /* Blau */
+  background-color: rgba(33, 150, 243, 0.05); /* Blau mit geringer Opazität */
 }
 
 .category-mikrobiologie {
   border-left: 4px solid #9C27B0; /* Violett */
+  background-color: rgba(156, 39, 176, 0.05); /* Violett mit geringer Opazität */
 }
 
 .category-endokrinologie {
   border-left: 4px solid #FFC107; /* Amber/Gold */
+  background-color: rgba(255, 193, 7, 0.05); /* Amber/Gold mit geringer Opazität */
 }
 
 .category-virologie {
   border-left: 4px solid #00BCD4; /* Hellblau */
+  background-color: rgba(0, 188, 212, 0.05); /* Hellblau mit geringer Opazität */
 }
 
 .category-infektionsdiagnostik {
   border-left: 4px solid #795548; /* Braun */
+  background-color: rgba(121, 85, 72, 0.05); /* Braun mit geringer Opazität */
+}
+
+/* Unbekannte Kategorie für den Error-Handling Fall */
+.category-unknown {
+  border-left: 4px solid #9E9E9E; /* Grau */
+  background-color: rgba(158, 158, 158, 0.05); /* Grau mit geringer Opazität */
 }
 
 /* Dark Mode Anpassungen */
