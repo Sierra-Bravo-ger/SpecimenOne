@@ -1331,8 +1331,7 @@
         "synonyme":  [
                          "GGT"
                      ]
-    },
-    {
+    },    {
         "aktiv":  null,
         "befundzeit":  "3 Stunden",
         "dokumente":  [
@@ -1343,7 +1342,7 @@
                       ],
         "durchführung":  "24/7",
         "ebm":  "32687",
-        "einheit":  "mg/dl",
+        "einheit":  "mU/l",
         "goae":  "3504",
         "hinweise":  [
                          "Nüchtern empfohlen",
@@ -1363,6 +1362,7 @@
                          "Thyreoidea-stimulierendes Hormon",
                          "Thyreotropin"
                      ]
+        
     },
     {
         "aktiv":  null,

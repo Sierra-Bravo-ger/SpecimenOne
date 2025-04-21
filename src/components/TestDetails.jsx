@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './TestDetails.css'
 import '@material/web/button/filled-button.js'
 import '@material/web/button/text-button.js'
@@ -9,6 +9,42 @@ import * as MaterialDesign from "react-icons/md"
 function TestDetails({ test, onClose }) {
   // Ref für den Ausdruck
   const printContentRef = useRef(null);
+  // State für Referenzwerte
+  const [referenzwerte, setReferenzwerte] = useState([]);
+  
+  // Laden der Referenzwerte beim Mounten der Komponente
+  useEffect(() => {
+    const fetchReferenzwerte = async () => {
+      try {
+        const response = await fetch('/referenzwerte.json');
+        if (!response.ok) {
+          throw new Error('Netzwerkantwort war nicht ok');
+        }
+        const data = await response.json();
+        // Prüfen ob Referenzwerte für diesen Test existieren
+        if (data[test.id]) {
+          setReferenzwerte(data[test.id]);
+        } else {
+          setReferenzwerte([]);
+        }
+      } catch (error) {
+        console.error('Fehler beim Laden der Referenzwerte:', error);
+        setReferenzwerte([]);
+      }
+    };
+
+    fetchReferenzwerte();
+  }, [test.id]);
+  
+  // Übersetzt die Geschlechter-IDs in lesbare Bezeichnungen
+  const getGeschlechtText = (geschlechtId) => {
+    switch (geschlechtId) {
+      case 1000: return 'Männlich';
+      case 2000: return 'Weiblich';
+      case 3000: return 'Alle';
+      default: return '';
+    }
+  };
   
   // Unterstützung für den Zurück-Button des Browsers
   useEffect(() => {
@@ -190,13 +226,52 @@ function TestDetails({ test, onClose }) {
               ${test.hinweise.map(hinweis => `<li>${hinweis}</li>`).join('')}
             </ul>
           </div>` : ''}
-          
-          ${test.dokumente?.length > 0 ? `
+            ${test.dokumente?.length > 0 ? `
           <div class="section">
             <h2>Dokumente</h2>
             <ul>
               ${test.dokumente.map(doc => `<li>${doc.titel}</li>`).join('')}
             </ul>
+          </div>` : ''}
+          
+          ${referenzwerte?.length > 0 ? `
+          <div class="section">
+            <h2>Referenzwerte</h2>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+              <thead>
+                <tr style="background-color: #f3f3f3;">
+                  <th style="padding: 8px; border: 1px solid #ddd; text-align: left;">Gruppe</th>
+                  <th style="padding: 8px; border: 1px solid #ddd; text-align: left;">Alter</th>
+                  <th style="padding: 8px; border: 1px solid #ddd; text-align: left;">Geschlecht</th>
+                  <th style="padding: 8px; border: 1px solid #ddd; text-align: left;">Referenzbereich</th>
+                  <th style="padding: 8px; border: 1px solid #ddd; text-align: left;">Bedingung</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${referenzwerte.map(ref => `
+                  <tr>
+                    <td style="padding: 8px; border: 1px solid #ddd;">${
+                      ref.Besondere_Bedingung || 
+                      (ref.Alter_von === 0 && ref.Alter_bis === 1 ? "Neugeborene" : 
+                       ref.Alter_von === 0 && ref.Alter_bis < 18 ? "Kinder" : 
+                       ref.Alter_von >= 1 && ref.Alter_bis < 18 ? "Kinder/Jugendliche" : 
+                       "Erwachsene")
+                    }</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">${
+                      ref.Alter_von === 0 && ref.Alter_bis === 99 ? "Alle" : 
+                      `${ref.Alter_von}-${ref.Alter_bis} Jahre`
+                    }</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">${
+                      ref.Geschlecht === 1000 ? "Männlich" : 
+                      ref.Geschlecht === 2000 ? "Weiblich" : 
+                      ref.Geschlecht === 3000 ? "Alle" : ""
+                    }</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">${ref.Wert_untere_Grenze} - ${ref.Wert_obere_Grenze} ${ref.Einheit || test.einheit}</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">${ref.Schwangerschaft ? `Schwangerschaft (${ref.Besondere_Bedingung})` : ref.Besondere_Bedingung || "-"}</td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
           </div>` : ''}
         </body>
         </html>
@@ -277,8 +352,7 @@ function TestDetails({ test, onClose }) {
             <md-divider></md-divider>
           </div>
         )}
-        
-        {test.dokumente.length > 0 && (
+          {test.dokumente.length > 0 && (
           <div className="details-section">
             <h3>Dokumente</h3>
             <ul>
@@ -290,6 +364,45 @@ function TestDetails({ test, onClose }) {
                 </li>
               ))}
             </ul>
+            <md-divider></md-divider>
+          </div>
+        )}
+        
+        {referenzwerte.length > 0 && (
+          <div className="details-section">
+            <h3>Referenzwerte</h3>
+            <table className="referenzwerte-tabelle">
+              <thead>
+                <tr>
+                  <th>Gruppe</th>
+                  <th>Alter</th>
+                  <th>Geschlecht</th>
+                  <th>Referenzbereich</th>
+                  <th>Bedingung</th>
+                </tr>
+              </thead>
+              <tbody>
+                {referenzwerte.map((ref, index) => (
+                  <tr key={index}>
+                    <td>
+                      {ref.Besondere_Bedingung || 
+                       (ref.Alter_von === 0 && ref.Alter_bis === 1 ? "Neugeborene" : 
+                        ref.Alter_von === 0 && ref.Alter_bis < 18 ? "Kinder" : 
+                        ref.Alter_von >= 1 && ref.Alter_bis < 18 ? "Kinder/Jugendliche" : 
+                        "Erwachsene")}
+                    </td>
+                    <td>
+                      {ref.Alter_von === 0 && ref.Alter_bis === 99 ? "Alle" : 
+                       `${ref.Alter_von}-${ref.Alter_bis} Jahre`}
+                    </td>
+                    <td>{getGeschlechtText(ref.Geschlecht)}</td>
+                    <td>{`${ref.Wert_untere_Grenze} - ${ref.Wert_obere_Grenze} ${ref.Einheit || test.einheit}`}</td>
+                    <td>{ref.Schwangerschaft ? `Schwangerschaft (${ref.Besondere_Bedingung})` : ref.Besondere_Bedingung || "-"}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <md-divider></md-divider>
           </div>
         )}        <div className="actions">
           <md-filled-button onClick={handlePrint}>Drucken</md-filled-button>
