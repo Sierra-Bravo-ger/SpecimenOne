@@ -55,6 +55,7 @@ docker compose up -d
 ### Kernfunktionalitäten
 - Erweiterte Suchfunktion für Tests (Namen, Synonyme, Fachbereiche, LOINC-Codes, Test-IDs)
 - Detaillierte Testansicht mit strukturierten Informationen
+- Umfassende Referenzwerte pro Test mit alters-, geschlechts- und zustandsbezogenen Variationen
 - Test-Profil-Funktionalität zur Gruppierung zusammengehöriger Tests
 - Tab-Navigation für Einzeltest-, Profil- und Tabellenansicht
 - Hierarchische Drilldown-Tabelle mit erweiterbaren Details nach Kategorie

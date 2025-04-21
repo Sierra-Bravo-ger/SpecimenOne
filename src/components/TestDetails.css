@@ -98,36 +98,34 @@
 }
 
 /* Dark Mode Styles für die Tabelle gemäß Material Design 3 */
-@media (prefers-color-scheme: dark) {
-  .referenzwerte-tabelle {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  }
-  
-  .referenzwerte-tabelle thead {
-    background-color: #29252F; /* MD3 Surface Container High Dark */
-  }
-  
-  .referenzwerte-tabelle th {
-    color: #CAC4D0; /* MD3 On Surface Variant Dark */
-    border-bottom: 1px solid #49454F; /* MD3 Outline Variant Dark */
-  }
-  
-  .referenzwerte-tabelle td {
-    color: #E6E0E9; /* MD3 On Surface Dark */
-    border-bottom: 1px solid #49454F; /* MD3 Outline Variant Dark */
-  }
-  
-  .referenzwerte-tabelle tbody tr:nth-child(even) {
-    background-color: #1D1B20; /* MD3 Surface Dark */
-  }
-  
-  .referenzwerte-tabelle tbody tr:nth-child(odd) {
-    background-color: #211F26; /* MD3 Surface Container Low Dark */
-  }
-  
-  .referenzwerte-tabelle tbody tr:hover {
-    background-color: #322F35; /* MD3 Surface Container High Dark */
-  }
+.dark-theme .referenzwerte-tabelle {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .referenzwerte-tabelle thead {
+  background-color: #29252F; /* MD3 Surface Container High Dark */
+}
+
+.dark-theme .referenzwerte-tabelle th {
+  color: #CAC4D0; /* MD3 On Surface Variant Dark */
+  border-bottom: 1px solid #49454F; /* MD3 Outline Variant Dark */
+}
+
+.dark-theme .referenzwerte-tabelle td {
+  color: #E6E0E9; /* MD3 On Surface Dark */
+  border-bottom: 1px solid #49454F; /* MD3 Outline Variant Dark */
+}
+
+.dark-theme .referenzwerte-tabelle tbody tr:nth-child(even) {
+  background-color: #1D1B20; /* MD3 Surface Dark */
+}
+
+.dark-theme .referenzwerte-tabelle tbody tr:nth-child(odd) {
+  background-color: #211F26; /* MD3 Surface Container Low Dark */
+}
+
+.dark-theme .referenzwerte-tabelle tbody tr:hover {
+  background-color: #322F35; /* MD3 Surface Container High Dark */
 }
 
 /* Responsive Design für die Tabelle */
