@@ -1,6 +1,2385 @@
 ﻿[
     {
         "aktiv":  true,
+        "befundzeit":  "3 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP TSH",
+                              "url":  "/infobase/sop_TSH.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32687",
+        "einheit":  "mU/l",
+        "goae":  "3504",
+        "hinweise":  [
+                         "Nüchtern empfohlen",
+                         "Medikamenteneinnahme dokumentieren"
+                     ],
+        "id":  "E001",
+        "kategorie":  "Endokrinologie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "11580-8",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "TSH",
+        "sortierNummer":  "10",
+        "synonyme":  [
+                         "Thyreoidea-stimulierendes Hormon",
+                         "Thyreotropin"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "6 Stunden",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32342",
+        "einheit":  "pmol/l",
+        "goae":  "3543",
+        "hinweise":  [
+
+                     ],
+        "id":  "E002",
+        "kategorie":  "Endokrinologie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "3024-7",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "freies T4",
+        "sortierNummer":  "20",
+        "synonyme":  [
+                         "fT4",
+                         "Thyroxin, frei"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "6 Stunden",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32341",
+        "einheit":  "pmol/l",
+        "goae":  "3542",
+        "hinweise":  [
+
+                     ],
+        "id":  "E003",
+        "kategorie":  "Endokrinologie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "14923-6",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "freies T3",
+        "sortierNummer":  "30",
+        "synonyme":  [
+                         "fT3",
+                         "Triiodthyronin, frei"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Tag",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "Mo–Fr 8–16 Uhr",
+        "ebm":  "32380",
+        "einheit":  "ng/ml",
+        "goae":  "3560",
+        "hinweise":  [
+                         "Probengewinnung am Morgen empfohlen"
+                     ],
+        "id":  "E004",
+        "kategorie":  "Endokrinologie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "16118-2",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.8,
+        "name":  "Cortisol",
+        "sortierNummer":  "40",
+        "synonyme":  [
+
+                     ]
+    },
+    {
+        "aktiv":  false,
+        "befundzeit":  "2 Tage",
+        "dokumente":  [
+                          {
+                              "titel":  "Hinweis auf externe Durchführung",
+                              "url":  "/infobase/fremdleistung_E005.pdf"
+                          }
+                      ],
+        "durchführung":  "Einmal wöchentlich (Mittwoch)",
+        "ebm":  "32390",
+        "einheit":  "pg/ml",
+        "goae":  "3561",
+        "hinweise":  [
+                         "Fremdleistung – verlängerte Bearbeitungszeit beachten"
+                     ],
+        "id":  "E005",
+        "kategorie":  "Endokrinologie",
+        "lagerung":  "gefroren, -20 °C",
+        "loinc":  null,
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.6,
+        "name":  "ACTH",
+        "sortierNummer":  "50",
+        "synonyme":  [
+                         "Adrenocorticotropes Hormon"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Tag",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "Mo–Fr 8–16 Uhr",
+        "ebm":  "32381",
+        "einheit":  "ng/ml",
+        "goae":  "3562",
+        "hinweise":  [
+                         "Probengewinnung am Morgen empfohlen"
+                     ],
+        "id":  "E006",
+        "kategorie":  "Endokrinologie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  null,
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.8,
+        "name":  "DHEA-Sulfat",
+        "sortierNummer":  "60",
+        "synonyme":  [
+
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Tag",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "Mo–Fr 8–16 Uhr",
+        "ebm":  "32382",
+        "einheit":  "ng/ml",
+        "goae":  "3563",
+        "hinweise":  [
+                         "Probengewinnung am Morgen empfohlen"
+                     ],
+        "id":  "E007",
+        "kategorie":  "Endokrinologie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  null,
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.8,
+        "name":  "Dehydroepiandrosteron (DHEA)",
+        "sortierNummer":  "70",
+        "synonyme":  [
+
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Tag",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "Mo–Fr 8–16 Uhr",
+        "ebm":  "32383",
+        "einheit":  "ng/ml",
+        "goae":  "3564",
+        "hinweise":  [
+                         "Probengewinnung am Morgen empfohlen"
+                     ],
+        "id":  "E008",
+        "kategorie":  "Endokrinologie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  null,
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.8,
+        "name":  "17-Hydroxyprogesteron (17-OHP)",
+        "sortierNummer":  "80",
+        "synonyme":  [
+
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Tag",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "Mo–Fr 8–16 Uhr",
+        "ebm":  "32384",
+        "einheit":  "ng/ml",
+        "goae":  "3566",
+        "hinweise":  [
+                         "Probengewinnung am Morgen empfohlen"
+                     ],
+        "id":  "E009",
+        "kategorie":  "Endokrinologie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  null,
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.8,
+        "name":  "Progesteron",
+        "sortierNummer":  "90",
+        "synonyme":  [
+
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Tag",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "Mo–Fr 8–16 Uhr",
+        "ebm":  "32385",
+        "einheit":  "pg/ml",
+        "goae":  "3567",
+        "hinweise":  [
+                         "Geschlechtsspezifische Referenzbereiche beachten"
+                     ],
+        "id":  "E010",
+        "kategorie":  "Endokrinologie",
+        "lagerung":  "gekühlt, max. 48h",
+        "loinc":  "2243-4",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.8,
+        "name":  "Estradiol",
+        "sortierNummer":  "100",
+        "synonyme":  [
+                         "E2",
+                         "17β-Estradiol"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Tag",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "Mo–Fr 8–16 Uhr",
+        "ebm":  "32386",
+        "einheit":  "ng/ml",
+        "goae":  "3568",
+        "hinweise":  [
+                         "Tageszeitabhängige Schwankungen beachten"
+                     ],
+        "id":  "E011",
+        "kategorie":  "Endokrinologie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "2986-8",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.7,
+        "name":  "Testosteron",
+        "sortierNummer":  "110",
+        "synonyme":  [
+
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Tage",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "Mo–Fr 8–16 Uhr",
+        "ebm":  "32387",
+        "einheit":  "mIU/ml",
+        "goae":  "3569",
+        "hinweise":  [
+                         "Bei Frauen: Zyklusphase angeben"
+                     ],
+        "id":  "E012",
+        "kategorie":  "Endokrinologie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "10501-5",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.7,
+        "name":  "FSH",
+        "sortierNummer":  "120",
+        "synonyme":  [
+                         "Follikelstimulierendes Hormon"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Tage",
+        "dokumente":  [
+
+                      ],
+        "durchführung":  "Mo–Fr 8–16 Uhr",
+        "ebm":  "32388",
+        "einheit":  "mIU/ml",
+        "goae":  "3570",
+        "hinweise":  [
+                         "Bei Frauen: Zyklusphase angeben"
+                     ],
+        "id":  "E013",
+        "kategorie":  "Endokrinologie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "10501-6",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.7,
+        "name":  "LH",
+        "sortierNummer":  "130",
+        "synonyme":  [
+                         "Luteinisierendes Hormon"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Tag",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Prolaktin",
+                              "url":  "/infobase/sop_E014.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo–Fr 8–16 Uhr",
+        "ebm":  "32389",
+        "einheit":  "ng/ml",
+        "goae":  "3571",
+        "hinweise":  [
+                         "Morgenprobe empfohlen",
+                         "Stress kann Werte erhöhen"
+                     ],
+        "id":  "E014",
+        "kategorie":  "Endokrinologie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "2842-3",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.7,
+        "name":  "Prolaktin",
+        "sortierNummer":  "140",
+        "synonyme":  [
+                         "PRL"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Tage",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP HCG",
+                              "url":  "/infobase/sop_E015.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo–Fr 8–16 Uhr",
+        "ebm":  "32396",
+        "einheit":  "mIU/ml",
+        "goae":  "3578",
+        "hinweise":  [
+                         "Schwangerschaftstest"
+                     ],
+        "id":  "E015",
+        "kategorie":  "Endokrinologie",
+        "lagerung":  "gekühlt, max. 48h",
+        "loinc":  "2106-3",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "hCG",
+        "sortierNummer":  "150",
+        "synonyme":  [
+                         "humanes Choriongonadotropin"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Tag",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Insulin",
+                              "url":  "/infobase/sop_E016.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo–Fr 8–16 Uhr",
+        "ebm":  "32402",
+        "einheit":  "μIU/ml",
+        "goae":  "3584",
+        "hinweise":  [
+                         "Nüchternwert empfohlen",
+                         "Transport unmittelbar ins Labor"
+                     ],
+        "id":  "E016",
+        "kategorie":  "Endokrinologie",
+        "lagerung":  "gekühlt, max. 12h",
+        "loinc":  "20448-7",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.8,
+        "name":  "Insulin",
+        "sortierNummer":  "160",
+        "synonyme":  [
+
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "3 Tage",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Vitamin D",
+                              "url":  "/infobase/sop_E017.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo–Fr 8–16 Uhr",
+        "ebm":  "32411",
+        "einheit":  "ng/ml",
+        "goae":  "3592",
+        "hinweise":  [
+                         "Lichtsensitiv - dunkle Röhrchen verwenden"
+                     ],
+        "id":  "E017",
+        "kategorie":  "Endokrinologie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "1989-3",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.7,
+        "name":  "25-OH-Vitamin D",
+        "sortierNummer":  "170",
+        "synonyme":  [
+                         "Calcidiol",
+                         "Vitamin D-Status"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Tag",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Parathormon",
+                              "url":  "/infobase/sop_E018.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo–Fr 8–14 Uhr",
+        "ebm":  "32421",
+        "einheit":  "pg/ml",
+        "goae":  "3597",
+        "hinweise":  [
+                         "Schneller Transport erforderlich",
+                         "EDTA-Plasma bevorzugt"
+                     ],
+        "id":  "E018",
+        "kategorie":  "Endokrinologie",
+        "lagerung":  "gekühlt, max. 8h",
+        "loinc":  "2731-8",
+        "material":  [
+                         "EDTA-Plasma",
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.9,
+        "name":  "Parathormon",
+        "sortierNummer":  "180",
+        "synonyme":  [
+                         "PTH",
+                         "Parathyrin"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Tage",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Calcitonin",
+                              "url":  "/infobase/sop_E019.pdf"
+                          }
+                      ],
+        "durchführung":  "Di, Do 8–12 Uhr",
+        "ebm":  "32422",
+        "einheit":  "pg/ml",
+        "goae":  "3598",
+        "hinweise":  [
+                         "Sofort zentrifugieren",
+                         "Hämolytische Proben unbrauchbar"
+                     ],
+        "id":  "E019",
+        "kategorie":  "Endokrinologie",
+        "lagerung":  "gefroren, -20 °C",
+        "loinc":  "1793-9",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  1.0,
+        "name":  "Calcitonin",
+        "sortierNummer":  "190",
+        "synonyme":  [
+                         "Thyrocalcitonin"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "3 Tage",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP IGF-1",
+                              "url":  "/infobase/sop_E020.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo, Mi, Fr 8–14 Uhr",
+        "ebm":  "32425",
+        "einheit":  "ng/ml",
+        "goae":  "3599",
+        "hinweise":  [
+                         "Alters- und geschlechtsabhängige Referenzbereiche",
+                         "Nicht während Wachstumshormontherapie abzunehmen"
+                     ],
+        "id":  "E020",
+        "kategorie":  "Endokrinologie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "2484-4",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.7,
+        "name":  "IGF-1",
+        "sortierNummer":  "200",
+        "synonyme":  [
+                         "Insulin-like Growth Factor 1",
+                         "Somatomedin C"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP CRP",
+                              "url":  "/infobase/sop_CRP.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32456",
+        "einheit":  "mg/dl",
+        "goae":  "3565",
+        "hinweise":  [
+
+                     ],
+        "id":  "F001",
+        "kategorie":  "Infektionsdiagnostik",
+        "lagerung":  "Raumtemperatur, max. 6h",
+        "loinc":  "1988-5",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "CRP",
+        "sortierNummer":  "210",
+        "synonyme":  [
+                         "C-reaktives Protein",
+                         "Entzündungsmarker"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "3 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP PCT",
+                              "url":  "/infobase/sop_PCT.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32460",
+        "einheit":  "ng/ml",
+        "goae":  "3570",
+        "hinweise":  [
+                         "Maximalwert i.d.R. nach 6-12 Stunden"
+                     ],
+        "id":  "F002",
+        "kategorie":  "Infektionsdiagnostik",
+        "lagerung":  "Raumtemperatur, max. 4h",
+        "loinc":  "33959-8",
+        "material":  [
+                         "Serum",
+                         "EDTA-Plasma"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Procalcitonin",
+        "sortierNummer":  "220",
+        "synonyme":  [
+                         "PCT",
+                         "Sepsismarker"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "4 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP IL-6",
+                              "url":  "/infobase/sop_IL-6.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 8-17 Uhr",
+        "ebm":  "32459",
+        "einheit":  "pg/ml",
+        "goae":  "3573",
+        "hinweise":  [
+                         "Frühmarker für Entzündungen",
+                         "Empfindlich für präanalytische Fehler"
+                     ],
+        "id":  "F003",
+        "kategorie":  "Infektionsdiagnostik",
+        "lagerung":  "Gekühlt, max. 6h",
+        "loinc":  "26881-9",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Interleukin-6",
+        "sortierNummer":  "230",
+        "synonyme":  [
+                         "IL-6",
+                         "Zytokin"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "3 Tage",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Antistreptolysin",
+                              "url":  "/infobase/sop_ASL.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 8-16 Uhr",
+        "ebm":  "32624",
+        "einheit":  "IU/ml",
+        "goae":  "4209",
+        "hinweise":  [
+                         "Verdacht auf Streptokokken-Infektion"
+                     ],
+        "id":  "F005",
+        "kategorie":  "Infektionsdiagnostik",
+        "lagerung":  "Gekühlt, max. 48h",
+        "loinc":  "5130-0",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Antistreptolysin O",
+        "sortierNummer":  "240",
+        "synonyme":  [
+                         "ASL",
+                         "ASO",
+                         "Streptolysin-O-Antikörper"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1-2 Tage",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP HBsAg",
+                              "url":  "/infobase/sop_HBsAg.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 8-16 Uhr",
+        "ebm":  "32781",
+        "einheit":  null,
+        "goae":  "4406",
+        "hinweise":  [
+                         "Positives Ergebnis meldepflichtig"
+                     ],
+        "id":  "F006",
+        "kategorie":  "Infektionsdiagnostik",
+        "lagerung":  "Gekühlt, max. 48h",
+        "loinc":  "5196-1",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "HBs-Antigen",
+        "sortierNummer":  "250",
+        "synonyme":  [
+                         "Hepatitis B Oberflächen-Antigen",
+                         "HBsAg"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1-2 Tage",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Anti-HCV",
+                              "url":  "/infobase/sop_Anti-HCV.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 8-16 Uhr",
+        "ebm":  "32783",
+        "einheit":  null,
+        "goae":  "4411",
+        "hinweise":  [
+                         "Bei positivem Ergebnis PCR-Bestätigung empfohlen"
+                     ],
+        "id":  "F007",
+        "kategorie":  "Infektionsdiagnostik",
+        "lagerung":  "Gekühlt, max. 48h",
+        "loinc":  "13955-0",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Hepatitis C Antikörper",
+        "sortierNummer":  "260",
+        "synonyme":  [
+                         "Anti-HCV",
+                         "HCV-AK"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Tag",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP HIV",
+                              "url":  "/infobase/sop_HIV.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 8-16 Uhr",
+        "ebm":  "32785",
+        "einheit":  null,
+        "goae":  "4414",
+        "hinweise":  [
+                         "Einwilligung des Patienten erforderlich",
+                         "Bei positivem Befund Bestätigungstest"
+                     ],
+        "id":  "F008",
+        "kategorie":  "Infektionsdiagnostik",
+        "lagerung":  "Gekühlt, max. 24h",
+        "loinc":  "22356-9",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.8,
+        "name":  "HIV-Suchtest",
+        "sortierNummer":  "270",
+        "synonyme":  [
+                         "HIV-Antikörper/Antigen-Test",
+                         "HIV-Screening"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1-2 Tage",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP EBV Serologie",
+                              "url":  "/infobase/sop_EBV.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 8-16 Uhr",
+        "ebm":  "32592",
+        "einheit":  null,
+        "goae":  "4418",
+        "hinweise":  [
+                         "Marker für akute Infektion"
+                     ],
+        "id":  "F009A",
+        "kategorie":  "Infektionsdiagnostik",
+        "lagerung":  "Gekühlt, max. 48h",
+        "loinc":  "22327-0",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "EBV VCA-IgM",
+        "sortierNummer":  "281",
+        "synonyme":  [
+                         "Epstein-Barr-Virus Kapsid-Antigen IgM"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1-2 Tage",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP EBV Serologie",
+                              "url":  "/infobase/sop_EBV.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 8-16 Uhr",
+        "ebm":  "32592",
+        "einheit":  null,
+        "goae":  "4418",
+        "hinweise":  [
+                         "Marker für akute oder zurückliegende Infektion"
+                     ],
+        "id":  "F009B",
+        "kategorie":  "Infektionsdiagnostik",
+        "lagerung":  "Gekühlt, max. 48h",
+        "loinc":  "22329-6",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "EBV VCA-IgG",
+        "sortierNummer":  "282",
+        "synonyme":  [
+                         "Epstein-Barr-Virus Kapsid-Antigen IgG"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1-2 Tage",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP EBV Serologie",
+                              "url":  "/infobase/sop_EBV.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 8-16 Uhr",
+        "ebm":  "32592",
+        "einheit":  null,
+        "goae":  "4418",
+        "hinweise":  [
+                         "Marker für zurückliegende Infektion"
+                     ],
+        "id":  "F009C",
+        "kategorie":  "Infektionsdiagnostik",
+        "lagerung":  "Gekühlt, max. 48h",
+        "loinc":  "5388-7",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "EBV EBNA-1-IgG",
+        "sortierNummer":  "283",
+        "synonyme":  [
+                         "Epstein-Barr Nuclear Antigen-1 IgG"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1-2 Tage",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP CMV Serologie",
+                              "url":  "/infobase/sop_CMV.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 8-16 Uhr",
+        "ebm":  "32575",
+        "einheit":  null,
+        "goae":  "4422",
+        "hinweise":  [
+                         "Bei Schwangerschaft angeben"
+                     ],
+        "id":  "F010",
+        "kategorie":  "Infektionsdiagnostik",
+        "lagerung":  "Gekühlt, max. 48h",
+        "loinc":  "15377-5",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "CMV-IgG",
+        "sortierNummer":  "290",
+        "synonyme":  [
+                         "Cytomegalievirus IgG-Antikörper"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1-2 Tage",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP CMV Serologie",
+                              "url":  "/infobase/sop_CMV.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 8-16 Uhr",
+        "ebm":  "32576",
+        "einheit":  null,
+        "goae":  "4423",
+        "hinweise":  [
+                         "Bei Schwangerschaft angeben",
+                         "Nachweis für akute Infektion"
+                     ],
+        "id":  "F010A",
+        "kategorie":  "Infektionsdiagnostik",
+        "lagerung":  "Gekühlt, max. 48h",
+        "loinc":  "15378-3",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "CMV-IgM",
+        "sortierNummer":  "291",
+        "synonyme":  [
+                         "Cytomegalievirus IgM-Antikörper"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1-2 Tage",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Toxoplasma",
+                              "url":  "/infobase/sop_Toxoplasma.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 8-16 Uhr",
+        "ebm":  "32641",
+        "einheit":  null,
+        "goae":  "4425",
+        "hinweise":  [
+                         "Bei Schwangerschaft besonders wichtig"
+                     ],
+        "id":  "F011",
+        "kategorie":  "Infektionsdiagnostik",
+        "lagerung":  "Gekühlt, max. 48h",
+        "loinc":  "13317-0",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Toxoplasma-IgG",
+        "sortierNummer":  "300",
+        "synonyme":  [
+                         "Toxoplasma gondii IgG-Antikörper"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1-2 Tage",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Toxoplasma",
+                              "url":  "/infobase/sop_Toxoplasma.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 8-16 Uhr",
+        "ebm":  "32642",
+        "einheit":  null,
+        "goae":  "4426",
+        "hinweise":  [
+                         "Bei Schwangerschaft besonders wichtig",
+                         "Nachweis für akute Infektion"
+                     ],
+        "id":  "F011A",
+        "kategorie":  "Infektionsdiagnostik",
+        "lagerung":  "Gekühlt, max. 48h",
+        "loinc":  "5388-5",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Toxoplasma-IgM",
+        "sortierNummer":  "301",
+        "synonyme":  [
+                         "Toxoplasma gondii IgM-Antikörper"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2-4 Tage",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Rubella",
+                              "url":  "/infobase/sop_Rubella.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 8-16 Uhr",
+        "ebm":  "32586",
+        "einheit":  "IU/ml",
+        "goae":  "4419",
+        "hinweise":  [
+                         "Impfanamnese beachten"
+                     ],
+        "id":  "F012",
+        "kategorie":  "Infektionsdiagnostik",
+        "lagerung":  "Gekühlt, max. 48h",
+        "loinc":  "25514-1",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Röteln-IgG",
+        "sortierNummer":  "310",
+        "synonyme":  [
+                         "Rubella-IgG-Antikörper",
+                         "Rötelntiter IgG"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2-4 Tage",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Rubella",
+                              "url":  "/infobase/sop_Rubella.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 8-16 Uhr",
+        "ebm":  "32587",
+        "einheit":  null,
+        "goae":  "4420",
+        "hinweise":  [
+                         "Nachweis für akute Infektion",
+                         "Impfanamnese beachten"
+                     ],
+        "id":  "F012A",
+        "kategorie":  "Infektionsdiagnostik",
+        "lagerung":  "Gekühlt, max. 48h",
+        "loinc":  "40737-4",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Röteln-IgM",
+        "sortierNummer":  "311",
+        "synonyme":  [
+                         "Rubella-IgM-Antikörper",
+                         "Rötelntiter IgM"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2-4 Tage",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Borrelia",
+                              "url":  "/infobase/sop_Borrelia.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo, Mi, Fr",
+        "ebm":  "32584",
+        "einheit":  null,
+        "goae":  "4238",
+        "hinweise":  [
+                         "Positiver Suchtest wird mit Immunoblot bestätigt",
+                         "Zeckenstich angeben, falls bekannt"
+                     ],
+        "id":  "F013",
+        "kategorie":  "Infektionsdiagnostik",
+        "lagerung":  "Gekühlt, max. 48h",
+        "loinc":  "5393-5",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.7,
+        "name":  "Borrelia-IgG",
+        "sortierNummer":  "320",
+        "synonyme":  [
+                         "Borreliose-IgG-Antikörper",
+                         "Lyme-Borreliose IgG"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2-4 Tage",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Borrelia",
+                              "url":  "/infobase/sop_Borrelia.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo, Mi, Fr",
+        "ebm":  "32585",
+        "einheit":  null,
+        "goae":  "4239",
+        "hinweise":  [
+                         "Positiver Suchtest wird mit Immunoblot bestätigt",
+                         "Zeckenstich angeben, falls bekannt",
+                         "Nachweis für akute Infektion"
+                     ],
+        "id":  "F013A",
+        "kategorie":  "Infektionsdiagnostik",
+        "lagerung":  "Gekühlt, max. 48h",
+        "loinc":  "5394-3",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.7,
+        "name":  "Borrelia-IgM",
+        "sortierNummer":  "321",
+        "synonyme":  [
+                         "Borreliose-IgM-Antikörper",
+                         "Lyme-Borreliose IgM"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "3-5 Tage",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP TPHA",
+                              "url":  "/infobase/sop_TPHA.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo, Mi, Fr",
+        "ebm":  "32644",
+        "einheit":  null,
+        "goae":  "4230",
+        "hinweise":  [
+                         "Bei positivem Test VDRL-Test empfohlen",
+                         "Einwilligung des Patienten erforderlich"
+                     ],
+        "id":  "F014",
+        "kategorie":  "Infektionsdiagnostik",
+        "lagerung":  "Gekühlt, max. 48h",
+        "loinc":  "31147-2",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "TPHA-Test",
+        "sortierNummer":  "330",
+        "synonyme":  [
+                         "Treponema pallidum Hämagglutination",
+                         "Syphilis-Suchtest"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Quick",
+                              "url":  "/infobase/sop_Quick.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32968",
+        "einheit":  "Sekunden",
+        "goae":  "3511",
+        "hinweise":  [
+                         "Citratverhältnis beachten"
+                     ],
+        "id":  "G001",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt, max. 4h",
+        "loinc":  "14979-7",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Quick",
+        "sortierNummer":  "340",
+        "synonyme":  [
+                         "TPZ",
+                         "PTZ",
+                         "Prothrombinzeit"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP PTT",
+                              "url":  "/infobase/sop_PTT.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32969",
+        "einheit":  "Sekunden",
+        "goae":  "3512",
+        "hinweise":  [
+                         "Citratverhältnis beachten"
+                     ],
+        "id":  "G002",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt, max. 4h",
+        "loinc":  "14979-8",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "PTT",
+        "sortierNummer":  "350",
+        "synonyme":  [
+                         "aPTT"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP INR",
+                              "url":  "/infobase/sop_INR.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32970",
+        "einheit":  "Sekunden",
+        "goae":  "3513",
+        "hinweise":  [
+                         "Citratverhältnis beachten"
+                     ],
+        "id":  "G003",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt, max. 4h",
+        "loinc":  "14979-9",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "INR",
+        "sortierNummer":  "360",
+        "synonyme":  [
+                         "International Normierte Relativzeit"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Fibrinogen nach Clauss",
+                              "url":  "/infobase/sop_Fibrinogen nach Clauss.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32001",
+        "einheit":  "mg/dl",
+        "goae":  "3586",
+        "hinweise":  [
+
+                     ],
+        "id":  "G004",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt",
+        "loinc":  "3255-7",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.6,
+        "name":  "Fibrinogen nach Clauss",
+        "sortierNummer":  "370",
+        "synonyme":  [
+                         "FibC"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Thrombinzeit",
+                              "url":  "/infobase/sop_Thrombinzeit.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32823",
+        "einheit":  "Sekunden",
+        "goae":  "3572",
+        "hinweise":  [
+
+                     ],
+        "id":  "G005",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt",
+        "loinc":  "30000-4",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.6,
+        "name":  "Thrombinzeit",
+        "sortierNummer":  "380",
+        "synonyme":  [
+                         "TZ"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Antithrombin III",
+                              "url":  "/infobase/sop_Antithrombin III.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32108",
+        "einheit":  "mg/dl",
+        "goae":  "3557",
+        "hinweise":  [
+
+                     ],
+        "id":  "G006",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt",
+        "loinc":  "27822-2",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.6,
+        "name":  "Antithrombin III",
+        "sortierNummer":  "390",
+        "synonyme":  [
+                         "AT III"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP D-Dimere",
+                              "url":  "/infobase/sop_D-Dimere.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32657",
+        "einheit":  "mg/dl",
+        "goae":  "3529",
+        "hinweise":  [
+
+                     ],
+        "id":  "G007",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt",
+        "loinc":  "48067-3",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.6,
+        "name":  "D-Dimere",
+        "sortierNummer":  "400",
+        "synonyme":  [
+
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "Max. 7Tage",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Protein C",
+                              "url":  "/infobase/sop_Protein C.pdf"
+                          }
+                      ],
+        "durchführung":  "Mi–Fr",
+        "ebm":  "32115",
+        "einheit":  "%",
+        "goae":  "3502",
+        "hinweise":  [
+
+                     ],
+        "id":  "G008",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt",
+        "loinc":  "27822-2",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.7,
+        "name":  "Protein C",
+        "sortierNummer":  "410",
+        "synonyme":  [
+
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "Max. 7Tage",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Protein S",
+                              "url":  "/infobase/sop_Protein S.pdf"
+                          }
+                      ],
+        "durchführung":  "Mi–Fr",
+        "ebm":  "32645",
+        "einheit":  "%",
+        "goae":  "3523",
+        "hinweise":  [
+
+                     ],
+        "id":  "G009",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt",
+        "loinc":  "27823-0",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.7,
+        "name":  "Protein S",
+        "sortierNummer":  "420",
+        "synonyme":  [
+
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "am selben Tag",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Faktor II",
+                              "url":  "/infobase/sop_Faktor II.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 7-17Uhr",
+        "ebm":  "32131",
+        "einheit":  "Sekunden",
+        "goae":  "3573",
+        "hinweise":  [
+
+                     ],
+        "id":  "G010",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt",
+        "loinc":  "27810-4",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.7,
+        "name":  "Faktor II",
+        "sortierNummer":  "430",
+        "synonyme":  [
+                         "Faktor 2"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "am selben Tag",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Faktor V",
+                              "url":  "/infobase/sop_Faktor V.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 7-17Uhr",
+        "ebm":  "32132",
+        "einheit":  "Sekunden",
+        "goae":  "3574",
+        "hinweise":  [
+
+                     ],
+        "id":  "G011",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt",
+        "loinc":  "27810-5",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.7,
+        "name":  "Faktor V",
+        "sortierNummer":  "440",
+        "synonyme":  [
+                         "Faktor 5"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "am selben Tag",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Faktor VII",
+                              "url":  "/infobase/sop_Faktor VII.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 7-17Uhr",
+        "ebm":  "32133",
+        "einheit":  "Sekunden",
+        "goae":  "3575",
+        "hinweise":  [
+
+                     ],
+        "id":  "G012",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt",
+        "loinc":  "27810-6",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.7,
+        "name":  "Faktor VII",
+        "sortierNummer":  "450",
+        "synonyme":  [
+                         "Faktor 7"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "am selben Tag",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Faktor VIII",
+                              "url":  "/infobase/sop_Faktor VIII.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 7-17Uhr",
+        "ebm":  "32134",
+        "einheit":  "Sekunden",
+        "goae":  "3576",
+        "hinweise":  [
+
+                     ],
+        "id":  "G013",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt",
+        "loinc":  "27810-7",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.7,
+        "name":  "Faktor VIII",
+        "sortierNummer":  "460",
+        "synonyme":  [
+                         "Faktor 8"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "am selben Tag",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Faktor IX",
+                              "url":  "/infobase/sop_Faktor IX.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 7-17Uhr",
+        "ebm":  "32370",
+        "einheit":  "Sekunden",
+        "goae":  "3503",
+        "hinweise":  [
+
+                     ],
+        "id":  "G014",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt",
+        "loinc":  "27811-5",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.7,
+        "name":  "Faktor IX",
+        "sortierNummer":  "470",
+        "synonyme":  [
+                         "Faktor 9"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "am selben Tag",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Faktor X",
+                              "url":  "/infobase/sop_Faktor X.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 7-17Uhr",
+        "ebm":  "32370",
+        "einheit":  "Sekunden",
+        "goae":  "3503",
+        "hinweise":  [
+
+                     ],
+        "id":  "G015",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt",
+        "loinc":  "27811-5",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.7,
+        "name":  "Faktor X",
+        "sortierNummer":  "480",
+        "synonyme":  [
+                         "Faktor 10"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "Max. 7Tage",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Faktor IIX",
+                              "url":  "/infobase/sop_Faktor IIX.pdf"
+                          }
+                      ],
+        "durchführung":  "Mi–Fr",
+        "ebm":  "32371",
+        "einheit":  "Sekunden",
+        "goae":  "3504",
+        "hinweise":  [
+
+                     ],
+        "id":  "G016",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt",
+        "loinc":  "27811-6",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.7,
+        "name":  "Faktor IIX",
+        "sortierNummer":  "490",
+        "synonyme":  [
+                         "Faktor 12"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "Max. 7Tage",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Lupus-Antikoagulans",
+                              "url":  "/infobase/sop_Lupus-Antikoagulans.pdf"
+                          }
+                      ],
+        "durchführung":  "Mi–Fr",
+        "ebm":  "32435",
+        "einheit":  null,
+        "goae":  "3500",
+        "hinweise":  [
+
+                     ],
+        "id":  "G017",
+        "kategorie":  "Gerinnung",
+        "lagerung":  "gekühlt",
+        "loinc":  "30242-2",
+        "material":  [
+                         "Citratplasma"
+                     ],
+        "mindestmenge_ml":  0.7,
+        "name":  "Lupus-Antikoagulans",
+        "sortierNummer":  "500",
+        "synonyme":  [
+
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32986",
+        "einheit":  "10^3/µl",
+        "goae":  "3520",
+        "hinweise":  [
+
+                     ],
+        "id":  "H001",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "6690-2",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.2,
+        "name":  "Leukozyten",
+        "sortierNummer":  "510",
+        "synonyme":  [
+                         "WBC"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32104",
+        "einheit":  "10^6/µl",
+        "goae":  "3548",
+        "hinweise":  [
+
+                     ],
+        "id":  "H002",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "789-8",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.2,
+        "name":  "Erythrozyten",
+        "sortierNummer":  "520",
+        "synonyme":  [
+                         "RBC"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32987",
+        "einheit":  "g/dl",
+        "goae":  "3521",
+        "hinweise":  [
+
+                     ],
+        "id":  "H003",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "6690-3",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.2,
+        "name":  "Hämoglobin",
+        "sortierNummer":  "530",
+        "synonyme":  [
+                         "HB"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32364",
+        "einheit":  "10^3/µl",
+        "goae":  "3531",
+        "hinweise":  [
+
+                     ],
+        "id":  "H004",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "777-3",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.2,
+        "name":  "Thrombozyten",
+        "sortierNummer":  "540",
+        "synonyme":  [
+                         "PLT"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32331",
+        "einheit":  "%",
+        "goae":  "3510",
+        "hinweise":  [
+
+                     ],
+        "id":  "H005",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "4544-3",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.2,
+        "name":  "Hämatokrit",
+        "sortierNummer":  "550",
+        "synonyme":  [
+                         "Hkt"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32328",
+        "einheit":  "fl",
+        "goae":  "3525",
+        "hinweise":  [
+
+                     ],
+        "id":  "H006",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "787-2",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.2,
+        "name":  "MCV",
+        "sortierNummer":  "560",
+        "synonyme":  [
+                         "mittleres Erythrozytenvolumen"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32671",
+        "einheit":  "pg",
+        "goae":  "3547",
+        "hinweise":  [
+
+                     ],
+        "id":  "H007",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "785-6",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.2,
+        "name":  "MCH",
+        "sortierNummer":  "570",
+        "synonyme":  [
+                         "mittlerer Hb-Gehalt"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32027",
+        "einheit":  "g/dl",
+        "goae":  "3555",
+        "hinweise":  [
+
+                     ],
+        "id":  "H008",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "786-4",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.2,
+        "name":  "MCHC",
+        "sortierNummer":  "580",
+        "synonyme":  [
+                         "mittlere Hb-Konzentration"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32422",
+        "einheit":  null,
+        "goae":  "3577",
+        "hinweise":  [
+
+                     ],
+        "id":  "H009",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "788-0",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "RDW",
+        "sortierNummer":  "590",
+        "synonyme":  [
+                         "Erythrozytenverteilungsbreite"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Retikulozyten",
+                              "url":  "/infobase/Retikulozyten.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32102",
+        "einheit":  "10^3/µl",
+        "goae":  "3574",
+        "hinweise":  [
+
+                     ],
+        "id":  "H010",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt",
+        "loinc":  "4679-7",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Retikulozyten Absolut",
+        "sortierNummer":  "600",
+        "synonyme":  [
+                         "Retis"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Retikulozyten",
+                              "url":  "/infobase/Retikulozyten.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32103",
+        "einheit":  "g/dl",
+        "goae":  "3575",
+        "hinweise":  [
+
+                     ],
+        "id":  "H011",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt",
+        "loinc":  "4679-8",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.6,
+        "name":  "Retikulozyten Absolut-Hb",
+        "sortierNummer":  "610",
+        "synonyme":  [
+                         "Reti-Hb"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "3 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Retikulozyten",
+                              "url":  "/infobase/Retikulozyten.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32104",
+        "einheit":  "%",
+        "goae":  "3576",
+        "hinweise":  [
+
+                     ],
+        "id":  "H012",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt",
+        "loinc":  "4679-9",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.7,
+        "name":  "Retikulozyten Absolut",
+        "sortierNummer":  "620",
+        "synonyme":  [
+                         "Retis %"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "Mo-Fr 7-17Uhr",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP großes Blutbild",
+                              "url":  "/infobase/großes Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 7-17Uhr",
+        "ebm":  "32864",
+        "einheit":  null,
+        "goae":  "3523",
+        "hinweise":  [
+                         "nur bei pathologischen Auffälligkeiten"
+                     ],
+        "id":  "H013",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt",
+        "loinc":  "58410-2",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Blutausstrich",
+        "sortierNummer":  "630",
+        "synonyme":  [
+                         "Differenzierung manuell"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP großes Blutbild",
+                              "url":  "/infobase/großes Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32102",
+        "einheit":  "10^3/µl",
+        "goae":  "3574",
+        "hinweise":  [
+
+                     ],
+        "id":  "H014",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt",
+        "loinc":  "4679-7",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Neutrophile Absolut",
+        "sortierNummer":  "640",
+        "synonyme":  [
+                         "Neutro#"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP großes Blutbild",
+                              "url":  "/infobase/großes Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32103",
+        "einheit":  "%",
+        "goae":  "3575",
+        "hinweise":  [
+
+                     ],
+        "id":  "H015",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt",
+        "loinc":  "4679-8",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.6,
+        "name":  "Neutrophile Relativ",
+        "sortierNummer":  "650",
+        "synonyme":  [
+                         "Neutro%"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "3 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP großes Blutbild",
+                              "url":  "/infobase/großes Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32104",
+        "einheit":  "10^3/µl",
+        "goae":  "3576",
+        "hinweise":  [
+
+                     ],
+        "id":  "H016",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt",
+        "loinc":  "4679-9",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.7,
+        "name":  "Lymphozyten Absolut",
+        "sortierNummer":  "660",
+        "synonyme":  [
+                         "Lymph#"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "4 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP großes Blutbild",
+                              "url":  "/infobase/großes Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32105",
+        "einheit":  "%",
+        "goae":  "3577",
+        "hinweise":  [
+
+                     ],
+        "id":  "H017",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt",
+        "loinc":  "4679-10",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.8,
+        "name":  "Lymphozyten Relativ",
+        "sortierNummer":  "670",
+        "synonyme":  [
+                         "Lymph%"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "5 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP großes Blutbild",
+                              "url":  "/infobase/großes Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32106",
+        "einheit":  "10^3/µl",
+        "goae":  "3578",
+        "hinweise":  [
+
+                     ],
+        "id":  "H018",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt",
+        "loinc":  "4679-11",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.9,
+        "name":  "Monozyten Absolut",
+        "sortierNummer":  "680",
+        "synonyme":  [
+                         "Mono#"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "6 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP großes Blutbild",
+                              "url":  "/infobase/großes Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32107",
+        "einheit":  "%",
+        "goae":  "3579",
+        "hinweise":  [
+
+                     ],
+        "id":  "H019",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt",
+        "loinc":  "4679-12",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  1,
+        "name":  "Monozyten Relativ",
+        "sortierNummer":  "690",
+        "synonyme":  [
+                         "Mono%"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "4 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP HbA1c",
+                              "url":  "/infobase/sop_HbA1c.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 7-17Uhr",
+        "ebm":  "32025",
+        "einheit":  "%",
+        "goae":  "3561",
+        "hinweise":  [
+                         "Langzeitblutzucker",
+                         "Nüchternwert nicht erforderlich"
+                     ],
+        "id":  "H023",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt, max. 48h",
+        "loinc":  "4548-4",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "HbA1c",
+        "sortierNummer":  "725",
+        "synonyme":  [
+                         "Glykiertes Hämoglobin",
+                         "Hämoglobin A1c"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "7 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP großes Blutbild",
+                              "url":  "/infobase/großes Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32108",
+        "einheit":  "10^3/µl",
+        "goae":  "3580",
+        "hinweise":  [
+
+                     ],
+        "id":  "H020",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt",
+        "loinc":  "4679-13",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  1.1,
+        "name":  "Eosinophile Absolut",
+        "sortierNummer":  "700",
+        "synonyme":  [
+                         "Eo#"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "8 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP großes Blutbild",
+                              "url":  "/infobase/großes Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32109",
+        "einheit":  "%",
+        "goae":  "3581",
+        "hinweise":  [
+
+                     ],
+        "id":  "H021",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt",
+        "loinc":  "4679-14",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  1.2,
+        "name":  "Eosinophile Relativ",
+        "sortierNummer":  "710",
+        "synonyme":  [
+                         "Eo%"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "9 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Fragmentozyten",
+                              "url":  "/infobase/sop_Fragmentozyten.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32110",
+        "einheit":  "‰",
+        "goae":  "3582",
+        "hinweise":  [
+
+                     ],
+        "id":  "H022",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt",
+        "loinc":  "4679-15",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  1.3,
+        "name":  "Fragmentozyten",
+        "sortierNummer":  "720",
+        "synonyme":  [
+                         "Helm-Cells",
+                         "Fraggis"
+                     ]
+    },
+    {
+        "aktiv":  true,
         "befundzeit":  "4 Stunden",
         "dokumente":  [
                           {
@@ -24,7 +2403,7 @@
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "ANA",
-        "sortierNummer":  "520",
+        "sortierNummer":  "730",
         "synonyme":  [
                          "antinukleäre Antikörper",
                          "nukleäre Antikörper"
@@ -55,7 +2434,7 @@
                      ],
         "mindestmenge_ml":  0.6,
         "name":  "Rheumafaktor",
-        "sortierNummer":  "530",
+        "sortierNummer":  "740",
         "synonyme":  [
                          "RF"
                      ]
@@ -85,7 +2464,7 @@
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "C3-Komplement",
-        "sortierNummer":  "540",
+        "sortierNummer":  "750",
         "synonyme":  [
                          "Komplement C3"
                      ]
@@ -115,7 +2494,7 @@
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "C4-Komplement",
-        "sortierNummer":  "550",
+        "sortierNummer":  "760",
         "synonyme":  [
                          "Komplement C4"
                      ]
@@ -145,7 +2524,7 @@
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "dsDNA-Antikörper",
-        "sortierNummer":  "560",
+        "sortierNummer":  "770",
         "synonyme":  [
                          "Anti-dsDNA",
                          "Antikörper gegen doppelsträngige DNA"
@@ -170,13 +2549,13 @@
         "id":  "I006",
         "kategorie":  "Immunologie",
         "lagerung":  "gefroren, -20 °C",
-        "loinc":  null,
+        "loinc":  "4622-01",
         "material":  [
                          "Serum"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-ENA-Antikörper",
-        "sortierNummer":  "570",
+        "sortierNummer":  "780",
         "synonyme":  [
                          "Antikörper gegen extrahierbare nukleäre Antigene"
                      ]
@@ -200,13 +2579,13 @@
         "id":  "I007",
         "kategorie":  "Immunologie",
         "lagerung":  "gefroren, -20 °C",
-        "loinc":  null,
+        "loinc":  "4622-02",
         "material":  [
                          "Serum"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-Sm-Antikörper",
-        "sortierNummer":  "580",
+        "sortierNummer":  "790",
         "synonyme":  [
                          "Antikörper gegen Sm-Antigen"
                      ]
@@ -230,13 +2609,13 @@
         "id":  "I008",
         "kategorie":  "Immunologie",
         "lagerung":  "gefroren, -20 °C",
-        "loinc":  null,
+        "loinc":  "4622-03",
         "material":  [
                          "Serum"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-RNP-Antikörper",
-        "sortierNummer":  "590",
+        "sortierNummer":  "800",
         "synonyme":  [
                          "Antikörper gegen RNP-Antigen"
                      ]
@@ -260,13 +2639,13 @@
         "id":  "I009",
         "kategorie":  "Immunologie",
         "lagerung":  "gefroren, -20 °C",
-        "loinc":  null,
+        "loinc":  "4622-04",
         "material":  [
                          "Serum"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-Scl-70-Antikörper",
-        "sortierNummer":  "600",
+        "sortierNummer":  "810",
         "synonyme":  [
                          "Antikörper gegen Scl-70-Antigen"
                      ]
@@ -290,13 +2669,13 @@
         "id":  "I010",
         "kategorie":  "Immunologie",
         "lagerung":  "gefroren, -20 °C",
-        "loinc":  null,
+        "loinc":  "4622-05",
         "material":  [
                          "Serum"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-Jo-1-Antikörper",
-        "sortierNummer":  "610",
+        "sortierNummer":  "820",
         "synonyme":  [
                          "Antikörper gegen Jo-1-Antigen"
                      ]
@@ -320,13 +2699,13 @@
         "id":  "I011",
         "kategorie":  "Immunologie",
         "lagerung":  "gefroren, -20 °C",
-        "loinc":  null,
+        "loinc":  "4622-06",
         "material":  [
                          "Serum"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-CCP-Antikörper",
-        "sortierNummer":  "620",
+        "sortierNummer":  "830",
         "synonyme":  [
                          "Antikörper gegen cyclische citrullinierte Peptide"
                      ]
@@ -350,13 +2729,13 @@
         "id":  "I012",
         "kategorie":  "Immunologie",
         "lagerung":  "gefroren, -20 °C",
-        "loinc":  null,
+        "loinc":  "4622-07",
         "material":  [
                          "Serum"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-PR3-Antikörper",
-        "sortierNummer":  "630",
+        "sortierNummer":  "840",
         "synonyme":  [
                          "Antikörper gegen Proteinase 3"
                      ]
@@ -380,13 +2759,13 @@
         "id":  "I013",
         "kategorie":  "Immunologie",
         "lagerung":  "gefroren, -20 °C",
-        "loinc":  null,
+        "loinc":  "4622-08",
         "material":  [
                          "Serum"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-MPO-Antikörper",
-        "sortierNummer":  "640",
+        "sortierNummer":  "850",
         "synonyme":  [
                          "Antikörper gegen Myeloperoxidase"
                      ]
@@ -410,13 +2789,13 @@
         "id":  "I014",
         "kategorie":  "Immunologie",
         "lagerung":  "gefroren, -20 °C",
-        "loinc":  null,
+        "loinc":  "4622-09",
         "material":  [
                          "Serum"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-GBM-Antikörper",
-        "sortierNummer":  "650",
+        "sortierNummer":  "860",
         "synonyme":  [
                          "Antikörper gegen glomeruläre Basalmembran"
                      ]
@@ -440,13 +2819,13 @@
         "id":  "I017",
         "kategorie":  "Immunologie",
         "lagerung":  "gefroren, -20 °C",
-        "loinc":  null,
+        "loinc":  "4622-10",
         "material":  [
                          "Serum"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-Phosphatidylserin-Antikörper",
-        "sortierNummer":  "660",
+        "sortierNummer":  "870",
         "synonyme":  [
                          "Antikörper gegen Phosphatidylserin"
                      ]
@@ -470,13 +2849,13 @@
         "id":  "I018",
         "kategorie":  "Immunologie",
         "lagerung":  "gefroren, -20 °C",
-        "loinc":  null,
+        "loinc":  "4622-11",
         "material":  [
                          "Serum"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-Phosphatidylcholin-Antikörper",
-        "sortierNummer":  "670",
+        "sortierNummer":  "880",
         "synonyme":  [
                          "Antikörper gegen Phosphatidylcholin"
                      ]
@@ -500,45 +2879,15 @@
         "id":  "I019",
         "kategorie":  "Immunologie",
         "lagerung":  "gefroren, -20 °C",
-        "loinc":  null,
+        "loinc":  "4622-12",
         "material":  [
                          "Serum"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-β2-Glykoprotein-I-Antikörper",
-        "sortierNummer":  "680",
+        "sortierNummer":  "890",
         "synonyme":  [
                          "Antikörper gegen β2-Glykoprotein I"
-                     ]
-    },
-    {
-        "aktiv":  true,
-        "befundzeit":  "3 Tage",
-        "dokumente":  [
-                          {
-                              "titel":  "Hinweis auf externe Durchführung",
-                              "url":  "/infobase/fremdleistung_I022.pdf"
-                          }
-                      ],
-        "durchführung":  "Einmal wöchentlich (Dienstag)",
-        "ebm":  "32708",
-        "einheit":  "U/ml",
-        "goae":  "4439",
-        "hinweise":  [
-                         "Fremdleistung – Einsendefrist beachten"
-                     ],
-        "id":  "I022",
-        "kategorie":  "Immunologie",
-        "lagerung":  "gefroren, -20 °C",
-        "loinc":  null,
-        "material":  [
-                         "Serum"
-                     ],
-        "mindestmenge_ml":  0.8,
-        "name":  "Anti-β2-Glykoprotein-II-Antikörper",
-        "sortierNummer":  "690",
-        "synonyme":  [
-                         "Antikörper gegen β2-Glykoprotein II"
                      ]
     },
     {
@@ -560,13 +2909,13 @@
         "id":  "I020",
         "kategorie":  "Immunologie",
         "lagerung":  "gefroren, -20 °C",
-        "loinc":  null,
+        "loinc":  "4622-13",
         "material":  [
                          "Serum"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-Cardiolipin-IgG-Antikörper",
-        "sortierNummer":  "700",
+        "sortierNummer":  "900",
         "synonyme":  [
 
                      ]
@@ -590,1192 +2939,49 @@
         "id":  "I021",
         "kategorie":  "Immunologie",
         "lagerung":  "gefroren, -20 °C",
-        "loinc":  null,
+        "loinc":  "4622-14",
         "material":  [
                          "Serum"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-Cardiolipin-IgM-Antikörper",
-        "sortierNummer":  "710",
+        "sortierNummer":  "910",
         "synonyme":  [
 
                      ]
     },
     {
-        "aktiv":  null,
-        "befundzeit":  "1 Stunden",
+        "aktiv":  true,
+        "befundzeit":  "3 Tage",
         "dokumente":  [
                           {
-                              "titel":  "SOP Quick",
-                              "url":  "/infobase/sop_Quick.pdf"
+                              "titel":  "Hinweis auf externe Durchführung",
+                              "url":  "/infobase/fremdleistung_I022.pdf"
                           }
                       ],
-        "durchführung":  "24/7",
-        "ebm":  "32968",
-        "einheit":  "Sekunden",
-        "goae":  "3511",
+        "durchführung":  "Einmal wöchentlich (Dienstag)",
+        "ebm":  "32708",
+        "einheit":  "U/ml",
+        "goae":  "4439",
         "hinweise":  [
-                         "Citratverhältnis beachten"
+                         "Fremdleistung – Einsendefrist beachten"
                      ],
-        "id":  "G001",
-        "kategorie":  "Gerinnung",
-        "lagerung":  "gekühlt, max. 4h",
-        "loinc":  "14979-7",
+        "id":  "I022",
+        "kategorie":  "Immunologie",
+        "lagerung":  "gefroren, -20 °C",
+        "loinc":  "4622-15",
         "material":  [
-                         "Citratplasma"
-                     ],
-        "mindestmenge_ml":  0.5,
-        "name":  "Quick",
-        "sortierNummer":  "10",
-        "synonyme":  [
-                         "TPZ",
-                         "PTZ",
-                         "Prothrombinzeit"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "1 Stunden",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP PTT",
-                              "url":  "/infobase/sop_PTT.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32969",
-        "einheit":  "Sekunden",
-        "goae":  "3512",
-        "hinweise":  [
-                         "Citratverhältnis beachten"
-                     ],
-        "id":  "G002",
-        "kategorie":  "Gerinnung",
-        "lagerung":  "gekühlt, max. 4h",
-        "loinc":  "14979-8",
-        "material":  [
-                         "Citratplasma"
-                     ],
-        "mindestmenge_ml":  0.5,
-        "name":  "PTT",
-        "sortierNummer":  "20",
-        "synonyme":  [
-                         "aPTT"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "2 Stunden",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP INR",
-                              "url":  "/infobase/sop_INR.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32970",
-        "einheit":  "Sekunden",
-        "goae":  "3513",
-        "hinweise":  [
-                         "Citratverhältnis beachten"
-                     ],
-        "id":  "G003",
-        "kategorie":  "Gerinnung",
-        "lagerung":  "gekühlt, max. 4h",
-        "loinc":  "14979-9",
-        "material":  [
-                         "Citratplasma"
-                     ],
-        "mindestmenge_ml":  0.5,
-        "name":  "INR",
-        "sortierNummer":  "30",
-        "synonyme":  [
-                         "International Normierte Relativzeit"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "2 Stunden",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP Fibrinogen nach Clauss",
-                              "url":  "/infobase/sop_Fibrinogen nach Clauss.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32001",
-        "einheit":  "mg/dl",
-        "goae":  "3586",
-        "hinweise":  [
-
-                     ],
-        "id":  "G004",
-        "kategorie":  "Gerinnung",
-        "lagerung":  "gekühlt",
-        "loinc":  "3255-7",
-        "material":  [
-                         "Citratplasma"
-                     ],
-        "mindestmenge_ml":  0.6,
-        "name":  "Fibrinogen nach Clauss",
-        "sortierNummer":  "40",
-        "synonyme":  [
-                         "FibC"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "2 Stunden",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP Thrombinzeit",
-                              "url":  "/infobase/sop_Thrombinzeit.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32823",
-        "einheit":  "Sekunden",
-        "goae":  "3572",
-        "hinweise":  [
-
-                     ],
-        "id":  "G005",
-        "kategorie":  "Gerinnung",
-        "lagerung":  "gekühlt",
-        "loinc":  "30000-4",
-        "material":  [
-                         "Citratplasma"
-                     ],
-        "mindestmenge_ml":  0.6,
-        "name":  "Thrombinzeit",
-        "sortierNummer":  "50",
-        "synonyme":  [
-                         "TZ"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "2 Stunden",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP Antithrombin III",
-                              "url":  "/infobase/sop_Antithrombin III.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32108",
-        "einheit":  "mg/dl",
-        "goae":  "3557",
-        "hinweise":  [
-
-                     ],
-        "id":  "G006",
-        "kategorie":  "Gerinnung",
-        "lagerung":  "gekühlt",
-        "loinc":  "27822-2",
-        "material":  [
-                         "Citratplasma"
-                     ],
-        "mindestmenge_ml":  0.6,
-        "name":  "Antithrombin III",
-        "sortierNummer":  "60",
-        "synonyme":  [
-                         "AT III"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "2 Stunden",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP D-Dimere",
-                              "url":  "/infobase/sop_D-Dimere.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32657",
-        "einheit":  "mg/dl",
-        "goae":  "3529",
-        "hinweise":  [
-
-                     ],
-        "id":  "G007",
-        "kategorie":  "Gerinnung",
-        "lagerung":  "gekühlt",
-        "loinc":  "48067-3",
-        "material":  [
-                         "Citratplasma"
-                     ],
-        "mindestmenge_ml":  0.6,
-        "name":  "D-Dimere",
-        "sortierNummer":  "70",
-        "synonyme":  [
-
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "Max. 7Tage",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP Protein C",
-                              "url":  "/infobase/sop_Protein C.pdf"
-                          }
-                      ],
-        "durchführung":  "Mi–Fr",
-        "ebm":  "32115",
-        "einheit":  "%",
-        "goae":  "3502",
-        "hinweise":  [
-
-                     ],
-        "id":  "G008",
-        "kategorie":  "Gerinnung",
-        "lagerung":  "gekühlt",
-        "loinc":  "27822-2",
-        "material":  [
-                         "Citratplasma"
-                     ],
-        "mindestmenge_ml":  0.7,
-        "name":  "Protein C",
-        "sortierNummer":  "80",
-        "synonyme":  [
-
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "Max. 7Tage",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP Protein S",
-                              "url":  "/infobase/sop_Protein S.pdf"
-                          }
-                      ],
-        "durchführung":  "Mi–Fr",
-        "ebm":  "32645",
-        "einheit":  "%",
-        "goae":  "3523",
-        "hinweise":  [
-
-                     ],
-        "id":  "G009",
-        "kategorie":  "Gerinnung",
-        "lagerung":  "gekühlt",
-        "loinc":  "27823-0",
-        "material":  [
-                         "Citratplasma"
-                     ],
-        "mindestmenge_ml":  0.7,
-        "name":  "Protein S",
-        "sortierNummer":  "90",
-        "synonyme":  [
-
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "am selben Tag",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP Faktor II",
-                              "url":  "/infobase/sop_Faktor II.pdf"
-                          }
-                      ],
-        "durchführung":  "Mo-Fr 7-17Uhr",
-        "ebm":  "32131",
-        "einheit":  "Sekunden",
-        "goae":  "3573",
-        "hinweise":  [
-
-                     ],
-        "id":  "G010",
-        "kategorie":  "Gerinnung",
-        "lagerung":  "gekühlt",
-        "loinc":  "27810-4",
-        "material":  [
-                         "Citratplasma"
-                     ],
-        "mindestmenge_ml":  0.7,
-        "name":  "Faktor II",
-        "sortierNummer":  "100",
-        "synonyme":  [
-                         "Faktor 2"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "am selben Tag",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP Faktor V",
-                              "url":  "/infobase/sop_Faktor V.pdf"
-                          }
-                      ],
-        "durchführung":  "Mo-Fr 7-17Uhr",
-        "ebm":  "32132",
-        "einheit":  "Sekunden",
-        "goae":  "3574",
-        "hinweise":  [
-
-                     ],
-        "id":  "G011",
-        "kategorie":  "Gerinnung",
-        "lagerung":  "gekühlt",
-        "loinc":  "27810-5",
-        "material":  [
-                         "Citratplasma"
-                     ],
-        "mindestmenge_ml":  0.7,
-        "name":  "Faktor V",
-        "sortierNummer":  "110",
-        "synonyme":  [
-                         "Faktor 5"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "am selben Tag",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP Faktor VII",
-                              "url":  "/infobase/sop_Faktor VII.pdf"
-                          }
-                      ],
-        "durchführung":  "Mo-Fr 7-17Uhr",
-        "ebm":  "32133",
-        "einheit":  "Sekunden",
-        "goae":  "3575",
-        "hinweise":  [
-
-                     ],
-        "id":  "G012",
-        "kategorie":  "Gerinnung",
-        "lagerung":  "gekühlt",
-        "loinc":  "27810-6",
-        "material":  [
-                         "Citratplasma"
-                     ],
-        "mindestmenge_ml":  0.7,
-        "name":  "Faktor VII",
-        "sortierNummer":  "120",
-        "synonyme":  [
-                         "Faktor 7"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "am selben Tag",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP Faktor VIII",
-                              "url":  "/infobase/sop_Faktor VIII.pdf"
-                          }
-                      ],
-        "durchführung":  "Mo-Fr 7-17Uhr",
-        "ebm":  "32134",
-        "einheit":  "Sekunden",
-        "goae":  "3576",
-        "hinweise":  [
-
-                     ],
-        "id":  "G013",
-        "kategorie":  "Gerinnung",
-        "lagerung":  "gekühlt",
-        "loinc":  "27810-7",
-        "material":  [
-                         "Citratplasma"
-                     ],
-        "mindestmenge_ml":  0.7,
-        "name":  "Faktor VIII",
-        "sortierNummer":  "130",
-        "synonyme":  [
-                         "Faktor 8"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "am selben Tag",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP Faktor IX",
-                              "url":  "/infobase/sop_Faktor IX.pdf"
-                          }
-                      ],
-        "durchführung":  "Mo-Fr 7-17Uhr",
-        "ebm":  "32370",
-        "einheit":  "Sekunden",
-        "goae":  "3503",
-        "hinweise":  [
-
-                     ],
-        "id":  "G014",
-        "kategorie":  "Gerinnung",
-        "lagerung":  "gekühlt",
-        "loinc":  "27811-5",
-        "material":  [
-                         "Citratplasma"
-                     ],
-        "mindestmenge_ml":  0.7,
-        "name":  "Faktor IX",
-        "sortierNummer":  "140",
-        "synonyme":  [
-                         "Faktor 9"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "am selben Tag",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP Faktor X",
-                              "url":  "/infobase/sop_Faktor X.pdf"
-                          }
-                      ],
-        "durchführung":  "Mo-Fr 7-17Uhr",
-        "ebm":  "32370",
-        "einheit":  "Sekunden",
-        "goae":  "3503",
-        "hinweise":  [
-
-                     ],
-        "id":  "G015",
-        "kategorie":  "Gerinnung",
-        "lagerung":  "gekühlt",
-        "loinc":  "27811-5",
-        "material":  [
-                         "Citratplasma"
-                     ],
-        "mindestmenge_ml":  0.7,
-        "name":  "Faktor X",
-        "sortierNummer":  "150",
-        "synonyme":  [
-                         "Faktor 10"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "Max. 7Tage",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP Faktor IIX",
-                              "url":  "/infobase/sop_Faktor IIX.pdf"
-                          }
-                      ],
-        "durchführung":  "Mi–Fr",
-        "ebm":  "32371",
-        "einheit":  "Sekunden",
-        "goae":  "3504",
-        "hinweise":  [
-
-                     ],
-        "id":  "G016",
-        "kategorie":  "Gerinnung",
-        "lagerung":  "gekühlt",
-        "loinc":  "27811-6",
-        "material":  [
-                         "Citratplasma"
-                     ],
-        "mindestmenge_ml":  0.7,
-        "name":  "Faktor IIX",
-        "sortierNummer":  "160",
-        "synonyme":  [
-                         "Faktor 12"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "Max. 7Tage",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP Lupus-Antikoagulans",
-                              "url":  "/infobase/sop_Lupus-Antikoagulans.pdf"
-                          }
-                      ],
-        "durchführung":  "Mi–Fr",
-        "ebm":  "32435",
-        "einheit":  null,
-        "goae":  "3500",
-        "hinweise":  [
-
-                     ],
-        "id":  "G017",
-        "kategorie":  "Gerinnung",
-        "lagerung":  "gekühlt",
-        "loinc":  "30242-2",
-        "material":  [
-                         "Citratplasma"
-                     ],
-        "mindestmenge_ml":  0.7,
-        "name":  "Lupus-Antikoagulans",
-        "sortierNummer":  "170",
-        "synonyme":  [
-
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "1 Stunde",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP kleines Blutbild",
-                              "url":  "/infobase/kleines Blutbild.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32986",
-        "einheit":  "10^3/µl",
-        "goae":  "3520",
-        "hinweise":  [
-
-                     ],
-        "id":  "H001",
-        "kategorie":  "Hämatologie",
-        "lagerung":  "Raumtemperatur",
-        "loinc":  "6690-2",
-        "material":  [
-                         "EDTA-Blut"
-                     ],
-        "mindestmenge_ml":  0.2,
-        "name":  "Leukozyten",
-        "sortierNummer":  "180",
-        "synonyme":  [
-                         "WBC"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "1 Stunde",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP kleines Blutbild",
-                              "url":  "/infobase/kleines Blutbild.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32104",
-        "einheit":  "10^6/µl",
-        "goae":  "3548",
-        "hinweise":  [
-
-                     ],
-        "id":  "H002",
-        "kategorie":  "Hämatologie",
-        "lagerung":  "Raumtemperatur",
-        "loinc":  "789-8",
-        "material":  [
-                         "EDTA-Blut"
-                     ],
-        "mindestmenge_ml":  0.2,
-        "name":  "Erythrozyten",
-        "sortierNummer":  "190",
-        "synonyme":  [
-                         "RBC"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "1 Stunde",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP kleines Blutbild",
-                              "url":  "/infobase/kleines Blutbild.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32987",
-        "einheit":  "g/dl",
-        "goae":  "3521",
-        "hinweise":  [
-
-                     ],
-        "id":  "H003",
-        "kategorie":  "Hämatologie",
-        "lagerung":  "Raumtemperatur",
-        "loinc":  "6690-3",
-        "material":  [
-                         "EDTA-Blut"
-                     ],
-        "mindestmenge_ml":  0.2,
-        "name":  "Hämoglobin",
-        "sortierNummer":  "200",
-        "synonyme":  [
-                         "HB"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "1 Stunde",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP kleines Blutbild",
-                              "url":  "/infobase/kleines Blutbild.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32364",
-        "einheit":  "10^3/µl",
-        "goae":  "3531",
-        "hinweise":  [
-
-                     ],
-        "id":  "H004",
-        "kategorie":  "Hämatologie",
-        "lagerung":  "Raumtemperatur",
-        "loinc":  "777-3",
-        "material":  [
-                         "EDTA-Blut"
-                     ],
-        "mindestmenge_ml":  0.2,
-        "name":  "Thrombozyten",
-        "sortierNummer":  "210",
-        "synonyme":  [
-                         "PLT"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "1 Stunde",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP kleines Blutbild",
-                              "url":  "/infobase/kleines Blutbild.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32331",
-        "einheit":  "%",
-        "goae":  "3510",
-        "hinweise":  [
-
-                     ],
-        "id":  "H005",
-        "kategorie":  "Hämatologie",
-        "lagerung":  "Raumtemperatur",
-        "loinc":  "4544-3",
-        "material":  [
-                         "EDTA-Blut"
-                     ],
-        "mindestmenge_ml":  0.2,
-        "name":  "Hämatokrit",
-        "sortierNummer":  "220",
-        "synonyme":  [
-                         "Hkt"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "1 Stunde",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP kleines Blutbild",
-                              "url":  "/infobase/kleines Blutbild.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32328",
-        "einheit":  "fl",
-        "goae":  "3525",
-        "hinweise":  [
-
-                     ],
-        "id":  "H006",
-        "kategorie":  "Hämatologie",
-        "lagerung":  "Raumtemperatur",
-        "loinc":  "787-2",
-        "material":  [
-                         "EDTA-Blut"
-                     ],
-        "mindestmenge_ml":  0.2,
-        "name":  "MCV",
-        "sortierNummer":  "230",
-        "synonyme":  [
-                         "mittleres Erythrozytenvolumen"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "1 Stunde",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP kleines Blutbild",
-                              "url":  "/infobase/kleines Blutbild.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32671",
-        "einheit":  "pg",
-        "goae":  "3547",
-        "hinweise":  [
-
-                     ],
-        "id":  "H007",
-        "kategorie":  "Hämatologie",
-        "lagerung":  "Raumtemperatur",
-        "loinc":  "785-6",
-        "material":  [
-                         "EDTA-Blut"
-                     ],
-        "mindestmenge_ml":  0.2,
-        "name":  "MCH",
-        "sortierNummer":  "240",
-        "synonyme":  [
-                         "mittlerer Hb-Gehalt"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "1 Stunde",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP kleines Blutbild",
-                              "url":  "/infobase/kleines Blutbild.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32027",
-        "einheit":  "g/dl",
-        "goae":  "3555",
-        "hinweise":  [
-
-                     ],
-        "id":  "H008",
-        "kategorie":  "Hämatologie",
-        "lagerung":  "Raumtemperatur",
-        "loinc":  "786-4",
-        "material":  [
-                         "EDTA-Blut"
-                     ],
-        "mindestmenge_ml":  0.2,
-        "name":  "MCHC",
-        "sortierNummer":  "250",
-        "synonyme":  [
-                         "mittlere Hb-Konzentration"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "1 Stunde",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP kleines Blutbild",
-                              "url":  "/infobase/kleines Blutbild.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32422",
-        "einheit":  null,
-        "goae":  "3577",
-        "hinweise":  [
-
-                     ],
-        "id":  "H009",
-        "kategorie":  "Hämatologie",
-        "lagerung":  "Raumtemperatur",
-        "loinc":  "788-0",
-        "material":  [
-                         "EDTA-Blut"
-                     ],
-        "mindestmenge_ml":  0.5,
-        "name":  "RDW",
-        "sortierNummer":  "260",
-        "synonyme":  [
-                         "Erythrozytenverteilungsbreite"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "1 Stunde",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP Retikulozyten",
-                              "url":  "/infobase/Retikulozyten.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32102",
-        "einheit":  "10^3/µl",
-        "goae":  "3574",
-        "hinweise":  [
-
-                     ],
-        "id":  "H010",
-        "kategorie":  "Hämatologie",
-        "lagerung":  "gekühlt",
-        "loinc":  "4679-7",
-        "material":  [
-                         "EDTA-Blut"
-                     ],
-        "mindestmenge_ml":  0.5,
-        "name":  "Retikulozyten Absolut",
-        "sortierNummer":  "270",
-        "synonyme":  [
-                         "Retis"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "2 Stunde",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP Retikulozyten",
-                              "url":  "/infobase/Retikulozyten.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32103",
-        "einheit":  "g/dl",
-        "goae":  "3575",
-        "hinweise":  [
-
-                     ],
-        "id":  "H011",
-        "kategorie":  "Hämatologie",
-        "lagerung":  "gekühlt",
-        "loinc":  "4679-8",
-        "material":  [
-                         "EDTA-Blut"
-                     ],
-        "mindestmenge_ml":  0.6,
-        "name":  "Retikulozyten Absolut-Hb",
-        "sortierNummer":  "280",
-        "synonyme":  [
-                         "Reti-Hb"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "3 Stunde",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP Retikulozyten",
-                              "url":  "/infobase/Retikulozyten.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32104",
-        "einheit":  "%",
-        "goae":  "3576",
-        "hinweise":  [
-
-                     ],
-        "id":  "H012",
-        "kategorie":  "Hämatologie",
-        "lagerung":  "gekühlt",
-        "loinc":  "4679-9",
-        "material":  [
-                         "EDTA-Blut"
-                     ],
-        "mindestmenge_ml":  0.7,
-        "name":  "Retikulozyten Absolut",
-        "sortierNummer":  "290",
-        "synonyme":  [
-                         "Retis %"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "Mo-Fr 7-17Uhr",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP großes Blutbild",
-                              "url":  "/infobase/großes Blutbild.pdf"
-                          }
-                      ],
-        "durchführung":  "Mo-Fr 7-17Uhr",
-        "ebm":  "32864",
-        "einheit":  null,
-        "goae":  "3523",
-        "hinweise":  [
-                         "nur bei pathologischen Auffälligkeiten"
-                     ],
-        "id":  "H013",
-        "kategorie":  "Hämatologie",
-        "lagerung":  "gekühlt",
-        "loinc":  "58410-2",
-        "material":  [
-                         "EDTA-Blut"
-                     ],
-        "mindestmenge_ml":  0.5,
-        "name":  "Blutausstrich",
-        "sortierNummer":  "300",
-        "synonyme":  [
-                         "Differenzierung manuell"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "1 Stunde",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP großes Blutbild",
-                              "url":  "/infobase/großes Blutbild.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32102",
-        "einheit":  "10^3/µl",
-        "goae":  "3574",
-        "hinweise":  [
-
-                     ],
-        "id":  "H014",
-        "kategorie":  "Hämatologie",
-        "lagerung":  "gekühlt",
-        "loinc":  "4679-7",
-        "material":  [
-                         "EDTA-Blut"
-                     ],
-        "mindestmenge_ml":  0.5,
-        "name":  "Neutrophile Absolut",
-        "sortierNummer":  "310",
-        "synonyme":  [
-                         "Neutro#"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "2 Stunde",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP großes Blutbild",
-                              "url":  "/infobase/großes Blutbild.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32103",
-        "einheit":  "%",
-        "goae":  "3575",
-        "hinweise":  [
-
-                     ],
-        "id":  "H015",
-        "kategorie":  "Hämatologie",
-        "lagerung":  "gekühlt",
-        "loinc":  "4679-8",
-        "material":  [
-                         "EDTA-Blut"
-                     ],
-        "mindestmenge_ml":  0.6,
-        "name":  "Neutrophile Relativ",
-        "sortierNummer":  "320",
-        "synonyme":  [
-                         "Neutro%"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "3 Stunde",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP großes Blutbild",
-                              "url":  "/infobase/großes Blutbild.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32104",
-        "einheit":  "10^3/µl",
-        "goae":  "3576",
-        "hinweise":  [
-
-                     ],
-        "id":  "H016",
-        "kategorie":  "Hämatologie",
-        "lagerung":  "gekühlt",
-        "loinc":  "4679-9",
-        "material":  [
-                         "EDTA-Blut"
-                     ],
-        "mindestmenge_ml":  0.7,
-        "name":  "Lymphozyten Absolut",
-        "sortierNummer":  "330",
-        "synonyme":  [
-                         "Lymph#"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "4 Stunde",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP großes Blutbild",
-                              "url":  "/infobase/großes Blutbild.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32105",
-        "einheit":  "%",
-        "goae":  "3577",
-        "hinweise":  [
-
-                     ],
-        "id":  "H017",
-        "kategorie":  "Hämatologie",
-        "lagerung":  "gekühlt",
-        "loinc":  "4679-10",
-        "material":  [
-                         "EDTA-Blut"
+                         "Serum"
                      ],
         "mindestmenge_ml":  0.8,
-        "name":  "Lymphozyten Relativ",
-        "sortierNummer":  "340",
+        "name":  "Anti-β2-Glykoprotein-II-Antikörper",
+        "sortierNummer":  "920",
         "synonyme":  [
-                         "Lymph%"
+                         "Antikörper gegen β2-Glykoprotein II"
                      ]
     },
     {
-        "aktiv":  null,
-        "befundzeit":  "5 Stunde",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP großes Blutbild",
-                              "url":  "/infobase/großes Blutbild.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32106",
-        "einheit":  "10^3/µl",
-        "goae":  "3578",
-        "hinweise":  [
-
-                     ],
-        "id":  "H018",
-        "kategorie":  "Hämatologie",
-        "lagerung":  "gekühlt",
-        "loinc":  "4679-11",
-        "material":  [
-                         "EDTA-Blut"
-                     ],
-        "mindestmenge_ml":  0.9,
-        "name":  "Monozyten Absolut",
-        "sortierNummer":  "350",
-        "synonyme":  [
-                         "Mono#"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "6 Stunde",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP großes Blutbild",
-                              "url":  "/infobase/großes Blutbild.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32107",
-        "einheit":  "%",
-        "goae":  "3579",
-        "hinweise":  [
-
-                     ],
-        "id":  "H019",
-        "kategorie":  "Hämatologie",
-        "lagerung":  "gekühlt",
-        "loinc":  "4679-12",
-        "material":  [
-                         "EDTA-Blut"
-                     ],
-        "mindestmenge_ml":  1,
-        "name":  "Monozyten Relativ",
-        "sortierNummer":  "360",
-        "synonyme":  [
-                         "Mono%"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "7 Stunde",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP großes Blutbild",
-                              "url":  "/infobase/großes Blutbild.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32108",
-        "einheit":  "10^3/µl",
-        "goae":  "3580",
-        "hinweise":  [
-
-                     ],
-        "id":  "H020",
-        "kategorie":  "Hämatologie",
-        "lagerung":  "gekühlt",
-        "loinc":  "4679-13",
-        "material":  [
-                         "EDTA-Blut"
-                     ],
-        "mindestmenge_ml":  1.1,
-        "name":  "Eosinophile Absolut",
-        "sortierNummer":  "370",
-        "synonyme":  [
-                         "Eo#"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "8 Stunde",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP großes Blutbild",
-                              "url":  "/infobase/großes Blutbild.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32109",
-        "einheit":  "%",
-        "goae":  "3581",
-        "hinweise":  [
-
-                     ],
-        "id":  "H021",
-        "kategorie":  "Hämatologie",
-        "lagerung":  "gekühlt",
-        "loinc":  "4679-14",
-        "material":  [
-                         "EDTA-Blut"
-                     ],
-        "mindestmenge_ml":  1.2,
-        "name":  "Eosinophile Relativ",
-        "sortierNummer":  "380",
-        "synonyme":  [
-                         "Eo%"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "9 Stunde",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP Fragmentozyten",
-                              "url":  "/infobase/sop_Fragmentozyten.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32110",
-        "einheit":  "‰",
-        "goae":  "3582",
-        "hinweise":  [
-
-                     ],
-        "id":  "H022",
-        "kategorie":  "Hämatologie",
-        "lagerung":  "gekühlt",
-        "loinc":  "4679-15",
-        "material":  [
-                         "EDTA-Blut"
-                     ],
-        "mindestmenge_ml":  1.3,
-        "name":  "Fragmentozyten",
-        "sortierNummer":  "390",
-        "synonyme":  [
-                         "Helm-Cells",
-                         "Fraggis"
-                     ]
-    },
-    {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -1799,14 +3005,14 @@
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Glukose",
-        "sortierNummer":  "400",
+        "sortierNummer":  "930",
         "synonyme":  [
                          "BZ",
                          "Blutzucker"
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -1830,14 +3036,14 @@
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Kreatinin",
-        "sortierNummer":  "410",
+        "sortierNummer":  "940",
         "synonyme":  [
                          "Crea",
                          "Krea"
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -1861,14 +3067,14 @@
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Harnstoff",
-        "sortierNummer":  "420",
+        "sortierNummer":  "950",
         "synonyme":  [
                          "HNST",
                          "UREA"
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -1892,13 +3098,13 @@
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Natrium",
-        "sortierNummer":  "430",
+        "sortierNummer":  "960",
         "synonyme":  [
                          "Na+"
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -1922,13 +3128,13 @@
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Kalium",
-        "sortierNummer":  "440",
+        "sortierNummer":  "970",
         "synonyme":  [
                          "K+"
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -1952,13 +3158,13 @@
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Chlorid",
-        "sortierNummer":  "450",
+        "sortierNummer":  "980",
         "synonyme":  [
                          "Cl-"
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -1982,13 +3188,13 @@
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Calcium",
-        "sortierNummer":  "460",
+        "sortierNummer":  "990",
         "synonyme":  [
                          "Ca2+"
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -2012,7 +3218,7 @@
                      ],
         "mindestmenge_ml":  0.4,
         "name":  "GPT",
-        "sortierNummer":  "470",
+        "sortierNummer":  "1000",
         "synonyme":  [
                          "Glutamat-Pyruvat-Transaminase",
                          "ALAT",
@@ -2020,7 +3226,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -2044,7 +3250,7 @@
                      ],
         "mindestmenge_ml":  0.4,
         "name":  "GOT",
-        "sortierNummer":  "480",
+        "sortierNummer":  "1010",
         "synonyme":  [
                          "Glutamat-Oxalacetat-Transaminase",
                          "ASAT",
@@ -2052,7 +3258,321 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Triglyceride",
+                              "url":  "/infobase/sop_Triglyceride.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32315",
+        "einheit":  "mg/dl",
+        "goae":  "3565",
+        "hinweise":  [
+                         "12 Stunden Nahrungskarenz empfohlen"
+                     ],
+        "id":  "K018",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "2571-8",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "Triglyceride",
+        "sortierNummer":  "1090",
+        "synonyme":  [
+                         "Triacylglyceride",
+                         "TG"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "4 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Chylomikronen",
+                              "url":  "/infobase/sop_Chylomikronen.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 8-16 Uhr",
+        "ebm":  "32316",
+        "einheit":  "mg/dl",
+        "goae":  "3566",
+        "hinweise":  [
+                         "Nüchternblutentnahme zwingend erforderlich",
+                         "Transport ins Labor innerhalb 1 Stunde"
+                     ],
+        "id":  "K022",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 6h",
+        "loinc":  "14381-6",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Chylomikronen",
+        "sortierNummer":  "1130",
+        "synonyme":  [
+                         "Chylomikronen-Test"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Cholesterin",
+                              "url":  "/infobase/sop_Cholesterin.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32314",
+        "einheit":  "mg/dl",
+        "goae":  "3562",
+        "hinweise":  [
+                         "Nüchtern empfohlen"
+                     ],
+        "id":  "K019",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "2093-3",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "Gesamt-Cholesterin",
+        "sortierNummer":  "1100",
+        "synonyme":  [
+                         "Cholesterin",
+                         "Total Cholesterol"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP HDL",
+                              "url":  "/infobase/sop_HDL.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32310",
+        "einheit":  "mg/dl",
+        "goae":  "3563",
+        "hinweise":  [
+                         "Nüchtern empfohlen"
+                     ],
+        "id":  "K020",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "2085-9",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "HDL-Cholesterin",
+        "sortierNummer":  "1110",
+        "synonyme":  [
+                         "HDL",
+                         "High Density Lipoprotein"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP LDL",
+                              "url":  "/infobase/sop_LDL.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32311",
+        "einheit":  "mg/dl",
+        "goae":  "3564",
+        "hinweise":  [
+                         "Nüchtern empfohlen",
+                         "Berechnung nach Friedewald-Formel"
+                     ],
+        "id":  "K021",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "2089-1",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "LDL-Cholesterin",
+        "sortierNummer":  "1120",
+        "synonyme":  [
+                         "LDL",
+                         "Low Density Lipoprotein"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "4 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP ApoA",
+                              "url":  "/infobase/sop_ApoA.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 8-16 Uhr",
+        "ebm":  "32317",
+        "einheit":  "mg/dl",
+        "goae":  "3567",
+        "hinweise":  [
+                         "Nüchtern empfohlen"
+                     ],
+        "id":  "K023",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "1869-7",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Apolipoprotein A",
+        "sortierNummer":  "1140",
+        "synonyme":  [
+                         "ApoA",
+                         "ApoA-I"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "4 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP ApoB",
+                              "url":  "/infobase/sop_ApoB.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 8-16 Uhr",
+        "ebm":  "32318",
+        "einheit":  "mg/dl",
+        "goae":  "3568",
+        "hinweise":  [
+                         "Nüchtern empfohlen"
+                     ],
+        "id":  "K024",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "1884-6",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Apolipoprotein B",
+        "sortierNummer":  "1150",
+        "synonyme":  [
+                         "ApoB",
+                         "ApoB-100"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "6 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Lp(a)",
+                              "url":  "/infobase/sop_Lpa.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 8-16 Uhr",
+        "ebm":  "32319",
+        "einheit":  "mg/dl",
+        "goae":  "3569",
+        "hinweise":  [
+                         "Genetisch determiniert",
+                         "Nicht nüchtern erforderlich"
+                     ],
+        "id":  "K025",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 48h",
+        "loinc":  "43394-2",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Lipoprotein A",
+        "sortierNummer":  "1160",
+        "synonyme":  [
+                         "Lp(a)",
+                         "Lp little a"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "8 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP sdLDL",
+                              "url":  "/infobase/sop_sdLDL.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 8-16 Uhr",
+        "ebm":  "32320",
+        "einheit":  "mg/dl",
+        "goae":  "3570",
+        "hinweise":  [
+                         "Nüchtern erforderlich",
+                         "12h Nahrungskarenz empfohlen"
+                     ],
+        "id":  "K026",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "62208-4",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.6,
+        "name":  "small dense LDL",
+        "sortierNummer":  "1170",
+        "synonyme":  [
+                         "sdLDL",
+                         "small-dense LDL Cholesterol"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP VLDL",
+                              "url":  "/infobase/sop_VLDL.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32312",
+        "einheit":  "mg/dl",
+        "goae":  "3565",
+        "hinweise":  [
+                         "Rechenparameter: VLDL = Triglyceride / 5",
+                         "Nüchtern empfohlen"
+                     ],
+        "id":  "K027",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "13458-0",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "VLDL-Cholesterin",
+        "sortierNummer":  "1180",
+        "synonyme":  [
+                         "VLDL",
+                         "Very Low Density Lipoprotein"
+                     ]
+    },
+    {
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -2076,961 +3596,220 @@
                      ],
         "mindestmenge_ml":  0.4,
         "name":  "Gamma-GT",
-        "sortierNummer":  "490",
+        "sortierNummer":  "1020",
         "synonyme":  [
                          "GGT"
                      ]
     },
     {
-        "aktiv":  null,
-        "befundzeit":  "3 Stunden",
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
-                              "titel":  "SOP TSH",
-                              "url":  "/infobase/sop_TSH.pdf"
+                              "titel":  "SOP Bilirubin",
+                              "url":  "/infobase/sop_Bilirubin.pdf"
                           }
                       ],
         "durchführung":  "24/7",
-        "ebm":  "32687",
-        "einheit":  "mU/l",
-        "goae":  "3504",
+        "ebm":  "32712",
+        "einheit":  "mg/dl",
+        "goae":  "3586",
         "hinweise":  [
-                         "Nüchtern empfohlen",
-                         "Medikamenteneinnahme dokumentieren"
+
                      ],
         "id":  "K011",
         "kategorie":  "Klinische Chemie",
         "lagerung":  "gekühlt, max. 24h",
-        "loinc":  "11580-8",
-        "material":  [
-                         "Serum"
-                     ],
-        "mindestmenge_ml":  0.5,
-        "name":  "TSH",
-        "sortierNummer":  "500",
-        "synonyme":  [
-                         "Thyreoidea-stimulierendes Hormon",
-                         "Thyreotropin"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "2 Stunden",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP CRP",
-                              "url":  "/infobase/sop_CRP.pdf"
-                          }
-                      ],
-        "durchführung":  "24/7",
-        "ebm":  "32456",
-        "einheit":  "mg/dl",
-        "goae":  "3565",
-        "hinweise":  [
-
-                     ],
-        "id":  "F001",
-        "kategorie":  "Infektionsdiagnostik",
-        "lagerung":  "Raumtemperatur, max. 6h",
-        "loinc":  "1988-5",
+        "loinc":  "1975-2",
         "material":  [
                          "Serum"
                      ],
         "mindestmenge_ml":  0.3,
-        "name":  "CRP",
-        "sortierNummer":  "510",
+        "name":  "Bilirubin gesamt",
+        "sortierNummer":  "1030",
         "synonyme":  [
-                         "C-reaktives Protein",
-                         "Entzündungsmarker"
+                         "Bili gesamt"
                      ]
     },
     {
-        "aktiv":  null,
-        "befundzeit":  "3 Stunden",
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
-                              "titel":  "SOP PCT",
-                              "url":  "/infobase/sop_PCT.pdf"
+                              "titel":  "SOP Bilirubin direkt",
+                              "url":  "/infobase/sop_Bilirubin_direkt.pdf"
                           }
                       ],
         "durchführung":  "24/7",
-        "ebm":  "32460",
+        "ebm":  "32713",
+        "einheit":  "mg/dl",
+        "goae":  "3587",
+        "hinweise":  [
+
+                     ],
+        "id":  "K012",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "1976-0",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "Bilirubin direkt",
+        "sortierNummer":  "1040",
+        "synonyme":  [
+                         "Bili direkt"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Bilirubin indirekt",
+                              "url":  "/infobase/sop_Bilirubin_indirekt.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32714",
+        "einheit":  "mg/dl",
+        "goae":  "3588",
+        "hinweise":  [
+
+                     ],
+        "id":  "K013",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "1977-8",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "Bilirubin indirekt",
+        "sortierNummer":  "1050",
+        "synonyme":  [
+                         "Bili indirekt"
+                     ]
+    },
+    {
+
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Harnsäure",
+                              "url":  "/infobase/sop_Harnsaeure.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32715",
+        "einheit":  "mg/dl",
+        "goae":  "3589",
+        "hinweise":  [
+
+                     ],
+        "id":  "K014",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "2717-4",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "Harnsäure",
+        "sortierNummer":  "1060",
+        "synonyme":  [
+                         "Harnsäure"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Ammonium",
+                              "url":  "/infobase/sop_Ammonium.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32716",
+        "einheit":  "µmol/l",
+        "goae":  "3590",
+        "hinweise":  [
+
+                     ],
+        "id":  "K015",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "3504-9",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "Ammonium",
+        "sortierNummer":  "1070",
+        "synonyme":  [
+                         "NH4+"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Eisen",
+                              "url":  "/infobase/sop_Eisen.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32717",
+        "einheit":  "µg/dl",
+        "goae":  "3591",
+        "hinweise":  [
+                         "Nüchtern empfohlen"
+                     ],
+        "id":  "K016",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "746-2",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "Eisen",
+        "sortierNummer":  "1080",
+        "synonyme":  [
+                         "Fe2+"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Ferritin",
+                              "url":  "/infobase/sop_Ferritin.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32718",
         "einheit":  "ng/ml",
-        "goae":  "3570",
+        "goae":  "3593",
         "hinweise":  [
-                         "Maximalwert i.d.R. nach 6-12 Stunden"
+
                      ],
-        "id":  "F002",
-        "kategorie":  "Infektionsdiagnostik",
-        "lagerung":  "Raumtemperatur, max. 4h",
-        "loinc":  "33959-8",
-        "material":  [
-                         "Serum",
-                         "EDTA-Plasma"
-                     ],
-        "mindestmenge_ml":  0.5,
-        "name":  "Procalcitonin",
-        "sortierNummer":  "511",
-        "synonyme":  [
-                         "PCT",
-                         "Sepsismarker"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "4 Stunden",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP IL-6",
-                              "url":  "/infobase/sop_IL-6.pdf"
-                          }
-                      ],
-        "durchführung":  "Mo-Fr 8-17 Uhr",
-        "ebm":  "32459",
-        "einheit":  "pg/ml",
-        "goae":  "3573",
-        "hinweise":  [
-                         "Frühmarker für Entzündungen",
-                         "Empfindlich für präanalytische Fehler"
-                     ],
-        "id":  "F003",
-        "kategorie":  "Infektionsdiagnostik",
-        "lagerung":  "Gekühlt, max. 6h",
-        "loinc":  "26881-9",
+        "id":  "K017",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "2276-4",
         "material":  [
                          "Serum"
                      ],
-        "mindestmenge_ml":  0.5,
-        "name":  "Interleukin-6",
-        "sortierNummer":  "512",
+        "mindestmenge_ml":  0.3,
+        "name":  "Ferritin",
+        "sortierNummer":  "1090",
         "synonyme":  [
-                         "IL-6",
-                         "Zytokin"
+                         "Ferritin"
                      ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "3 Tage",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP Antistreptolysin",
-                              "url":  "/infobase/sop_ASL.pdf"
-                          }
-                      ],
-        "durchführung":  "Mo-Fr 8-16 Uhr",
-        "ebm":  "32624",
-        "einheit":  "IU/ml",
-        "goae":  "4209",
-        "hinweise":  [
-                         "Verdacht auf Streptokokken-Infektion"
-                     ],
-        "id":  "F005",
-        "kategorie":  "Infektionsdiagnostik",
-        "lagerung":  "Gekühlt, max. 48h",
-        "loinc":  "5130-0",
-        "material":  [
-                         "Serum"
-                     ],
-        "mindestmenge_ml":  0.5,
-        "name":  "Antistreptolysin O",
-        "sortierNummer":  "514",
-        "synonyme":  [
-                         "ASL",
-                         "ASO",
-                         "Streptolysin-O-Antikörper"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "1-2 Tage",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP HBsAg",
-                              "url":  "/infobase/sop_HBsAg.pdf"
-                          }
-                      ],
-        "durchführung":  "Mo-Fr 8-16 Uhr",
-        "ebm":  "32781",
-        "einheit":  null,
-        "goae":  "4406",
-        "hinweise":  [
-                         "Positives Ergebnis meldepflichtig"
-                     ],
-        "id":  "F006",
-        "kategorie":  "Infektionsdiagnostik",
-        "lagerung":  "Gekühlt, max. 48h",
-        "loinc":  "5196-1",
-        "material":  [
-                         "Serum"
-                     ],
-        "mindestmenge_ml":  0.5,
-        "name":  "HBs-Antigen",
-        "sortierNummer":  "515",
-        "synonyme":  [
-                         "Hepatitis B Oberflächen-Antigen",
-                         "HBsAg"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "1-2 Tage",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP Anti-HCV",
-                              "url":  "/infobase/sop_Anti-HCV.pdf"
-                          }
-                      ],
-        "durchführung":  "Mo-Fr 8-16 Uhr",
-        "ebm":  "32783",
-        "einheit":  null,
-        "goae":  "4411",
-        "hinweise":  [
-                         "Bei positivem Ergebnis PCR-Bestätigung empfohlen"
-                     ],
-        "id":  "F007",
-        "kategorie":  "Infektionsdiagnostik",
-        "lagerung":  "Gekühlt, max. 48h",
-        "loinc":  "13955-0",
-        "material":  [
-                         "Serum"
-                     ],
-        "mindestmenge_ml":  0.5,
-        "name":  "Hepatitis C Antikörper",
-        "sortierNummer":  "516",
-        "synonyme":  [
-                         "Anti-HCV",
-                         "HCV-AK"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "1 Tag",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP HIV",
-                              "url":  "/infobase/sop_HIV.pdf"
-                          }
-                      ],
-        "durchführung":  "Mo-Fr 8-16 Uhr",
-        "ebm":  "32785",
-        "einheit":  null,
-        "goae":  "4414",
-        "hinweise":  [
-                         "Einwilligung des Patienten erforderlich",
-                         "Bei positivem Befund Bestätigungstest"
-                     ],
-        "id":  "F008",
-        "kategorie":  "Infektionsdiagnostik",
-        "lagerung":  "Gekühlt, max. 24h",
-        "loinc":  "22356-9",
-        "material":  [
-                         "Serum"
-                     ],
-        "mindestmenge_ml":  0.8,
-        "name":  "HIV-Suchtest",
-        "sortierNummer":  "517",
-        "synonyme":  [
-                         "HIV-Antikörper/Antigen-Test",
-                         "HIV-Screening"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "1-2 Tage",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP EBV Serologie",
-                              "url":  "/infobase/sop_EBV.pdf"
-                          }
-                      ],
-        "durchführung":  "Mo-Fr 8-16 Uhr",
-        "ebm":  "32592",
-        "einheit":  null,
-        "goae":  "4418",
-        "hinweise":  [
-                         "Bestimmung von VCA-IgM, VCA-IgG und EBNA-1-IgG"
-                     ],
-        "id":  "F009",
-        "kategorie":  "Infektionsdiagnostik",
-        "lagerung":  "Gekühlt, max. 48h",
-        "loinc":  "22308-0",
-        "material":  [
-                         "Serum"
-                     ],
-        "mindestmenge_ml":  0.5,
-        "name":  "EBV-Serologie",
-        "sortierNummer":  "518",
-        "synonyme":  [
-                         "Epstein-Barr-Virus Antikörper",
-                         "Pfeiffersches Drüsenfieber"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "1-2 Tage",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP CMV Serologie",
-                              "url":  "/infobase/sop_CMV.pdf"
-                          }
-                      ],
-        "durchführung":  "Mo-Fr 8-16 Uhr",
-        "ebm":  "32575",
-        "einheit":  null,
-        "goae":  "4422",
-        "hinweise":  [
-                         "Bestimmung von IgM und IgG",
-                         "Bei Schwangerschaft angeben"
-                     ],
-        "id":  "F010",
-        "kategorie":  "Infektionsdiagnostik",
-        "lagerung":  "Gekühlt, max. 48h",
-        "loinc":  "24119-0",
-        "material":  [
-                         "Serum"
-                     ],
-        "mindestmenge_ml":  0.5,
-        "name":  "CMV-Serologie",
-        "sortierNummer":  "519",
-        "synonyme":  [
-                         "Cytomegalievirus Antikörper"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "1-2 Tage",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP Toxoplasma",
-                              "url":  "/infobase/sop_Toxoplasma.pdf"
-                          }
-                      ],
-        "durchführung":  "Mo-Fr 8-16 Uhr",
-        "ebm":  "32641",
-        "einheit":  null,
-        "goae":  "4425",
-        "hinweise":  [
-                         "Bestimmung von IgM und IgG",
-                         "Bei Schwangerschaft besonders wichtig"
-                     ],
-        "id":  "F011",
-        "kategorie":  "Infektionsdiagnostik",
-        "lagerung":  "Gekühlt, max. 48h",
-        "loinc":  "22577-0",
-        "material":  [
-                         "Serum"
-                     ],
-        "mindestmenge_ml":  0.5,
-        "name":  "Toxoplasma-Serologie",
-        "sortierNummer":  "520",
-        "synonyme":  [
-                         "Toxoplasmose Antikörper",
-                         "Toxoplasma gondii Antikörper"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "2-4 Tage",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP Rubella",
-                              "url":  "/infobase/sop_Rubella.pdf"
-                          }
-                      ],
-        "durchführung":  "Mo-Fr 8-16 Uhr",
-        "ebm":  "32586",
-        "einheit":  "IU/ml",
-        "goae":  "4419",
-        "hinweise":  [
-                         "Bestimmung von IgM und IgG",
-                         "Impfanamnese beachten"
-                     ],
-        "id":  "F012",
-        "kategorie":  "Infektionsdiagnostik",
-        "lagerung":  "Gekühlt, max. 48h",
-        "loinc":  "31616-6",
-        "material":  [
-                         "Serum"
-                     ],
-        "mindestmenge_ml":  0.5,
-        "name":  "Röteln-Serologie",
-        "sortierNummer":  "521",
-        "synonyme":  [
-                         "Rubella-Antikörper",
-                         "Rötelntiter"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "2-4 Tage",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP Borrelia",
-                              "url":  "/infobase/sop_Borrelia.pdf"
-                          }
-                      ],
-        "durchführung":  "Mo, Mi, Fr",
-        "ebm":  "32584",
-        "einheit":  null,
-        "goae":  "4238",
-        "hinweise":  [
-                         "Positiver Suchtest wird mit Immunoblot bestätigt",
-                         "Zeckenstich angeben, falls bekannt"
-                     ],
-        "id":  "F013",
-        "kategorie":  "Infektionsdiagnostik",
-        "lagerung":  "Gekühlt, max. 48h",
-        "loinc":  "22121-2",
-        "material":  [
-                         "Serum"
-                     ],
-        "mindestmenge_ml":  0.7,
-        "name":  "Borrelia-Serologie",
-        "sortierNummer":  "522",
-        "synonyme":  [
-                         "Borreliose-Antikörper",
-                         "Lyme-Borreliose"
-                     ]
-    },
-    {
-        "aktiv":  null,
-        "befundzeit":  "3-5 Tage",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP TPHA",
-                              "url":  "/infobase/sop_TPHA.pdf"
-                          }
-                      ],
-        "durchführung":  "Mo, Mi, Fr",
-        "ebm":  "32644",
-        "einheit":  null,
-        "goae":  "4230",
-        "hinweise":  [
-                         "Bei positivem Test VDRL-Test empfohlen",
-                         "Einwilligung des Patienten erforderlich"
-                     ],
-        "id":  "F014",
-        "kategorie":  "Infektionsdiagnostik",
-        "lagerung":  "Gekühlt, max. 48h",
-        "loinc":  "31147-2",
-        "material":  [
-                         "Serum"
-                     ],
-        "mindestmenge_ml":  0.5,
-        "name":  "TPHA-Test",
-        "sortierNummer":  "523",
-        "synonyme":  [
-                         "Treponema pallidum Hämagglutination",
-                         "Syphilis-Suchtest"
-                     ]
-    },
-            {
-        "aktiv": true,
-        "befundzeit": "6 Stunden",
-        "dokumente": [],
-        "durchführung": "24/7",
-        "ebm": "32342",
-        "einheit": "pmol/l",
-        "goae": "3543",
-        "hinweise": [],
-        "id": "E002",
-        "kategorie": "Endokrinologie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": "3024-7",
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.5,
-        "name": "freies T4",
-        "sortierNummer": "202",
-        "synonyme": [
-            "fT4",
-            "Thyroxin, frei"
-        ]
-    },
-    {
-        "aktiv": true,
-        "befundzeit": "6 Stunden",
-        "dokumente": [],
-        "durchführung": "24/7",
-        "ebm": "32341",
-        "einheit": "pmol/l",
-        "goae": "3542",
-        "hinweise": [],
-        "id": "E003",
-        "kategorie": "Endokrinologie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": "14923-6",
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.5,
-        "name": "freies T3",
-        "sortierNummer": "203",
-        "synonyme": [
-            "fT3",
-            "Triiodthyronin, frei"
-        ]
-    },
-    {
-        "aktiv": true,
-        "befundzeit": "1 Tag",
-        "dokumente": [],
-        "durchführung": "Mo–Fr 8–16 Uhr",
-        "ebm": "32380",
-        "einheit": "ng/ml",
-        "goae": "3560",
-        "hinweise": [
-            "Probengewinnung am Morgen empfohlen"
-        ],
-        "id": "E004",
-        "kategorie": "Endokrinologie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": "16118-2",
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.8,
-        "name": "Cortisol",
-        "sortierNummer": "204",
-        "synonyme": []
-    },
-    {
-        "aktiv": false,
-        "befundzeit": "2 Tage",
-        "dokumente": [
-            {
-                "titel": "Hinweis auf externe Durchführung",
-                "url": "/infobase/fremdleistung_E005.pdf"
-            }
-        ],
-        "durchführung": "Einmal wöchentlich (Mittwoch)",
-        "ebm": "32390",
-        "einheit": "pg/ml",
-        "goae": "3561",
-        "hinweise": [
-            "Fremdleistung – verlängerte Bearbeitungszeit beachten"
-        ],
-        "id": "E005",
-        "kategorie": "Endokrinologie",
-        "lagerung": "gefroren, -20 °C",
-        "loinc": null,
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.6,
-        "name": "ACTH",
-        "sortierNummer": "205",
-        "synonyme": [
-            "Adrenocorticotropes Hormon"
-        ]
-    },
-    {
-        "aktiv": true,
-        "befundzeit": "1 Tag",
-        "dokumente": [],
-        "durchführung": "Mo–Fr 8–16 Uhr",
-        "ebm": "32381",
-        "einheit": "ng/ml",
-        "goae": "3562",
-        "hinweise": [
-            "Probengewinnung am Morgen empfohlen"
-        ],
-        "id": "E006",
-        "kategorie": "Endokrinologie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": null,
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.8,
-        "name": "DHEA-Sulfat",
-        "sortierNummer": "206",
-        "synonyme": []
-    },
-    {
-        "aktiv": true,
-        "befundzeit": "1 Tag",
-        "dokumente": [],
-        "durchführung": "Mo–Fr 8–16 Uhr",
-        "ebm": "32382",
-        "einheit": "ng/ml",
-        "goae": "3563",
-        "hinweise": [
-            "Probengewinnung am Morgen empfohlen"
-        ],
-        "id": "E007",
-        "kategorie": "Endokrinologie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": null,
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.8,
-        "name": "Dehydroepiandrosteron (DHEA)",
-        "sortierNummer": "207",
-        "synonyme": []
-    },
-    {
-        "aktiv": true,
-        "befundzeit": "1 Tag",
-        "dokumente": [],
-        "durchführung": "Mo–Fr 8–16 Uhr",
-        "ebm": "32383",
-        "einheit": "ng/ml",
-        "goae": "3564",
-        "hinweise": [
-            "Probengewinnung am Morgen empfohlen"
-        ],
-        "id": "E008",
-        "kategorie": "Endokrinologie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": null,
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.8,
-        "name": "17-Hydroxyprogesteron (17-OHP)",
-        "sortierNummer": "208",
-        "synonyme": []
-    },
-    {
-        "aktiv": true,
-        "befundzeit": "1 Tag",
-        "dokumente": [],
-        "durchführung": "Mo–Fr 8–16 Uhr",
-        "ebm": "32384",
-        "einheit": "ng/ml",
-        "goae": "3566",
-        "hinweise": [
-            "Probengewinnung am Morgen empfohlen"
-        ],
-        "id": "E009",
-        "kategorie": "Endokrinologie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": null,
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.8,
-        "name": "Progesteron",
-        "sortierNummer": "209",
-        "synonyme": []
-    },
-    {
-        "aktiv": true,
-        "befundzeit": "1 Tag",
-        "dokumente": [],
-        "durchführung": "Mo–Fr 8–16 Uhr",
-        "ebm": "32385",
-        "einheit": "pg/ml",
-        "goae": "3567",
-        "hinweise": [
-            "Geschlechtsspezifische Referenzbereiche beachten"
-        ],
-        "id": "E010",
-        "kategorie": "Endokrinologie",
-        "lagerung": "gekühlt, max. 48h",
-        "loinc": "2243-4",
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.8,
-        "name": "Estradiol",
-        "sortierNummer": "210",
-        "synonyme": [
-            "E2",
-            "17β-Estradiol"
-        ]
-    },
-    {
-        "aktiv": true,
-        "befundzeit": "1 Tag",
-        "dokumente": [],
-        "durchführung": "Mo–Fr 8–16 Uhr",
-        "ebm": "32386",
-        "einheit": "ng/ml",
-        "goae": "3568",
-        "hinweise": [
-            "Tageszeitabhängige Schwankungen beachten"
-        ],
-        "id": "E011",
-        "kategorie": "Endokrinologie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": "2986-8",
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.7,
-        "name": "Testosteron",
-        "sortierNummer": "211",
-        "synonyme": []
-    },
-    {
-        "aktiv": true,
-        "befundzeit": "2 Tage",
-        "dokumente": [],
-        "durchführung": "Mo–Fr 8–16 Uhr",
-        "ebm": "32387",
-        "einheit": "mIU/ml",
-        "goae": "3569",
-        "hinweise": [
-            "Bei Frauen: Zyklusphase angeben"
-        ],
-        "id": "E012",
-        "kategorie": "Endokrinologie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": "10501-5",
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.7,
-        "name": "FSH",
-        "sortierNummer": "212",
-        "synonyme": [
-            "Follikelstimulierendes Hormon"
-        ]
-    },
-    {
-        "aktiv": true,
-        "befundzeit": "2 Tage",
-        "dokumente": [],
-        "durchführung": "Mo–Fr 8–16 Uhr",
-        "ebm": "32388",
-        "einheit": "mIU/ml",
-        "goae": "3570",
-        "hinweise": [
-            "Bei Frauen: Zyklusphase angeben"
-        ],
-        "id": "E013",
-        "kategorie": "Endokrinologie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": "10501-6",
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.7,
-        "name": "LH",
-        "sortierNummer": "213",
-        "synonyme": [
-            "Luteinisierendes Hormon"
-        ]
-    },
-    {
-        "aktiv": true,
-        "befundzeit": "1 Tag",
-        "dokumente": [
-            {
-                "titel": "SOP Prolaktin",
-                "url": "/infobase/sop_E014.pdf"
-            }
-        ],
-        "durchführung": "Mo–Fr 8–16 Uhr",
-        "ebm": "32389",
-        "einheit": "ng/ml",
-        "goae": "3571",
-        "hinweise": [
-            "Morgenprobe empfohlen",
-            "Stress kann Werte erhöhen"
-        ],
-        "id": "E014",
-        "kategorie": "Endokrinologie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": "2842-3",
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.7,
-        "name": "Prolaktin",
-        "sortierNummer": "214",
-        "synonyme": [
-            "PRL"
-        ]
-    },
-    {
-        "aktiv": true,
-        "befundzeit": "2 Tage",
-        "dokumente": [
-            {
-                "titel": "SOP HCG",
-                "url": "/infobase/sop_E015.pdf"
-            }
-        ],
-        "durchführung": "Mo–Fr 8–16 Uhr",
-        "ebm": "32396",
-        "einheit": "mIU/ml",
-        "goae": "3578",
-        "hinweise": [
-            "Schwangerschaftstest"
-        ],
-        "id": "E015",
-        "kategorie": "Endokrinologie",
-        "lagerung": "gekühlt, max. 48h",
-        "loinc": "2106-3",
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.5,
-        "name": "hCG",
-        "sortierNummer": "215",
-        "synonyme": [
-            "humanes Choriongonadotropin"
-        ]
-    },
-    {
-        "aktiv": true,
-        "befundzeit": "1 Tag",
-        "dokumente": [
-            {
-                "titel": "SOP Insulin",
-                "url": "/infobase/sop_E016.pdf"
-            }
-        ],
-        "durchführung": "Mo–Fr 8–16 Uhr",
-        "ebm": "32402",
-        "einheit": "μIU/ml",
-        "goae": "3584",
-        "hinweise": [
-            "Nüchternwert empfohlen",
-            "Transport unmittelbar ins Labor"
-        ],
-        "id": "E016",
-        "kategorie": "Endokrinologie",
-        "lagerung": "gekühlt, max. 12h",
-        "loinc": "20448-7",
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.8,
-        "name": "Insulin",
-        "sortierNummer": "216",
-        "synonyme": []
-    },
-    {
-        "aktiv": true,
-        "befundzeit": "3 Tage",
-        "dokumente": [
-            {
-                "titel": "SOP Vitamin D",
-                "url": "/infobase/sop_E017.pdf"
-            }
-        ],
-        "durchführung": "Mo–Fr 8–16 Uhr",
-        "ebm": "32411",
-        "einheit": "ng/ml",
-        "goae": "3592",
-        "hinweise": [
-            "Lichtsensitiv - dunkle Röhrchen verwenden"
-        ],
-        "id": "E017",
-        "kategorie": "Endokrinologie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": "1989-3",
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.7,
-        "name": "25-OH-Vitamin D",
-        "sortierNummer": "217",
-        "synonyme": [
-            "Calcidiol",
-            "Vitamin D-Status"
-        ]
-    },
-    {
-        "aktiv": true,
-        "befundzeit": "1 Tag",
-        "dokumente": [
-            {
-                "titel": "SOP Parathormon",
-                "url": "/infobase/sop_E018.pdf"
-            }
-        ],
-        "durchführung": "Mo–Fr 8–14 Uhr",
-        "ebm": "32421",
-        "einheit": "pg/ml",
-        "goae": "3597",
-        "hinweise": [
-            "Schneller Transport erforderlich",
-            "EDTA-Plasma bevorzugt"
-        ],
-        "id": "E018",
-        "kategorie": "Endokrinologie",
-        "lagerung": "gekühlt, max. 8h",
-        "loinc": "2731-8",
-        "material": [
-            "EDTA-Plasma",
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.9,
-        "name": "Parathormon",
-        "sortierNummer": "218",
-        "synonyme": [
-            "PTH",
-            "Parathyrin"
-        ]
-    },
-    {
-        "aktiv": true,
-        "befundzeit": "2 Tage",
-        "dokumente": [
-            {
-                "titel": "SOP Calcitonin",
-                "url": "/infobase/sop_E019.pdf"
-            }
-        ],
-        "durchführung": "Di, Do 8–12 Uhr",
-        "ebm": "32422",
-        "einheit": "pg/ml",
-        "goae": "3598",
-        "hinweise": [
-            "Sofort zentrifugieren",
-            "Hämolytische Proben unbrauchbar"
-        ],
-        "id": "E019",
-        "kategorie": "Endokrinologie",
-        "lagerung": "gefroren, -20 °C",
-        "loinc": "1793-9",
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 1.0,
-        "name": "Calcitonin",
-        "sortierNummer": "219",
-        "synonyme": [
-            "Thyrocalcitonin"
-        ]
-    },
-    {
-        "aktiv": true,
-        "befundzeit": "3 Tage",
-        "dokumente": [
-            {
-                "titel": "SOP IGF-1",
-                "url": "/infobase/sop_E020.pdf"
-            }
-        ],
-        "durchführung": "Mo, Mi, Fr 8–14 Uhr",
-        "ebm": "32425",
-        "einheit": "ng/ml",
-        "goae": "3599",
-        "hinweise": [
-            "Alters- und geschlechtsabhängige Referenzbereiche",
-            "Nicht während Wachstumshormontherapie abzunehmen"
-        ],
-        "id": "E020",
-        "kategorie": "Endokrinologie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": "2484-4",
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.7,
-        "name": "IGF-1",
-        "sortierNummer": "220",
-        "synonyme": [
-            "Insulin-like Growth Factor 1",
-            "Somatomedin C"
-        ]
     }
 ]

@@ -33,7 +33,7 @@
 .group-row {
   cursor: pointer;
   background-color: var(--md-sys-color-secondary-container, #E8F5E9);
-  transition: background-color 0.2s;
+  transition: background-color 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .group-row:hover {
@@ -52,12 +52,59 @@
 }
 
 .group-count {
-  background-color: var(--md-sys-color-primary, #6abf7b);
-  color: var(--md-sys-color-on-primary, #FFFFFF);
+  background-color: rgba(0, 0, 0, 0.15); /* Fallback-Farbe */
+  color: var(--md-sys-color-on-surface, #1C1B1F);
   border-radius: 12px;
   padding: 2px 8px;
   font-size: 0.8rem;
   margin-right: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+/* Spezifische Zählerfarben für jede Kategorie */
+.category-hämatologie .group-count {
+  background-color: #f44336; /* Rot */
+  color: white;
+}
+
+.category-klinische-chemie .group-count {
+  background-color: #795548; /* Braun */
+  color: white;
+}
+
+.category-gerinnung .group-count {
+  background-color: #4CAF50; /* Grün */
+  color: white;
+}
+
+.category-immunologie .group-count {
+  background-color: #2196F3; /* Blau */
+  color: white;
+}
+
+.category-mikrobiologie .group-count {
+  background-color: #9C27B0; /* Violett */
+  color: white;
+}
+
+.category-endokrinologie .group-count {
+  background-color: #FFC107; /* Amber/Gold */
+  color: black; /* Dunklere Textfarbe für hellere Hintergründe */
+}
+
+.category-virologie .group-count {
+  background-color: #00BCD4; /* Hellblau */
+  color: white;
+}
+
+.category-infektionsdiagnostik .group-count {
+  background-color: #795548; /* Braun */
+  color: white;
+}
+
+.category-unknown .group-count {
+  background-color: #9E9E9E; /* Grau */
+  color: white;
 }
 
 .group-expand-icon {

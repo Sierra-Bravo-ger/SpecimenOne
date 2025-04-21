@@ -81,16 +81,13 @@ function DrilldownTable({
   };
 
   return (
-    <div className="drilldown-table-container">
-      <table className="drilldown-table">
+    <div className="drilldown-table-container">      <table className="drilldown-table">
         <thead>
-          <tr>
-            {columns.map(column => (
+          <tr>{columns.map(column => (
               <th key={column.id} style={{ width: column.width || 'auto' }}>
                 {column.label}
               </th>
-            ))}
-            <th style={{ width: '30px' }}></th> {/* Spalte für Expand-Icon */}
+            ))}<th style={{ width: '30px' }}></th>{/* Spalte für Expand-Icon */}
           </tr>
         </thead>
         <tbody>

@@ -1,6 +1,6 @@
 ﻿[
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "3 Stunden",
         "dokumente":  [
                           {
@@ -581,7 +581,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -612,7 +612,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "3 Stunden",
         "dokumente":  [
                           {
@@ -644,7 +644,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "4 Stunden",
         "dokumente":  [
                           {
@@ -676,7 +676,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "3 Tage",
         "dokumente":  [
                           {
@@ -708,7 +708,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "1-2 Tage",
         "dokumente":  [
                           {
@@ -739,7 +739,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "1-2 Tage",
         "dokumente":  [
                           {
@@ -770,7 +770,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "1 Tag",
         "dokumente":  [
                           {
@@ -802,7 +802,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "1-2 Tage",
         "dokumente":  [
                           {
@@ -832,7 +832,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "1-2 Tage",
         "dokumente":  [
                           {
@@ -862,7 +862,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "1-2 Tage",
         "dokumente":  [
                           {
@@ -892,7 +892,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "1-2 Tage",
         "dokumente":  [
                           {
@@ -922,7 +922,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "1-2 Tage",
         "dokumente":  [
                           {
@@ -953,7 +953,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "1-2 Tage",
         "dokumente":  [
                           {
@@ -983,7 +983,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "1-2 Tage",
         "dokumente":  [
                           {
@@ -1014,7 +1014,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2-4 Tage",
         "dokumente":  [
                           {
@@ -1045,7 +1045,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2-4 Tage",
         "dokumente":  [
                           {
@@ -1077,7 +1077,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2-4 Tage",
         "dokumente":  [
                           {
@@ -1109,7 +1109,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2-4 Tage",
         "dokumente":  [
                           {
@@ -1142,7 +1142,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "3-5 Tage",
         "dokumente":  [
                           {
@@ -1174,7 +1174,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "1 Stunden",
         "dokumente":  [
                           {
@@ -1206,7 +1206,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "1 Stunden",
         "dokumente":  [
                           {
@@ -1236,7 +1236,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -1266,7 +1266,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -1296,7 +1296,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -1326,7 +1326,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -1356,7 +1356,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -1386,7 +1386,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "Max. 7Tage",
         "dokumente":  [
                           {
@@ -1416,7 +1416,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "Max. 7Tage",
         "dokumente":  [
                           {
@@ -1446,7 +1446,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "am selben Tag",
         "dokumente":  [
                           {
@@ -1476,7 +1476,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "am selben Tag",
         "dokumente":  [
                           {
@@ -1506,7 +1506,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "am selben Tag",
         "dokumente":  [
                           {
@@ -1536,7 +1536,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "am selben Tag",
         "dokumente":  [
                           {
@@ -1566,7 +1566,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "am selben Tag",
         "dokumente":  [
                           {
@@ -1596,7 +1596,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "am selben Tag",
         "dokumente":  [
                           {
@@ -1626,7 +1626,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "Max. 7Tage",
         "dokumente":  [
                           {
@@ -1656,7 +1656,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "Max. 7Tage",
         "dokumente":  [
                           {
@@ -1686,7 +1686,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "1 Stunde",
         "dokumente":  [
                           {
@@ -1716,7 +1716,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "1 Stunde",
         "dokumente":  [
                           {
@@ -1746,7 +1746,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "1 Stunde",
         "dokumente":  [
                           {
@@ -1776,7 +1776,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "1 Stunde",
         "dokumente":  [
                           {
@@ -1806,7 +1806,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "1 Stunde",
         "dokumente":  [
                           {
@@ -1836,7 +1836,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "1 Stunde",
         "dokumente":  [
                           {
@@ -1866,7 +1866,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "1 Stunde",
         "dokumente":  [
                           {
@@ -1896,7 +1896,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "1 Stunde",
         "dokumente":  [
                           {
@@ -1926,7 +1926,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "1 Stunde",
         "dokumente":  [
                           {
@@ -1956,7 +1956,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "1 Stunde",
         "dokumente":  [
                           {
@@ -1986,7 +1986,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunde",
         "dokumente":  [
                           {
@@ -2016,7 +2016,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "3 Stunde",
         "dokumente":  [
                           {
@@ -2046,7 +2046,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "Mo-Fr 7-17Uhr",
         "dokumente":  [
                           {
@@ -2076,7 +2076,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "1 Stunde",
         "dokumente":  [
                           {
@@ -2106,7 +2106,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunde",
         "dokumente":  [
                           {
@@ -2136,7 +2136,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "3 Stunde",
         "dokumente":  [
                           {
@@ -2166,7 +2166,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "4 Stunde",
         "dokumente":  [
                           {
@@ -2196,7 +2196,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "5 Stunde",
         "dokumente":  [
                           {
@@ -2226,7 +2226,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "6 Stunde",
         "dokumente":  [
                           {
@@ -2256,39 +2256,7 @@
                      ]
     },
     {
-        "aktiv":  null,
-        "befundzeit":  "4 Stunden",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP HbA1c",
-                              "url":  "/infobase/sop_HbA1c.pdf"
-                          }
-                      ],
-        "durchführung":  "Mo-Fr 7-17Uhr",
-        "ebm":  "32025",
-        "einheit":  "%",
-        "goae":  "3561",
-        "hinweise":  [
-                         "Langzeitblutzucker",
-                         "Nüchternwert nicht erforderlich"
-                     ],
-        "id":  "H023",
-        "kategorie":  "Hämatologie",
-        "lagerung":  "gekühlt, max. 48h",
-        "loinc":  "4548-4",
-        "material":  [
-                         "EDTA-Blut"
-                     ],
-        "mindestmenge_ml":  0.5,
-        "name":  "HbA1c",
-        "sortierNummer":  "725",
-        "synonyme":  [
-                         "Glykiertes Hämoglobin",
-                         "Hämoglobin A1c"
-                     ]
-    },
-    {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "7 Stunde",
         "dokumente":  [
                           {
@@ -2318,7 +2286,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "8 Stunde",
         "dokumente":  [
                           {
@@ -2348,7 +2316,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "9 Stunde",
         "dokumente":  [
                           {
@@ -2376,6 +2344,38 @@
         "synonyme":  [
                          "Helm-Cells",
                          "Fraggis"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "4 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP HbA1c",
+                              "url":  "/infobase/sop_HbA1c.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 7-17Uhr",
+        "ebm":  "32025",
+        "einheit":  "%",
+        "goae":  "3561",
+        "hinweise":  [
+                         "Langzeitblutzucker",
+                         "Nüchternwert nicht erforderlich"
+                     ],
+        "id":  "H023",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt, max. 48h",
+        "loinc":  "4548-4",
+        "material":  [
+                         "EDTA-Blut"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "HbA1c",
+        "sortierNummer":  "725",
+        "synonyme":  [
+                         "Glykiertes Hämoglobin",
+                         "Hämoglobin A1c"
                      ]
     },
     {
@@ -2981,7 +2981,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -3012,7 +3012,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -3043,7 +3043,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -3074,7 +3074,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -3104,7 +3104,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -3134,7 +3134,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -3164,7 +3164,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -3194,7 +3194,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -3226,7 +3226,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -3258,7 +3258,250 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Gamma-GT",
+                              "url":  "/infobase/sop_Gamma-GT.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32711",
+        "einheit":  "U/l",
+        "goae":  "3585",
+        "hinweise":  [
+
+                     ],
+        "id":  "K010",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt",
+        "loinc":  "2324-2",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.4,
+        "name":  "Gamma-GT",
+        "sortierNummer":  "1020",
+        "synonyme":  [
+                         "GGT"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Bilirubin",
+                              "url":  "/infobase/sop_Bilirubin.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32712",
+        "einheit":  "mg/dl",
+        "goae":  "3586",
+        "hinweise":  [
+
+                     ],
+        "id":  "K011",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "1975-2",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "Bilirubin gesamt",
+        "sortierNummer":  "1030",
+        "synonyme":  [
+                         "Bili gesamt",
+                         "TBIL"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Bilirubin direkt",
+                              "url":  "/infobase/sop_Bilirubin_direkt.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32713",
+        "einheit":  "mg/dl",
+        "goae":  "3587",
+        "hinweise":  [
+
+                     ],
+        "id":  "K012",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "1976-0",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "Bilirubin direkt",
+        "sortierNummer":  "1040",
+        "synonyme":  [
+                         "Bili direkt",
+                         "DBIL"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Bilirubin indirekt",
+                              "url":  "/infobase/sop_Bilirubin_indirekt.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32714",
+        "einheit":  "mg/dl",
+        "goae":  "3588",
+        "hinweise":  [
+
+                     ],
+        "id":  "K013",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "1977-8",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "Bilirubin indirekt",
+        "sortierNummer":  "1050",
+        "synonyme":  [
+                         "Bili indirekt"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Harnsäure",
+                              "url":  "/infobase/sop_Harnsaeure.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32715",
+        "einheit":  "mg/dl",
+        "goae":  "3589",
+        "hinweise":  [
+
+                     ],
+        "id":  "K014",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "2717-4",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "Harnsäure",
+        "sortierNummer":  "1060",
+        "synonyme":  [
+                         "Harnsäure",
+                         "URCA"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Ammonium",
+                              "url":  "/infobase/sop_Ammonium.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32716",
+        "einheit":  "µmol/l",
+        "goae":  "3590",
+        "hinweise":  [
+
+                     ],
+        "id":  "K015",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "3504-9",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "Ammonium",
+        "sortierNummer":  "1070",
+        "synonyme":  [
+                         "NH4+"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Eisen",
+                              "url":  "/infobase/sop_Eisen.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32717",
+        "einheit":  "µg/dl",
+        "goae":  "3591",
+        "hinweise":  [
+                         "Nüchtern empfohlen"
+                     ],
+        "id":  "K016",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "746-2",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "Eisen",
+        "sortierNummer":  "1080",
+        "synonyme":  [
+                         "Fe2+"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Ferritin",
+                              "url":  "/infobase/sop_Ferritin.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32718",
+        "einheit":  "ng/ml",
+        "goae":  "3593",
+        "hinweise":  [
+
+                     ],
+        "id":  "K017",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "2276-4",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "Ferritin",
+        "sortierNummer":  "1090",
+        "synonyme":  [
+                         "Ferritin"
+                     ]
+    },
+    {
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -3289,38 +3532,7 @@
                      ]
     },
     {
-        "aktiv":  null,
-        "befundzeit":  "4 Stunden",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP Chylomikronen",
-                              "url":  "/infobase/sop_Chylomikronen.pdf"
-                          }
-                      ],
-        "durchführung":  "Mo-Fr 8-16 Uhr",
-        "ebm":  "32316",
-        "einheit":  "mg/dl",
-        "goae":  "3566",
-        "hinweise":  [
-                         "Nüchternblutentnahme zwingend erforderlich",
-                         "Transport ins Labor innerhalb 1 Stunde"
-                     ],
-        "id":  "K022",
-        "kategorie":  "Klinische Chemie",
-        "lagerung":  "gekühlt, max. 6h",
-        "loinc":  "14381-6",
-        "material":  [
-                         "Serum"
-                     ],
-        "mindestmenge_ml":  0.5,
-        "name":  "Chylomikronen",
-        "sortierNummer":  "1130",
-        "synonyme":  [
-                         "Chylomikronen-Test"
-                     ]
-    },
-    {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -3351,7 +3563,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -3382,7 +3594,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -3414,7 +3626,38 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
+        "befundzeit":  "4 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Chylomikronen",
+                              "url":  "/infobase/sop_Chylomikronen.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 8-16 Uhr",
+        "ebm":  "32316",
+        "einheit":  "mg/dl",
+        "goae":  "3566",
+        "hinweise":  [
+                         "Nüchternblutentnahme zwingend erforderlich",
+                         "Transport ins Labor innerhalb 1 Stunde"
+                     ],
+        "id":  "K022",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 6h",
+        "loinc":  "14381-6",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Chylomikronen",
+        "sortierNummer":  "1130",
+        "synonyme":  [
+                         "Chylomikronen-Test"
+                     ]
+    },
+    {
+        "aktiv":  true,
         "befundzeit":  "4 Stunden",
         "dokumente":  [
                           {
@@ -3445,7 +3688,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "4 Stunden",
         "dokumente":  [
                           {
@@ -3476,7 +3719,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "6 Stunden",
         "dokumente":  [
                           {
@@ -3508,7 +3751,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "8 Stunden",
         "dokumente":  [
                           {
@@ -3540,7 +3783,7 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
@@ -3572,33 +3815,792 @@
                      ]
     },
     {
-        "aktiv":  null,
+        "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
-                              "titel":  "SOP Gamma-GT",
-                              "url":  "/infobase/sop_Gamma-GT.pdf"
+                              "titel":  "SOP Phosphat",
+                              "url":  "/infobase/sop_Phosphat.pdf"
                           }
                       ],
         "durchführung":  "24/7",
-        "ebm":  "32711",
-        "einheit":  "U/l",
-        "goae":  "3585",
+        "ebm":  "32107",
+        "einheit":  "mg/dl",
+        "goae":  "3536",
         "hinweise":  [
-
+                         "Tageszeitliche Schwankungen möglich"
                      ],
-        "id":  "K010",
+        "id":  "K028",
         "kategorie":  "Klinische Chemie",
-        "lagerung":  "gekühlt",
-        "loinc":  "2324-2",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "2777-1",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "Phosphat",
+        "sortierNummer":  "1190",
+        "synonyme":  [
+                         "Phosphor",
+                         "anorganisches Phosphat"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Magnesium",
+                              "url":  "/infobase/sop_Magnesium.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32108",
+        "einheit":  "mmol/l",
+        "goae":  "3537",
+        "hinweise":  [
+                         "Hämolyse vermeiden"
+                     ],
+        "id":  "K029",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "19123-9",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "Magnesium",
+        "sortierNummer":  "1200",
+        "synonyme":  [
+                         "Mg2+"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Alkalische Phosphatase",
+                              "url":  "/infobase/sop_AP.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32713",
+        "einheit":  "U/l",
+        "goae":  "3570",
+        "hinweise":  [
+                         "Referenzwerte alters- und geschlechtsabhängig"
+                     ],
+        "id":  "K030",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "6768-6",
         "material":  [
                          "Serum"
                      ],
         "mindestmenge_ml":  0.4,
-        "name":  "Gamma-GT",
-        "sortierNummer":  "1020",
+        "name":  "Alkalische Phosphatase",
+        "sortierNummer":  "1210",
         "synonyme":  [
-                         "GGT"
+                         "AP",
+                         "ALP"
                      ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "3 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP CK",
+                              "url":  "/infobase/sop_CK.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32320",
+        "einheit":  "U/l",
+        "goae":  "3558",
+        "hinweise":  [
+                         "Nach körperlicher Anstrengung erhöht",
+                         "Hämolyse vermeiden"
+                     ],
+        "id":  "K031",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "2157-6",
+        "material":  [
+                         "Serum"
+                     ],
+        "mindestmenge_ml":  0.4,
+        "name":  "Creatinkinase",
+        "sortierNummer":  "1220",
+        "synonyme":  [
+                         "CK",
+                         "Kreatinkinase"
+                     ]
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP LDH",
+                "url": "/infobase/sop_LDH.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": "32321",
+        "einheit": "U/l",
+        "goae": "3559",
+        "hinweise": [
+            "Hämolyse vermeiden",
+            "Erhöht bei Gewebeschädigung"
+        ],
+        "id": "K032",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "14804-9",
+        "material": [
+            "Serum"
+        ],
+        "mindestmenge_ml": 0.4,
+        "name": "Laktatdehydrogenase",
+        "sortierNummer": "1230",
+        "synonyme": [
+            "LDH"
+        ]
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Amylase",
+                "url": "/infobase/sop_Amylase.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": "32322",
+        "einheit": "U/l",
+        "goae": "3560",
+        "hinweise": [
+            "Erhöht bei Pankreatitis"
+        ],
+        "id": "K033",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "1798-8",
+        "material": [
+            "Serum"
+        ],
+        "mindestmenge_ml": 0.4,
+        "name": "Amylase",
+        "sortierNummer": "1240",
+        "synonyme": [
+            "α-Amylase"
+        ]
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Lipase",
+                "url": "/infobase/sop_Lipase.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": "32323",
+        "einheit": "U/l",
+        "goae": "3561",
+        "hinweise": [
+            "Erhöht bei akuter Pankreatitis"
+        ],
+        "id": "K034",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "3040-3",
+        "material": [
+            "Serum"
+        ],
+        "mindestmenge_ml": 0.4,
+        "name": "Lipase",
+        "sortierNummer": "1250",
+        "synonyme": [
+            "Pankreaslipase"
+        ]
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP LDH Isoenzyme",
+                "url": "/infobase/sop_LDH_Isoenzyme.pdf"
+            }
+        ],
+        "durchführung": "Mo-Fr 8-16 Uhr",
+        "ebm": "32324",
+        "einheit": "U/l",
+        "goae": "3562",
+        "hinweise": [
+            "Differenzierung bei erhöhtem LDH"
+        ],
+        "id": "K035",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "14805-6",
+        "material": [
+            "Serum"
+        ],
+        "mindestmenge_ml": 0.5,
+        "name": "LDH Isoenzyme",
+        "sortierNummer": "1260",
+        "synonyme": [
+            "Laktatdehydrogenase Isoenzyme"
+        ]
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Cholinesterase",
+                "url": "/infobase/sop_Cholinesterase.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": "32325",
+        "einheit": "U/l",
+        "goae": "3563",
+        "hinweise": [
+            "Leberfunktionsparameter"
+        ],
+        "id": "K036",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "1976-1",
+        "material": [
+            "Serum"
+        ],
+        "mindestmenge_ml": 0.4,
+        "name": "Cholinesterase",
+        "sortierNummer": "1270",
+        "synonyme": [
+            "CHE",
+            "Pseudocholinesterase"
+        ]
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Alpha-1-Antitrypsin",
+                "url": "/infobase/sop_Alpha-1-Antitrypsin.pdf"
+            }
+        ],
+        "durchführung": "Mo-Fr 8-16 Uhr",
+        "ebm": "32326",
+        "einheit": "mg/dl",
+        "goae": "3564",
+        "hinweise": [
+            "Akute-Phase-Protein"
+        ],
+        "id": "K037",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "1821-5",
+        "material": [
+            "Serum"
+        ],
+        "mindestmenge_ml": 0.5,
+        "name": "Alpha-1-Antitrypsin",
+        "sortierNummer": "1280",
+        "synonyme": [
+            "AAT"
+        ]
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Albumin",
+                "url": "/infobase/sop_Albumin.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": "32327",
+        "einheit": "g/dl",
+        "goae": "3565",
+        "hinweise": [
+            "Leberfunktionsparameter"
+        ],
+        "id": "K038",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "1751-7",
+        "material": [
+            "Serum"
+        ],
+        "mindestmenge_ml": 0.3,
+        "name": "Albumin",
+        "sortierNummer": "1290",
+        "synonyme": [
+            "Serumalbumin"
+        ]
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Gesamtprotein",
+                "url": "/infobase/sop_Gesamtprotein.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": "32328",
+        "einheit": "g/dl",
+        "goae": "3566",
+        "hinweise": [
+            "Gesamtprotein im Serum"
+        ],
+        "id": "K039",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "2885-2",
+        "material": [
+            "Serum"
+        ],
+        "mindestmenge_ml": 0.3,
+        "name": "Gesamtprotein",
+        "sortierNummer": "1300",
+        "synonyme": [
+            "Total Protein"
+        ]
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Haptoglobin",
+                "url": "/infobase/sop_Haptoglobin.pdf"
+            }
+        ],
+        "durchführung": "Mo-Fr 8-16 Uhr",
+        "ebm": "32329",
+        "einheit": "mg/dl",
+        "goae": "3567",
+        "hinweise": [
+            "Akute-Phase-Protein"
+        ],
+        "id": "K040",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "46193-7",
+        "material": [
+            "Serum"
+        ],
+        "mindestmenge_ml": 0.4,
+        "name": "Haptoglobin",
+        "sortierNummer": "1310",
+        "synonyme": [
+            "HAPT"
+        ]
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Urin-Albumin",
+                "url": "/infobase/sop_Urin-Albumin.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": "32330",
+        "einheit": "mg/l",
+        "goae": "3568",
+        "hinweise": [
+            "Mikroalbuminurie-Screening"
+        ],
+        "id": "K041",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "14959-9",
+        "material": [
+            "Spontanurin"
+        ],
+        "mindestmenge_ml": 5,
+        "name": "Urin-Albumin",
+        "sortierNummer": "1320",
+        "synonyme": [
+            "Mikroalbumin"
+        ]
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Urin-Protein",
+                "url": "/infobase/sop_Urin-Protein.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": "32331",
+        "einheit": "mg/dl",
+        "goae": "3569",
+        "hinweise": [
+            "Proteinurie-Screening"
+        ],
+        "id": "K042",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "2887-8",
+        "material": [
+            "Spontanurin"
+        ],
+        "mindestmenge_ml": 5,
+        "name": "Urin-Gesamtprotein",
+        "sortierNummer": "1330",
+        "synonyme": [
+            "Urin-Protein"
+        ]
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Urin-Kreatinin",
+                "url": "/infobase/sop_Urin-Kreatinin.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": "32332",
+        "einheit": "mg/dl",
+        "goae": "3570",
+        "hinweise": [
+            "Nierenfunktionsdiagnostik"
+        ],
+        "id": "K043",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "2161-8",
+        "material": [
+            "Spontanurin"
+        ],
+        "mindestmenge_ml": 5,
+        "name": "Urin-Kreatinin",
+        "sortierNummer": "1340",
+        "synonyme": [
+            "U-Kreatinin"
+        ]
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Urin-Harnstoff",
+                "url": "/infobase/sop_Urin-Harnstoff.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": "32626",
+        "einheit": "mg/dl",
+        "goae": "3571",
+        "hinweise": [
+            "Nierenfunktionsdiagnostik"
+        ],
+        "id": "K044",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "3097-3",
+        "material": [
+            "Spontanurin"
+        ],
+        "mindestmenge_ml": 5,
+        "name": "Urin-Harnstoff",
+        "sortierNummer": "1350",
+        "synonyme": [
+            "U-Harnstoff",
+            "Urea im Urin"
+        ]
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Urin-Natrium",
+                "url": "/infobase/sop_Urin-Natrium.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": "32604",
+        "einheit": "mmol/l",
+        "goae": "3572",
+        "hinweise": [
+            "Elektrolytbestimmung im Urin"
+        ],
+        "id": "K045",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "2956-1",
+        "material": [
+            "Spontanurin"
+        ],
+        "mindestmenge_ml": 5,
+        "name": "Urin-Natrium",
+        "sortierNummer": "1360",
+        "synonyme": [
+            "U-Natrium",
+            "Na+ im Urin"
+        ]
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Liquor-Glukose",
+                "url": "/infobase/sop_Liquor-Glukose.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": "32210",
+        "einheit": "mg/dl",
+        "goae": "3593",
+        "hinweise": [
+            "Vergleich mit Serum-Glukose empfohlen"
+        ],
+        "id": "K048",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "2342-4",
+        "material": [
+            "Liquor"
+        ],
+        "mindestmenge_ml": 0.5,
+        "name": "Liquor-Glukose",
+        "sortierNummer": "1390",
+        "synonyme": [
+            "CSF-Glukose"
+        ]
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Liquor-Protein",
+                "url": "/infobase/sop_Liquor-Protein.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": "32329",
+        "einheit": "mg/dl",
+        "goae": "3567",
+        "hinweise": [
+            "Gesamtprotein im Liquor"
+        ],
+        "id": "K049",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "2886-0",
+        "material": [
+            "Liquor"
+        ],
+        "mindestmenge_ml": 0.5,
+        "name": "Liquor-Gesamtprotein",
+        "sortierNummer": "1400",
+        "synonyme": [
+            "CSF-Protein"
+        ]
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Liquor-Laktat",
+                "url": "/infobase/sop_Liquor-Laktat.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": "32333",
+        "einheit": "mmol/l",
+        "goae": "3575",
+        "hinweise": [
+            "Erhöht bei bakterieller Meningitis"
+        ],
+        "id": "K050",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "2524-7",
+        "material": [
+            "Liquor"
+        ],
+        "mindestmenge_ml": 0.5,
+        "name": "Liquor-Laktat",
+        "sortierNummer": "1410",
+        "synonyme": [
+            "CSF-Laktat"
+        ]
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Liquor-Zellzahl",
+                "url": "/infobase/sop_Liquor-Zellzahl.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": "32334",
+        "einheit": "Zellen/µl",
+        "goae": "3576",
+        "hinweise": [
+            "Differenzierung nach Zellart möglich"
+        ],
+        "id": "H024",
+        "kategorie": "Hämatologie",
+        "lagerung": "gekühlt, max. 2h",
+        "loinc": "1988-5",
+        "material": [
+            "Liquor"
+        ],
+        "mindestmenge_ml": 0.5,
+        "name": "Liquor-Zellzahl",
+        "sortierNummer": "1420",
+        "synonyme": [
+            "CSF-Zellzahl"
+        ]
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Liquor-Differenzierung",
+                "url": "/infobase/sop_Liquor-Differenzierung.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": null,
+        "einheit": "%",
+        "goae": null,
+        "hinweise": [
+            "Differenzierung der Zellarten im Liquor"
+        ],
+        "id": "H025",
+        "kategorie": "Hämatologie",
+        "lagerung": "gekühlt, max. 2h",
+        "loinc": null,
+        "material": [
+            "Liquor"
+        ],
+        "mindestmenge_ml": 0.5,
+        "name": "Liquor-Differenzierung",
+        "sortierNummer": "1421",
+        "synonyme": [
+            "Liquor-Zelldifferenzierung",
+            "CSF-Differenzierung"
+        ]
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Liquor-Neutrophile",
+                "url": "/infobase/sop_Liquor-Differenzierung.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": null,
+        "einheit": "%",
+        "goae": null,
+        "hinweise": [
+            "Anteil der Neutrophilen an der Gesamtzellzahl im Liquor"
+        ],
+        "id": "H026",
+        "kategorie": "Hämatologie",
+        "lagerung": "gekühlt, max. 2h",
+        "loinc": null,
+        "material": [
+            "Liquor"
+        ],
+        "mindestmenge_ml": 0.5,
+        "name": "Liquor-Neutrophile",
+        "sortierNummer": "1422",
+        "synonyme": [
+            "CSF-Neutrophile"
+        ]
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Liquor-Lymphozyten",
+                "url": "/infobase/sop_Liquor-Differenzierung.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": null,
+        "einheit": "%",
+        "goae": null,
+        "hinweise": [
+            "Anteil der Lymphozyten an der Gesamtzellzahl im Liquor"
+        ],
+        "id": "H027",
+        "kategorie": "Hämatologie",
+        "lagerung": "gekühlt, max. 2h",
+        "loinc": null,
+        "material": [
+            "Liquor"
+        ],
+        "mindestmenge_ml": 0.5,
+        "name": "Liquor-Lymphozyten",
+        "sortierNummer": "1423",
+        "synonyme": [
+            "CSF-Lymphozyten"
+        ]
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Liquor-Monozyten",
+                "url": "/infobase/sop_Liquor-Differenzierung.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": null,
+        "einheit": "%",
+        "goae": null,
+        "hinweise": [
+            "Anteil der Monozyten/Makrophagen an der Gesamtzellzahl im Liquor"
+        ],
+        "id": "H028",
+        "kategorie": "Hämatologie",
+        "lagerung": "gekühlt, max. 2h",
+        "loinc": null,
+        "material": [
+            "Liquor"
+        ],
+        "mindestmenge_ml": 0.5,
+        "name": "Liquor-Monozyten",
+        "sortierNummer": "1424",
+        "synonyme": [
+            "CSF-Monozyten"
+        ]
     }
 ]

@@ -261,12 +261,12 @@ function TestDetails({ test, onClose }) {
                       ref.Alter_von === 0 && ref.Alter_bis === 99 ? "Alle" : 
                       `${ref.Alter_von}-${ref.Alter_bis} Jahre`
                     }</td>
-                    <td style="padding: 8px; border: 1px solid #ddd;">${
+<td style="padding: 8px; border: 1px solid #ddd;">${
                       ref.Geschlecht === 1000 ? "Männlich" : 
                       ref.Geschlecht === 2000 ? "Weiblich" : 
                       ref.Geschlecht === 3000 ? "Alle" : ""
                     }</td>
-                    <td style="padding: 8px; border: 1px solid #ddd;">${ref.Wert_untere_Grenze} - ${ref.Wert_obere_Grenze} ${ref.Einheit || test.einheit}</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">${ref.Wert_untere_Grenze} - ${ref.Wert_obere_Grenze} ${test.einheit}</td>
                     <td style="padding: 8px; border: 1px solid #ddd;">${ref.Schwangerschaft ? `Schwangerschaft (${ref.Besondere_Bedingung})` : ref.Besondere_Bedingung || "-"}</td>
                   </tr>
                 `).join('')}
@@ -391,12 +391,12 @@ function TestDetails({ test, onClose }) {
                         ref.Alter_von >= 1 && ref.Alter_bis < 18 ? "Kinder/Jugendliche" : 
                         "Erwachsene")}
                     </td>
-                    <td>
+<td>
                       {ref.Alter_von === 0 && ref.Alter_bis === 99 ? "Alle" : 
                        `${ref.Alter_von}-${ref.Alter_bis} Jahre`}
                     </td>
                     <td>{getGeschlechtText(ref.Geschlecht)}</td>
-                    <td>{`${ref.Wert_untere_Grenze} - ${ref.Wert_obere_Grenze} ${ref.Einheit || test.einheit}`}</td>
+                    <td>{`${ref.Wert_untere_Grenze} - ${ref.Wert_obere_Grenze} ${test.einheit}`}</td>
                     <td>{ref.Schwangerschaft ? `Schwangerschaft (${ref.Besondere_Bedingung})` : ref.Besondere_Bedingung || "-"}</td>
                   </tr>
                 ))}

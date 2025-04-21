@@ -35,7 +35,7 @@ function Suchleiste({ suchbegriff, onSuchbegriffChange, selectedKategorie, onKat
   }, []);  return (
     <div className="suche-container">
       <div className="suche-input-wrapper">        <md-outlined-text-field
-          label="Testname, Synonym, Fachbereich, LOINC oder Test-ID suchen..."
+          label="Testname, Synonym, Materialname, Fachbereich, LOINC oder Test-ID suchen..."
           value={suchbegriff}
           onInput={(e) => onSuchbegriffChange(e.target.value)}
           className="suche-input"

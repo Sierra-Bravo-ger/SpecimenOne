@@ -1,108 +1,574 @@
 {
-    "K011": [
-        {
-            "Alter_von": 18,
-            "Alter_bis": 99,
-            "Geschlecht": 3000,
-            "Wert_untere_Grenze": 0.4,
-            "Wert_obere_Grenze": 4.0,
-            "Einheit": "mU/l",
-            "Schwangerschaft": null,
-            "Besondere_Bedingung": null
-        },
-        {
-            "Alter_von": 18,
-            "Alter_bis": 45,
-            "Geschlecht": 2000,
-            "Wert_untere_Grenze": 0.1,
-            "Wert_obere_Grenze": 2.5,
-            "Einheit": "mU/l",
-            "Schwangerschaft": 1,
-            "Besondere_Bedingung": "1. Trimester"
-        },
-        {
-            "Alter_von": 18,
-            "Alter_bis": 45,
-            "Geschlecht": 2000,
-            "Wert_untere_Grenze": 0.2,
-            "Wert_obere_Grenze": 3.0,
-            "Einheit": "mU/l",
-            "Schwangerschaft": 1,
-            "Besondere_Bedingung": "2. Trimester"
-        },
-        {
-            "Alter_von": 18,
-            "Alter_bis": 45,
-            "Geschlecht": 2000,
-            "Wert_untere_Grenze": 0.3,
-            "Wert_obere_Grenze": 3.5,
-            "Einheit": "mU/l",
-            "Schwangerschaft": 1,
-            "Besondere_Bedingung": "3. Trimester"
-        },
-        {
-            "Alter_von": 0,
-            "Alter_bis": 1,
-            "Geschlecht": 3000,
-            "Wert_untere_Grenze": 0.7,
-            "Wert_obere_Grenze": 11.0,
-            "Einheit": "mU/l",
-            "Schwangerschaft": null,
-            "Besondere_Bedingung": "Neugeborene"
-        },
-        {
-            "Alter_von": 1,
-            "Alter_bis": 18,
-            "Geschlecht": 3000,
-            "Wert_untere_Grenze": 0.7,
-            "Wert_obere_Grenze": 6.4,
-            "Einheit": "mU/l",
-            "Schwangerschaft": null,
-            "Besondere_Bedingung": null
-        }
-    ],
-    "K012": [
-        {
-            "Alter_von": 18,
-            "Alter_bis": 99,
-            "Geschlecht": 3000,
-            "Wert_untere_Grenze": 0,
-            "Wert_obere_Grenze": 0.5,
-            "Einheit": "mg/dl",
-            "Schwangerschaft": null,
-            "Besondere_Bedingung": null
-        },
-        {
-            "Alter_von": 0,
-            "Alter_bis": 18,
-            "Geschlecht": 3000,
-            "Wert_untere_Grenze": 0,
-            "Wert_obere_Grenze": 0.8,
-            "Einheit": "mg/dl",
-            "Schwangerschaft": null,
-            "Besondere_Bedingung": null
-        }
-    ],
-    "H003": [
-        {
-            "Alter_von": 18,
-            "Alter_bis": 99,
-            "Geschlecht": 1000,
-            "Wert_untere_Grenze": 13.5,
-            "Wert_obere_Grenze": 17.5,
-            "Einheit": "g/dl",
-            "Schwangerschaft": null,
-            "Besondere_Bedingung": null
-        },
-        {
-            "Alter_von": 18,
-            "Alter_bis": 99,
-            "Geschlecht": 2000,
-            "Wert_untere_Grenze": 12.0,
-            "Wert_obere_Grenze": 16.0,
-            "Einheit": "g/dl",
-            "Schwangerschaft": null,
-            "Besondere_Bedingung": null
-        }
-    ]
+  "K011": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0.4,
+      "Wert_obere_Grenze": 4.0,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    },
+    {
+      "Alter_von": 18,
+      "Alter_bis": 45,
+      "Geschlecht": 2000,
+      "Wert_untere_Grenze": 0.1,
+      "Wert_obere_Grenze": 2.5,
+      "Schwangerschaft": 1,
+      "Besondere_Bedingung": "1. Trimester"
+    },
+    {
+      "Alter_von": 18,
+      "Alter_bis": 45,
+      "Geschlecht": 2000,
+      "Wert_untere_Grenze": 0.2,
+      "Wert_obere_Grenze": 3.0,
+      "Schwangerschaft": 1,
+      "Besondere_Bedingung": "2. Trimester"
+    },
+    {
+      "Alter_von": 18,
+      "Alter_bis": 45,
+      "Geschlecht": 2000,
+      "Wert_untere_Grenze": 0.3,
+      "Wert_obere_Grenze": 3.5,
+      "Schwangerschaft": 1,
+      "Besondere_Bedingung": "3. Trimester"
+    },
+    {
+      "Alter_von": 0,
+      "Alter_bis": 1,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0.7,
+      "Wert_obere_Grenze": 11.0,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Neugeborene"
+    },
+    {
+      "Alter_von": 1,
+      "Alter_bis": 18,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0.7,
+      "Wert_obere_Grenze": 6.4,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K021": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0.5,
+      "Wert_obere_Grenze": 1.5,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K022": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0,
+      "Wert_obere_Grenze": 10,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "nach 12h Fasten"
+    }
+  ],
+  "K023": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 1000,
+      "Wert_untere_Grenze": 115,
+      "Wert_obere_Grenze": 190,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    },
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 2000,
+      "Wert_untere_Grenze": 115,
+      "Wert_obere_Grenze": 220,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K024": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0.1,
+      "Wert_obere_Grenze": 0.4,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K025": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0.1,
+      "Wert_obere_Grenze": 0.4,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K012": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0,
+      "Wert_obere_Grenze": 0.5,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    },
+    {
+      "Alter_von": 0,
+      "Alter_bis": 18,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0,
+      "Wert_obere_Grenze": 0.8,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "H003": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 1000,
+      "Wert_untere_Grenze": 13.5,
+      "Wert_obere_Grenze": 17.5,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    },
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 2000,
+      "Wert_untere_Grenze": 12.0,
+      "Wert_obere_Grenze": 16.0,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "E001": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0.27,
+      "Wert_obere_Grenze": 4.2,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K026": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0,
+      "Wert_obere_Grenze": 35,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K027": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 2,
+      "Wert_obere_Grenze": 30,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K001": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 3.5,
+      "Wert_obere_Grenze": 5.0,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K002": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0.5,
+      "Wert_obere_Grenze": 1.5,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K004": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 3.5,
+      "Wert_obere_Grenze": 5.0,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K003": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 135,
+      "Wert_obere_Grenze": 145,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K005": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 8.6,
+      "Wert_obere_Grenze": 10.2,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K006": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0.1,
+      "Wert_obere_Grenze": 0.4,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K007": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 1000,
+      "Wert_untere_Grenze": 0.7,
+      "Wert_obere_Grenze": 1.2,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    },
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 2000,
+      "Wert_untere_Grenze": 0.5,
+      "Wert_obere_Grenze": 0.9,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K008": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0.1,
+      "Wert_obere_Grenze": 0.4,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K009": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0.1,
+      "Wert_obere_Grenze": 0.4,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K010": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 70,
+      "Wert_obere_Grenze": 100,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Nüchtern"
+    },
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 70,
+      "Wert_obere_Grenze": 140,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Postprandial"
+    }
+  ],
+  "K013": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0.1,
+      "Wert_obere_Grenze": 1.4,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K014": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 2.1,
+      "Wert_obere_Grenze": 3.4,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K015": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 2.1,
+      "Wert_obere_Grenze": 5.4,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K016": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0.2,
+      "Wert_obere_Grenze": 0.8,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K017": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0.3,
+      "Wert_obere_Grenze": 0.7,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K018": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0.2,
+      "Wert_obere_Grenze": 0.8,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K019": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0.4,
+      "Wert_obere_Grenze": 1.5,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K020": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0.1,
+      "Wert_obere_Grenze": 1.5,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K030": [
+    {
+      "Alter_von": 0,
+      "Alter_bis": 0.5,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 1.0,
+      "Wert_obere_Grenze": 5.0,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Frühgeborene"
+    },
+    {
+      "Alter_von": 0.5,
+      "Alter_bis": 2,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 1.2,
+      "Wert_obere_Grenze": 4.5,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    },
+    {
+      "Alter_von": 2,
+      "Alter_bis": 12,
+      "Geschlecht": 1000,
+      "Wert_untere_Grenze": 1.5,
+      "Wert_obere_Grenze": 4.0,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    },
+    {
+      "Alter_von": 2,
+      "Alter_bis": 12,
+      "Geschlecht": 2000,
+      "Wert_untere_Grenze": 1.4,
+      "Wert_obere_Grenze": 3.8,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K031": [
+    {
+      "Alter_von": 0,
+      "Alter_bis": 5,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0.8,
+      "Wert_obere_Grenze": 2.5,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    },
+    {
+      "Alter_von": 5,
+      "Alter_bis": 12,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0.9,
+      "Wert_obere_Grenze": 2.2,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    },
+    {
+      "Alter_von": 12,
+      "Alter_bis": 18,
+      "Geschlecht": 1000,
+      "Wert_untere_Grenze": 1.0,
+      "Wert_obere_Grenze": 2.0,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    },
+    {
+      "Alter_von": 12,
+      "Alter_bis": 18,
+      "Geschlecht": 2000,
+      "Wert_untere_Grenze": 0.95,
+      "Wert_obere_Grenze": 1.9,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K032": [
+    {
+      "Alter_von": 0,
+      "Alter_bis": 0.1,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 2.0,
+      "Wert_obere_Grenze": 8.0,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Neonatal"
+    },
+    {
+      "Alter_von": 0.1,
+      "Alter_bis": 1,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 1.5,
+      "Wert_obere_Grenze": 6.0,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    },
+    {
+      "Alter_von": 1,
+      "Alter_bis": 18,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 1.0,
+      "Wert_obere_Grenze": 4.0,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K033": [
+    {
+      "Alter_von": 0,
+      "Alter_bis": 0.5,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0.5,
+      "Wert_obere_Grenze": 2.0,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Frühgeborene"
+    },
+    {
+      "Alter_von": 0.5,
+      "Alter_bis": 5,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0.6,
+      "Wert_obere_Grenze": 1.8,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    },
+    {
+      "Alter_von": 5,
+      "Alter_bis": 18,
+      "Geschlecht": 1000,
+      "Wert_untere_Grenze": 0.7,
+      "Wert_obere_Grenze": 1.6,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    },
+    {
+      "Alter_von": 5,
+      "Alter_bis": 18,
+      "Geschlecht": 2000,
+      "Wert_untere_Grenze": 0.65,
+      "Wert_obere_Grenze": 1.5,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+  "K034": [
+    {
+      "Alter_von": 0,
+      "Alter_bis": 18,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0.2,
+      "Wert_obere_Grenze": 1.2,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Kinder/Jugendliche"
+    },
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0.3,
+      "Wert_obere_Grenze": 1.0,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ]
 }

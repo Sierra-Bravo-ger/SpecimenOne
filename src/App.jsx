@@ -6,6 +6,8 @@ import ProfilListe from './components/ProfilListe'
 import DrilldownTable from './components/DrilldownTable'
 import TestDetails from './components/TestDetails'
 import Suchleiste from './components/Suchleiste'
+import ProfilErstellungDialog from './components/ProfilErstellungDialog'
+import ProfilDruckAnsicht from './components/ProfilDruckAnsicht'
 import '@material/web/button/filled-button.js'
 import '@material/web/button/text-button.js'
 import '@material/web/icon/icon.js'
@@ -25,6 +27,11 @@ function App() {
   const [darkMode, setDarkMode] = useState(false)
   const [selectedTest, setSelectedTest] = useState(null)
   const [showTestDetails, setShowTestDetails] = useState(false)
+  // Neue State-Variablen für die Profil-Selektor Funktionalität
+  const [selectedTests, setSelectedTests] = useState([])
+  const [showProfilErstellung, setShowProfilErstellung] = useState(false)
+  const [showProfilDruck, setShowProfilDruck] = useState(false)
+  const [customProfil, setCustomProfil] = useState(null)
   // Effect to handle dark mode changes
   useEffect(() => {
     if (darkMode) {
@@ -127,9 +134,14 @@ function App() {
     // Suche in LOINC-Code
     if (test.loinc && test.loinc.toLowerCase().includes(searchTerm)) {
       return true;
-    }
-    // Suche in Test-ID
+    }    // Suche in Test-ID
     if (test.id && test.id.toLowerCase().includes(searchTerm)) {
+      return true;
+    }
+    // Suche im Material
+    if (test.material && Array.isArray(test.material) && test.material.some(mat => 
+      mat.toLowerCase().includes(searchTerm))
+    ) {
       return true;
     }
     return false;
@@ -174,6 +186,35 @@ function App() {
       window.history.replaceState({}, '', url);
     }
   };
+
+  // Profil-Selektor Funktionen
+  const handleTestSelect = (tests) => {
+    setSelectedTests(tests);
+  };
+
+  const openProfilErstellung = () => {
+    if (selectedTests.length > 0) {
+      setShowProfilErstellung(true);
+    } else {
+      alert("Bitte wählen Sie mindestens einen Test aus, um ein Profil zu erstellen.");
+    }
+  };
+
+  const closeProfilErstellung = () => {
+    setShowProfilErstellung(false);
+  };
+
+  const handleProfilPrint = (profil) => {
+    setCustomProfil(profil);
+    setShowProfilErstellung(false);
+    setShowProfilDruck(true);
+  };
+
+  const closeProfilDruck = () => {
+    setShowProfilDruck(false);
+    setSelectedTests([]);
+  };
+  
   return (
     <div className={`app-container ${darkMode ? 'dark-theme' : ''}`}>      <header className="app-header">
         <div className="app-title">
@@ -221,7 +262,28 @@ function App() {
 
             <div className="content-container">
               {ansicht === 'tests' && (
-                <TestListe tests={filteredTests} />
+                <>
+                  {selectedTests.length > 0 && (
+                    <div className="selection-controls">
+                      <div className="selected-count">
+                        {selectedTests.length} Test{selectedTests.length !== 1 ? 'e' : ''} ausgewählt
+                      </div>
+                      <button 
+                        className="create-profile-button"
+                        onClick={openProfilErstellung}
+                      >
+                        <MaterialDesign.MdCreateNewFolder style={{marginRight: '8px'}} />
+                        Profil erstellen
+                      </button>
+                    </div>
+                  )}
+                  <TestListe 
+                    tests={filteredTests} 
+                    onTestClick={openTestDetails}
+                    selectedTests={selectedTests}
+                    onTestSelect={handleTestSelect}
+                  />
+                </>
               )}
               
               {ansicht === 'profile' && (
@@ -278,6 +340,23 @@ function App() {
         <TestDetails 
           test={selectedTest}
           onClose={closeTestDetails}
+        />
+      )}
+      
+      {/* Profil-Erstellungsdialog */}
+      {showProfilErstellung && (
+        <ProfilErstellungDialog
+          selectedTests={selectedTests}
+          onClose={closeProfilErstellung}
+          onPrint={handleProfilPrint}
+        />
+      )}
+      
+      {/* Profildruck-Ansicht */}
+      {showProfilDruck && customProfil && (
+        <ProfilDruckAnsicht
+          profil={customProfil}
+          onClose={closeProfilDruck}
         />
       )}
     </div>

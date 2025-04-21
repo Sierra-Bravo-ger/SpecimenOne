@@ -15,9 +15,16 @@
   border-radius: 12px;
   padding: 1.2rem;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: all 0.2s;
   position: relative;
   overflow: hidden;
+  border: 2px solid transparent;
+}
+
+/* Styling für ausgewählte Test-Karten */
+.test-karte.selected {
+  border-color: var(--md-sys-color-primary, #6abf7b);
+  background-color: rgba(106, 191, 123, 0.05);
 }
 
 .test-karte:hover {
