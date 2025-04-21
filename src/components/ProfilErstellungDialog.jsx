@@ -1,24 +1,78 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import './ProfilErstellungDialog.css';
 import * as MaterialDesign from "react-icons/md";
+import { sendProfilByFormSubmit } from '../services/FormSubmitService';
+import { sendProfilToDiscord } from '../services/DiscordService';
 
 function ProfilErstellungDialog({ selectedTests, onClose, onPrint }) {
   const [profilName, setProfilName] = useState('');
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
+  const [isSending, setIsSending] = useState(false);
+  const [emailStatus, setEmailStatus] = useState(null);
   const dialogRef = useRef(null);
 
-  const handlePrint = () => {
-    // Erstellt ein Objekt mit allen Profilinfos
-    const profil = {
+  // Profil-Objekt erstellen
+  const createProfil = () => {
+    return {
       profilName,
       userName,
       email,
       tests: selectedTests,
       erstelltAm: new Date().toLocaleDateString('de-DE')
     };
+  };
+
+  const handlePrint = () => {
+    if (onPrint) onPrint(createProfil());
+  };  const handleSendEmail = async () => {
+    if (!profilName.trim()) {
+      alert('Bitte geben Sie einen Profilnamen ein.');
+      return;
+    }
     
-    if (onPrint) onPrint(profil);
+    try {
+      setIsSending(true);
+      setEmailStatus({ type: 'info', message: 'Profil wird übermittelt...' });
+      
+      const profilData = createProfil();
+      
+      // Versuche zuerst, das Profil über Discord zu senden
+      try {
+        await sendProfilToDiscord(profilData);
+        setEmailStatus({ type: 'success', message: 'Profil erfolgreich übermittelt!' });
+        
+        // Dialog nach kurzer Verzögerung schließen
+        setTimeout(() => {
+          if (onClose) onClose();
+        }, 2000);
+        return;
+      } catch (discordError) {
+        console.log('Discord-Übermittlung fehlgeschlagen, versuche FormSubmit als Fallback', discordError);
+        
+        // Discord fehlgeschlagen, versuche FormSubmit als Fallback
+        const result = await sendProfilByFormSubmit(profilData);
+        
+        if (result.status === 'success') {
+          setEmailStatus({ type: 'success', message: 'E-Mail erfolgreich gesendet!' });
+          
+          setTimeout(() => {
+            if (onClose) onClose();
+          }, 2000);
+        } else {
+          throw new Error('Unerwartete Antwort beim Versand');
+        }
+      }
+      
+    } catch (error) {
+      console.error('Fehler beim Übermitteln des Profils:', error);
+      setEmailStatus({ 
+        type: 'error', 
+        message: `Fehler beim Senden: ${error.message || 'Unbekannter Fehler'}`
+      });
+    } finally {
+      setIsSending(false);
+    }
   };
 
   // Animation für Dialog Entry/Exit
@@ -95,18 +149,40 @@ function ProfilErstellungDialog({ selectedTests, onClose, onPrint }) {
             </ul>
           </div>
         </div>
-        
-        <div className="profile-dialog-footer">
+          <div className="profile-dialog-footer">
           <button className="cancel-button" onClick={handleDialogClose}>Abbrechen</button>
-          <button 
-            className="print-button"
-            onClick={handlePrint}
-            disabled={!profilName.trim()}
-          >
-            <MaterialDesign.MdPrint style={{marginRight: '8px'}} />
-            Profil drucken
-          </button>
+          
+          <div className="action-buttons">
+            <button 
+              className="email-button"
+              onClick={handleSendEmail}
+              disabled={!profilName.trim() || isSending}
+            >
+              <MaterialDesign.MdEmail style={{marginRight: '8px'}} />
+              {isSending ? 'Wird gesendet...' : 'Per E-Mail senden'}
+            </button>
+            
+            <button 
+              className="print-button"
+              onClick={handlePrint}
+              disabled={!profilName.trim()}
+            >
+              <MaterialDesign.MdPrint style={{marginRight: '8px'}} />
+              Profil drucken
+            </button>
+          </div>
         </div>
+        
+        {emailStatus && (
+          <div className={`email-status ${emailStatus.type}`}>
+            <span className="status-icon">
+              {emailStatus.type === 'success' && <MaterialDesign.MdCheckCircle />}
+              {emailStatus.type === 'error' && <MaterialDesign.MdError />}
+              {emailStatus.type === 'info' && <MaterialDesign.MdInfo />}
+            </span>
+            <span className="status-message">{emailStatus.message}</span>
+          </div>
+        )}
       </div>
     </div>
   );

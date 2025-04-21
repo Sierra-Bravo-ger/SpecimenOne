@@ -176,6 +176,72 @@
   cursor: not-allowed;
 }
 
+/* E-Mail Button und Status Styling */
+.action-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.email-button {
+  padding: 10px 16px;
+  background-color: var(--md-sys-color-secondary, #03A9F4);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--md-sys-color-on-secondary, #FFFFFF);
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.email-button:hover {
+  background-color: var(--md-sys-color-secondary-container, #0288D1);
+}
+
+.email-button:disabled {
+  background-color: var(--md-sys-color-outline, #79747E);
+  cursor: not-allowed;
+}
+
+.email-status {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.email-status.success {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #388E3C;
+  border-left: 4px solid #388E3C;
+}
+
+.email-status.error {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #D32F2F;
+  border-left: 4px solid #D32F2F;
+}
+
+.email-status.info {
+  background-color: rgba(33, 150, 243, 0.1);
+  color: #1976D2;
+  border-left: 4px solid #1976D2;
+}
+
+.status-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+.status-message {
+  flex: 1;
+}
+
 /* Animationen */
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -210,4 +276,28 @@
 .dark-theme .test-category {
   background-color: var(--md-sys-color-primary-container, #365E3C);
   color: var(--md-sys-color-on-primary-container, #E6E1E5);
+}
+
+.dark-theme .email-button {
+  background-color: var(--md-sys-color-secondary, #03A9F4);
+  color: var(--md-sys-color-on-secondary, #FFFFFF);
+}
+
+.dark-theme .email-button:hover {
+  background-color: var(--md-sys-color-secondary-container, #0288D1);
+}
+
+.dark-theme .email-status.success {
+  background-color: rgba(76, 175, 80, 0.2);
+  color: #81C784;
+}
+
+.dark-theme .email-status.error {
+  background-color: rgba(244, 67, 54, 0.2);
+  color: #E57373;
+}
+
+.dark-theme .email-status.info {
+  background-color: rgba(33, 150, 243, 0.2);
+  color: #64B5F6;
 }

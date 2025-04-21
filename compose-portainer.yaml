@@ -7,3 +7,5 @@ services:
     ports:
       - "8100:80"  # Standard-Portbindung
     restart: unless-stopped
+    environment:
+      - VITE_DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/your/webhook/url  # Ersetzen Sie dies mit Ihrer echten Webhook-URL

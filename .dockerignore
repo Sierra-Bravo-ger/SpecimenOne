@@ -1,0 +1,61 @@
+# Node Abhängigkeiten
+node_modules
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Build-Verzeichnisse
+/dist
+/dist-ssr
+/build
+
+# Umgebungsvariablen
+.env
+.env.*
+*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Entwicklungsdateien
+.vscode
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Temporäre Dateien
+.DS_Store
+
+# Projektspezifische Dateien
+/temp_csv
+tests_exportiert*.csv
+tests_exportiert.csv
+*.xlsx
+*.xls
+*.bak
+/data-backup
+tests_importiert*.json
+profile_exportiert*.json
+profile_exportiert.json
+src/services/FormSubmitService.js
+
+# Konfigurationsdateien mit sensiblen Daten
+config.ini
+*.local.json
+
+# Sensitive Dienste mit Credentials
+src/services/DiscordService.js
+
+# Entwicklungsnotizen
+TODO.md
+NOTES.md
+copilot_rules.md
+
+# Logs
+*.log
+*-log.txt
+*_output.json
