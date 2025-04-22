@@ -3,21 +3,41 @@
 // Kopieren Sie diese Datei nach DiscordService.js und fügen Sie Ihre Webhook-URL ein
 
 /**
+ * Ermittelt die zu verwendende Discord Webhook URL
+ * @returns {string|null} Die Webhook-URL oder null, wenn keine konfiguriert ist
+ */
+function getDiscordWebhookUrl() {
+  // Priorität 1: Runtime-Konfiguration (für Docker-Container)
+  if (window.SPECIMENONE_CONFIG && window.SPECIMENONE_CONFIG.DISCORD_WEBHOOK_URL &&
+      window.SPECIMENONE_CONFIG.DISCORD_WEBHOOK_URL !== 'placeholder-during-runtime') {
+    console.log('Verwende Runtime-Config Discord Webhook URL');
+    return window.SPECIMENONE_CONFIG.DISCORD_WEBHOOK_URL;
+  }
+  
+  // Priorität 2: Build-Time Umgebungsvariable (für lokale Entwicklung)
+  const envUrl = import.meta.env.VITE_DISCORD_WEBHOOK_URL;
+  if (envUrl && envUrl !== 'placeholder-during-build') {
+    console.log('Verwende Vite Env Discord Webhook URL');
+    return envUrl;
+  }
+  
+  // Fallback: Kein Webhook konfiguriert
+  console.warn('Keine gültige Discord Webhook URL gefunden');
+  return null;
+}
+
+/**
  * Sendet Profildaten über einen Discord Webhook
  * @param {Object} profil - Das erstellte Profil mit allen Tests
  * @returns {Promise} - Promise mit dem Ergebnis des Versands
  */
 export async function sendProfilToDiscord(profil) {
   try {
-    // Die Webhook URL sollte aus einer Umgebungsvariable bezogen werden
-    // Lesen Sie diese entweder aus import.meta.env (Vite) oder process.env (Node.js)
-    // Setzen Sie beim Start der Anwendung die Variable DISCORD_WEBHOOK_URL
-    const webhookUrl = import.meta.env.VITE_DISCORD_WEBHOOK_URL || 
-                      process.env.DISCORD_WEBHOOK_URL ||
-                      'IHRE_DISCORD_WEBHOOK_URL_HIER';
+    // Die aktuelle Webhook URL ermitteln
+    const webhookUrl = getDiscordWebhookUrl();
     
     // Wenn keine gültige URL gefunden wurde, Fallback auf Email verwenden
-    if (!webhookUrl || webhookUrl === 'IHRE_DISCORD_WEBHOOK_URL_HIER') {
+    if (!webhookUrl) {
       console.warn('⚠️ Keine Discord Webhook URL konfiguriert. Verwende Email-Fallback.');
       throw new Error('Keine Discord Webhook URL konfiguriert');
     }

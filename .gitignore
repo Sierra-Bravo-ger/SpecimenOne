@@ -58,6 +58,7 @@ profile_exportiert*.json
 profile_exportiert.json
 config.ini
 src/services/FormSubmitService.js
+src/services/ServiceClient.js
 
 # Lokale Konfigurationsdateien
 *.local.json

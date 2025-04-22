@@ -47,9 +47,6 @@ src/services/FormSubmitService.js
 config.ini
 *.local.json
 
-# Sensitive Dienste mit Credentials
-src/services/DiscordService.js
-
 # Entwicklungsnotizen
 TODO.md
 NOTES.md

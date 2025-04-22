@@ -27,12 +27,18 @@ $fullImageName = "${Registry}/${imageName}:${Tag}"
 $localImageName = "${imageName}:${Tag}"
 
 # Build
-Write-Host "Docker-Image wird gebaut..." -ForegroundColor Cyan
-docker build -t $localImageName .
+Write-Host "Docker-Image wird gebaut mit korrigiertem Dockerfile..." -ForegroundColor Cyan
+docker build -t $localImageName -f Dockerfile.fixed . --progress=plain
 
 if($LASTEXITCODE -ne 0) {
     Write-Host "Build fehlgeschlagen!" -ForegroundColor Red
-    exit 1
+    Write-Host "Versuche mit --no-cache flag..." -ForegroundColor Yellow
+    docker build -t $localImageName -f Dockerfile.fixed . --no-cache --progress=plain
+    
+    if($LASTEXITCODE -ne 0) {
+        Write-Host "Build fehlgeschlagen! Überprüfen Sie die Logs auf Details." -ForegroundColor Red
+        exit 1
+    }
 }
 
 # Tag

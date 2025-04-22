@@ -1,8 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import './ProfilErstellungDialog.css';
 import * as MaterialDesign from "react-icons/md";
-import { sendProfilByFormSubmit } from '../services/FormSubmitService';
-import { sendProfilToDiscord } from '../services/DiscordService';
+import { sendProfilByFormSubmit, sendProfilToDiscord, getServiceStatus } from '../services/ServiceClient';
 
 function ProfilErstellungDialog({ selectedTests, onClose, onPrint }) {
   const [profilName, setProfilName] = useState('');
