@@ -17,6 +17,7 @@ Eine moderne Web-App zur Anzeige und Verwaltung von Labortests und Profilen.
 
 - **Testauswahl durch Checkboxen:** Einfache Mehrfachauswahl von Tests
 - **Profilerstellung:** Erstellung benutzerdefinierter Testprofile mit Metadaten
+- **Benachrichtigung via Webhook oder Email:** User können Wunschprofile festlegen, benennen und an eine Zentrale stelle zur Bearbeitung senden
 - **Druckoptimierte Ausgabe:** Professionelle Druckansicht für ausgewählte Tests
 - **Long-Press-Funktionalität:** Optimierte Bedienung auf Touch-Geräten
 - **E-Mail-Integration:** Direkte Übermittlung von erstellten Profilen per E-Mail
