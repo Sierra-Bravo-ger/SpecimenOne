@@ -6,8 +6,7 @@ import './Suchleiste.css'
 function Suchleiste({ suchbegriff, onSuchbegriffChange, selectedKategorie, onKategorieChange }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
-  
-  // Liste aller verfügbaren Kategorien
+    // Liste aller verfügbaren Kategorien
   const kategorien = [
     "Alle",
     "Hämatologie",
@@ -17,7 +16,8 @@ function Suchleiste({ suchbegriff, onSuchbegriffChange, selectedKategorie, onKat
     "Mikrobiologie",
     "Endokrinologie",
     "Virologie",
-    "Infektionsdiagnostik"
+    "Infektionsdiagnostik",
+    "Toxikologie"
   ];
 
   // Schließen des Dropdown-Menüs bei Klick außerhalb

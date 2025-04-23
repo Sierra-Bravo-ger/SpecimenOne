@@ -104,6 +104,18 @@
   color: var(--md-sys-color-on-surface-variant, #49454F);
 }
 
+.profil-test-detail .material-badges-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5px;
+  gap: 4px;
+}
+
+.profil-test-detail .keine-material-info {
+  font-style: italic;
+  opacity: 0.7;
+}
+
 .profil-test-synonyme {
   margin-top: 0.4rem;
   color: var(--md-sys-color-outline, #79747E);

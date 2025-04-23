@@ -21,7 +21,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "11580-8",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "TSH",
@@ -49,7 +49,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "3024-7",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "freies T4",
@@ -77,7 +77,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "14923-6",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "freies T3",
@@ -105,7 +105,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "16118-2",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Cortisol",
@@ -135,7 +135,7 @@
         "lagerung":  "gefroren, -20 °C",
         "loinc":  null,
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.6,
         "name":  "ACTH",
@@ -162,7 +162,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  null,
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "DHEA-Sulfat",
@@ -189,7 +189,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  null,
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Dehydroepiandrosteron (DHEA)",
@@ -216,7 +216,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  null,
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "17-Hydroxyprogesteron (17-OHP)",
@@ -243,7 +243,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  null,
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Progesteron",
@@ -270,7 +270,7 @@
         "lagerung":  "gekühlt, max. 48h",
         "loinc":  "2243-4",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Estradiol",
@@ -298,7 +298,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "2986-8",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Testosteron",
@@ -325,7 +325,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "10501-5",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "FSH",
@@ -352,7 +352,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "10501-6",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "LH",
@@ -383,7 +383,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "2842-3",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Prolaktin",
@@ -413,7 +413,7 @@
         "lagerung":  "gekühlt, max. 48h",
         "loinc":  "2106-3",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "hCG",
@@ -444,7 +444,7 @@
         "lagerung":  "gekühlt, max. 12h",
         "loinc":  "20448-7",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Insulin",
@@ -474,7 +474,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "1989-3",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "25-OH-Vitamin D",
@@ -506,8 +506,8 @@
         "lagerung":  "gekühlt, max. 8h",
         "loinc":  "2731-8",
         "material":  [
-                         "EDTA-Plasma",
-                         "Serum"
+                         "EP-80",
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.9,
         "name":  "Parathormon",
@@ -539,7 +539,7 @@
         "lagerung":  "gefroren, -20 °C",
         "loinc":  "1793-9",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  1.0,
         "name":  "Calcitonin",
@@ -570,7 +570,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "2484-4",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "IGF-1",
@@ -601,7 +601,7 @@
         "lagerung":  "Raumtemperatur, max. 6h",
         "loinc":  "1988-5",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "CRP",
@@ -632,8 +632,8 @@
         "lagerung":  "Raumtemperatur, max. 4h",
         "loinc":  "33959-8",
         "material":  [
-                         "Serum",
-                         "EDTA-Plasma"
+                         "SER-00",
+                         "EP-80"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "Procalcitonin",
@@ -665,7 +665,7 @@
         "lagerung":  "Gekühlt, max. 6h",
         "loinc":  "26881-9",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "Interleukin-6",
@@ -696,7 +696,7 @@
         "lagerung":  "Gekühlt, max. 48h",
         "loinc":  "5130-0",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "Antistreptolysin O",
@@ -728,7 +728,7 @@
         "lagerung":  "Gekühlt, max. 48h",
         "loinc":  "5196-1",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "HBs-Antigen",
@@ -759,7 +759,7 @@
         "lagerung":  "Gekühlt, max. 48h",
         "loinc":  "13955-0",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "Hepatitis C Antikörper",
@@ -791,7 +791,7 @@
         "lagerung":  "Gekühlt, max. 24h",
         "loinc":  "22356-9",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "HIV-Suchtest",
@@ -822,7 +822,7 @@
         "lagerung":  "Gekühlt, max. 48h",
         "loinc":  "22327-0",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "EBV VCA-IgM",
@@ -852,7 +852,7 @@
         "lagerung":  "Gekühlt, max. 48h",
         "loinc":  "22329-6",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "EBV VCA-IgG",
@@ -882,7 +882,7 @@
         "lagerung":  "Gekühlt, max. 48h",
         "loinc":  "5388-7",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "EBV EBNA-1-IgG",
@@ -912,7 +912,7 @@
         "lagerung":  "Gekühlt, max. 48h",
         "loinc":  "15377-5",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "CMV-IgG",
@@ -943,7 +943,7 @@
         "lagerung":  "Gekühlt, max. 48h",
         "loinc":  "15378-3",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "CMV-IgM",
@@ -973,7 +973,7 @@
         "lagerung":  "Gekühlt, max. 48h",
         "loinc":  "13317-0",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "Toxoplasma-IgG",
@@ -1004,7 +1004,7 @@
         "lagerung":  "Gekühlt, max. 48h",
         "loinc":  "5388-5",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "Toxoplasma-IgM",
@@ -1034,7 +1034,7 @@
         "lagerung":  "Gekühlt, max. 48h",
         "loinc":  "25514-1",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "Röteln-IgG",
@@ -1066,7 +1066,7 @@
         "lagerung":  "Gekühlt, max. 48h",
         "loinc":  "40737-4",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "Röteln-IgM",
@@ -1098,7 +1098,7 @@
         "lagerung":  "Gekühlt, max. 48h",
         "loinc":  "5393-5",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Borrelia-IgG",
@@ -1131,7 +1131,7 @@
         "lagerung":  "Gekühlt, max. 48h",
         "loinc":  "5394-3",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Borrelia-IgM",
@@ -1163,7 +1163,7 @@
         "lagerung":  "Gekühlt, max. 48h",
         "loinc":  "31147-2",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "TPHA-Test",
@@ -1194,7 +1194,7 @@
         "lagerung":  "gekühlt, max. 4h",
         "loinc":  "14979-7",
         "material":  [
-                         "Citratplasma"
+                         "CP-89"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "Quick",
@@ -1226,7 +1226,7 @@
         "lagerung":  "gekühlt, max. 4h",
         "loinc":  "14979-8",
         "material":  [
-                         "Citratplasma"
+                         "CP-89"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "PTT",
@@ -1256,7 +1256,7 @@
         "lagerung":  "gekühlt, max. 4h",
         "loinc":  "14979-9",
         "material":  [
-                         "Citratplasma"
+                         "CP-89"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "INR",
@@ -1286,7 +1286,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "3255-7",
         "material":  [
-                         "Citratplasma"
+                         "CP-89"
                      ],
         "mindestmenge_ml":  0.6,
         "name":  "Fibrinogen nach Clauss",
@@ -1316,7 +1316,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "30000-4",
         "material":  [
-                         "Citratplasma"
+                         "CP-89"
                      ],
         "mindestmenge_ml":  0.6,
         "name":  "Thrombinzeit",
@@ -1346,7 +1346,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "27822-2",
         "material":  [
-                         "Citratplasma"
+                         "CP-89"
                      ],
         "mindestmenge_ml":  0.6,
         "name":  "Antithrombin III",
@@ -1376,7 +1376,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "48067-3",
         "material":  [
-                         "Citratplasma"
+                         "CP-89"
                      ],
         "mindestmenge_ml":  0.6,
         "name":  "D-Dimere",
@@ -1406,7 +1406,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "27822-2",
         "material":  [
-                         "Citratplasma"
+                         "CP-89"
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Protein C",
@@ -1436,7 +1436,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "27823-0",
         "material":  [
-                         "Citratplasma"
+                         "CP-89"
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Protein S",
@@ -1466,7 +1466,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "27810-4",
         "material":  [
-                         "Citratplasma"
+                         "CP-89"
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Faktor II",
@@ -1496,7 +1496,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "27810-5",
         "material":  [
-                         "Citratplasma"
+                         "CP-89"
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Faktor V",
@@ -1526,7 +1526,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "27810-6",
         "material":  [
-                         "Citratplasma"
+                         "CP-89"
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Faktor VII",
@@ -1556,7 +1556,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "27810-7",
         "material":  [
-                         "Citratplasma"
+                         "CP-89"
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Faktor VIII",
@@ -1586,7 +1586,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "27811-5",
         "material":  [
-                         "Citratplasma"
+                         "CP-89"
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Faktor IX",
@@ -1616,7 +1616,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "27811-5",
         "material":  [
-                         "Citratplasma"
+                         "CP-89"
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Faktor X",
@@ -1646,7 +1646,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "27811-6",
         "material":  [
-                         "Citratplasma"
+                         "CP-89"
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Faktor IIX",
@@ -1676,7 +1676,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "30242-2",
         "material":  [
-                         "Citratplasma"
+                         "CP-89"
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Lupus-Antikoagulans",
@@ -1706,7 +1706,7 @@
         "lagerung":  "Raumtemperatur",
         "loinc":  "6690-2",
         "material":  [
-                         "EDTA-Blut"
+                         "E-79"
                      ],
         "mindestmenge_ml":  0.2,
         "name":  "Leukozyten",
@@ -1736,7 +1736,7 @@
         "lagerung":  "Raumtemperatur",
         "loinc":  "789-8",
         "material":  [
-                         "EDTA-Blut"
+                         "E-79"
                      ],
         "mindestmenge_ml":  0.2,
         "name":  "Erythrozyten",
@@ -1766,7 +1766,7 @@
         "lagerung":  "Raumtemperatur",
         "loinc":  "6690-3",
         "material":  [
-                         "EDTA-Blut"
+                         "E-79"
                      ],
         "mindestmenge_ml":  0.2,
         "name":  "Hämoglobin",
@@ -1796,7 +1796,7 @@
         "lagerung":  "Raumtemperatur",
         "loinc":  "777-3",
         "material":  [
-                         "EDTA-Blut"
+                         "E-79"
                      ],
         "mindestmenge_ml":  0.2,
         "name":  "Thrombozyten",
@@ -1826,7 +1826,7 @@
         "lagerung":  "Raumtemperatur",
         "loinc":  "4544-3",
         "material":  [
-                         "EDTA-Blut"
+                         "E-79"
                      ],
         "mindestmenge_ml":  0.2,
         "name":  "Hämatokrit",
@@ -1856,7 +1856,7 @@
         "lagerung":  "Raumtemperatur",
         "loinc":  "787-2",
         "material":  [
-                         "EDTA-Blut"
+                         "E-79"
                      ],
         "mindestmenge_ml":  0.2,
         "name":  "MCV",
@@ -1886,7 +1886,7 @@
         "lagerung":  "Raumtemperatur",
         "loinc":  "785-6",
         "material":  [
-                         "EDTA-Blut"
+                         "E-79"
                      ],
         "mindestmenge_ml":  0.2,
         "name":  "MCH",
@@ -1916,7 +1916,7 @@
         "lagerung":  "Raumtemperatur",
         "loinc":  "786-4",
         "material":  [
-                         "EDTA-Blut"
+                         "E-79"
                      ],
         "mindestmenge_ml":  0.2,
         "name":  "MCHC",
@@ -1946,7 +1946,7 @@
         "lagerung":  "Raumtemperatur",
         "loinc":  "788-0",
         "material":  [
-                         "EDTA-Blut"
+                         "E-79"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "RDW",
@@ -1976,7 +1976,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "4679-7",
         "material":  [
-                         "EDTA-Blut"
+                         "E-79"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "Retikulozyten Absolut",
@@ -2006,7 +2006,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "4679-8",
         "material":  [
-                         "EDTA-Blut"
+                         "E-79"
                      ],
         "mindestmenge_ml":  0.6,
         "name":  "Retikulozyten Absolut-Hb",
@@ -2036,7 +2036,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "4679-9",
         "material":  [
-                         "EDTA-Blut"
+                         "E-79"
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Retikulozyten relativ",
@@ -2066,7 +2066,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "58410-2",
         "material":  [
-                         "EDTA-Blut"
+                         "E-79"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "Blutausstrich",
@@ -2096,7 +2096,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "4679-7",
         "material":  [
-                         "EDTA-Blut"
+                         "E-79"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "Neutrophile Absolut",
@@ -2126,7 +2126,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "4679-8",
         "material":  [
-                         "EDTA-Blut"
+                         "E-79"
                      ],
         "mindestmenge_ml":  0.6,
         "name":  "Neutrophile Relativ",
@@ -2156,7 +2156,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "4679-9",
         "material":  [
-                         "EDTA-Blut"
+                         "E-79"
                      ],
         "mindestmenge_ml":  0.7,
         "name":  "Lymphozyten Absolut",
@@ -2186,7 +2186,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "4679-10",
         "material":  [
-                         "EDTA-Blut"
+                         "E-79"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Lymphozyten Relativ",
@@ -2216,7 +2216,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "4679-11",
         "material":  [
-                         "EDTA-Blut"
+                         "E-79"
                      ],
         "mindestmenge_ml":  0.9,
         "name":  "Monozyten Absolut",
@@ -2246,7 +2246,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "4679-12",
         "material":  [
-                         "EDTA-Blut"
+                         "E-79"
                      ],
         "mindestmenge_ml":  1,
         "name":  "Monozyten Relativ",
@@ -2276,7 +2276,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "4679-13",
         "material":  [
-                         "EDTA-Blut"
+                         "E-79"
                      ],
         "mindestmenge_ml":  1.1,
         "name":  "Eosinophile Absolut",
@@ -2306,7 +2306,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "4679-14",
         "material":  [
-                         "EDTA-Blut"
+                         "E-79"
                      ],
         "mindestmenge_ml":  1.2,
         "name":  "Eosinophile Relativ",
@@ -2336,7 +2336,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "4679-15",
         "material":  [
-                         "EDTA-Blut"
+                         "E-79"
                      ],
         "mindestmenge_ml":  1.3,
         "name":  "Fragmentozyten",
@@ -2368,7 +2368,7 @@
         "lagerung":  "gekühlt, max. 48h",
         "loinc":  "4548-4",
         "material":  [
-                         "EDTA-Blut"
+                         "E-79"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "HbA1c",
@@ -2399,7 +2399,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "50561-0",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "ANA",
@@ -2430,7 +2430,7 @@
         "lagerung":  "gekühlt, max. 48h",
         "loinc":  "17335-4",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.6,
         "name":  "Rheumafaktor",
@@ -2460,7 +2460,7 @@
         "lagerung":  "Raumtemperatur, max. 6h",
         "loinc":  "1988-5",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "C3-Komplement",
@@ -2490,7 +2490,7 @@
         "lagerung":  "Raumtemperatur, max. 6h",
         "loinc":  "4470-5",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "C4-Komplement",
@@ -2520,7 +2520,7 @@
         "lagerung":  "gefroren, -20 °C",
         "loinc":  "41144-3",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "dsDNA-Antikörper",
@@ -2551,7 +2551,7 @@
         "lagerung":  "gefroren, -20 °C",
         "loinc":  "4622-01",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-ENA-Antikörper",
@@ -2581,7 +2581,7 @@
         "lagerung":  "gefroren, -20 °C",
         "loinc":  "4622-02",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-Sm-Antikörper",
@@ -2611,7 +2611,7 @@
         "lagerung":  "gefroren, -20 °C",
         "loinc":  "4622-03",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-RNP-Antikörper",
@@ -2641,7 +2641,7 @@
         "lagerung":  "gefroren, -20 °C",
         "loinc":  "4622-04",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-Scl-70-Antikörper",
@@ -2671,7 +2671,7 @@
         "lagerung":  "gefroren, -20 °C",
         "loinc":  "4622-05",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-Jo-1-Antikörper",
@@ -2701,7 +2701,7 @@
         "lagerung":  "gefroren, -20 °C",
         "loinc":  "4622-06",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-CCP-Antikörper",
@@ -2731,7 +2731,7 @@
         "lagerung":  "gefroren, -20 °C",
         "loinc":  "4622-07",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-PR3-Antikörper",
@@ -2761,7 +2761,7 @@
         "lagerung":  "gefroren, -20 °C",
         "loinc":  "4622-08",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-MPO-Antikörper",
@@ -2791,7 +2791,7 @@
         "lagerung":  "gefroren, -20 °C",
         "loinc":  "4622-09",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-GBM-Antikörper",
@@ -2821,7 +2821,7 @@
         "lagerung":  "gefroren, -20 °C",
         "loinc":  "4622-10",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-Phosphatidylserin-Antikörper",
@@ -2851,7 +2851,7 @@
         "lagerung":  "gefroren, -20 °C",
         "loinc":  "4622-11",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-Phosphatidylcholin-Antikörper",
@@ -2881,7 +2881,7 @@
         "lagerung":  "gefroren, -20 °C",
         "loinc":  "4622-12",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-β2-Glykoprotein-I-Antikörper",
@@ -2911,7 +2911,7 @@
         "lagerung":  "gefroren, -20 °C",
         "loinc":  "4622-13",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-Cardiolipin-IgG-Antikörper",
@@ -2941,7 +2941,7 @@
         "lagerung":  "gefroren, -20 °C",
         "loinc":  "4622-14",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-Cardiolipin-IgM-Antikörper",
@@ -2971,7 +2971,7 @@
         "lagerung":  "gefroren, -20 °C",
         "loinc":  "4622-15",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.8,
         "name":  "Anti-β2-Glykoprotein-II-Antikörper",
@@ -3001,7 +3001,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "2345-7",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Glukose",
@@ -3032,7 +3032,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "2160-0",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Kreatinin",
@@ -3063,7 +3063,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "3094-0",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Harnstoff",
@@ -3094,7 +3094,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "2951-2",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Natrium",
@@ -3124,7 +3124,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "2823-3",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Kalium",
@@ -3154,7 +3154,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "2075-0",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Chlorid",
@@ -3184,7 +3184,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "17861-6",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Calcium",
@@ -3214,7 +3214,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "1742-6",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.4,
         "name":  "GPT",
@@ -3246,7 +3246,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "1920-8",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.4,
         "name":  "GOT",
@@ -3278,7 +3278,7 @@
         "lagerung":  "gekühlt",
         "loinc":  "2324-2",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.4,
         "name":  "Gamma-GT",
@@ -3308,7 +3308,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "1975-2",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Bilirubin gesamt",
@@ -3339,7 +3339,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "1976-0",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Bilirubin direkt",
@@ -3370,7 +3370,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "1977-8",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Bilirubin indirekt",
@@ -3400,7 +3400,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "2717-4",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Harnsäure",
@@ -3431,7 +3431,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "3504-9",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Ammonium",
@@ -3461,7 +3461,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "746-2",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Eisen",
@@ -3491,7 +3491,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "2276-4",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Ferritin",
@@ -3521,7 +3521,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "2571-8",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Triglyceride",
@@ -3552,7 +3552,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "2093-3",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Gesamt-Cholesterin",
@@ -3583,7 +3583,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "2085-9",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "HDL-Cholesterin",
@@ -3615,7 +3615,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "2089-1",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "LDL-Cholesterin",
@@ -3647,7 +3647,7 @@
         "lagerung":  "gekühlt, max. 6h",
         "loinc":  "14381-6",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "Chylomikronen",
@@ -3677,7 +3677,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "1869-7",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "Apolipoprotein A",
@@ -3708,7 +3708,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "1884-6",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "Apolipoprotein B",
@@ -3740,7 +3740,7 @@
         "lagerung":  "gekühlt, max. 48h",
         "loinc":  "43394-2",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "Lipoprotein A",
@@ -3772,7 +3772,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "62208-4",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.6,
         "name":  "small dense LDL",
@@ -3804,7 +3804,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "13458-0",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "VLDL-Cholesterin",
@@ -3835,7 +3835,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "2777-1",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Phosphat",
@@ -3866,7 +3866,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "19123-9",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.3,
         "name":  "Magnesium",
@@ -3896,7 +3896,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "6768-6",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.4,
         "name":  "Alkalische Phosphatase",
@@ -3928,7 +3928,7 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "2157-6",
         "material":  [
-                         "Serum"
+                         "SER-00"
                      ],
         "mindestmenge_ml":  0.4,
         "name":  "Creatinkinase",
@@ -3939,907 +3939,909 @@
                      ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "2 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP LDH",
-                "url": "/infobase/sop_LDH.pdf"
-            }
-        ],
-        "durchführung": "24/7",
-        "ebm": "32321",
-        "einheit": "U/l",
-        "goae": "3559",
-        "hinweise": [
-            "Hämolyse vermeiden",
-            "Erhöht bei Gewebeschädigung"
-        ],
-        "id": "K032",
-        "kategorie": "Klinische Chemie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": "14804-9",
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.4,
-        "name": "Laktatdehydrogenase",
-        "sortierNummer": "1230",
-        "synonyme": [
-            "LDH"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP LDH",
+                              "url":  "/infobase/sop_LDH.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32321",
+        "einheit":  "U/l",
+        "goae":  "3559",
+        "hinweise":  [
+                         "Hämolyse vermeiden",
+                         "Erhöht bei Gewebeschädigung"
+                     ],
+        "id":  "K032",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "14804-9",
+        "material":  [
+                         "SER-00"
+                     ],
+        "mindestmenge_ml":  0.4,
+        "name":  "Laktatdehydrogenase",
+        "sortierNummer":  "1230",
+        "synonyme":  [
+                         "LDH"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "2 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Amylase",
-                "url": "/infobase/sop_Amylase.pdf"
-            }
-        ],
-        "durchführung": "24/7",
-        "ebm": "32322",
-        "einheit": "U/l",
-        "goae": "3560",
-        "hinweise": [
-            "Erhöht bei Pankreatitis"
-        ],
-        "id": "K033",
-        "kategorie": "Klinische Chemie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": "1798-8",
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.4,
-        "name": "Amylase",
-        "sortierNummer": "1240",
-        "synonyme": [
-            "α-Amylase"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Amylase",
+                              "url":  "/infobase/sop_Amylase.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32322",
+        "einheit":  "U/l",
+        "goae":  "3560",
+        "hinweise":  [
+                         "Erhöht bei Pankreatitis"
+                     ],
+        "id":  "K033",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "1798-8",
+        "material":  [
+                         "SER-00"
+                     ],
+        "mindestmenge_ml":  0.4,
+        "name":  "Amylase",
+        "sortierNummer":  "1240",
+        "synonyme":  [
+                         "α-Amylase"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "2 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Lipase",
-                "url": "/infobase/sop_Lipase.pdf"
-            }
-        ],
-        "durchführung": "24/7",
-        "ebm": "32323",
-        "einheit": "U/l",
-        "goae": "3561",
-        "hinweise": [
-            "Erhöht bei akuter Pankreatitis"
-        ],
-        "id": "K034",
-        "kategorie": "Klinische Chemie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": "3040-3",
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.4,
-        "name": "Lipase",
-        "sortierNummer": "1250",
-        "synonyme": [
-            "Pankreaslipase"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Lipase",
+                              "url":  "/infobase/sop_Lipase.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32323",
+        "einheit":  "U/l",
+        "goae":  "3561",
+        "hinweise":  [
+                         "Erhöht bei akuter Pankreatitis"
+                     ],
+        "id":  "K034",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "3040-3",
+        "material":  [
+                         "SER-00"
+                     ],
+        "mindestmenge_ml":  0.4,
+        "name":  "Lipase",
+        "sortierNummer":  "1250",
+        "synonyme":  [
+                         "Pankreaslipase"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "2 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP LDH Isoenzyme",
-                "url": "/infobase/sop_LDH_Isoenzyme.pdf"
-            }
-        ],
-        "durchführung": "Mo-Fr 8-16 Uhr",
-        "ebm": "32324",
-        "einheit": "U/l",
-        "goae": "3562",
-        "hinweise": [
-            "Differenzierung bei erhöhtem LDH"
-        ],
-        "id": "K035",
-        "kategorie": "Klinische Chemie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": "14805-6",
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.5,
-        "name": "LDH Isoenzyme",
-        "sortierNummer": "1260",
-        "synonyme": [
-            "Laktatdehydrogenase Isoenzyme"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP LDH Isoenzyme",
+                              "url":  "/infobase/sop_LDH_Isoenzyme.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 8-16 Uhr",
+        "ebm":  "32324",
+        "einheit":  "U/l",
+        "goae":  "3562",
+        "hinweise":  [
+                         "Differenzierung bei erhöhtem LDH"
+                     ],
+        "id":  "K035",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "14805-6",
+        "material":  [
+                         "SER-00"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "LDH Isoenzyme",
+        "sortierNummer":  "1260",
+        "synonyme":  [
+                         "Laktatdehydrogenase Isoenzyme"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "2 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Cholinesterase",
-                "url": "/infobase/sop_Cholinesterase.pdf"
-            }
-        ],
-        "durchführung": "24/7",
-        "ebm": "32325",
-        "einheit": "U/l",
-        "goae": "3563",
-        "hinweise": [
-            "Leberfunktionsparameter"
-        ],
-        "id": "K036",
-        "kategorie": "Klinische Chemie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": "1976-1",
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.4,
-        "name": "Cholinesterase",
-        "sortierNummer": "1270",
-        "synonyme": [
-            "CHE",
-            "Pseudocholinesterase"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Cholinesterase",
+                              "url":  "/infobase/sop_Cholinesterase.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32325",
+        "einheit":  "U/l",
+        "goae":  "3563",
+        "hinweise":  [
+                         "Leberfunktionsparameter"
+                     ],
+        "id":  "K036",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "1976-1",
+        "material":  [
+                         "SER-00"
+                     ],
+        "mindestmenge_ml":  0.4,
+        "name":  "Cholinesterase",
+        "sortierNummer":  "1270",
+        "synonyme":  [
+                         "CHE",
+                         "Pseudocholinesterase"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "2 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Alpha-1-Antitrypsin",
-                "url": "/infobase/sop_Alpha-1-Antitrypsin.pdf"
-            }
-        ],
-        "durchführung": "Mo-Fr 8-16 Uhr",
-        "ebm": "32326",
-        "einheit": "mg/dl",
-        "goae": "3564",
-        "hinweise": [
-            "Akute-Phase-Protein"
-        ],
-        "id": "K037",
-        "kategorie": "Klinische Chemie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": "1821-5",
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.5,
-        "name": "Alpha-1-Antitrypsin",
-        "sortierNummer": "1280",
-        "synonyme": [
-            "AAT"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Alpha-1-Antitrypsin",
+                              "url":  "/infobase/sop_Alpha-1-Antitrypsin.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 8-16 Uhr",
+        "ebm":  "32326",
+        "einheit":  "mg/dl",
+        "goae":  "3564",
+        "hinweise":  [
+                         "Akute-Phase-Protein"
+                     ],
+        "id":  "K037",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "1821-5",
+        "material":  [
+                         "SER-00"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Alpha-1-Antitrypsin",
+        "sortierNummer":  "1280",
+        "synonyme":  [
+                         "AAT"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "2 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Albumin",
-                "url": "/infobase/sop_Albumin.pdf"
-            }
-        ],
-        "durchführung": "24/7",
-        "ebm": "32327",
-        "einheit": "g/dl",
-        "goae": "3565",
-        "hinweise": [
-            "Leberfunktionsparameter"
-        ],
-        "id": "K038",
-        "kategorie": "Klinische Chemie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": "1751-7",
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.3,
-        "name": "Albumin",
-        "sortierNummer": "1290",
-        "synonyme": [
-            "Serumalbumin"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Albumin",
+                              "url":  "/infobase/sop_Albumin.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32327",
+        "einheit":  "g/dl",
+        "goae":  "3565",
+        "hinweise":  [
+                         "Leberfunktionsparameter"
+                     ],
+        "id":  "K038",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "1751-7",
+        "material":  [
+                         "SER-00"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "Albumin",
+        "sortierNummer":  "1290",
+        "synonyme":  [
+                         "Serumalbumin"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "2 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Gesamtprotein",
-                "url": "/infobase/sop_Gesamtprotein.pdf"
-            }
-        ],
-        "durchführung": "24/7",
-        "ebm": "32328",
-        "einheit": "g/dl",
-        "goae": "3566",
-        "hinweise": [
-            "Gesamtprotein im Serum"
-        ],
-        "id": "K039",
-        "kategorie": "Klinische Chemie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": "2885-2",
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.3,
-        "name": "Gesamtprotein",
-        "sortierNummer": "1300",
-        "synonyme": [
-            "Total Protein"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Gesamtprotein",
+                              "url":  "/infobase/sop_Gesamtprotein.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32328",
+        "einheit":  "g/dl",
+        "goae":  "3566",
+        "hinweise":  [
+                         "Gesamtprotein im Serum"
+                     ],
+        "id":  "K039",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "2885-2",
+        "material":  [
+                         "SER-00"
+                     ],
+        "mindestmenge_ml":  0.3,
+        "name":  "Gesamtprotein",
+        "sortierNummer":  "1300",
+        "synonyme":  [
+                         "Total Protein"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "2 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Haptoglobin",
-                "url": "/infobase/sop_Haptoglobin.pdf"
-            }
-        ],
-        "durchführung": "Mo-Fr 8-16 Uhr",
-        "ebm": "32329",
-        "einheit": "mg/dl",
-        "goae": "3567",
-        "hinweise": [
-            "Akute-Phase-Protein"
-        ],
-        "id": "K040",
-        "kategorie": "Klinische Chemie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": "46193-7",
-        "material": [
-            "Serum"
-        ],
-        "mindestmenge_ml": 0.4,
-        "name": "Haptoglobin",
-        "sortierNummer": "1310",
-        "synonyme": [
-            "HAPT"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Haptoglobin",
+                              "url":  "/infobase/sop_Haptoglobin.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 8-16 Uhr",
+        "ebm":  "32329",
+        "einheit":  "mg/dl",
+        "goae":  "3567",
+        "hinweise":  [
+                         "Akute-Phase-Protein"
+                     ],
+        "id":  "K040",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "46193-7",
+        "material":  [
+                         "SER-00"
+                     ],
+        "mindestmenge_ml":  0.4,
+        "name":  "Haptoglobin",
+        "sortierNummer":  "1310",
+        "synonyme":  [
+                         "HAPT"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "2 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Urin-Albumin",
-                "url": "/infobase/sop_Urin-Albumin.pdf"
-            }
-        ],
-        "durchführung": "24/7",
-        "ebm": "32330",
-        "einheit": "mg/l",
-        "goae": "3568",
-        "hinweise": [
-            "Mikroalbuminurie-Screening"
-        ],
-        "id": "K041",
-        "kategorie": "Klinische Chemie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": "14959-9",
-        "material": [
-            "Spontanurin"
-        ],
-        "mindestmenge_ml": 5,
-        "name": "Urin-Albumin",
-        "sortierNummer": "1320",
-        "synonyme": [
-            "Mikroalbumin"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Urin-Albumin",
+                              "url":  "/infobase/sop_Urin-Albumin.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32330",
+        "einheit":  "mg/l",
+        "goae":  "3568",
+        "hinweise":  [
+                         "Mikroalbuminurie-Screening"
+                     ],
+        "id":  "K041",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "14959-9",
+        "material":  [
+                         "U-03"
+                     ],
+        "mindestmenge_ml":  5,
+        "name":  "Urin-Albumin",
+        "sortierNummer":  "1320",
+        "synonyme":  [
+                         "Mikroalbumin"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "2 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Urin-Protein",
-                "url": "/infobase/sop_Urin-Protein.pdf"
-            }
-        ],
-        "durchführung": "24/7",
-        "ebm": "32331",
-        "einheit": "mg/dl",
-        "goae": "3569",
-        "hinweise": [
-            "Proteinurie-Screening"
-        ],
-        "id": "K042",
-        "kategorie": "Klinische Chemie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": "2887-8",
-        "material": [
-            "Spontanurin"
-        ],
-        "mindestmenge_ml": 5,
-        "name": "Urin-Gesamtprotein",
-        "sortierNummer": "1330",
-        "synonyme": [
-            "Urin-Protein"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Urin-Protein",
+                              "url":  "/infobase/sop_Urin-Protein.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32331",
+        "einheit":  "mg/dl",
+        "goae":  "3569",
+        "hinweise":  [
+                         "Proteinurie-Screening"
+                     ],
+        "id":  "K042",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "2887-8",
+        "material":  [
+                         "U-03"
+                     ],
+        "mindestmenge_ml":  5,
+        "name":  "Urin-Gesamtprotein",
+        "sortierNummer":  "1330",
+        "synonyme":  [
+                         "Urin-Protein"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "2 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Urin-Kreatinin",
-                "url": "/infobase/sop_Urin-Kreatinin.pdf"
-            }
-        ],
-        "durchführung": "24/7",
-        "ebm": "32332",
-        "einheit": "mg/dl",
-        "goae": "3570",
-        "hinweise": [
-            "Nierenfunktionsdiagnostik"
-        ],
-        "id": "K043",
-        "kategorie": "Klinische Chemie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": "2161-8",
-        "material": [
-            "Spontanurin"
-        ],
-        "mindestmenge_ml": 5,
-        "name": "Urin-Kreatinin",
-        "sortierNummer": "1340",
-        "synonyme": [
-            "U-Kreatinin"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Urin-Kreatinin",
+                              "url":  "/infobase/sop_Urin-Kreatinin.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32332",
+        "einheit":  "mg/dl",
+        "goae":  "3570",
+        "hinweise":  [
+                         "Nierenfunktionsdiagnostik"
+                     ],
+        "id":  "K043",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "2161-8",
+        "material":  [
+                         "U-03"
+                     ],
+        "mindestmenge_ml":  5,
+        "name":  "Urin-Kreatinin",
+        "sortierNummer":  "1340",
+        "synonyme":  [
+                         "U-Kreatinin"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "2 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Urin-Harnstoff",
-                "url": "/infobase/sop_Urin-Harnstoff.pdf"
-            }
-        ],
-        "durchführung": "24/7",
-        "ebm": "32626",
-        "einheit": "mg/dl",
-        "goae": "3571",
-        "hinweise": [
-            "Nierenfunktionsdiagnostik"
-        ],
-        "id": "K044",
-        "kategorie": "Klinische Chemie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": "3097-3",
-        "material": [
-            "Spontanurin"
-        ],
-        "mindestmenge_ml": 5,
-        "name": "Urin-Harnstoff",
-        "sortierNummer": "1350",
-        "synonyme": [
-            "U-Harnstoff",
-            "Urea im Urin"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Urin-Harnstoff",
+                              "url":  "/infobase/sop_Urin-Harnstoff.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32626",
+        "einheit":  "mg/dl",
+        "goae":  "3571",
+        "hinweise":  [
+                         "Nierenfunktionsdiagnostik"
+                     ],
+        "id":  "K044",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "3097-3",
+        "material":  [
+                         "U-03"
+                     ],
+        "mindestmenge_ml":  5,
+        "name":  "Urin-Harnstoff",
+        "sortierNummer":  "1350",
+        "synonyme":  [
+                         "U-Harnstoff",
+                         "Urea im Urin"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "2 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Urin-Natrium",
-                "url": "/infobase/sop_Urin-Natrium.pdf"
-            }
-        ],
-        "durchführung": "24/7",
-        "ebm": "32604",
-        "einheit": "mmol/l",
-        "goae": "3572",
-        "hinweise": [
-            "Elektrolytbestimmung im Urin"
-        ],
-        "id": "K045",
-        "kategorie": "Klinische Chemie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": "2956-1",
-        "material": [
-            "Spontanurin"
-        ],
-        "mindestmenge_ml": 5,
-        "name": "Urin-Natrium",
-        "sortierNummer": "1360",
-        "synonyme": [
-            "U-Natrium",
-            "Na+ im Urin"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Urin-Natrium",
+                              "url":  "/infobase/sop_Urin-Natrium.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32604",
+        "einheit":  "mmol/l",
+        "goae":  "3572",
+        "hinweise":  [
+                         "Elektrolytbestimmung im Urin"
+                     ],
+        "id":  "K045",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "2956-1",
+        "material":  [
+                         "U-03"
+                     ],
+        "mindestmenge_ml":  5,
+        "name":  "Urin-Natrium",
+        "sortierNummer":  "1360",
+        "synonyme":  [
+                         "U-Natrium",
+                         "Na+ im Urin"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "2 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Liquor-Glukose",
-                "url": "/infobase/sop_Liquor-Glukose.pdf"
-            }
-        ],
-        "durchführung": "24/7",
-        "ebm": "32210",
-        "einheit": "mg/dl",
-        "goae": "3593",
-        "hinweise": [
-            "Vergleich mit Serum-Glukose empfohlen"
-        ],
-        "id": "K048",
-        "kategorie": "Klinische Chemie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": "2342-4",
-        "material": [
-            "Liquor"
-        ],
-        "mindestmenge_ml": 0.5,
-        "name": "Liquor-Glukose",
-        "sortierNummer": "1390",
-        "synonyme": [
-            "CSF-Glukose"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Liquor-Glukose",
+                              "url":  "/infobase/sop_Liquor-Glukose.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32210",
+        "einheit":  "mg/dl",
+        "goae":  "3593",
+        "hinweise":  [
+                         "Vergleich mit Serum-Glukose empfohlen"
+                     ],
+        "id":  "K048",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "2342-4",
+        "material":  [
+                         "L-08"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Liquor-Glukose",
+        "sortierNummer":  "1390",
+        "synonyme":  [
+                         "CSF-Glukose"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "2 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Liquor-Protein",
-                "url": "/infobase/sop_Liquor-Protein.pdf"
-            }
-        ],
-        "durchführung": "24/7",
-        "ebm": "32329",
-        "einheit": "mg/dl",
-        "goae": "3567",
-        "hinweise": [
-            "Gesamtprotein im Liquor"
-        ],
-        "id": "K049",
-        "kategorie": "Klinische Chemie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": "2886-0",
-        "material": [
-            "Liquor"
-        ],
-        "mindestmenge_ml": 0.5,
-        "name": "Liquor-Gesamtprotein",
-        "sortierNummer": "1400",
-        "synonyme": [
-            "CSF-Protein"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Liquor-Protein",
+                              "url":  "/infobase/sop_Liquor-Protein.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32329",
+        "einheit":  "mg/dl",
+        "goae":  "3567",
+        "hinweise":  [
+                         "Gesamtprotein im Liquor"
+                     ],
+        "id":  "K049",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "2886-0",
+        "material":  [
+                         "L-08"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Liquor-Gesamtprotein",
+        "sortierNummer":  "1400",
+        "synonyme":  [
+                         "CSF-Protein"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "2 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Liquor-Laktat",
-                "url": "/infobase/sop_Liquor-Laktat.pdf"
-            }
-        ],
-        "durchführung": "24/7",
-        "ebm": "32333",
-        "einheit": "mmol/l",
-        "goae": "3575",
-        "hinweise": [
-            "Erhöht bei bakterieller Meningitis"
-        ],
-        "id": "K050",
-        "kategorie": "Klinische Chemie",
-        "lagerung": "gekühlt, max. 24h",
-        "loinc": "2524-7",
-        "material": [
-            "Liquor"
-        ],
-        "mindestmenge_ml": 0.5,
-        "name": "Liquor-Laktat",
-        "sortierNummer": "1410",
-        "synonyme": [
-            "CSF-Laktat"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Liquor-Laktat",
+                              "url":  "/infobase/sop_Liquor-Laktat.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32333",
+        "einheit":  "mmol/l",
+        "goae":  "3575",
+        "hinweise":  [
+                         "Erhöht bei bakterieller Meningitis"
+                     ],
+        "id":  "K050",
+        "kategorie":  "Klinische Chemie",
+        "lagerung":  "gekühlt, max. 24h",
+        "loinc":  "2524-7",
+        "material":  [
+                         "L-08"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Liquor-Laktat",
+        "sortierNummer":  "1410",
+        "synonyme":  [
+                         "CSF-Laktat"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "2 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Liquor-Zellzahl",
-                "url": "/infobase/sop_Liquor-Zellzahl.pdf"
-            }
-        ],
-        "durchführung": "24/7",
-        "ebm": "32334",
-        "einheit": "Zellen/µl",
-        "goae": "3576",
-        "hinweise": [
-            "Differenzierung nach Zellart möglich"
-        ],
-        "id": "H024",
-        "kategorie": "Hämatologie",
-        "lagerung": "gekühlt, max. 2h",
-        "loinc": "1988-5",
-        "material": [
-            "Liquor"
-        ],
-        "mindestmenge_ml": 0.5,
-        "name": "Liquor-Zellzahl",
-        "sortierNummer": "1420",
-        "synonyme": [
-            "CSF-Zellzahl"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Liquor-Zellzahl",
+                              "url":  "/infobase/sop_Liquor-Zellzahl.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32334",
+        "einheit":  "Zellen/µl",
+        "goae":  "3576",
+        "hinweise":  [
+                         "Differenzierung nach Zellart möglich"
+                     ],
+        "id":  "H024",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt, max. 2h",
+        "loinc":  "1988-5",
+        "material":  [
+                         "L-08"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Liquor-Zellzahl",
+        "sortierNummer":  "1420",
+        "synonyme":  [
+                         "CSF-Zellzahl"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "2 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Liquor-Differenzierung",
-                "url": "/infobase/sop_Liquor-Differenzierung.pdf"
-            }
-        ],
-        "durchführung": "24/7",
-        "ebm": null,
-        "einheit": "%",
-        "goae": null,
-        "hinweise": [
-            "Differenzierung der Zellarten im Liquor"
-        ],
-        "id": "H025",
-        "kategorie": "Hämatologie",
-        "lagerung": "gekühlt, max. 2h",
-        "loinc": null,
-        "material": [
-            "Liquor"
-        ],
-        "mindestmenge_ml": 0.5,
-        "name": "Liquor-Differenzierung",
-        "sortierNummer": "1421",
-        "synonyme": [
-            "Liquor-Zelldifferenzierung",
-            "CSF-Differenzierung"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Liquor-Differenzierung",
+                              "url":  "/infobase/sop_Liquor-Differenzierung.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  null,
+        "einheit":  "%",
+        "goae":  null,
+        "hinweise":  [
+                         "Differenzierung der Zellarten im Liquor"
+                     ],
+        "id":  "H025",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt, max. 2h",
+        "loinc":  null,
+        "material":  [
+                         "L-08"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Liquor-Differenzierung",
+        "sortierNummer":  "1421",
+        "synonyme":  [
+                         "Liquor-Zelldifferenzierung",
+                         "CSF-Differenzierung"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "2 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Liquor-Neutrophile",
-                "url": "/infobase/sop_Liquor-Differenzierung.pdf"
-            }
-        ],
-        "durchführung": "24/7",
-        "ebm": null,
-        "einheit": "%",
-        "goae": null,
-        "hinweise": [
-            "Anteil der Neutrophilen an der Gesamtzellzahl im Liquor"
-        ],
-        "id": "H026",
-        "kategorie": "Hämatologie",
-        "lagerung": "gekühlt, max. 2h",
-        "loinc": null,
-        "material": [
-            "Liquor"
-        ],
-        "mindestmenge_ml": 0.5,
-        "name": "Liquor-Neutrophile",
-        "sortierNummer": "1422",
-        "synonyme": [
-            "CSF-Neutrophile"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Liquor-Neutrophile",
+                              "url":  "/infobase/sop_Liquor-Differenzierung.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  null,
+        "einheit":  "%",
+        "goae":  null,
+        "hinweise":  [
+                         "Anteil der Neutrophilen an der Gesamtzellzahl im Liquor"
+                     ],
+        "id":  "H026",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt, max. 2h",
+        "loinc":  null,
+        "material":  [
+                         "L-08"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Liquor-Neutrophile",
+        "sortierNummer":  "1422",
+        "synonyme":  [
+                         "CSF-Neutrophile"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "2 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Liquor-Lymphozyten",
-                "url": "/infobase/sop_Liquor-Differenzierung.pdf"
-            }
-        ],
-        "durchführung": "24/7",
-        "ebm": null,
-        "einheit": "%",
-        "goae": null,
-        "hinweise": [
-            "Anteil der Lymphozyten an der Gesamtzellzahl im Liquor"
-        ],
-        "id": "H027",
-        "kategorie": "Hämatologie",
-        "lagerung": "gekühlt, max. 2h",
-        "loinc": null,
-        "material": [
-            "Liquor"
-        ],
-        "mindestmenge_ml": 0.5,
-        "name": "Liquor-Lymphozyten",
-        "sortierNummer": "1423",
-        "synonyme": [
-            "CSF-Lymphozyten"
-        ]
-    },    {
-        "aktiv": true,
-        "befundzeit": "2 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Liquor-Monozyten",
-                "url": "/infobase/sop_Liquor-Differenzierung.pdf"
-            }
-        ],
-        "durchführung": "24/7",
-        "ebm": null,
-        "einheit": "%",
-        "goae": null,
-        "hinweise": [
-            "Anteil der Monozyten/Makrophagen an der Gesamtzellzahl im Liquor"
-        ],
-        "id": "H028",
-        "kategorie": "Hämatologie",
-        "lagerung": "gekühlt, max. 2h",
-        "loinc": null,
-        "material": [
-            "Liquor"
-        ],
-        "mindestmenge_ml": 0.5,
-        "name": "Liquor-Monozyten",
-        "sortierNummer": "1424",
-        "synonyme": [
-            "CSF-Monozyten"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Liquor-Lymphozyten",
+                              "url":  "/infobase/sop_Liquor-Differenzierung.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  null,
+        "einheit":  "%",
+        "goae":  null,
+        "hinweise":  [
+                         "Anteil der Lymphozyten an der Gesamtzellzahl im Liquor"
+                     ],
+        "id":  "H027",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt, max. 2h",
+        "loinc":  null,
+        "material":  [
+                         "L-08"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Liquor-Lymphozyten",
+        "sortierNummer":  "1423",
+        "synonyme":  [
+                         "CSF-Lymphozyten"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "4 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Drogenscreening",
-                "url": "/infobase/sop_Drogenscreening.pdf"
-            }
-        ],
-        "durchführung": "24/7",
-        "ebm": "32320",
-        "einheit": null,
-        "goae": "4056",
-        "hinweise": [
-            "Qualitativer Schnelltest",
-            "Positiver Befund erfordert Bestätigungsanalyse",
-            "Nachweisgrenze: 50 ng/ml"
-        ],
-        "id": "T001",
-        "kategorie": "Toxikologie",
-        "lagerung": "gekühlt, max. 48h",
-        "loinc": "3393-6",
-        "material": [
-            "Spontanurin"
-        ],
-        "mindestmenge_ml": 10,
-        "name": "Cannabis (THC)",
-        "sortierNummer": "2000",
-        "synonyme": [
-            "Marihuana",
-            "THC-COOH",
-            "Cannabinoide"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "2 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Liquor-Monozyten",
+                              "url":  "/infobase/sop_Liquor-Differenzierung.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  null,
+        "einheit":  "%",
+        "goae":  null,
+        "hinweise":  [
+                         "Anteil der Monozyten/Makrophagen an der Gesamtzellzahl im Liquor"
+                     ],
+        "id":  "H028",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "gekühlt, max. 2h",
+        "loinc":  null,
+        "material":  [
+                         "L-08"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "Liquor-Monozyten",
+        "sortierNummer":  "1424",
+        "synonyme":  [
+                         "CSF-Monozyten"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "4 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Drogenscreening",
-                "url": "/infobase/sop_Drogenscreening.pdf"
-            }
-        ],
-        "durchführung": "24/7",
-        "ebm": "32321",
-        "einheit": null,
-        "goae": "4057",
-        "hinweise": [
-            "Qualitativer Schnelltest",
-            "Positiver Befund erfordert Bestätigungsanalyse",
-            "Nachweisgrenze: 300 ng/ml"
-        ],
-        "id": "T002",
-        "kategorie": "Toxikologie",
-        "lagerung": "gekühlt, max. 48h",
-        "loinc": "3349-8",
-        "material": [
-            "Spontanurin"
-        ],
-        "mindestmenge_ml": 10,
-        "name": "Kokain",
-        "sortierNummer": "2010",
-        "synonyme": [
-            "Benzoylecgonin",
-            "Cocain",
-            "Crack"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "4 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Drogenscreening",
+                              "url":  "/infobase/sop_Drogenscreening.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32320",
+        "einheit":  null,
+        "goae":  "4056",
+        "hinweise":  [
+                         "Qualitativer Schnelltest",
+                         "Positiver Befund erfordert Bestätigungsanalyse",
+                         "Nachweisgrenze: 50 ng/ml"
+                     ],
+        "id":  "T001",
+        "kategorie":  "Toxikologie",
+        "lagerung":  "gekühlt, max. 48h",
+        "loinc":  "3393-6",
+        "material":  [
+                         "U-03"
+                     ],
+        "mindestmenge_ml":  10,
+        "name":  "Cannabis (THC) immunologischer Test",
+        "sortierNummer":  "2000",
+        "synonyme":  [
+                         "Marihuana",
+                         "THC-COOH",
+                         "Cannabinoide"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "4 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Drogenscreening",
-                "url": "/infobase/sop_Drogenscreening.pdf"
-            }
-        ],
-        "durchführung": "24/7",
-        "ebm": "32322",
-        "einheit": null,
-        "goae": "4058",
-        "hinweise": [
-            "Qualitativer Schnelltest",
-            "Positiver Befund erfordert Bestätigungsanalyse",
-            "Nachweisgrenze: 1000 ng/ml"
-        ],
-        "id": "T003",
-        "kategorie": "Toxikologie",
-        "lagerung": "gekühlt, max. 48h",
-        "loinc": "3830-7",
-        "material": [
-            "Spontanurin"
-        ],
-        "mindestmenge_ml": 10,
-        "name": "Amphetamine",
-        "sortierNummer": "2020",
-        "synonyme": [
-            "Speed",
-            "Amphetamin",
-            "Methamphetamin"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "4 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Drogenscreening",
+                              "url":  "/infobase/sop_Drogenscreening.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32321",
+        "einheit":  null,
+        "goae":  "4057",
+        "hinweise":  [
+                         "Qualitativer Schnelltest",
+                         "Positiver Befund erfordert Bestätigungsanalyse",
+                         "Nachweisgrenze: 300 ng/ml"
+                     ],
+        "id":  "T002",
+        "kategorie":  "Toxikologie",
+        "lagerung":  "gekühlt, max. 48h",
+        "loinc":  "3349-8",
+        "material":  [
+                         "U-03"
+                     ],
+        "mindestmenge_ml":  10,
+        "name":  "Kokain immunologischer Test",
+        "sortierNummer":  "2010",
+        "synonyme":  [
+                         "Benzoylecgonin",
+                         "Cocain",
+                         "Crack"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "4 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Drogenscreening",
-                "url": "/infobase/sop_Drogenscreening.pdf"
-            }
-        ],
-        "durchführung": "24/7",
-        "ebm": "32323",
-        "einheit": null,
-        "goae": "4059",
-        "hinweise": [
-            "Qualitativer Schnelltest",
-            "Positiver Befund erfordert Bestätigungsanalyse",
-            "Nachweisgrenze: 500 ng/ml"
-        ],
-        "id": "T004",
-        "kategorie": "Toxikologie",
-        "lagerung": "gekühlt, max. 48h",
-        "loinc": "16882-3",
-        "material": [
-            "Spontanurin"
-        ],
-        "mindestmenge_ml": 10,
-        "name": "MDMA (Ecstasy)",
-        "sortierNummer": "2030",
-        "synonyme": [
-            "Ecstasy",
-            "XTC",
-            "3,4-Methylendioxy-N-methylamphetamin"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "4 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Drogenscreening",
+                              "url":  "/infobase/sop_Drogenscreening.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32322",
+        "einheit":  null,
+        "goae":  "4058",
+        "hinweise":  [
+                         "Qualitativer Schnelltest",
+                         "Positiver Befund erfordert Bestätigungsanalyse",
+                         "Nachweisgrenze: 1000 ng/ml"
+                     ],
+        "id":  "T003",
+        "kategorie":  "Toxikologie",
+        "lagerung":  "gekühlt, max. 48h",
+        "loinc":  "3830-7",
+        "material":  [
+                         "U-03"
+                     ],
+        "mindestmenge_ml":  10,
+        "name":  "Amphetamine immunologischer Test",
+        "sortierNummer":  "2020",
+        "synonyme":  [
+                         "Speed",
+                         "Amphetamin",
+                         "Methamphetamin"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "4 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Drogenscreening",
-                "url": "/infobase/sop_Drogenscreening.pdf"
-            }
-        ],
-        "durchführung": "24/7",
-        "ebm": "32324",
-        "einheit": null,
-        "goae": "4060",
-        "hinweise": [
-            "Qualitativer Schnelltest",
-            "Positiver Befund erfordert Bestätigungsanalyse",
-            "Nachweisgrenze: 300 ng/ml"
-        ],
-        "id": "T005",
-        "kategorie": "Toxikologie",
-        "lagerung": "gekühlt, max. 48h",
-        "loinc": "3564-2",
-        "material": [
-            "Spontanurin"
-        ],
-        "mindestmenge_ml": 10,
-        "name": "Opiate",
-        "sortierNummer": "2040",
-        "synonyme": [
-            "Morphin",
-            "Codein",
-            "Heroin-Metaboliten"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "4 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Drogenscreening",
+                              "url":  "/infobase/sop_Drogenscreening.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32323",
+        "einheit":  null,
+        "goae":  "4059",
+        "hinweise":  [
+                         "Qualitativer Schnelltest",
+                         "Positiver Befund erfordert Bestätigungsanalyse",
+                         "Nachweisgrenze: 500 ng/ml"
+                     ],
+        "id":  "T004",
+        "kategorie":  "Toxikologie",
+        "lagerung":  "gekühlt, max. 48h",
+        "loinc":  "16882-3",
+        "material":  [
+                         "U-03"
+                     ],
+        "mindestmenge_ml":  10,
+        "name":  "MDMA (Ecstasy) immunologischer Test",
+        "sortierNummer":  "2030",
+        "synonyme":  [
+                         "Ecstasy",
+                         "XTC",
+                         "3,4-Methylendioxy-N-methylamphetamin"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "4 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Drogenscreening",
-                "url": "/infobase/sop_Drogenscreening.pdf"
-            }
-        ],
-        "durchführung": "24/7",
-        "ebm": "32325",
-        "einheit": null,
-        "goae": "4061",
-        "hinweise": [
-            "Qualitativer Schnelltest",
-            "Positiver Befund erfordert Bestätigungsanalyse",
-            "Nachweisgrenze: 100 ng/ml",
-            "Erfasst nicht alle synthetischen Opioide"
-        ],
-        "id": "T006",
-        "kategorie": "Toxikologie",
-        "lagerung": "gekühlt, max. 48h",
-        "loinc": "18282-4",
-        "material": [
-            "Spontanurin"
-        ],
-        "mindestmenge_ml": 10,
-        "name": "Methadon",
-        "sortierNummer": "2050",
-        "synonyme": [
-            "EDDP",
-            "Methadon-Metaboliten"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "4 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Drogenscreening",
+                              "url":  "/infobase/sop_Drogenscreening.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32324",
+        "einheit":  null,
+        "goae":  "4060",
+        "hinweise":  [
+                         "Qualitativer Schnelltest",
+                         "Positiver Befund erfordert Bestätigungsanalyse",
+                         "Nachweisgrenze: 300 ng/ml"
+                     ],
+        "id":  "T005",
+        "kategorie":  "Toxikologie",
+        "lagerung":  "gekühlt, max. 48h",
+        "loinc":  "3564-2",
+        "material":  [
+                         "U-03"
+                     ],
+        "mindestmenge_ml":  10,
+        "name":  "Opiate immunologischer Test",
+        "sortierNummer":  "2040",
+        "synonyme":  [
+                         "Morphin",
+                         "Codein",
+                         "Heroin-Metaboliten"
+                     ]
     },
     {
-        "aktiv": true,
-        "befundzeit": "6 Stunden",
-        "dokumente": [
-            {
-                "titel": "SOP Drogenscreening",
-                "url": "/infobase/sop_Drogenscreening.pdf"
-            }
-        ],
-        "durchführung": "Mo-Fr 8-16 Uhr",
-        "ebm": "32326",
-        "einheit": null,
-        "goae": "4062",
-        "hinweise": [
-            "Qualitativer Schnelltest",
-            "Positiver Befund erfordert Bestätigungsanalyse",
-            "Nachweisgrenze: 200 ng/ml",
-            "Erfasst Benzodiazepine mit unterschiedlicher Sensitivität"
-        ],
-        "id": "T007",
-        "kategorie": "Toxikologie",
-        "lagerung": "gekühlt, max. 48h",
-        "loinc": "3376-1",
-        "material": [
-            "Spontanurin"
-        ],
-        "mindestmenge_ml": 10,
-        "name": "Benzodiazepine",
-        "sortierNummer": "2060",
-        "synonyme": [
-            "Diazepam",
-            "Lorazepam",
-            "Bromazepam",
-            "Flunitrazepam"
-        ]
+        "aktiv":  true,
+        "befundzeit":  "4 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Drogenscreening",
+                              "url":  "/infobase/sop_Drogenscreening.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32325",
+        "einheit":  null,
+        "goae":  "4061",
+        "hinweise":  [
+                         "Qualitativer Schnelltest",
+                         "Positiver Befund erfordert Bestätigungsanalyse",
+                         "Nachweisgrenze: 100 ng/ml",
+                         "Erfasst nicht alle synthetischen Opioide"
+                     ],
+        "id":  "T006",
+        "kategorie":  "Toxikologie",
+        "lagerung":  "gekühlt, max. 48h",
+        "loinc":  "18282-4",
+        "material":  [
+                         "U-03"
+                     ],
+        "mindestmenge_ml":  10,
+        "name":  "Methadon immunologischer Test",
+        "sortierNummer":  "2050",
+        "synonyme":  [
+                         "EDDP",
+                         "Methadon-Metaboliten"
+                     ]
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "6 Stunden",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP Drogenscreening",
+                              "url":  "/infobase/sop_Drogenscreening.pdf"
+                          }
+                      ],
+        "durchführung":  "Mo-Fr 8-16 Uhr",
+        "ebm":  "32326",
+        "einheit":  null,
+        "goae":  "4062",
+        "hinweise":  [
+                         "Qualitativer Schnelltest",
+                         "Positiver Befund erfordert Bestätigungsanalyse",
+                         "Nachweisgrenze: 200 ng/ml",
+                         "Erfasst Benzodiazepine mit unterschiedlicher Sensitivität"
+                     ],
+        "id":  "T007",
+        "kategorie":  "Toxikologie",
+        "lagerung":  "gekühlt, max. 48h",
+        "loinc":  "3376-1",
+        "material":  [
+                         "U-03"
+                     ],
+        "mindestmenge_ml":  10,
+        "name":  "Benzodiazepine immunologischer Test",
+        "sortierNummer":  "2060",
+        "synonyme":  [
+                         "Diazepam",
+                         "Lorazepam",
+                         "Bromazepam",
+                         "Flunitrazepam"
+                     ]
     }
 ]
+

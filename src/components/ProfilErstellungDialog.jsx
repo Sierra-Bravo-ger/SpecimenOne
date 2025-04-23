@@ -1,14 +1,19 @@
 import { useState, useRef, useEffect } from 'react';
 import './ProfilErstellungDialog.css';
 import * as MaterialDesign from "react-icons/md";
+import { useAuth0 } from '@auth0/auth0-react';
 import { sendProfilByFormSubmit, sendProfilToDiscord, getServiceStatus } from '../services/ServiceClient';
 
 function ProfilErstellungDialog({ selectedTests, onClose, onPrint }) {
+  // Auth0 Hook für Authentifizierungsstatus
+  const { isAuthenticated, loginWithRedirect, user } = useAuth0();
+  
   const [profilName, setProfilName] = useState('');
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [isSending, setIsSending] = useState(false);
   const [emailStatus, setEmailStatus] = useState(null);
+  const [isRedirecting, setIsRedirecting] = useState(false);
   const dialogRef = useRef(null);
 
   // Profil-Objekt erstellen
@@ -21,10 +26,26 @@ function ProfilErstellungDialog({ selectedTests, onClose, onPrint }) {
       erstelltAm: new Date().toLocaleDateString('de-DE')
     };
   };
-
   const handlePrint = () => {
     if (onPrint) onPrint(createProfil());
-  };  const handleSendEmail = async () => {
+  };
+  
+  const handleSendEmail = async () => {
+    // Wenn Benutzer nicht eingeloggt ist, Login-Dialog anzeigen
+    if (!isAuthenticated) {
+      if (!isRedirecting) {
+        setIsRedirecting(true);
+        // Speichere Seitenzustand vor Weiterleitung
+        const returnUrl = window.location.pathname + window.location.search;
+        // Zum Login weiterleiten
+        loginWithRedirect({
+          appState: { returnTo: returnUrl }
+        });
+      }
+      return;
+    }
+    
+    // Normales Verhalten wenn Benutzer eingeloggt ist
     if (!profilName.trim()) {
       alert('Bitte geben Sie einen Profilnamen ein.');
       return;
@@ -34,7 +55,11 @@ function ProfilErstellungDialog({ selectedTests, onClose, onPrint }) {
       setIsSending(true);
       setEmailStatus({ type: 'info', message: 'Profil wird übermittelt...' });
       
+      // Wenn Benutzer eingeloggt ist, E-Mail-Adresse aus Profil verwenden
       const profilData = createProfil();
+      if (user?.email && !email) {
+        profilData.email = user.email;
+      }
       
       // Versuche zuerst, das Profil über Discord zu senden
       try {

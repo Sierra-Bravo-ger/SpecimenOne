@@ -1,16 +1,23 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './TestDetails.css'
+import './TestDetails-Badge.css'
 import '@material/web/button/filled-button.js'
 import '@material/web/button/text-button.js'
 import '@material/web/divider/divider.js'
 import '@material/web/elevation/elevation.js'
 import * as MaterialDesign from "react-icons/md"
+import { useMaterialService } from '../services/MaterialService'
+import { useEinheitenService } from '../services/EinheitenService'
+import MaterialBadge from './MaterialBadge'
 
 function TestDetails({ test, onClose }) {
   // Ref für den Ausdruck
-  const printContentRef = useRef(null);
-  // State für Referenzwerte
+  const printContentRef = useRef(null);  // State für Referenzwerte
   const [referenzwerte, setReferenzwerte] = useState([]);
+  // Material-Service für die Anzeige der Materialbezeichnungen
+  const { convertMaterialIdsToNames, isLoading: materialsLoading } = useMaterialService();
+  // Einheiten-Service für die Anzeige der Einheitsbezeichnungen
+  const { getEinheitBezeichnung, isLoading: einheitenLoading } = useEinheitenService();
   
   // Laden der Referenzwerte beim Mounten der Komponente
   useEffect(() => {
@@ -181,7 +188,7 @@ function TestDetails({ test, onClose }) {
             <button class="close-button" onclick="window.close();">Schließen</button>
           </div>
           <div class="header">
-            <img src="/images/icon-512x512.png" alt="SpecimenOne Logo" class="logo">
+            <img src="/images/icons/icon-2.png" alt="SpecimenOne Logo" class="logo">
             <h1>${test.name}</h1>
           </div>
           
@@ -196,7 +203,7 @@ function TestDetails({ test, onClose }) {
             <p><strong>ID:</strong> ${test.id}</p>
             <p><strong>LOINC:</strong> ${test.loinc}</p>
             <p><strong>Kategorie:</strong> ${test.kategorie}</p>
-            ${test.einheit ? `<p><strong>Einheit:</strong> ${test.einheit}</p>` : ''}
+            ${test.einheit_id ? `<p><strong>Einheit:</strong> ${getEinheitBezeichnung(test.einheit_id)}</p>` : ''}
           </div>
           
           <div class="section">
@@ -266,7 +273,7 @@ function TestDetails({ test, onClose }) {
                       ref.Geschlecht === 2000 ? "Weiblich" : 
                       ref.Geschlecht === 3000 ? "Alle" : ""
                     }</td>
-                    <td style="padding: 8px; border: 1px solid #ddd;">${ref.Wert_untere_Grenze} - ${ref.Wert_obere_Grenze} ${test.einheit}</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">${ref.Wert_untere_Grenze} - ${ref.Wert_obere_Grenze} ${getEinheitBezeichnung(test.einheit_id)}</td>
                     <td style="padding: 8px; border: 1px solid #ddd;">${ref.Schwangerschaft ? `Schwangerschaft (${ref.Besondere_Bedingung})` : ref.Besondere_Bedingung || "-"}</td>
                   </tr>
                 `).join('')}
@@ -314,13 +321,22 @@ function TestDetails({ test, onClose }) {
           <p><strong>ID:</strong> {test.id}</p>
           <p><strong>LOINC:</strong> {test.loinc}</p>
           <p><strong>Kategorie:</strong> {test.kategorie}</p>
-          {test.einheit && <p><strong>Einheit:</strong> {test.einheit}</p>}
+          {test.einheit_id && <p><strong>Einheit:</strong> {getEinheitBezeichnung(test.einheit_id)}</p>}
           <md-divider></md-divider>
-        </div>
-        
-        <div className="details-section">
+        </div>        <div className="details-section">
           <h3>Probenanforderungen</h3>
-          <p><strong>Material:</strong> {test.material.join(', ')}</p>
+          <div className="detail-material-row">
+            <p><strong>Material:</strong></p>
+            {test.material && test.material.length > 0 ? (
+              <div className="material-badges-container">
+                {test.material.map((materialId, index) => (
+                  <MaterialBadge key={index} materialId={materialId} showKurzbezeichnung={true} />
+                ))}
+              </div>
+            ) : (
+              <span className="keine-material-info">Keine Angabe</span>
+            )}
+          </div>
           <p><strong>Mindestmenge:</strong> {test.mindestmenge_ml} ml</p>
           <p><strong>Lagerung:</strong> {test.lagerung}</p>
           <md-divider></md-divider>
@@ -396,7 +412,7 @@ function TestDetails({ test, onClose }) {
                        `${ref.Alter_von}-${ref.Alter_bis} Jahre`}
                     </td>
                     <td>{getGeschlechtText(ref.Geschlecht)}</td>
-                    <td>{`${ref.Wert_untere_Grenze} - ${ref.Wert_obere_Grenze} ${test.einheit}`}</td>
+                    <td>{`${ref.Wert_untere_Grenze} - ${ref.Wert_obere_Grenze} ${getEinheitBezeichnung(test.einheit_id)}`}</td>
                     <td>{ref.Schwangerschaft ? `Schwangerschaft (${ref.Besondere_Bedingung})` : ref.Besondere_Bedingung || "-"}</td>
                   </tr>
                 ))}

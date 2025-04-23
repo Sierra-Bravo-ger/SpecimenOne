@@ -102,6 +102,11 @@
   color: white;
 }
 
+.category-toxikologie .group-count {
+  background-color: #FF9800; /* Orange */
+  color: black; /* Dunklere Textfarbe für bessere Lesbarkeit auf hellerem Hintergrund */
+}
+
 .category-unknown .group-count {
   background-color: #9E9E9E; /* Grau */
   color: white;
@@ -203,6 +208,11 @@
 .category-infektionsdiagnostik {
   border-left: 4px solid #795548; /* Braun */
   background-color: rgba(121, 85, 72, 0.05); /* Braun mit geringer Opazität */
+}
+
+.category-toxikologie {
+  border-left: 4px solid #FF9800; /* Orange */
+  background-color: rgba(255, 152, 0, 0.05); /* Orange mit geringer Opazität */
 }
 
 /* Unbekannte Kategorie für den Error-Handling Fall */

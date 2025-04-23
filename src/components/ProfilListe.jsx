@@ -4,10 +4,13 @@ import TestDetails from './TestDetails';
 import * as MaterialDesign from "react-icons/md";
 import '@material/web/ripple/ripple.js';
 import '@material/web/elevation/elevation.js';
+import { useMaterialService } from '../services/MaterialService';
+import MaterialBadge from './MaterialBadge';
 
 function ProfilListe({ tests, profile }) {
   const [expandedProfiles, setExpandedProfiles] = useState([]);
   const [selectedTest, setSelectedTest] = useState(null);
+  const { convertMaterialIdsToNames, isLoading: materialsLoading } = useMaterialService();
 
   // Funktion zum Umschalten der Profil-Expansion
   const toggleProfile = (profilId) => {
@@ -80,10 +83,18 @@ function ProfilListe({ tests, profile }) {
                           className="profil-test-item"
                           onClick={() => handleTestClick(test)}
                         >
-                          <md-ripple></md-ripple>
-                          <div className="profil-test-name">{test.name}</div>
+                          <md-ripple></md-ripple>                          <div className="profil-test-name">{test.name}</div>
                           <div className="profil-test-detail">
-                            <span>Material: {test.material?.join(', ')}</span>
+                            <span>Material: </span>
+                            {test.material && test.material.length > 0 ? (
+                              <div className="material-badges-container">
+                                {test.material.map((materialId, index) => (
+                                  <MaterialBadge key={index} materialId={materialId} mini={true} />
+                                ))}
+                              </div>
+                            ) : (
+                              <span className="keine-material-info">Keine Angabe</span>
+                            )}
                           </div>
                           {test.synonyme?.length > 0 && (
                             <div className="profil-test-synonyme">

@@ -18,7 +18,7 @@
       "type": "image/png",
       "purpose": "any"
     },    {
-      "src": "/images/icons/icon-512x512.png",
+      "src": "/images/icons/icon-2.png",
       "sizes": "128x128",
       "type": "image/png",
       "purpose": "any"
@@ -45,7 +45,7 @@
       "type": "image/png",
       "purpose": "any"
     },    {
-      "src": "/images/icons/icon-512x512.png",
+      "src": "/images/icons/icon-2.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"

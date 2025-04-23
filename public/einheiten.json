@@ -1,0 +1,152 @@
+[
+  {
+    "einheit_id": "MUL",
+    "bezeichnung": "mU/l",
+    "beschreibung": "Milliunits pro Liter",
+    "kategorie": "Enzymaktivität"
+  },
+  {
+    "einheit_id": "PMOLL",
+    "bezeichnung": "pmol/l",
+    "beschreibung": "Pikomol pro Liter",
+    "kategorie": "Stoffkonzentration"
+  },
+  {
+    "einheit_id": "NGML",
+    "bezeichnung": "ng/ml",
+    "beschreibung": "Nanogramm pro Milliliter",
+    "kategorie": "Massenkonzentration"
+  },
+  {
+    "einheit_id": "PGML",
+    "bezeichnung": "pg/ml",
+    "beschreibung": "Pikogramm pro Milliliter",
+    "kategorie": "Massenkonzentration"
+  },
+  {
+    "einheit_id": "UIUML",
+    "bezeichnung": "μIU/ml",
+    "beschreibung": "Mikrointernationale Einheit pro Milliliter",
+    "kategorie": "Enzymaktivität"
+  },
+  {
+    "einheit_id": "MIUML",
+    "bezeichnung": "mIU/ml",
+    "beschreibung": "Milliinternationale Einheit pro Milliliter",
+    "kategorie": "Enzymaktivität"
+  },
+  {
+    "einheit_id": "MGDL",
+    "bezeichnung": "mg/dl",
+    "beschreibung": "Milligramm pro Deziliter",
+    "kategorie": "Massenkonzentration"
+  },
+  {
+    "einheit_id": "S",
+    "bezeichnung": "s",
+    "beschreibung": "Sekunden",
+    "kategorie": "Zeit"
+  },
+  {
+    "einheit_id": "PRZ",
+    "bezeichnung": "%",
+    "beschreibung": "Prozent",
+    "kategorie": "Verhältnis"
+  },
+  {
+    "einheit_id": "TAUSENDPUL",
+    "bezeichnung": "10^3/µl",
+    "beschreibung": "Tausend pro Mikroliter",
+    "kategorie": "Zellzahl"
+  },
+  {
+    "einheit_id": "MILLIONPUL",
+    "bezeichnung": "10^6/µl",
+    "beschreibung": "Million pro Mikroliter",
+    "kategorie": "Zellzahl"
+  },
+  {
+    "einheit_id": "GDL",
+    "bezeichnung": "g/dl",
+    "beschreibung": "Gramm pro Deziliter",
+    "kategorie": "Massenkonzentration"
+  },
+  {
+    "einheit_id": "FL",
+    "bezeichnung": "fl",
+    "beschreibung": "Femtoliter",
+    "kategorie": "Volumen"
+  },
+  {
+    "einheit_id": "PG",
+    "bezeichnung": "pg",
+    "beschreibung": "Pikogramm",
+    "kategorie": "Masse"
+  },
+  {
+    "einheit_id": "PROMILL",
+    "bezeichnung": "‰",
+    "beschreibung": "Promille",
+    "kategorie": "Verhältnis"
+  },
+  {
+    "einheit_id": "IUML",
+    "bezeichnung": "IU/ml",
+    "beschreibung": "Internationale Einheit pro Milliliter",
+    "kategorie": "Enzymaktivität"
+  },
+  {
+    "einheit_id": "UML",
+    "bezeichnung": "U/ml",
+    "beschreibung": "Units pro Milliliter",
+    "kategorie": "Enzymaktivität"
+  },
+  {
+    "einheit_id": "UL",
+    "bezeichnung": "U/l",
+    "beschreibung": "Units pro Liter",
+    "kategorie": "Enzymaktivität"
+  },
+  {
+    "einheit_id": "MMOLL",
+    "bezeichnung": "mmol/l",
+    "beschreibung": "Millimol pro Liter",
+    "kategorie": "Stoffkonzentration"
+  },
+  {
+    "einheit_id": "UMOLL",
+    "bezeichnung": "µmol/l",
+    "beschreibung": "Mikromol pro Liter",
+    "kategorie": "Stoffkonzentration"
+  },
+  {
+    "einheit_id": "UGDL",
+    "bezeichnung": "µg/dl",
+    "beschreibung": "Mikrogramm pro Deziliter",
+    "kategorie": "Massenkonzentration"
+  },
+  {
+    "einheit_id": "MGL",
+    "bezeichnung": "mg/l",
+    "beschreibung": "Milligramm pro Liter",
+    "kategorie": "Massenkonzentration"
+  },
+  {
+    "einheit_id": "ZELLUL",
+    "bezeichnung": "Zellen/µl",
+    "beschreibung": "Zellen pro Mikroliter",
+    "kategorie": "Zellzahl"
+  },
+  {
+    "einheit_id": "TITER",
+    "bezeichnung": "Titer",
+    "beschreibung": "Verdünnungsfaktor einer Lösung",
+    "kategorie": "Verdünnung"
+  },
+  {
+    "einheit_id": "NULL",
+    "bezeichnung": null,
+    "beschreibung": "Ohne Einheit",
+    "kategorie": "Sonstige"
+  }
+]

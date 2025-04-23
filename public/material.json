@@ -1,0 +1,164 @@
+{
+  "materialien": [
+    {
+      "material_id": "SER-00",
+      "material_bezeichnung": "Serum",
+      "material_kurz": "SE",
+      "material_farbe": "Braun",
+      "material_erweiterung": "00",
+      "lagerung": "gekühlt, max. 24h",
+      "probenroehre": "Serum-Röhrchen",
+      "praekanalytik": "Nach Gerinnung zentrifugieren"
+    },
+    {
+      "material_id": "SER-10",
+      "material_bezeichnung": "Infektserum",
+      "material_kurz": "SE",
+      "material_farbe": "Braun",
+      "material_erweiterung": "10",
+      "lagerung": "Raumtemperatur, max. 24h",
+      "probenroehre": "Serum-Röhrchen",
+      "praekanalytik": "Nach Gerinnung zentrifugieren"
+    },  
+    {
+      "material_id": "EP-80",
+      "material_bezeichnung": "EDTA-Plasma",
+      "material_kurz": "EP",
+      "material_farbe": "Rot",
+      "material_erweiterung": "80",
+      "lagerung": "gekühlt, max. 24h", 
+      "probenroehre": "EDTA-Röhrchen",
+      "praekanalytik": "Sofort zentrifugieren"
+    },
+    {
+      "material_id": "E-79",
+      "material_bezeichnung": "EDTA-Blut",
+      "material_kurz": "EDTA",
+      "material_farbe": "Rot",
+      "material_erweiterung": "80",
+      "lagerung": "Raumtemperatur, max. 24h",
+      "probenroehre": "EDTA-Röhrchen",
+      "praekanalytik": "Nicht zentrifugieren"
+    },
+    {
+      "material_id": "CP-89",
+      "material_bezeichnung": "Citratplasma",
+      "material_kurz": "CP",
+      "material_farbe": "Grün",
+      "material_erweiterung": "89",
+      "lagerung": "gekühlt, max. 4h",
+      "probenroehre": "Citrat-Röhrchen",
+      "praekanalytik": "Sofort zentrifugieren"
+    },
+    {
+      "material_id": "LP-01",
+      "material_bezeichnung": "Lithium-Heparinplasma",
+      "material_kurz": "LP",
+      "material_farbe": "orange",
+      "material_erweiterung": "01",
+      "lagerung": "gekühlt, max. 24h",
+      "probenroehre": "Lithium-Heparin-Röhrchen",
+      "praekanalytik": "Sofort zentrifugieren"
+    },
+    {
+      "material_id": "U-03",
+      "material_bezeichnung": "Spontanurin",
+      "material_kurz": "U",
+      "material_farbe": "Gelb",
+      "material_erweiterung": "03",
+      "lagerung": "gekühlt, max. 24h",
+      "probenroehre": "Urin Monovette",
+      "praekanalytik": "Mittelstrahlurin"
+    },
+    {
+      "material_id": "SU-29",
+      "material_bezeichnung": "24h-Sammelurin",
+      "material_kurz": "U24h",
+      "material_farbe": "Gelb",
+      "material_erweiterung": "29",
+      "lagerung": "gekühlt während der Sammlung",
+      "probenroehre": "Sammelgefäß",
+      "praekanalytik": "24h Sammlung mit/ohne Konservierungsmittel"
+    },
+    {
+      "material_id": "S-23",
+      "material_bezeichnung": "Stuhl",
+      "material_kurz": "ST",
+      "material_farbe": "Braun",
+      "material_erweiterung": "23",
+      "lagerung": "gekühlt, max. 24h",
+      "probenroehre": "Stuhlgefäß",
+      "praekanalytik": "Haselnussgroße Probe"
+    },
+    {
+      "material_id": "L-08",
+      "material_bezeichnung": "Liquor",
+      "material_kurz": "LI",
+      "material_farbe": "Farblos",
+      "material_erweiterung": "08",
+      "lagerung": "gekühlt, max. 2h",
+      "probenroehre": "Steriles Röhrchen",
+      "praekanalytik": "Sofort ins Labor"
+    },
+    {
+      "material_id": "BAL-25",
+      "material_bezeichnung": "Bronchoalveoläre Lavage",
+      "material_kurz": "BAL",
+      "material_farbe": "Weiß",
+      "material_erweiterung": "25",
+      "lagerung": "gekühlt, max. 2h",
+      "probenroehre": "Steriles Gefäß",
+      "praekanalytik": "Sofort ins Labor"
+    },
+    {
+      "material_id": "SPU-101",
+      "material_bezeichnung": "Sputum",
+      "material_kurz": "SP",
+      "material_farbe": "Grünlich",
+      "material_erweiterung": "101",
+      "lagerung": "gekühlt, max. 2h",
+      "probenroehre": "Steriles Gefäß",
+      "praekanalytik": "Morgensputum nach Mundspülung"
+    },
+    {
+      "material_id": "ABS-102",
+      "material_bezeichnung": "Abstrich",
+      "material_kurz": "AB",
+      "material_farbe": "Weiß",
+      "material_erweiterung": "102",
+      "lagerung": "Raumtemperatur, max. 24h",
+      "probenroehre": "Abstrichtupfer mit Medium",
+      "praekanalytik": "Vor Antibiotikaeinnahme"
+    },
+    {
+      "material_id": "KM-16",
+      "material_bezeichnung": "Knochenmark",
+      "material_kurz": "KM",
+      "material_farbe": "Rot",
+      "material_erweiterung": "16",
+      "lagerung": "Raumtemperatur, max. 2h",
+      "probenroehre": "Spritze mit EDTA",
+      "praekanalytik": "Sofort ins Labor"
+    },
+    {
+      "material_id": "BPS-103",
+      "material_bezeichnung": "Biopsie",
+      "material_kurz": "BIO",
+      "material_farbe": "Variabel",
+      "material_erweiterung": "103",
+      "lagerung": "Gekühlt in Transportmedium",
+      "probenroehre": "Steriles Gefäß",
+      "praekanalytik": "Je nach Gewebe unterschiedlich"
+    },
+    {
+      "material_id": "PLE-09",
+      "material_bezeichnung": "Pleurapunktat",
+      "material_kurz": "PLP",
+      "material_farbe": "rot",
+      "material_erweiterung": "00",
+      "lagerung": "gekühlt, max. 2h",
+      "probenroehre": "Steriles Gefäß",
+      "praekanalytik": "Steril abnehmen"
+    }
+  ]
+}

@@ -5,9 +5,17 @@ import TestListe from './components/TestListe'
 import ProfilListe from './components/ProfilListe'
 import DrilldownTable from './components/DrilldownTable'
 import TestDetails from './components/TestDetails'
+import MaterialBadge from './components/MaterialBadge'
 import Suchleiste from './components/Suchleiste'
 import ProfilErstellungDialog from './components/ProfilErstellungDialog'
 import ProfilDruckAnsicht from './components/ProfilDruckAnsicht'
+import ThemeSwitcher from './components/ThemeSwitcher'
+import LoginButton from './components/LoginButton'
+import './components/ThemeSwitcher.css'
+import { useAuth0 } from '@auth0/auth0-react'
+import { useTheme } from './contexts/ThemeContext'
+import { useMaterialService } from './services/MaterialService'
+import { EinheitenServiceProvider, useEinheitenService } from './services/EinheitenService'
 import '@material/web/button/filled-button.js'
 import '@material/web/button/text-button.js'
 import '@material/web/icon/icon.js'
@@ -17,6 +25,12 @@ import '@material/web/tabs/tabs.js'
 import * as MaterialDesign from "react-icons/md"
 
 function App() {
+  // Auth0 Authentifizierungsstatus
+  const { isAuthenticated, isLoading: authLoading, loginWithRedirect } = useAuth0();
+  
+  // State für die Auth-Weiterleitung, um Endlosschleifen zu vermeiden
+  const [isRedirecting, setIsRedirecting] = useState(false);
+  
   const [tests, setTests] = useState([])
   const [profile, setProfile] = useState([])
   const [ansicht, setAnsicht] = useState('tests') // 'tests', 'profile' oder 'tabelle'
@@ -24,7 +38,6 @@ function App() {
   const [error, setError] = useState(null)
   const [suchbegriff, setSuchbegriff] = useState('')
   const [selectedKategorie, setSelectedKategorie] = useState('Alle')
-  const [darkMode, setDarkMode] = useState(false)
   const [selectedTest, setSelectedTest] = useState(null)
   const [showTestDetails, setShowTestDetails] = useState(false)
   // Neue State-Variablen für die Profil-Selektor Funktionalität
@@ -32,14 +45,10 @@ function App() {
   const [showProfilErstellung, setShowProfilErstellung] = useState(false)
   const [showProfilDruck, setShowProfilDruck] = useState(false)
   const [customProfil, setCustomProfil] = useState(null)
-  // Effect to handle dark mode changes
-  useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add('dark-theme');
-    } else {
-      document.body.classList.remove('dark-theme');
-    }
-  }, [darkMode]);
+  // Theme-Management über den ThemeContext-Hook
+  const { currentTheme, isDark } = useTheme();
+  // MaterialService für die Materialbezeichnungen
+  const { convertMaterialIdsToNames, isLoading: materialsLoading } = useMaterialService();
   
   // Überprüfen der URL-Parameter beim Laden
   useEffect(() => {
@@ -57,24 +66,6 @@ function App() {
       }
     }
   }, [tests]);
-  
-  // Überprüfen der URL-Parameter beim Laden
-  useEffect(() => {
-    // Nur ausführen, wenn Tests geladen sind
-    if (tests.length === 0) return;
-    
-    const urlParams = new URLSearchParams(window.location.search);
-    const testId = urlParams.get('test');
-    
-    if (testId) {
-      const foundTest = tests.find(test => test.id === testId);
-      if (foundTest) {
-        setSelectedTest(foundTest);
-        setShowTestDetails(true);
-      }
-    }
-  }, [tests]);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -84,7 +75,9 @@ function App() {
           throw new Error('Fehler beim Laden der Testdaten')
         }
         const testsData = await testsResponse.json()
-        setTests(testsData)
+        // Prüfen, ob die Daten in der neuen Struktur mit value-Attribut vorliegen
+        const testsArray = testsData.value ? testsData.value : testsData
+        setTests(testsArray)
 
         // Profile laden
         const profileResponse = await fetch('/profile.json')
@@ -102,6 +95,7 @@ function App() {
 
     fetchData()
   }, [])  
+  // Theme wird jetzt über den ThemeContext verwaltet
 
   // Filterung für Suche und Kategorie implementieren  
   const filteredTests = tests.filter(test => {
@@ -165,9 +159,6 @@ function App() {
   const handleSuchbegriffChange = (newValue) => {
     setSuchbegriff(newValue);
   };
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
   
   // Funktion zum Öffnen der Testdetails
   const openTestDetails = (test) => {
@@ -204,26 +195,72 @@ function App() {
     setShowProfilErstellung(false);
   };
 
+  // Funktion zum Löschen aller Testmarkierungen
+  const clearAllTestSelections = () => {
+    setSelectedTests([]);
+  };
+
   const handleProfilPrint = (profil) => {
     setCustomProfil(profil);
     setShowProfilErstellung(false);
     setShowProfilDruck(true);
-  };
-
-  const closeProfilDruck = () => {
+  };  const closeProfilDruck = () => {
     setShowProfilDruck(false);
     setSelectedTests([]);
   };
   
+  // Handler für manuelle Anmeldung
+  const handleLoginClick = () => {
+    if (!isRedirecting) {
+      setIsRedirecting(true);
+      // Spezielle Optionen für Benutzernamen-Unterstützung hinzufügen
+      loginWithRedirect({
+        authorizationParams: {
+          login_hint: 'username',
+          prompt: 'login'
+        }
+      });
+    }
+  };
+    // UseEffect um den Authentifizierungsstatus zu überwachen
+  useEffect(() => {
+    // Reset isRedirecting wenn der User authentifiziert ist
+    if (isAuthenticated) {
+      setIsRedirecting(false);
+    }
+  }, [isAuthenticated]);
+  
+  // Auth0 Authentifizierungsprüfung
+  // Wenn Auth0 noch prüft, zeigen wir eine Ladeanzeige
+  if (authLoading) {
+    return (
+      <div className="auth-loading-container">
+        <img src="/images/icons/icon-512x512.png" alt="SpecimenOne Logo" className="auth-loading-logo" />
+        <h2>SpecimenOne wird geladen</h2>
+        <md-circular-progress indeterminate></md-circular-progress>
+      </div>
+    );
+  }
+  
+  // Benutzer kann die App nutzen, unabhängig vom Auth-Status
+  // Der Login erfolgt über den LoginButton in der Navigationsleiste
+  
+  // Wenn der Benutzer authentifiziert ist, zeigen wir die App
   return (
-    <div className={`app-container ${darkMode ? 'dark-theme' : ''}`}>      <header className="app-header">
+    <div className={`app-container ${isDark ? 'dark-theme' : ''}`}>      <header className="app-header">
         <div className="app-title">
-          <img src="/images/icon-512x512.png" alt="SpecimenOne Logo" className="app-logo large-logo" />
-          <h1>SpecimenOne</h1>
+          <img src="/images/icons/icon-2.png" alt="SpecimenOne Logo" className="app-logo large-logo" />
+          {/* Desktop-Version des Titels (einzeilig) */}
+          <h1 className="app-name-desktop">SpecimenOne</h1>
+          {/* Mobile-Version des Titels (zweizeilig) */}
+          <h1 className="app-name-mobile">
+            <span className="app-name-line">Specimen</span>
+            <span className="app-name-line">One</span>
+          </h1>
+        </div><div className="app-controls">
+          <ThemeSwitcher />
+          <LoginButton />
         </div>
-        <button className="theme-toggle" onClick={toggleDarkMode} aria-label="Farbmodus wechseln">
-          {darkMode ? <MaterialDesign.MdLightMode /> : <MaterialDesign.MdDarkMode />}
-        </button>
       </header>
       <main>
         {isLoading && <md-circular-progress indeterminate></md-circular-progress>}
@@ -231,12 +268,14 @@ function App() {
         
         {!isLoading && !error && (
           <>
-            <div className="search-and-tabs">              <Suchleiste 
+            <div className="search-and-tabs">
+              <Suchleiste 
                 suchbegriff={suchbegriff} 
                 onSuchbegriffChange={handleSuchbegriffChange}
                 selectedKategorie={selectedKategorie}
                 onKategorieChange={setSelectedKategorie}
-              />              <div className="ansicht-tabs">
+              />
+              <div className="ansicht-tabs">
                 <div className="tabs-container">
                   <button 
                     className={`tab-button ${ansicht === 'tests' ? 'active' : ''}`}
@@ -260,23 +299,8 @@ function App() {
               </div>
             </div>
 
-            <div className="content-container">
-              {ansicht === 'tests' && (
+            <div className="content-container">              {ansicht === 'tests' && (
                 <>
-                  {selectedTests.length > 0 && (
-                    <div className="selection-controls">
-                      <div className="selected-count">
-                        {selectedTests.length} Test{selectedTests.length !== 1 ? 'e' : ''} ausgewählt
-                      </div>
-                      <button 
-                        className="create-profile-button"
-                        onClick={openProfilErstellung}
-                      >
-                        <MaterialDesign.MdCreateNewFolder style={{marginRight: '8px'}} />
-                        Profil erstellen
-                      </button>
-                    </div>
-                  )}
                   <TestListe 
                     tests={filteredTests} 
                     onTestClick={openTestDetails}
@@ -290,17 +314,32 @@ function App() {
                 <ProfilListe tests={tests} profile={filteredProfile} />
               )}
               
-              {ansicht === 'tabelle' && (
-                <DrilldownTable 
+              {ansicht === 'tabelle' && (                <DrilldownTable 
                   data={filteredTests}
                   columns={[
                     { id: 'id', label: 'Test ID', width: '10%' },
-                    { id: 'name', label: 'Test', width: '30%' },
-                    { 
+                    { id: 'name', label: 'Test', width: '30%' },                    { 
                       id: 'material', 
                       label: 'Material', 
                       width: '30%',
-                      render: (item) => Array.isArray(item.material) ? item.material.join(', ') : item.material
+                      render: (item) => {
+                        if (!Array.isArray(item.material) || item.material.length === 0) 
+                          return <span className="keine-material-info">Keine Angabe</span>;
+                        
+                        return materialsLoading 
+                          ? <span className="material-badge loading">Wird geladen...</span>
+                          : (
+                            <div className="material-badges-container table-badges">
+                              {item.material.map((materialId, index) => (
+                                <MaterialBadge 
+                                  key={index} 
+                                  materialId={materialId} 
+                                  mini={true} 
+                                />
+                              ))}
+                            </div>
+                          );
+                      }
                     },
                     { id: 'befundzeit', label: 'TAT', width: '15%' }
                   ]}
@@ -319,7 +358,8 @@ function App() {
                           {test.ebm && <span>EBM: {test.ebm}</span>} {' '}
                           {test.goae && <span>GOÄ: {test.goae}</span>}
                         </p>
-                      )}                      <div style={{marginTop: '10px'}}>
+                      )}
+                      <div style={{marginTop: '10px'}}>
                         <md-filled-button onClick={() => openTestDetails(test)}>
                           Details anzeigen
                         </md-filled-button>
@@ -332,8 +372,34 @@ function App() {
           </>
         )}      
         </main>      <footer className="app-footer">
-        <p>© {new Date().getFullYear()} SpecimenOne</p>
+        <div className="footer-content">
+          <p>© {new Date().getFullYear()} SpecimenOne</p>
+        </div>
       </footer>
+        {/* Schwebende Selection Controls */}
+      {ansicht === 'tests' && selectedTests.length > 0 && (
+        <div className="selection-controls">
+          <div className="selected-count">
+            {selectedTests.length} Test{selectedTests.length !== 1 ? 'e' : ''} ausgewählt
+          </div>
+          <div className="selection-buttons">
+            <button 
+              className="cancel-selection-button"
+              onClick={clearAllTestSelections}
+            >
+              <MaterialDesign.MdCancel style={{marginRight: '8px'}} />
+              Abbrechen
+            </button>
+            <button 
+              className="create-profile-button"
+              onClick={openProfilErstellung}
+            >
+              <MaterialDesign.MdCreateNewFolder style={{marginRight: '8px'}} />
+              Profil erstellen
+            </button>
+          </div>
+        </div>
+      )}
       
       {/* Test-Details Dialog */}
       {showTestDetails && selectedTest && (
