@@ -8,67 +8,92 @@ import { useMaterialService } from '../services/MaterialService'
 import MaterialBadge from './MaterialBadge'
 
 function TestListe({ tests, onTestClick, selectedTests = [], onTestSelect = () => {} }) {
-  const [selectedTest, setSelectedTest] = useState(null)
-  const [touchStartTime, setTouchStartTime] = useState(0)
-  const [touchTimeout, setTouchTimeout] = useState(null)
-  const [touchedTestId, setTouchedTestId] = useState(null)
-  const longPressDuration = 600 // ms
-  const { convertMaterialIdsToNames, isLoading: materialsLoading } = useMaterialService()
+  const [selectedTest, setSelectedTest] = useState(null);
+  const [activeTest, setActiveTest] = useState(null);
+  const [longPressTimer, setLongPressTimer] = useState(null);
+  const [isLongPress, setIsLongPress] = useState(false);
+  const { convertMaterialIdsToNames, isLoading: materialsLoading } = useMaterialService();
   
+  // Konvertiere ms in Sekunden für CSS-Variable
+  const longPressDuration = 600; // ms
+  
+  // Standard Click-Handler für Desktop-Nutzung und zur Anzeige der Details
   const handleTestClick = (test, e) => {
-    // Wenn auf die Checkbox oder deren Label geklickt wurde,
-    // erlauben wir dem nativen Click-Event durchzugehen und keine weitere Aktion auszuführen
+    // Wenn auf die Checkbox oder deren Label geklickt wurde, nichts tun
     if (e && (e.target.closest('.test-checkbox') || e.target.classList.contains('test-cb-label') || 
               e.target.classList.contains('test-cb-input'))) {
       return;
     }
-    onTestClick(test);
-  }
-  
-  // Long-Press für die gesamte Test-Karte  
-  const handleTouchStart = (test, e) => {
-    // Wenn auf die Checkbox oder deren Label getippt wurde, lassen wir das native Event durch
-    if (e && (e.target.closest('.test-checkbox') || e.target.classList.contains('test-cb-label') || 
-              e.target.classList.contains('test-cb-input'))) {
-      return; // Keine Aktion, native Touch-Events können durchgehen
-    }
-    
-    // Verhindern der Standard-Kontextmenü-Aktion und damit auch der System-Vibration
-    // aber nur, wenn nicht auf die Checkbox getippt wurde
-    if (e) {
-      e.preventDefault();
-    }
-    
-    setTouchStartTime(Date.now())
-    setTouchedTestId(test.id)
-    
-    const timeout = setTimeout(() => {
-      // Long press erkannt
-      handleLongPress(test)
-    }, longPressDuration)
-    
-    setTouchTimeout(timeout)
-  }
-  
-  const handleTouchEnd = (e) => {
-    // Wenn auf die Checkbox oder deren Label getippt wurde, lassen wir das native Event durch
-    if (e && (e.target.closest('.test-checkbox') || e.target.classList.contains('test-cb-label') || 
-              e.target.classList.contains('test-cb-input'))) {
-      return; // Keine Aktion, native Touch-Events können durchgehen
-    }
-    
-    // Verhindern der Standard-Aktion, aber nur wenn nicht auf die Checkbox getippt wurde
-    if (e) {
-      e.preventDefault();
-    }
-    
-    if (touchTimeout) {
-      clearTimeout(touchTimeout)
-      setTouchTimeout(null)
-    }
-    setTouchedTestId(null)
-  }
 
+    // Prüfen, ob es sich um ein Touch-Gerät handelt
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
+    // Wenn Long-Press aktiv war, keinen Test öffnen (nur für Touch-Geräte)
+    if (isTouchDevice && isLongPress) {
+      setIsLongPress(false);
+      return;
+    }
+
+    // Test-Details öffnen (für Desktop oder einfachen Touch)
+    onTestClick(test);
+  };
+  
+  // Moderner Pointer-Down Handler (statt touchStart)
+  const handlePointerDown = (test, e) => {
+    // Ignorieren bei Checkbox-Interaktionen
+    if (e.target.closest('.test-checkbox') || e.target.classList.contains('test-cb-label') || 
+        e.target.classList.contains('test-cb-input')) {
+      return;
+    }
+    
+    // Long-Press nur bei Touch aktivieren, nicht bei Maus
+    if (e.pointerType === 'touch') {
+      setActiveTest(test);
+
+      // Timer für Long-Press starten
+      const timer = setTimeout(() => {
+        toggleTestSelection(test);
+        setIsLongPress(true);
+        
+        // Haptisches Feedback
+        if (navigator.vibrate) {
+          navigator.vibrate(50);
+        }
+      }, longPressDuration);
+      
+      setLongPressTimer(timer);
+    }
+  };
+
+  // Pointer-Up Handler (statt touchEnd)
+  const handlePointerUp = (e) => {
+    // Timer löschen
+    if (longPressTimer) {
+      clearTimeout(longPressTimer);
+      setLongPressTimer(null);
+    }
+    
+    // Nach einer Weile den Long-Press-Status zurücksetzen
+    if (isLongPress) {
+      setTimeout(() => {
+        setIsLongPress(false);
+      }, 300);
+    }
+    
+    setActiveTest(null);
+  };
+
+  // Pointer-Cancel Handler (z.B. bei Scroll)
+  const handlePointerCancel = () => {
+    // Timer löschen
+    if (longPressTimer) {
+      clearTimeout(longPressTimer);
+      setLongPressTimer(null);
+    }
+    
+    setActiveTest(null);
+  };
+  
   // Prüfen, ob ein Test ausgewählt ist
   const isTestSelected = (test) => {
     return selectedTests.some(selectedTest => selectedTest.id === test.id);
@@ -84,22 +109,6 @@ function TestListe({ tests, onTestClick, selectedTests = [], onTestSelect = () =
       onTestSelect([...selectedTests, test]);
     }
   };
-  
-  const handleLongPress = (test) => {
-    // Beim Long-Press wird die Auswahl umgeschaltet (toggle)
-    if (isTestSelected(test)) {
-      // Wenn bereits ausgewählt, Markierung entfernen
-      onTestSelect(selectedTests.filter(t => t.id !== test.id));
-    } else {
-      // Wenn nicht ausgewählt, Markierung hinzufügen
-      onTestSelect([...selectedTests, test]);
-    }
-    
-    // Haptisches Feedback auf unterstützten Geräten - für beide Aktionen (Hinzufügen/Entfernen)
-    if (navigator.vibrate) {
-      navigator.vibrate(50); // 50ms Vibration für sanftes Feedback
-    }
-  };
 
   // Sortiere Tests nach sortierNummer (falls vorhanden) oder nach ID als Fallback
   const sortedTests = [...tests].sort((a, b) => {
@@ -112,19 +121,19 @@ function TestListe({ tests, onTestClick, selectedTests = [], onTestSelect = () =
   });
   
   return (
-    <div className="test-liste-container">
-      {tests.length === 0 ? (
+    <div className="test-liste-container">      {tests.length === 0 ? (
         <p className="keine-tests">Keine Tests gefunden.</p>
       ) : (
         <div className="tests-grid">
           {sortedTests.map(test => (
             <div 
               key={test.id} 
-              className={`test-karte md-elevation-2 ${isTestSelected(test) ? 'selected' : ''} ${touchedTestId === test.id ? 'touch-active' : ''}`}
+              className={`test-karte md-elevation-2 ${isTestSelected(test) ? 'selected' : ''} ${activeTest?.id === test.id ? 'touch-active' : ''}`}
               onClick={(e) => handleTestClick(test, e)}
-              onTouchStart={(e) => handleTouchStart(test, e)}
-              onTouchEnd={(e) => handleTouchEnd(e)}
-              onTouchCancel={(e) => handleTouchEnd(e)}
+              onPointerDown={(e) => handlePointerDown(test, e)}
+              onPointerUp={handlePointerUp}
+              onPointerCancel={handlePointerCancel}
+              style={{"--long-press-duration": `${longPressDuration/1000}s`}}
             >
               <TestCheckbox 
                 test={test} 

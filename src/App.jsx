@@ -249,7 +249,7 @@ function App() {
   return (
     <div className={`app-container ${isDark ? 'dark-theme' : ''}`}>      <header className="app-header">
         <div className="app-title">
-          <img src="/images/icons/icon-2.png" alt="SpecimenOne Logo" className="app-logo large-logo" />
+          <img src="/images/icons/icon-512x512.png" alt="SpecimenOne Logo" className="app-logo large-logo" />
           {/* Desktop-Version des Titels (einzeilig) */}
           <h1 className="app-name-desktop">SpecimenOne</h1>
           {/* Mobile-Version des Titels (zweizeilig) */}

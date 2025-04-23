@@ -2416,8 +2416,8 @@
       "Alter_von": 18,
       "Alter_bis": 99,
       "Geschlecht": 3000,
-      "Wert_untere_Grenze": 0.9,
-      "Wert_obere_Grenze": 2.7,
+      "Wert_untere_Grenze": 20,
+      "Wert_obere_Grenze": 70,
       "Schwangerschaft": null,
       "Besondere_Bedingung": null
     }

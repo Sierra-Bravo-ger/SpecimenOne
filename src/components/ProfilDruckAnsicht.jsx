@@ -169,7 +169,7 @@ function ProfilDruckAnsicht({ profil, onClose }) {
           </div>
           
           <div class="header">
-            <img src="/images/icon-2.png" alt="SpecimenOne Logo" class="logo">
+            <img src="/images/icon-512x512.png" alt="SpecimenOne Logo" class="logo">
             <h1>${profil.profilName}</h1>
           </div>
           
