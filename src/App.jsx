@@ -7,6 +7,7 @@ import DrilldownTable from './components/DrilldownTable'
 import TestDetails from './components/TestDetails'
 import MaterialBadge from './components/MaterialBadge'
 import Suchleiste from './components/Suchleiste'
+import SortierMenu from './components/SortierMenu'
 import ProfilErstellungDialog from './components/ProfilErstellungDialog'
 import ProfilDruckAnsicht from './components/ProfilDruckAnsicht'
 import ThemeSwitcher from './components/ThemeSwitcher'
@@ -24,6 +25,17 @@ import '@material/web/tabs/primary-tab.js'
 import '@material/web/tabs/tabs.js'
 import * as MaterialDesign from "react-icons/md"
 
+// Debug-Logger Funktion
+const debugLog = (message, value) => {
+  console.log(`DEBUG: ${message}`, value);
+  try {
+    // Versuch, den Wert in einer Zeichenkette umzuwandeln
+    console.log(`Type: ${typeof value}, isArray: ${Array.isArray(value)}, Value: ${JSON.stringify(value)}`);
+  } catch (e) {
+    console.log('Konnte Wert nicht als String darstellen:', e);
+  }
+};
+
 function App() {
   // Auth0 Authentifizierungsstatus
   const { isAuthenticated, isLoading: authLoading, loginWithRedirect } = useAuth0();
@@ -31,20 +43,23 @@ function App() {
   // State für die Auth-Weiterleitung, um Endlosschleifen zu vermeiden
   const [isRedirecting, setIsRedirecting] = useState(false);
   
-  const [tests, setTests] = useState([])
-  const [profile, setProfile] = useState([])
-  const [ansicht, setAnsicht] = useState('tests') // 'tests', 'profile' oder 'tabelle'
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState(null)
-  const [suchbegriff, setSuchbegriff] = useState('')
-  const [selectedKategorie, setSelectedKategorie] = useState('Alle')
-  const [selectedTest, setSelectedTest] = useState(null)
-  const [showTestDetails, setShowTestDetails] = useState(false)
+  const [tests, setTests] = useState([]);
+  const [profile, setProfile] = useState([]);
+  const [ansicht, setAnsicht] = useState('tests'); // 'tests', 'profile' oder 'tabelle'
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [suchbegriff, setSuchbegriff] = useState('');
+  const [selectedKategorie, setSelectedKategorie] = useState('Alle');
+  const [selectedTest, setSelectedTest] = useState(null);
+  const [showTestDetails, setShowTestDetails] = useState(false);
   // Neue State-Variablen für die Profil-Selektor Funktionalität
-  const [selectedTests, setSelectedTests] = useState([])
-  const [showProfilErstellung, setShowProfilErstellung] = useState(false)
-  const [showProfilDruck, setShowProfilDruck] = useState(false)
-  const [customProfil, setCustomProfil] = useState(null)
+  const [selectedTests, setSelectedTests] = useState([]);
+  const [showProfilErstellung, setShowProfilErstellung] = useState(false);
+  const [showProfilDruck, setShowProfilDruck] = useState(false);
+  const [customProfil, setCustomProfil] = useState(null);
+  // Neue States für die Sortierung
+  const [sortOption, setSortOption] = useState('id'); // 'id', 'name', 'kategorie', 'material'
+  const [sortDirection, setSortDirection] = useState('asc'); // 'asc', 'desc'
   // Theme-Management über den ThemeContext-Hook
   const { currentTheme, isDark } = useTheme();
   // MaterialService für die Materialbezeichnungen
@@ -66,35 +81,51 @@ function App() {
       }
     }
   }, [tests]);
+
+  // Sortieroptionen aus localStorage laden
+  useEffect(() => {
+    const savedSortOption = localStorage.getItem('specimenOne.sortOption');
+    const savedSortDirection = localStorage.getItem('specimenOne.sortDirection');
+    
+    if (savedSortOption) setSortOption(savedSortOption);
+    if (savedSortDirection) setSortDirection(savedSortDirection);
+  }, []);
+  
+  // Sortieroptionen im localStorage speichern, wenn sie sich ändern
+  useEffect(() => {
+    localStorage.setItem('specimenOne.sortOption', sortOption);
+    localStorage.setItem('specimenOne.sortDirection', sortDirection);
+  }, [sortOption, sortDirection]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         // Tests laden
-        const testsResponse = await fetch('/tests.json')
+        const testsResponse = await fetch('/tests.json');
         if (!testsResponse.ok) {
-          throw new Error('Fehler beim Laden der Testdaten')
+          throw new Error('Fehler beim Laden der Testdaten');
         }
-        const testsData = await testsResponse.json()
+        const testsData = await testsResponse.json();
         // Prüfen, ob die Daten in der neuen Struktur mit value-Attribut vorliegen
-        const testsArray = testsData.value ? testsData.value : testsData
-        setTests(testsArray)
+        const testsArray = testsData.value ? testsData.value : testsData;
+        setTests(testsArray);
 
         // Profile laden
-        const profileResponse = await fetch('/profile.json')
+        const profileResponse = await fetch('/profile.json');
         if (!profileResponse.ok) {
-          throw new Error('Fehler beim Laden der Profildaten')
+          throw new Error('Fehler beim Laden der Profildaten');
         }
-        const profileData = await profileResponse.json()
-        setProfile(profileData)
+        const profileData = await profileResponse.json();
+        setProfile(profileData);
       } catch (err) {
-        setError(err.message)
+        setError(err.message);
       } finally {
-        setIsLoading(false)
+        setIsLoading(false);
       }
-    }
+    };
 
-    fetchData()
-  }, [])  
+    fetchData();
+  }, []);  
   // Theme wird jetzt über den ThemeContext verwaltet
 
   // Filterung für Suche und Kategorie implementieren  
@@ -128,7 +159,8 @@ function App() {
     // Suche in LOINC-Code
     if (test.loinc && test.loinc.toLowerCase().includes(searchTerm)) {
       return true;
-    }    // Suche in Test-ID
+    }
+    // Suche in Test-ID
     if (test.id && test.id.toLowerCase().includes(searchTerm)) {
       return true;
     }
@@ -156,6 +188,7 @@ function App() {
            profil.beschreibung.toLowerCase().includes(searchTerm) || 
            profil.kategorie.toLowerCase().includes(searchTerm);
   });
+  
   const handleSuchbegriffChange = (newValue) => {
     setSuchbegriff(newValue);
   };
@@ -177,14 +210,16 @@ function App() {
       window.history.replaceState({}, '', url);
     }
   };
-
   // Profil-Selektor Funktionen
   const handleTestSelect = (tests) => {
+    debugLog('handleTestSelect wurde aufgerufen mit', tests);
     setSelectedTests(tests);
+    debugLog('selectedTests nach setSelectedTests', selectedTests); // Wird den alten Wert zeigen wegen Closure
   };
 
   const openProfilErstellung = () => {
-    if (selectedTests.length > 0) {
+    debugLog('openProfilErstellung wurde aufgerufen, selectedTests ist', selectedTests);
+    if (Array.isArray(selectedTests) && selectedTests.length > 0) {
       setShowProfilErstellung(true);
     } else {
       alert("Bitte wählen Sie mindestens einen Test aus, um ein Profil zu erstellen.");
@@ -204,7 +239,9 @@ function App() {
     setCustomProfil(profil);
     setShowProfilErstellung(false);
     setShowProfilDruck(true);
-  };  const closeProfilDruck = () => {
+  };
+  
+  const closeProfilDruck = () => {
     setShowProfilDruck(false);
     setSelectedTests([]);
   };
@@ -222,7 +259,8 @@ function App() {
       });
     }
   };
-    // UseEffect um den Authentifizierungsstatus zu überwachen
+  
+  // UseEffect um den Authentifizierungsstatus zu überwachen
   useEffect(() => {
     // Reset isRedirecting wenn der User authentifiziert ist
     if (isAuthenticated) {
@@ -235,7 +273,7 @@ function App() {
   if (authLoading) {
     return (
       <div className="auth-loading-container">
-        <img src="/images/icons/icon-512x512.png" alt="SpecimenOne Logo" className="auth-loading-logo" />
+        <img src="/images/icons/icon-512x512-new.png" alt="SpecimenOne Logo" className="auth-loading-logo" />
         <h2>SpecimenOne wird geladen</h2>
         <md-circular-progress indeterminate></md-circular-progress>
       </div>
@@ -247,9 +285,10 @@ function App() {
   
   // Wenn der Benutzer authentifiziert ist, zeigen wir die App
   return (
-    <div className={`app-container ${isDark ? 'dark-theme' : ''}`}>      <header className="app-header">
+    <div className={`app-container ${isDark ? 'dark-theme' : ''}`}>
+      <header className="app-header">
         <div className="app-title">
-          <img src="/images/icons/icon-512x512.png" alt="SpecimenOne Logo" className="app-logo large-logo" />
+          <img src="/images/icons/icon-512x512-new.png" alt="SpecimenOne Logo" className="app-logo large-logo" />
           {/* Desktop-Version des Titels (einzeilig) */}
           <h1 className="app-name-desktop">SpecimenOne</h1>
           {/* Mobile-Version des Titels (zweizeilig) */}
@@ -257,7 +296,8 @@ function App() {
             <span className="app-name-line">Specimen</span>
             <span className="app-name-line">One</span>
           </h1>
-        </div><div className="app-controls">
+        </div>
+        <div className="app-controls">
           <ThemeSwitcher />
           <LoginButton />
         </div>
@@ -269,12 +309,20 @@ function App() {
         {!isLoading && !error && (
           <>
             <div className="search-and-tabs">
-              <Suchleiste 
-                suchbegriff={suchbegriff} 
-                onSuchbegriffChange={handleSuchbegriffChange}
-                selectedKategorie={selectedKategorie}
-                onKategorieChange={setSelectedKategorie}
-              />
+              <div className="top-controls">
+                <Suchleiste 
+                  suchbegriff={suchbegriff} 
+                  onSuchbegriffChange={handleSuchbegriffChange}
+                  selectedKategorie={selectedKategorie}
+                  onKategorieChange={setSelectedKategorie}
+                />
+                <SortierMenu 
+                  sortOption={sortOption}
+                  setSortOption={setSortOption}
+                  sortDirection={sortDirection}
+                  setSortDirection={setSortDirection}
+                />
+              </div>
               <div className="ansicht-tabs">
                 <div className="tabs-container">
                   <button 
@@ -299,13 +347,16 @@ function App() {
               </div>
             </div>
 
-            <div className="content-container">              {ansicht === 'tests' && (
+            <div className="content-container">
+              {ansicht === 'tests' && (
                 <>
                   <TestListe 
                     tests={filteredTests} 
                     onTestClick={openTestDetails}
                     selectedTests={selectedTests}
                     onTestSelect={handleTestSelect}
+                    sortOption={sortOption}
+                    sortDirection={sortDirection}
                   />
                 </>
               )}
@@ -314,11 +365,13 @@ function App() {
                 <ProfilListe tests={tests} profile={filteredProfile} />
               )}
               
-              {ansicht === 'tabelle' && (                <DrilldownTable 
+              {ansicht === 'tabelle' && (
+                <DrilldownTable 
                   data={filteredTests}
                   columns={[
                     { id: 'id', label: 'Test ID', width: '10%' },
-                    { id: 'name', label: 'Test', width: '30%' },                    { 
+                    { id: 'name', label: 'Test', width: '30%' },
+                    { 
                       id: 'material', 
                       label: 'Material', 
                       width: '30%',
@@ -371,13 +424,14 @@ function App() {
             </div>
           </>
         )}      
-        </main>      <footer className="app-footer">
+        </main>
+      <footer className="app-footer">
         <div className="footer-content">
           <p>© {new Date().getFullYear()} SpecimenOne</p>
         </div>
       </footer>
         {/* Schwebende Selection Controls */}
-      {ansicht === 'tests' && selectedTests.length > 0 && (
+      {ansicht === 'tests' && Array.isArray(selectedTests) && selectedTests.length > 0 && (
         <div className="selection-controls">
           <div className="selected-count">
             {selectedTests.length} Test{selectedTests.length !== 1 ? 'e' : ''} ausgewählt
@@ -426,7 +480,7 @@ function App() {
         />
       )}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

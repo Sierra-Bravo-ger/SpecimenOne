@@ -51,6 +51,16 @@
       "praekanalytik": "Sofort zentrifugieren"
     },
     {
+      "material_id": "CB-48",
+      "material_bezeichnung": "Citratblut",
+      "material_kurz": "CB",
+      "material_farbe": "Grün",
+      "material_erweiterung": "48",
+      "lagerung": "Raumtemperatur, max. 12h",
+      "probenroehre": "Citrat-Röhrchen",
+      "praekanalytik": "Sofort zentrifugieren"
+    },    
+    {
       "material_id": "LP-01",
       "material_bezeichnung": "Lithium-Heparinplasma",
       "material_kurz": "LP",

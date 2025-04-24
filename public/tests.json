@@ -1626,64 +1626,176 @@
         "einheit_id":  "S"
     },
     {
-        "aktiv":  true,
-        "befundzeit":  "Max. 7Tage",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP Faktor IIX",
-                              "url":  "/infobase/sop_Faktor IIX.pdf"
-                          }
-                      ],
-        "durchführung":  "Mi–Fr",
-        "ebm":  "32371",
-        "goae":  "3504",
-        "hinweise":  [
-
-                     ],
-        "id":  "G016",
-        "kategorie":  "Gerinnung",
-        "lagerung":  "gekühlt",
-        "loinc":  "27811-6",
-        "material":  [
-                         "CP-89"
-                     ],
-        "mindestmenge_ml":  0.7,
-        "name":  "Faktor IIX",
-        "sortierNummer":  "490",
-        "synonyme":  [
-                         "Faktor 12"
-                     ],
-        "einheit_id":  "S"
+        "aktiv": true,
+        "befundzeit": "Max. 7Tage",
+        "dokumente": [
+            {
+                "titel": "SOP Faktor XII",
+                "url": "/infobase/sop_Faktor XII.pdf"
+            }
+        ],
+        "durchführung": "Mi–Fr",
+        "ebm": "32371",
+        "goae": "3504",
+        "hinweise": [],
+        "id": "G016",
+        "kategorie": "Gerinnung",
+        "lagerung": "gekühlt",
+        "loinc": "27811-6",
+        "material": [
+            "CP-89"
+        ],
+        "mindestmenge_ml": 0.7,
+        "name": "Faktor XII",
+        "sortierNummer": "490",
+        "synonyme": [
+            "Faktor 12"
+        ],
+        "einheit_id": "S"
     },
     {
-        "aktiv":  true,
-        "befundzeit":  "Max. 7Tage",
-        "dokumente":  [
-                          {
-                              "titel":  "SOP Lupus-Antikoagulans",
-                              "url":  "/infobase/sop_Lupus-Antikoagulans.pdf"
-                          }
-                      ],
-        "durchführung":  "Mi–Fr",
-        "ebm":  "32435",
-        "goae":  "3500",
-        "hinweise":  [
-
-                     ],
-        "id":  "G017",
-        "kategorie":  "Gerinnung",
-        "lagerung":  "gekühlt",
-        "loinc":  "30242-2",
-        "material":  [
-                         "CP-89"
-                     ],
-        "mindestmenge_ml":  0.7,
-        "name":  "Lupus-Antikoagulans",
-        "sortierNummer":  "500",
-        "synonyme":  [
-
-                     ],
-        "einheit_id":  "NULL"
+        "aktiv": true,
+        "befundzeit": "Max. 7Tage",
+        "dokumente": [
+            {
+                "titel": "SOP Lupus-Antikoagulans",
+                "url": "/infobase/sop_Lupus-Antikoagulans.pdf"
+            }
+        ],
+        "durchführung": "Mi–Fr",
+        "ebm": "32435",
+        "goae": "3500",
+        "hinweise": [],
+        "id": "G017",
+        "kategorie": "Gerinnung",
+        "lagerung": "gekühlt",
+        "loinc": "30242-2",
+        "material": [
+            "CP-89"
+        ],
+        "mindestmenge_ml": 0.7,
+        "name": "Lupus-Antikoagulans",
+        "sortierNummer": "500",
+        "synonyme": [],
+        "einheit_id": "NULL"
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "Max. 7Tage",
+        "dokumente": [
+            {
+                "titel": "SOP C1-Inhibitor funktionell",
+                "url": "/infobase/sop_C1-Inhibitor_funktionell.pdf"
+            }
+        ],
+        "durchführung": "Mi–Fr",
+        "ebm": null,
+        "goae": null,
+        "hinweise": [
+            "Diagnostik hereditäres Angioödem"
+        ],
+        "id": "G018",
+        "kategorie": "Gerinnung",
+        "lagerung": "gekühlt",
+        "loinc": null,
+        "material": [
+            "CP-89"
+        ],
+        "mindestmenge_ml": 0.7,
+        "name": "C1-Inhibitor funktionell",
+        "sortierNummer": "501",
+        "synonyme": [
+            "C1-INH Funktion"
+        ],
+        "einheit_id": "PRZ"
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "Max. 7Tage",
+        "dokumente": [
+            {
+                "titel": "SOP APC-Ratio",
+                "url": "/infobase/sop_APC-Ratio.pdf"
+            }
+        ],
+        "durchführung": "Mi–Fr",
+        "ebm": null,
+        "goae": null,
+        "hinweise": [
+            "Faktor-V-Leiden-Diagnostik"
+        ],
+        "id": "G019",
+        "kategorie": "Gerinnung",
+        "lagerung": "gekühlt",
+        "loinc": null,
+        "material": [
+            "CP-89"
+        ],
+        "mindestmenge_ml": 0.7,
+        "name": "APC-Ratio",
+        "sortierNummer": "502",
+        "synonyme": [
+            "aktiviertes Protein C Resistenz"
+        ],
+        "einheit_id": "KEINE"
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "Max. 7Tage",
+        "dokumente": [
+            {
+                "titel": "SOP Gerinnungszeit APC/CaCl2",
+                "url": "/infobase/sop_Gerinnungszeit_APC_CaCl2.pdf"
+            }
+        ],
+        "durchführung": "Mi–Fr",
+        "ebm": null,
+        "goae": null,
+        "hinweise": [
+            "Faktor-V-Leiden-Diagnostik"
+        ],
+        "id": "G020",
+        "kategorie": "Gerinnung",
+        "lagerung": "gekühlt",
+        "loinc": null,
+        "material": [
+            "CP-89"
+        ],
+        "mindestmenge_ml": 0.7,
+        "name": "Gerinnungszeit APC/CaCl2",
+        "sortierNummer": "503",
+        "synonyme": [
+            "APC-Zeit"
+        ],
+        "einheit_id": "S"
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "Max. 7Tage",
+        "dokumente": [
+            {
+                "titel": "SOP Gerinnungszeit CaCl2",
+                "url": "/infobase/sop_Gerinnungszeit_CaCl2.pdf"
+            }
+        ],
+        "durchführung": "Mi–Fr",
+        "ebm": null,
+        "goae": null,
+        "hinweise": [],
+        "id": "G021",
+        "kategorie": "Gerinnung",
+        "lagerung": "gekühlt",
+        "loinc": null,
+        "material": [
+            "CP-89"
+        ],
+        "mindestmenge_ml": 0.7,
+        "name": "Gerinnungszeit CaCl2",
+        "sortierNummer": "504",
+        "synonyme": [
+            "CaCl2-Zeit"
+        ],
+        "einheit_id": "S"
     },
     {
         "aktiv":  true,
@@ -4363,6 +4475,337 @@
         "einheit_id":  "MMOLL"
     },
     {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Vancomycin",
+                "url": "/infobase/sop_Vancomycin.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": null,
+        "goae": null,
+        "hinweise": [
+            "Spiegelbestimmung zur Therapiekontrolle"
+        ],
+        "id": "K047",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "20578-1",
+        "material": [
+            "SER-00"
+        ],
+        "mindestmenge_ml": 0.5,
+        "name": "Vancomycin",
+        "sortierNummer": "1380",
+        "synonyme": [
+            "Vancocin"
+        ],
+        "einheit_id": "MGDL"
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Gentamicin",
+                "url": "/infobase/sop_Gentamicin.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": null,
+        "goae": null,
+        "hinweise": [
+            "Spiegelbestimmung zur Therapiekontrolle"
+        ],
+        "id": "K046",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "20567-4",
+        "material": [
+            "SER-00"
+        ],
+        "mindestmenge_ml": 0.5,
+        "name": "Gentamicin",
+        "sortierNummer": "1390",
+        "synonyme": [
+            "Garamycin"
+        ],
+        "einheit_id": "MGDL"
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Theophyllin",
+                "url": "/infobase/sop_Theophyllin.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": null,
+        "goae": null,
+        "hinweise": [
+            "Spiegelbestimmung zur Therapiekontrolle"
+        ],
+        "id": "K058",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "14810-6",
+        "material": [
+            "SER-00"
+        ],
+        "mindestmenge_ml": 0.5,
+        "name": "Theophyllin",
+        "sortierNummer": "1400",
+        "synonyme": [
+            "Theodur"
+        ],
+        "einheit_id": "MGDL"
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Carbamazepin",
+                "url": "/infobase/sop_Carbamazepin.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": null,
+        "goae": null,
+        "hinweise": [
+            "Spiegelbestimmung zur Therapiekontrolle"
+        ],
+        "id": "K059",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "3432-2",
+        "material": [
+            "SER-00"
+        ],
+        "mindestmenge_ml": 0.5,
+        "name": "Carbamazepin",
+        "sortierNummer": "1410",
+        "synonyme": [
+            "Tegretal"
+        ],
+        "einheit_id": "MGDL"
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Digoxin",
+                "url": "/infobase/sop_Digoxin.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": null,
+        "goae": null,
+        "hinweise": [
+            "Spiegelbestimmung zur Therapiekontrolle"
+        ],
+        "id": "K051",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "3534-5",
+        "material": [
+            "SER-00"
+        ],
+        "mindestmenge_ml": 0.5,
+        "name": "Digoxin",
+        "sortierNummer": "1420",
+        "synonyme": [
+            "Lanoxin"
+        ],
+        "einheit_id": "NGML"
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Digitoxin",
+                "url": "/infobase/sop_Digitoxin.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": null,
+        "goae": null,
+        "hinweise": [
+            "Spiegelbestimmung zur Therapiekontrolle"
+        ],
+        "id": "K052",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "3535-2",
+        "material": [
+            "SER-00"
+        ],
+        "mindestmenge_ml": 0.5,
+        "name": "Digitoxin",
+        "sortierNummer": "1430",
+        "synonyme": [
+            "Crystodigin"
+        ],
+        "einheit_id": "NGML"
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Valproinsäure",
+                "url": "/infobase/sop_Valproinsaeure.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": null,
+        "goae": null,
+        "hinweise": [
+            "Spiegelbestimmung zur Therapiekontrolle"
+        ],
+        "id": "K053",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "4086-5",
+        "material": [
+            "SER-00"
+        ],
+        "mindestmenge_ml": 0.5,
+        "name": "Valproinsäure",
+        "sortierNummer": "1440",
+        "synonyme": [
+            "Valproat",
+            "Orfiril"
+        ],
+        "einheit_id": "MGDL"
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Phenytoin",
+                "url": "/infobase/sop_Phenytoin.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": null,
+        "goae": null,
+        "hinweise": [
+            "Spiegelbestimmung zur Therapiekontrolle"
+        ],
+        "id": "K054",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "3968-7",
+        "material": [
+            "SER-00"
+        ],
+        "mindestmenge_ml": 0.5,
+        "name": "Phenytoin",
+        "sortierNummer": "1450",
+        "synonyme": [
+            "Dilantin"
+        ],
+        "einheit_id": "MGDL"
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Phenobarbital",
+                "url": "/infobase/sop_Phenobarbital.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": null,
+        "goae": null,
+        "hinweise": [
+            "Spiegelbestimmung zur Therapiekontrolle"
+        ],
+        "id": "K055",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "3948-9",
+        "material": [
+            "SER-00"
+        ],
+        "mindestmenge_ml": 0.5,
+        "name": "Phenobarbital",
+        "sortierNummer": "1460",
+        "synonyme": [
+            "Luminal"
+        ],
+        "einheit_id": "MGDL"
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Lithium",
+                "url": "/infobase/sop_Lithium.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": null,
+        "goae": null,
+        "hinweise": [
+            "Spiegelbestimmung zur Therapiekontrolle"
+        ],
+        "id": "K056",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "14879-1",
+        "material": [
+            "SER-00"
+        ],
+        "mindestmenge_ml": 0.5,
+        "name": "Lithium",
+        "sortierNummer": "1470",
+        "synonyme": [
+            "Lithiumcarbonat"
+        ],
+        "einheit_id": "MMOLL"
+    },
+    {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Methotrexat",
+                "url": "/infobase/sop_Methotrexat.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": null,
+        "goae": null,
+        "hinweise": [
+            "Spiegelbestimmung zur Therapiekontrolle"
+        ],
+        "id": "K057",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "14882-5",
+        "material": [
+            "SER-00"
+        ],
+        "mindestmenge_ml": 0.5,
+        "name": "Methotrexat",
+        "sortierNummer": "1480",
+        "synonyme": [
+            "MTX"
+        ],
+        "einheit_id": "UMOLL"
+    },   
+    {
         "aktiv":  true,
         "befundzeit":  "2 Stunden",
         "dokumente":  [
@@ -4603,6 +5046,264 @@
                      ],
         "einheit_id":  "PRZ"
     },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Stunde",
+        "id":  "H029",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "6690-2",
+        "material":  [
+                         "CB-48"
+                     ],
+        "mindestmenge_ml":  0.2,
+        "name":  "Leukozyten im Citratblut",
+        "sortierNummer":  "510",
+        "synonyme":  [
+                         "WBC"
+                     ],
+        "einheit_id":  "TAUSENDPUL"
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32104",
+        "goae":  "3548",
+        "hinweise":  [
+
+                     ],
+        "id":  "H030",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "789-8",
+        "material":  [
+                         "CB-48"
+                     ],
+        "mindestmenge_ml":  0.2,
+        "name":  "Erythrozyten im Citratblut",
+        "sortierNummer":  "520",
+        "synonyme":  [
+                         "RBC"
+                     ],
+        "einheit_id":  "MILLIONPUL"
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32987",
+        "goae":  "3521",
+        "hinweise":  [
+
+                     ],
+        "id":  "H031",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "6690-3",
+        "material":  [
+                         "CB-48"
+                     ],
+        "mindestmenge_ml":  0.2,
+        "name":  "Hämoglobin im Citratblut",
+        "sortierNummer":  "530",
+        "synonyme":  [
+                         "HB"
+                     ],
+        "einheit_id":  "GDL"
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32364",
+        "goae":  "3531",
+        "hinweise":  [
+
+                     ],
+        "id":  "H032",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "777-3",
+        "material":  [
+                         "CB-48"
+                     ],
+        "mindestmenge_ml":  0.2,
+        "name":  "Thrombozyten im Citratblut",
+        "sortierNummer":  "540",
+        "synonyme":  [
+                         "PLT"
+                     ],
+        "einheit_id":  "TAUSENDPUL"
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32331",
+        "goae":  "3510",
+        "hinweise":  [
+
+                     ],
+        "id":  "H033",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "4544-3",
+        "material":  [
+                         "CB-48"
+                     ],
+        "mindestmenge_ml":  0.2,
+        "name":  "Hämatokrit im Citratblut",
+        "sortierNummer":  "550",
+        "synonyme":  [
+                         "Hkt"
+                     ],
+        "einheit_id":  "PRZ"
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32328",
+        "goae":  "3525",
+        "hinweise":  [
+
+                     ],
+        "id":  "H034",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "787-2",
+        "material":  [
+                         "CB-48"
+                     ],
+        "mindestmenge_ml":  0.2,
+        "name":  "MCV im Citratblut",
+        "sortierNummer":  "560",
+        "synonyme":  [
+                         "mittleres Erythrozytenvolumen"
+                     ],
+        "einheit_id":  "FL"
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32671",
+        "goae":  "3547",
+        "hinweise":  [
+
+                     ],
+        "id":  "H035",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "785-6",
+        "material":  [
+                         "CB-48"
+                     ],
+        "mindestmenge_ml":  0.2,
+        "name":  "MCH",
+        "sortierNummer":  "570",
+        "synonyme":  [
+                         "mittlerer Hb-Gehalt"
+                     ],
+        "einheit_id":  "PG"
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32027",
+        "goae":  "3555",
+        "hinweise":  [
+
+                     ],
+        "id":  "H036",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "786-4",
+        "material":  [
+                         "CB-48"
+                     ],
+        "mindestmenge_ml":  0.2,
+        "name":  "MCHC im Citratblut",
+        "sortierNummer":  "580",
+        "synonyme":  [
+                         "mittlere Hb-Konzentration"
+                     ],
+        "einheit_id":  "GDL"
+    },
+    {
+        "aktiv":  true,
+        "befundzeit":  "1 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32422",
+        "goae":  "3577",
+        "hinweise":  [
+
+                     ],
+        "id":  "H037",
+        "kategorie":  "Hämatologie",
+        "lagerung":  "Raumtemperatur",
+        "loinc":  "788-0",
+        "material":  [
+                         "CB-48"
+                     ],
+        "mindestmenge_ml":  0.5,
+        "name":  "RDW im Citratblut",
+        "sortierNummer":  "590",
+        "synonyme":  [
+                         "Erythrozytenverteilungsbreite"
+                     ],
+        "einheit_id":  "NULL"
+    },    
     {
         "aktiv":  true,
         "befundzeit":  "4 Stunden",

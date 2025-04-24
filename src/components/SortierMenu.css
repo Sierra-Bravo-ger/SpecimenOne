@@ -1,0 +1,98 @@
+.sortier-menu {
+  display: flex;
+  align-items: center;
+  background-color: var(--md-sys-color-surface-container);
+  border-radius: 8px;
+  padding: 8px 12px;
+  box-shadow: var(--md-sys-elevation-level1);
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.sortier-optionen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  flex: 1;
+}
+
+.sortier-option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 6px 10px;
+  border-radius: 16px;
+  transition: background-color 0.2s;
+}
+
+.sortier-option:hover {
+  background-color: var(--md-sys-color-surface-variant);
+}
+
+.sortier-option.active {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  font-weight: 500;
+}
+
+.sortier-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.sortier-label {
+  margin-left: 4px;
+}
+
+.sortier-richtung {
+  display: flex;
+  gap: 4px;
+}
+
+.sortier-btn {
+  background: none;
+  border: none;
+  border-radius: 16px;
+  min-width: 34px;
+  height: 34px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.sortier-btn:hover {
+  background-color: var(--md-sys-color-surface-variant);
+}
+
+.sortier-btn.active {
+  color: var(--md-sys-color-primary);
+  background-color: var(--md-sys-color-primary-container);
+}
+
+.sortier-direction-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .sortier-menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .sortier-richtung {
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 8px;
+  }
+}

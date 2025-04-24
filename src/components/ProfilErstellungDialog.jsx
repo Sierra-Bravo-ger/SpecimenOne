@@ -8,6 +8,9 @@ function ProfilErstellungDialog({ selectedTests, onClose, onPrint }) {
   // Auth0 Hook für Authentifizierungsstatus
   const { isAuthenticated, loginWithRedirect, user } = useAuth0();
   
+  // Sicherstellen, dass selectedTests immer ein Array ist
+  const safeSelectedTests = Array.isArray(selectedTests) ? selectedTests : [];
+  
   const [profilName, setProfilName] = useState('');
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
@@ -22,7 +25,7 @@ function ProfilErstellungDialog({ selectedTests, onClose, onPrint }) {
       profilName,
       userName,
       email,
-      tests: selectedTests,
+      tests: safeSelectedTests,
       erstelltAm: new Date().toLocaleDateString('de-DE')
     };
   };
@@ -156,10 +159,9 @@ function ProfilErstellungDialog({ selectedTests, onClose, onPrint }) {
             />
           </div>
           
-          <div className="selected-tests">
-            <h3>Ausgewählte Tests ({selectedTests.length}):</h3>
+          <div className="selected-tests">            <h3>Ausgewählte Tests ({safeSelectedTests.length}):</h3>
             <ul className="selected-tests-list">
-              {selectedTests.map(test => (
+              {safeSelectedTests.map(test => (
                 <li key={test.id} className="selected-test-item">
                   <div className="test-info">
                     <span className="test-id">{test.id}</span>

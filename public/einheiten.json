@@ -148,5 +148,11 @@
     "bezeichnung": null,
     "beschreibung": "Ohne Einheit",
     "kategorie": "Sonstige"
+  },
+  {
+    "einheit_id": "KEINE",
+    "bezeichnung": "Ohne Einheit",
+    "beschreibung": "Ohne Einheit",
+    "kategorie": "Sonstige"
   }
 ]

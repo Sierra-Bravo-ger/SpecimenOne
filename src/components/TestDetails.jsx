@@ -188,7 +188,7 @@ function TestDetails({ test, onClose }) {
             <button class="close-button" onclick="window.close();">Schließen</button>
           </div>
           <div class="header">
-            <img src="/images/icons/icon-512x512.png" alt="SpecimenOne Logo" class="logo">
+            <img src="/images/icons/icon-512x512-new.png" alt="SpecimenOne Logo" class="logo">
             <h1>${test.name}</h1>
           </div>
           

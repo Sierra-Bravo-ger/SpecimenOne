@@ -57,7 +57,7 @@ export async function sendProfilToDiscord(profil) {
     // Erstelle den Discord Webhook Payload mit einem schönen Embed
     const payload = {
       username: "SpecimenOne Bot",
-      avatar_url: window.location.origin + "/images/icons/icon-512x512.png", // Verwende das App-Icon
+      avatar_url: window.location.origin + "/images/icons/icon-512x512-new.png", // Verwende das App-Icon
       content: `🧪 **Neues Testprofil erstellt: ${profil.profilName}**`,
       embeds: [
         {

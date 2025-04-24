@@ -7,7 +7,16 @@ import * as MaterialDesign from "react-icons/md"
 import { useMaterialService } from '../services/MaterialService'
 import MaterialBadge from './MaterialBadge'
 
-function TestListe({ tests, onTestClick, selectedTests = [], onTestSelect = () => {} }) {
+function TestListe({ 
+  tests, 
+  onTestClick, 
+  selectedTests, 
+  onTestSelect = () => {},
+  sortOption = 'id',
+  sortDirection = 'asc'
+}) {
+  // Sicherstellen, dass selectedTests immer ein Array ist
+  const safeSelectedTests = selectedTests || [];
   const [selectedTest, setSelectedTest] = useState(null);
   const [activeTest, setActiveTest] = useState(null);
   const [longPressTimer, setLongPressTimer] = useState(null);
@@ -93,31 +102,55 @@ function TestListe({ tests, onTestClick, selectedTests = [], onTestSelect = () =
     
     setActiveTest(null);
   };
-  
-  // Prüfen, ob ein Test ausgewählt ist
+    // Prüfen, ob ein Test ausgewählt ist
   const isTestSelected = (test) => {
-    return selectedTests.some(selectedTest => selectedTest.id === test.id);
+    return safeSelectedTests.some(selectedTest => selectedTest.id === test.id);
   };
 
   // Test-Auswahl umschalten
   const toggleTestSelection = (test) => {
     if (isTestSelected(test)) {
       // Test entfernen, wenn bereits ausgewählt
-      onTestSelect(selectedTests.filter(t => t.id !== test.id));
+      onTestSelect(safeSelectedTests.filter(t => t.id !== test.id));
     } else {
       // Test hinzufügen, wenn nicht ausgewählt
-      onTestSelect([...selectedTests, test]);
+      onTestSelect([...safeSelectedTests, test]);
     }
   };
-
-  // Sortiere Tests nach sortierNummer (falls vorhanden) oder nach ID als Fallback
+  // Flexibel sortieren basierend auf den übergebenen Sortieroptionen
   const sortedTests = [...tests].sort((a, b) => {
-    // Primär nach sortierNummer sortieren, falls vorhanden
-    if (a.sortierNummer !== undefined && b.sortierNummer !== undefined) {
-      return a.sortierNummer - b.sortierNummer;
+    let comparison = 0;
+    
+    switch (sortOption) {
+      case 'name':
+        // Nach Namen sortieren
+        comparison = (a.name || '').localeCompare(b.name || '');
+        break;
+      case 'kategorie':
+        // Nach Kategorie sortieren, dann nach Namen
+        comparison = (a.kategorie || '').localeCompare(b.kategorie || '');
+        if (comparison === 0) {
+          comparison = (a.name || '').localeCompare(b.name || '');
+        }
+        break;
+      case 'material':
+        // Nach dem ersten Material sortieren (falls vorhanden), dann nach Namen
+        const aMaterial = a.material && a.material.length > 0 ? a.material[0] : '';
+        const bMaterial = b.material && b.material.length > 0 ? b.material[0] : '';
+        comparison = aMaterial.localeCompare(bMaterial);
+        if (comparison === 0) {
+          comparison = (a.name || '').localeCompare(b.name || '');
+        }
+        break;
+      case 'id':
+      default:
+        // Nach ID sortieren (Standard)
+        comparison = a.id.localeCompare(b.id);
+        break;
     }
-    // Sekundär nach ID sortieren
-    return a.id.localeCompare(b.id);
+    
+    // Sortierrichtung anwenden (aufsteigend oder absteigend)
+    return sortDirection === 'asc' ? comparison : -comparison;
   });
   
   return (
@@ -153,8 +186,7 @@ function TestListe({ tests, onTestClick, selectedTests = [], onTestSelect = () =
               </div>
               <p className={`kategorie kategorie-${test.kategorie ? test.kategorie.toLowerCase().replace(/\s+/g, '-') : 'unknown'}`}>
                 {test.kategorie || 'Keine Kategorie'}
-              </p>
-              <div className="test-karte-material">
+              </p>              <div className="test-karte-material">
                 <strong>Material:</strong>
                 {test.material && test.material.length > 0 ? (
                   <div className="material-badges-container">
@@ -166,6 +198,11 @@ function TestListe({ tests, onTestClick, selectedTests = [], onTestSelect = () =
                   <span className="keine-material-info">Keine Angabe</span>
                 )}
               </div>
+              {test.synonyme && test.synonyme.length > 0 && (
+                <div className="test-karte-synonyme">
+                  <span className="synonyme-text">{test.synonyme.join(', ')}</span>
+                </div>
+              )}
             </div>
           ))}
         </div>

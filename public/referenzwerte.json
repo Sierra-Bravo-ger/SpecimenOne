@@ -1311,116 +1311,46 @@
   ],
   "G018": [
     {
-      "Alter_von": 0,
-      "Alter_bis": 1,
-      "Geschlecht": 3000,
-      "Wert_untere_Grenze": 8,
-      "Wert_obere_Grenze": 20,
-      "Schwangerschaft": null,
-      "Besondere_Bedingung": "Säuglinge"
-    },
-    {
-      "Alter_von": 1,
-      "Alter_bis": 18,
-      "Geschlecht": 3000,
-      "Wert_untere_Grenze": 10,
-      "Wert_obere_Grenze": 18,
-      "Schwangerschaft": null,
-      "Besondere_Bedingung": "Kinder/Jugendliche"
-    },
-    {
       "Alter_von": 18,
-      "Alter_bis": 65,
-      "Geschlecht": 3000,
-      "Wert_untere_Grenze": 12,
-      "Wert_obere_Grenze": 16,
-      "Schwangerschaft": null,
-      "Besondere_Bedingung": null
-    },
-    {
-      "Alter_von": 65,
       "Alter_bis": 99,
       "Geschlecht": 3000,
-      "Wert_untere_Grenze": 11,
-      "Wert_obere_Grenze": 15,
+      "Wert_untere_Grenze": 70,
+      "Wert_obere_Grenze": 130,
       "Schwangerschaft": null,
-      "Besondere_Bedingung": "Senioren"
+      "Besondere_Bedingung": "Diagnostik hereditäres Angioödem"
     }
   ],
   "G019": [
     {
-      "Alter_von": 0,
-      "Alter_bis": 1,
-      "Geschlecht": 3000,
-      "Wert_untere_Grenze": 0.1,
-      "Wert_obere_Grenze": 0.5,
-      "Schwangerschaft": null,
-      "Besondere_Bedingung": "Säuglinge"
-    },
-    {
-      "Alter_von": 1,
-      "Alter_bis": 18,
-      "Geschlecht": 3000,
-      "Wert_untere_Grenze": 0.15,
-      "Wert_obere_Grenze": 0.45,
-      "Schwangerschaft": null,
-      "Besondere_Bedingung": "Kinder/Jugendliche"
-    },
-    {
       "Alter_von": 18,
       "Alter_bis": 99,
       "Geschlecht": 3000,
-      "Wert_untere_Grenze": 0.2,
-      "Wert_obere_Grenze": 0.4,
+      "Wert_untere_Grenze": 2.0,
+      "Wert_obere_Grenze": 4.0,
       "Schwangerschaft": null,
-      "Besondere_Bedingung": null
-    },
-    {
-      "Alter_von": 18,
-      "Alter_bis": 45,
-      "Geschlecht": 2000,
-      "Wert_untere_Grenze": 0.22,
-      "Wert_obere_Grenze": 0.38,
-      "Schwangerschaft": 1,
-      "Besondere_Bedingung": "Schwangerschaft"
+      "Besondere_Bedingung": "Faktor-V-Leiden ausgeschlossen bei Ratio > 2.0"
     }
   ],
   "G020": [
     {
-      "Alter_von": 0,
-      "Alter_bis": 1,
+      "Alter_von": 18,
+      "Alter_bis": 99,
       "Geschlecht": 3000,
-      "Wert_untere_Grenze": 5,
-      "Wert_obere_Grenze": 15,
+      "Wert_untere_Grenze": 45,
+      "Wert_obere_Grenze": 75,
       "Schwangerschaft": null,
-      "Besondere_Bedingung": "Säuglinge"
-    },
-    {
-      "Alter_von": 1,
-      "Alter_bis": 18,
-      "Geschlecht": 3000,
-      "Wert_untere_Grenze": 6,
-      "Wert_obere_Grenze": 14,
-      "Schwangerschaft": null,
-      "Besondere_Bedingung": "Kinder/Jugendliche"
-    },
+      "Besondere_Bedingung": "spezifisch für APC-abhängige Gerinnungswege"
+    }
+  ],
+  "G021": [
     {
       "Alter_von": 18,
       "Alter_bis": 99,
       "Geschlecht": 3000,
-      "Wert_untere_Grenze": 7,
-      "Wert_obere_Grenze": 13,
+      "Wert_untere_Grenze": 35,
+      "Wert_obere_Grenze": 65,
       "Schwangerschaft": null,
       "Besondere_Bedingung": null
-    },
-    {
-      "Alter_von": 65,
-      "Alter_bis": 99,
-      "Geschlecht": 3000,
-      "Wert_untere_Grenze": 6.5,
-      "Wert_obere_Grenze": 12,
-      "Schwangerschaft": null,
-      "Besondere_Bedingung": "Senioren"
     }
   ],
   "H001": [
@@ -2246,6 +2176,205 @@
       "Besondere_Bedingung": "Nicht mit der Rohrpost versenden"
     }
   ],
+  "H029": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 4.0,
+      "Wert_obere_Grenze": 10.0,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    },
+    {
+      "Alter_von": 1,
+      "Alter_bis": 18,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 5.0,
+      "Wert_obere_Grenze": 15.5,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Kinder/Jugendliche"
+    }
+  ],
+  "H030": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 1000,
+      "Wert_untere_Grenze": 4.5,
+      "Wert_obere_Grenze": 5.9,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Männer"
+    },
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 2000,
+      "Wert_untere_Grenze": 4.1,
+      "Wert_obere_Grenze": 5.1,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Frauen"
+    },
+    {
+      "Alter_von": 1,
+      "Alter_bis": 18,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 3.8,
+      "Wert_obere_Grenze": 5.6,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Kinder/Jugendliche"
+    }
+  ],
+  "H031": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 1000,
+      "Wert_untere_Grenze": 13.5,
+      "Wert_obere_Grenze": 17.5,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Männer"
+    },
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 2000,
+      "Wert_untere_Grenze": 12.0,
+      "Wert_obere_Grenze": 16.0,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Frauen"
+    },
+    {
+      "Alter_von": 1,
+      "Alter_bis": 18,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 11.0,
+      "Wert_obere_Grenze": 16.0,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Kinder/Jugendliche"
+    }
+  ],
+  "H032": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 150,
+      "Wert_obere_Grenze": 400,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    },
+    {
+      "Alter_von": 1,
+      "Alter_bis": 18,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 180,
+      "Wert_obere_Grenze": 450,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Kinder/Jugendliche"
+    }
+  ],
+  "H033": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 1000,
+      "Wert_untere_Grenze": 40,
+      "Wert_obere_Grenze": 52,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Männer"
+    },
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 2000,
+      "Wert_untere_Grenze": 36,
+      "Wert_obere_Grenze": 48,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Frauen"
+    },
+    {
+      "Alter_von": 1,
+      "Alter_bis": 18,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 35,
+      "Wert_obere_Grenze": 49,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Kinder/Jugendliche"
+    }
+  ],
+  "H034": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 80,
+      "Wert_obere_Grenze": 96,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    },
+    {
+      "Alter_von": 1,
+      "Alter_bis": 18,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 75,
+      "Wert_obere_Grenze": 87,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Kinder/Jugendliche"
+    }
+  ],
+  "H035": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 27,
+      "Wert_obere_Grenze": 34,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    },
+    {
+      "Alter_von": 1,
+      "Alter_bis": 18,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 25,
+      "Wert_obere_Grenze": 31,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Kinder/Jugendliche"
+    }
+  ],
+  "H036": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 32,
+      "Wert_obere_Grenze": 36,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    },
+    {
+      "Alter_von": 1,
+      "Alter_bis": 18,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 30,
+      "Wert_obere_Grenze": 36,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Kinder/Jugendliche"
+    }
+  ],
+  "H037": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 11.5,
+      "Wert_obere_Grenze": 14.5,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": null
+    }
+  ],
+    
   "E002": [
     {
       "Alter_von": 18,
@@ -2411,6 +2540,61 @@
       "Besondere_Bedingung": null
     }
   ],
+  "F014": [
+  {
+    "Alter_von": 18,
+    "Alter_bis": 99,
+    "Geschlecht": 3000,
+    "Wert_untere_Grenze": null,
+    "Wert_obere_Grenze": null,
+    "Schwangerschaft": null,
+    "Besondere_Bedingung": "Titer <1:80 gilt als negativ"
+  }
+],
+"I022": [
+  {
+    "Alter_von": 18,
+    "Alter_bis": 99,
+    "Geschlecht": 3000,
+    "Wert_untere_Grenze": 0,
+    "Wert_obere_Grenze": 10,
+    "Schwangerschaft": null,
+    "Besondere_Bedingung": "negativ <10 U/ml"
+  }
+],
+"K028": [
+  {
+    "Alter_von": 18,
+    "Alter_bis": 99,
+    "Geschlecht": 3000,
+    "Wert_untere_Grenze": 2.5,
+    "Wert_obere_Grenze": 4.5,
+    "Schwangerschaft": null,
+    "Besondere_Bedingung": null
+  }
+],
+"K029": [
+  {
+    "Alter_von": 18,
+    "Alter_bis": 99,
+    "Geschlecht": 3000,
+    "Wert_untere_Grenze": 0.7,
+    "Wert_obere_Grenze": 1.0,
+    "Schwangerschaft": null,
+    "Besondere_Bedingung": null
+  }
+],
+"T001": [
+  {
+    "Alter_von": 18,
+    "Alter_bis": 99,
+    "Geschlecht": 3000,
+    "Wert_untere_Grenze": null,
+    "Wert_obere_Grenze": null,
+    "Schwangerschaft": null,
+    "Besondere_Bedingung": "Positiv ab >50 ng/ml, sonst negativ"
+  }
+],
   "E017": [
     {
       "Alter_von": 18,
@@ -2635,51 +2819,24 @@
   ],
   "K046": [
     {
-      "Alter_von": 0,
-      "Alter_bis": 1,
-      "Geschlecht": 3000,
-      "Wert_untere_Grenze": 0.9,
-      "Wert_obere_Grenze": 2.7,
-      "Schwangerschaft": null,
-      "Besondere_Bedingung": "Säuglinge"
-    },
-    {
-      "Alter_von": 1,
-      "Alter_bis": 18,
-      "Geschlecht": 3000,
-      "Wert_untere_Grenze": 1.1,
-      "Wert_obere_Grenze": 2.4,
-      "Schwangerschaft": null,
-      "Besondere_Bedingung": "Kinder/Jugendliche"
-    },
-    {
       "Alter_von": 18,
       "Alter_bis": 99,
       "Geschlecht": 3000,
-      "Wert_untere_Grenze": 1.2,
-      "Wert_obere_Grenze": 2.2,
+      "Wert_untere_Grenze": 0.5,
+      "Wert_obere_Grenze": 1.0,
       "Schwangerschaft": null,
-      "Besondere_Bedingung": null
+      "Besondere_Bedingung": "Talspiegel, therapeutisch"
     }
   ],
   "K047": [
     {
-      "Alter_von": 0,
-      "Alter_bis": 12,
-      "Geschlecht": 3000,
-      "Wert_untere_Grenze": 1.8,
-      "Wert_obere_Grenze": 4.5,
-      "Schwangerschaft": null,
-      "Besondere_Bedingung": "Kinder"
-    },
-    {
-      "Alter_von": 12,
+      "Alter_von": 18,
       "Alter_bis": 99,
       "Geschlecht": 3000,
-      "Wert_untere_Grenze": 2.0,
-      "Wert_obere_Grenze": 4.2,
+      "Wert_untere_Grenze": 5.0,
+      "Wert_obere_Grenze": 15.0,
       "Schwangerschaft": null,
-      "Besondere_Bedingung": null
+      "Besondere_Bedingung": "Talspiegel, therapeutisch"
     }
   ],
   "K048": [
@@ -2749,6 +2906,105 @@
       "Wert_obere_Grenze": 4.8,
       "Schwangerschaft": null,
       "Besondere_Bedingung": null
+    }
+  ],
+  "K051": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0.5,
+      "Wert_obere_Grenze": 2.0,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Talspiegel"
+    }
+  ],
+  "K052": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 10,
+      "Wert_obere_Grenze": 30,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Talspiegel"
+    }
+  ],
+  "K053": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 50,
+      "Wert_obere_Grenze": 100,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Talspiegel, therapeutisch"
+    }
+  ],
+  "K054": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 10,
+      "Wert_obere_Grenze": 20,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Talspiegel, therapeutisch"
+    }
+  ],
+  "K055": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 15,
+      "Wert_obere_Grenze": 40,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Talspiegel, therapeutisch"
+    }
+  ],
+  "K056": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0.6,
+      "Wert_obere_Grenze": 1.2,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Talspiegel, therapeutisch"
+    }
+  ],
+  "K057": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 0.05,
+      "Wert_obere_Grenze": 1.0,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "je nach Zeit nach Applikation"
+    }
+  ],
+  "K058": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 10,
+      "Wert_obere_Grenze": 20,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Talspiegel"
+    }
+  ],
+  "K059": [
+    {
+      "Alter_von": 18,
+      "Alter_bis": 99,
+      "Geschlecht": 3000,
+      "Wert_untere_Grenze": 4,
+      "Wert_obere_Grenze": 12,
+      "Schwangerschaft": null,
+      "Besondere_Bedingung": "Talspiegel"
     }
   ],
   "K034": [

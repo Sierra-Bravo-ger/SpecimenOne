@@ -47,12 +47,13 @@
 .test-karte h3 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  color: #6abf7b; /* Material 3 Primary Color - Standard Farbe */
+  color: var(--md-sys-color-on-surface); /* Einheitliche Farbe, passt sich dem Farbschema an */
   flex: 1;
+  font-weight: 500; /* Mittlere Schriftstärke für bessere Lesbarkeit */
 }
 
 .sortier-nummer {
-  background-color: #6abf7b;
+  background-color: var(--md-sys-color-primary);
   color: white;
   border-radius: 12px;
   padding: 2px 8px;
@@ -63,62 +64,41 @@
   text-align: center;
 }
 
-/* Farbcodierung für Überschriften basierend auf Kategorie */
+/* Die kategoriespezifischen Farben wurden entfernt und durch ein einheitliches Schema ersetzt */
 .test-karte h3.kategorie-text-hämatologie, 
 .test-karte h3.kategorie-text-haematologie,
 .test-details-container h2.kategorie-text-hämatologie,
 .test-details-container h2.kategorie-text-haematologie,
 .profil-info h3.kategorie-text-hämatologie,
-.profil-info h3.kategorie-text-haematologie {
-  color: #c74a4a;
-}
-
+.profil-info h3.kategorie-text-haematologie,
 .test-karte h3.kategorie-text-klinische-chemie,
 .test-details-container h2.kategorie-text-klinische-chemie,
-.profil-info h3.kategorie-text-klinische-chemie {
-  color: #9c6b3c;
-}
-
+.profil-info h3.kategorie-text-klinische-chemie,
 .test-karte h3.kategorie-text-gerinnung,
 .test-details-container h2.kategorie-text-gerinnung,
 .profil-info h3.kategorie-text-gerinnung {
-  color: #4a995c;
+  color: inherit; /* Übernimmt die Grundfarbe von übergeordneten Elementen */
 }
 
 .test-karte h3.kategorie-text-immunologie,
 .test-details-container h2.kategorie-text-immunologie,
-.profil-info h3.kategorie-text-immunologie {
-  color: #4a72c7;
-}
-
+.profil-info h3.kategorie-text-immunologie,
 .test-karte h3.kategorie-text-mikrobiologie,
 .test-details-container h2.kategorie-text-mikrobiologie,
-.profil-info h3.kategorie-text-mikrobiologie {
-  color: #8d4ac7;
-}
-
+.profil-info h3.kategorie-text-mikrobiologie,
 .test-karte h3.kategorie-text-endokrinologie,
 .test-details-container h2.kategorie-text-endokrinologie,
-.profil-info h3.kategorie-text-endokrinologie {
-  color: #c79c4a;
-}
-
+.profil-info h3.kategorie-text-endokrinologie,
 .test-karte h3.kategorie-text-virologie,
 .test-details-container h2.kategorie-text-virologie,
-.profil-info h3.kategorie-text-virologie {
-  color: #3d99c2;
-}
-
+.profil-info h3.kategorie-text-virologie,
 .test-karte h3.kategorie-text-infektionsdiagnostik,
 .test-details-container h2.kategorie-text-infektionsdiagnostik,
-.profil-info h3.kategorie-text-infektionsdiagnostik {
-  color: #9c6b3c;
-}
-
+.profil-info h3.kategorie-text-infektionsdiagnostik,
 .test-karte h3.kategorie-text-toxikologie,
 .test-details-container h2.kategorie-text-toxikologie,
 .profil-info h3.kategorie-text-toxikologie {
-  color: #e67e00;
+  color: inherit; /* Übernimmt die Grundfarbe von übergeordneten Elementen */
 }
 
 .kategorie {
@@ -224,30 +204,27 @@
 }
 
 .test-karte-material {
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
 }
 
-.material-badges-container {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 5px;
-  gap: 4px;
+/* Neue Styles für Synonyme */
+.test-karte-synonyme {
+  margin-top: 0.3rem;
+  padding-top: 0.2rem;
+  border-top: 1px dotted rgba(0, 0, 0, 0.1);
 }
 
-.keine-material-info {
+.synonyme-text {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface-variant);
   font-style: italic;
-  opacity: 0.7;
-}
-
-.synonyme {
-  color: #666;
-  font-size: 0.8rem;
-  margin-top: 0.5rem;
-}
-
-.keine-tests {
-  text-align: center;
-  padding: 2rem;
-  color: #666;
+  line-height: 1.2;
+  opacity: 0.85;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
 }

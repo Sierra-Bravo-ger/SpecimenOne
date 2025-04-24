@@ -22,11 +22,31 @@ Eine moderne Web-App zur Anzeige und Verwaltung von Labortests und Profilen.
 - **Long-Press-Funktionalität:** Optimierte Bedienung auf Touch-Geräten
 - **E-Mail-Integration:** Direkte Übermittlung von erstellten Profilen per E-Mail
 
+### Neu: Progressive Web App (PWA)
+
+- **Offline-Funktionalität:** Zugriff auf Testdaten auch ohne Internetverbindung
+- **Installierbar:** Kann wie eine native App auf dem Homescreen/Desktop installiert werden
+- **Automatische Updates:** Benachrichtigung und nahtlose Aktualisierung bei neuen Versionen
+- **Intelligente Caching-Strategien:** 
+  - Cache-First für statische Assets (schnelle Ladezeiten)
+  - Network-First für Testdaten (Aktualität bei bestehender Internetverbindung)
+- **Plattformübergreifend:** Konsistentes Erscheinungsbild auf Android, iOS und Desktop-Systemen
+- **Adaptive App-Icons:** Optimierte Icons mit Akzentfarbe für verschiedene Betriebssysteme
+
+### Verbesserte mobile Nutzererfahrung
+
+- **Optimierte Touch-Interaktionen:** Moderne Pointer-Events API für intuitive Bedienung
+- **Zuverlässige Gestenerkennung:** Klare Unterscheidung zwischen Tap und Long-Press
+- **Responsive Layouts:** Anpassungsfähige Darstellung für verschiedene Bildschirmgrößen
+- **Kompakter App-Header:** Platzoptimierte zweizeilige Darstellung des App-Namens auf mobilen Geräten
+- **Optimierte Benutzerinformationen:** Verkürzte E-Mail-Anzeige für bessere Lesbarkeit auf kleinen Bildschirmen
+- **Verbesserte Button-Kontraste:** Deutlich sichtbare Steuerelemente in allen Beleuchtungssituationen
+
 ## Technologien
 
 - React mit Vite als Build-Tool
 - Material Design 3 (Material Web Components)
-- CSS für responsive Gestaltung und Dark Mode
+- CSS für responsive Gestaltung
 - JSON-Datenhaltung mit bidirektionaler CSV-Konvertierung
 
 ## Web-Hook-Funktionalität
