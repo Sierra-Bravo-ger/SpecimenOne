@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import './App.css'
 import './material-theme.css'
 import TestListe from './components/TestListe'
 import ProfilListe from './components/ProfilListe'
 import DrilldownTable from './components/DrilldownTable'
+import TimelineView from './components/TimelineView';
 import TestDetails from './components/TestDetails'
 import MaterialBadge from './components/MaterialBadge'
 import Suchleiste from './components/Suchleiste'
@@ -12,7 +12,7 @@ import ProfilErstellungDialog from './components/ProfilErstellungDialog'
 import ProfilDruckAnsicht from './components/ProfilDruckAnsicht'
 import ThemeSwitcher from './components/ThemeSwitcher'
 import LoginButton from './components/LoginButton'
-import './components/ThemeSwitcher.css'
+import tailwindBtn from './components/tailwindBtn'
 import { useAuth0 } from '@auth0/auth0-react'
 import { useTheme } from './contexts/ThemeContext'
 import { useMaterialService } from './services/MaterialService'
@@ -259,95 +259,106 @@ function App() {
       });
     }
   };
-  
-  // UseEffect um den Authentifizierungsstatus zu überwachen
+    // UseEffect um den Authentifizierungsstatus zu überwachen
   useEffect(() => {
     // Reset isRedirecting wenn der User authentifiziert ist
     if (isAuthenticated) {
       setIsRedirecting(false);
     }
   }, [isAuthenticated]);
-  
+
   // Auth0 Authentifizierungsprüfung
   // Wenn Auth0 noch prüft, zeigen wir eine Ladeanzeige
   if (authLoading) {
     return (
-      <div className="auth-loading-container">
-        <img src="/images/icons/icon-512x512-new.png" alt="SpecimenOne Logo" className="auth-loading-logo" />
-        <h2>SpecimenOne wird geladen</h2>
+      <div className={`min-h-screen flex flex-col items-center justify-center ${tailwindBtn.classes.containerBg} ${tailwindBtn.appLayout.fadeIn}`}>
+        <img src="/images/icons/icon-512x512-new.png" alt="SpecimenOne Logo" className="h-32 w-auto mb-6 filter drop-shadow-lg" />
+        <h2 className="text-xl font-medium text-gray-800 dark:text-gray-200 mb-6">SpecimenOne wird geladen</h2>
         <md-circular-progress indeterminate></md-circular-progress>
       </div>
     );
   }
-  
   // Benutzer kann die App nutzen, unabhängig vom Auth-Status
   // Der Login erfolgt über den LoginButton in der Navigationsleiste
   
   // Wenn der Benutzer authentifiziert ist, zeigen wir die App
   return (
-    <div className={`app-container ${isDark ? 'dark-theme' : ''}`}>
-      <header className="app-header">
-        <div className="app-title">
-          <img src="/images/icons/icon-512x512-new.png" alt="SpecimenOne Logo" className="app-logo large-logo" />
+    <div className={`flex flex-col min-h-screen font-roboto m-0 p-0 overflow-x-hidden w-full transition-colors duration-500 ease-in-out ${isDark ? 'dark-theme dark bg-[#1C1B1F] text-[#E6E1E5]' : 'bg-white text-[#1C1B1F]'}`}><header className="bg-primary dark:bg-primary-dark text-white shadow-md flex justify-between items-center w-full p-3 box-border border-none">
+        <div className="flex items-center justify-start flex-1">          <img src="/images/icons/icon-512x512-new.png" alt="SpecimenOne Logo" className="h-20 w-auto mr-4 filter drop-shadow" />
           {/* Desktop-Version des Titels (einzeilig) */}
-          <h1 className="app-name-desktop">SpecimenOne</h1>
+          <h1 className="m-0 text-2xl font-medium text-white hidden md:block" style={{textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)'}}>SpecimenOne</h1>
           {/* Mobile-Version des Titels (zweizeilig) */}
-          <h1 className="app-name-mobile">
-            <span className="app-name-line">Specimen</span>
-            <span className="app-name-line">One</span>
-          </h1>
+          <div className="flex flex-col leading-tight md:hidden text-white">
+            <span className="text-xs font-bold tracking-wide">Specimen</span>
+            <span className="text-lg font-semibold tracking-wider">One</span>
+          </div>
         </div>
-        <div className="app-controls">
+        <div className="flex items-center gap-5">
           <ThemeSwitcher />
           <LoginButton />
         </div>
-      </header>
-      <main>
-        {isLoading && <md-circular-progress indeterminate></md-circular-progress>}
-        {error && <p className="error-message">Fehler: {error}</p>}
-        
-        {!isLoading && !error && (
-          <>
-            <div className="search-and-tabs">
-              <div className="top-controls">
-                <Suchleiste 
-                  suchbegriff={suchbegriff} 
-                  onSuchbegriffChange={handleSuchbegriffChange}
-                  selectedKategorie={selectedKategorie}
-                  onKategorieChange={setSelectedKategorie}
-                />
-                <SortierMenu 
-                  sortOption={sortOption}
-                  setSortOption={setSortOption}
-                  sortDirection={sortDirection}
-                  setSortDirection={setSortDirection}
-                />
-              </div>
-              <div className="ansicht-tabs">
-                <div className="tabs-container">
-                  <button 
-                    className={`tab-button ${ansicht === 'tests' ? 'active' : ''}`}
+      </header>      <main className="flex-1 p-8 max-w-7xl mx-auto w-full">
+        {isLoading && <div className="flex justify-center my-8"><md-circular-progress indeterminate></md-circular-progress></div>}
+        {error && <p className="bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 p-4 rounded border-l-4 border-red-600 dark:border-red-500">Fehler: {error}</p>}
+        {!isLoading && !error && (  <>            <div className="mb-8">            <div className="mb-4 space-y-3">
+                <div className={`p-3 ${tailwindBtn.containerBgElevated} rounded-lg shadow-sm border ${tailwindBtn.colors.border.light} ${tailwindBtn.colors.border.dark} w-full`}>
+                  <Suchleiste 
+                    suchbegriff={suchbegriff} 
+                    onSuchbegriffChange={handleSuchbegriffChange}
+                    selectedKategorie={selectedKategorie}
+                    onKategorieChange={setSelectedKategorie}
+                  />
+                </div>
+                <div className="p-3 bg-gray-50 dark:bg-gray-850 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
+                  <SortierMenu 
+                    sortOption={sortOption}
+                    setSortOption={setSortOption}
+                    sortDirection={sortDirection}
+                    setSortDirection={setSortDirection}
+                  />
+                </div>
+              </div><div className="w-full">
+                <div className={`flex mb-6 border-b-2 ${tailwindBtn.borderClasses} w-full ${tailwindBtn.classes.cardBg} rounded-t-lg shadow-sm overflow-hidden`}><button                    className={`flex items-center justify-center px-2 py-3 flex-1 text-sm font-medium relative border-none cursor-pointer ${tailwindBtn.classes.cardBg} transition-all ${
+                      ansicht === 'tests' 
+                        ? 'text-[var(--md-sys-color-primary)] dark:text-[var(--md-sys-color-primary)] border-b-2 border-[var(--md-sys-color-primary)] dark:border-[var(--md-sys-color-primary)] bg-primary/5 dark:bg-primary-dark/10' 
+                        : `${tailwindBtn.classes.text} ${tailwindBtn.classes.hover} border-b-2 border-transparent`
+                    }`}
                     onClick={() => setAnsicht('tests')}
                   >
-                    <MaterialDesign.MdListAlt style={{marginRight: '0.5rem'}} /> Einzelne Tests
-                  </button>
-                  <button 
-                    className={`tab-button ${ansicht === 'profile' ? 'active' : ''}`}
+                    <div className="flex items-center justify-center">
+                      <MaterialDesign.MdListAlt className="mr-1" /> Einzelne Tests
+                    </div>
+                  </button>                  <button                    className={`flex items-center justify-center px-2 py-3 flex-1 text-sm font-medium relative border-none cursor-pointer ${tailwindBtn.classes.cardBg} transition-all ${
+                      ansicht === 'profile' 
+                        ? 'text-[var(--md-sys-color-primary)] dark:text-[var(--md-sys-color-primary)] border-b-2 border-[var(--md-sys-color-primary)] dark:border-[var(--md-sys-color-primary)] bg-primary/5 dark:bg-primary-dark/10' 
+                        : `${tailwindBtn.classes.text} ${tailwindBtn.classes.hover} border-b-2 border-transparent`
+                    }`}
                     onClick={() => setAnsicht('profile')}
                   >
-                    <MaterialDesign.MdFolderOpen style={{marginRight: '0.5rem'}} /> Test-Profile
-                  </button>
-                  <button 
-                    className={`tab-button ${ansicht === 'tabelle' ? 'active' : ''}`}
+                    <div className="flex items-center justify-center">
+                      <MaterialDesign.MdFolderOpen className="mr-1" /> Test-Profile
+                    </div>                  </button><button                    className={`flex items-center justify-center px-2 py-3 flex-1 text-sm font-medium relative border-none cursor-pointer ${tailwindBtn.classes.cardBg} transition-all ${
+                      ansicht === 'tabelle' 
+                        ? 'text-[var(--md-sys-color-primary)] dark:text-[var(--md-sys-color-primary)] border-b-2 border-[var(--md-sys-color-primary)] dark:border-[var(--md-sys-color-primary)] bg-primary/5 dark:bg-primary-dark/10' 
+                        : `${tailwindBtn.classes.text} ${tailwindBtn.classes.hover} border-b-2 border-transparent`
+                    }`}
                     onClick={() => setAnsicht('tabelle')}
                   >
-                    <MaterialDesign.MdTableView style={{marginRight: '0.5rem'}} /> Tabellen-Ansicht
+                    <div className="flex items-center justify-center">
+                      <MaterialDesign.MdTableView className="mr-1" /> Tabellen-Ansicht
+                    </div>                  </button>                  <button                    className={`flex items-center justify-center px-2 py-3 flex-1 text-sm font-medium relative border-none cursor-pointer ${tailwindBtn.classes.cardBg} transition-all ${
+                      ansicht === 'timeline' 
+                        ? 'text-[var(--md-sys-color-primary)] dark:text-[var(--md-sys-color-primary)] border-b-2 border-[var(--md-sys-color-primary)] dark:border-[var(--md-sys-color-primary)] bg-primary/5 dark:bg-primary-dark/10' 
+                        : `${tailwindBtn.classes.text} ${tailwindBtn.classes.hover} border-b-2 border-transparent`
+                    }`}
+                    onClick={() => setAnsicht('timeline')}
+                  >
+                    <div className="flex items-center justify-center">
+                      <MaterialDesign.MdTimeline className="mr-1" /> Grafiken
+                    </div>
                   </button>
                 </div>
-              </div>
-            </div>
-
-            <div className="content-container">
+              </div>            </div>            <div className={`mt-6 w-full ${tailwindBtn.classes.containerBg} rounded-lg shadow-sm overflow-hidden border border-gray-200 dark:border-gray-700`}>
               {ansicht === 'tests' && (
                 <>
                   <TestListe 
@@ -358,8 +369,9 @@ function App() {
                     sortOption={sortOption}
                     sortDirection={sortDirection}
                   />
-                </>
-              )}
+                </>              )}{ansicht === 'timeline' && (
+                <TimelineView key="timeline-view" />
+            )}
               
               {ansicht === 'profile' && (
                 <ProfilListe tests={tests} profile={filteredProfile} />
@@ -424,60 +436,64 @@ function App() {
             </div>
           </>
         )}      
-        </main>
-      <footer className="app-footer">
-        <div className="footer-content">
-          <p>© {new Date().getFullYear()} SpecimenOne</p>
+        </main>      <footer className="bg-gray-100 dark:bg-gray-800 py-4 px-8 border-t border-gray-200 dark:border-gray-700 mt-auto">
+        <div className="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto w-full">
+          <p className="text-gray-600 dark:text-gray-300 text-sm mb-2 md:mb-0">© {new Date().getFullYear()} SpecimenOne</p>
+          <div className="flex items-center gap-4">
+            <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-sm transition-colors">Datenschutz</a>
+            <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-sm transition-colors">Impressum</a>
+          </div>
         </div>
       </footer>
-        {/* Schwebende Selection Controls */}
-      {ansicht === 'tests' && Array.isArray(selectedTests) && selectedTests.length > 0 && (
-        <div className="selection-controls">
-          <div className="selected-count">
+        {/* Schwebende Selection Controls */}      {ansicht === 'tests' && Array.isArray(selectedTests) && selectedTests.length > 0 && (        <div className="fixed bottom-[70px] left-1/2 transform -translate-x-1/2 flex justify-between items-center p-3 bg-primary/20 dark:bg-primary-dark/20 backdrop-blur-xl rounded-lg shadow-lg max-w-7xl w-full z-10">
+          <div className="font-medium text-gray-800 dark:text-white drop-shadow-sm">
             {selectedTests.length} Test{selectedTests.length !== 1 ? 'e' : ''} ausgewählt
-          </div>
-          <div className="selection-buttons">
-            <button 
-              className="cancel-selection-button"
+          </div>          <div className="flex items-center gap-4">            <button 
+              className={tailwindBtn.cancel}
               onClick={clearAllTestSelections}
             >
-              <MaterialDesign.MdCancel style={{marginRight: '8px'}} />
+              <MaterialDesign.MdCancel className="mr-2" />
               Abbrechen
             </button>
             <button 
-              className="create-profile-button"
+              className={tailwindBtn.primary}
               onClick={openProfilErstellung}
             >
-              <MaterialDesign.MdCreateNewFolder style={{marginRight: '8px'}} />
+              <MaterialDesign.MdCreateNewFolder className="mr-2" />
               Profil erstellen
             </button>
           </div>
         </div>
       )}
-      
-      {/* Test-Details Dialog */}
+        {/* Test-Details Dialog */}
       {showTestDetails && selectedTest && (
-        <TestDetails 
-          test={selectedTest}
-          onClose={closeTestDetails}
-        />
+        <div className="z-40">
+          <TestDetails 
+            test={selectedTest}
+            onClose={closeTestDetails}
+          />
+        </div>
       )}
       
       {/* Profil-Erstellungsdialog */}
       {showProfilErstellung && (
-        <ProfilErstellungDialog
-          selectedTests={selectedTests}
-          onClose={closeProfilErstellung}
-          onPrint={handleProfilPrint}
-        />
+        <div className="z-50">
+          <ProfilErstellungDialog
+            selectedTests={selectedTests}
+            onClose={closeProfilErstellung}
+            onPrint={handleProfilPrint}
+          />
+        </div>
       )}
       
       {/* Profildruck-Ansicht */}
       {showProfilDruck && customProfil && (
-        <ProfilDruckAnsicht
-          profil={customProfil}
-          onClose={closeProfilDruck}
-        />
+        <div className="z-50">
+          <ProfilDruckAnsicht
+            profil={customProfil}
+            onClose={closeProfilDruck}
+          />
+        </div>
       )}
     </div>
   );

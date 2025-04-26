@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
-import './TestDetails.css'
-import './TestDetails-Badge.css'
+import './TestDetails.css' // Diese Datei behalten wir vorerst für Druckstile & Tabellenstile
+// TestDetails-Badge.css nicht mehr erforderlich, da wir Tailwind verwenden
+// import './TestDetails-Badge.css'
 import '@material/web/button/filled-button.js'
 import '@material/web/button/text-button.js'
 import '@material/web/divider/divider.js'
@@ -9,6 +10,7 @@ import * as MaterialDesign from "react-icons/md"
 import { useMaterialService } from '../services/MaterialService'
 import { useEinheitenService } from '../services/EinheitenService'
 import MaterialBadge from './MaterialBadge'
+import tailwindBtn from './tailwindBtn' // Importiere unsere zentrale Styling-Bibliothek
 
 function TestDetails({ test, onClose }) {
   // Ref für den Ausdruck
@@ -300,89 +302,153 @@ function TestDetails({ test, onClose }) {
       console.error('Fehler beim Drucken:', error);
       alert('Beim Drucken ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.');
     }
-  };
-  return (
-    <div className="test-details-overlay" onClick={handleOverlayClick}>      <div className="test-details-container md-elevation-5">
-        <md-text-button className="close-button" onClick={onClose}>
+  };  return (
+    <div className="test-details-overlay" onClick={handleOverlayClick}>      
+      <div className={`test-details-container md-elevation-5 ${tailwindBtn.classes.cardBg}`}>
+        <md-text-button className={`close-button ${tailwindBtn.classes.textMuted}`} onClick={onClose}>
           <MaterialDesign.MdClose style={{fontSize: "24px"}} />
         </md-text-button>
+          <h2 className={`${tailwindBtn.classes.text} ${test.kategorie ? `kategorie-text-${test.kategorie.toLowerCase().replace(/\s+/g, '-')}` : ''}`}>{test.name}</h2>
         
-        <h2 className={`kategorie-text-${test.kategorie.toLowerCase().replace(/\s+/g, '-')}`}>{test.name}</h2>
-        
-        {test.synonyme.length > 0 && (
-          <div className="details-section">
-            <h3>Synonyme</h3>
-            <p>{test.synonyme.join(', ')}</p>
-            <md-divider></md-divider>
-          </div>
-        )}
-          <div className="details-section">
-          <h3>Allgemeine Informationen</h3>
-          <p><strong>ID:</strong> {test.id}</p>
-          <p><strong>LOINC:</strong> {test.loinc}</p>
-          <p><strong>Kategorie:</strong> {test.kategorie}</p>
-          {test.einheit_id && <p><strong>Einheit:</strong> {getEinheitBezeichnung(test.einheit_id)}</p>}
+        {(() => {
+          // Debug-Check für fehlendes synonyme-Feld
+          if (!test.synonyme) {
+            console.warn(`[SpecimenOne Debug] Fehlendes Feld 'synonyme' in Test ${test.id}: ${test.name}`);
+            return null;
+          }          return test.synonyme.length > 0 && (
+            <div className="details-section">
+              <h3 className={`${tailwindBtn.classes.headingSecondary}`}>Synonyme</h3>
+              <p className={`${tailwindBtn.classes.text}`}>{test.synonyme.join(', ')}</p>
+              <md-divider></md-divider>
+            </div>
+          );
+        })()}          <div className="details-section">
+          <h3 className={`${tailwindBtn.classes.headingSecondary}`}>Allgemeine Informationen</h3>
+          <p className={`${tailwindBtn.classes.text}`}><strong>ID:</strong> {test.id}</p>
+          <p className={`${tailwindBtn.classes.text}`}><strong>LOINC:</strong> {(() => {
+            if (!test.loinc) {
+              console.warn(`[SpecimenOne Debug] Fehlendes Feld 'loinc' in Test ${test.id}: ${test.name}`);
+              return 'N/A';
+            }            return test.loinc;
+          })()}</p>
+          <p className={`${tailwindBtn.classes.text}`}><strong>Kategorie:</strong> {(() => {
+            if (!test.kategorie) {
+              console.warn(`[SpecimenOne Debug] Fehlendes Feld 'kategorie' in Test ${test.id}: ${test.name}`);
+              return 'Keine Kategorie';
+            }
+            return test.kategorie;
+          })()}</p>
+          {(() => {            if (!test.einheit_id) {
+              console.warn(`[SpecimenOne Debug] Fehlendes Feld 'einheit_id' in Test ${test.id}: ${test.name}`);
+            }
+            return test.einheit_id && <p className={`${tailwindBtn.classes.text}`}><strong>Einheit:</strong> {getEinheitBezeichnung(test.einheit_id)}</p>;
+          })()}
           <md-divider></md-divider>
         </div>        <div className="details-section">
-          <h3>Probenanforderungen</h3>
-          <div className="detail-material-row">
-            <p><strong>Material:</strong></p>
-            {test.material && test.material.length > 0 ? (
-              <div className="material-badges-container">
-                {test.material.map((materialId, index) => (
-                  <MaterialBadge key={index} materialId={materialId} showKurzbezeichnung={true} />
-                ))}
-              </div>
-            ) : (
-              <span className="keine-material-info">Keine Angabe</span>
-            )}
+          <h3 className={`${tailwindBtn.classes.headingSecondary}`}>Probenanforderungen</h3>          <div className={`${tailwindBtn.classes.badge.materialRow}`}>
+            <p className={`${tailwindBtn.classes.text} ${tailwindBtn.classes.badge.materialRowText}`}><strong>Material:</strong></p>
+            {(() => {              if (!test.material) {
+                console.warn(`[SpecimenOne Debug] Fehlendes Feld 'material' in Test ${test.id}: ${test.name}`);
+                return <span className={`${tailwindBtn.classes.badge.noMaterialInfo}`}>Keine Angabe</span>;
+              }              return test.material && test.material.length > 0 ? (
+                <div className={`${tailwindBtn.classes.badge.badgesContainer}`}>
+                  {test.material.map((materialId, index) => (
+                    <MaterialBadge key={index} materialId={materialId} showKurzbezeichnung={true} />
+                  ))}
+                </div>
+              ) : (
+                <span className={`${tailwindBtn.classes.badge.noMaterialInfo}`}>Keine Angabe</span>
+              );
+            })()}
           </div>
-          <p><strong>Mindestmenge:</strong> {test.mindestmenge_ml} ml</p>
-          <p><strong>Lagerung:</strong> {test.lagerung}</p>
+          <p><strong>Mindestmenge:</strong> {(() => {
+            if (test.mindestmenge_ml === undefined || test.mindestmenge_ml === null) {
+              console.warn(`[SpecimenOne Debug] Fehlendes Feld 'mindestmenge_ml' in Test ${test.id}: ${test.name}`);
+              return 'Keine Angabe';
+            }
+            return `${test.mindestmenge_ml} ml`;
+          })()}</p>
+          <p><strong>Lagerung:</strong> {(() => {
+            if (!test.lagerung) {
+              console.warn(`[SpecimenOne Debug] Fehlendes Feld 'lagerung' in Test ${test.id}: ${test.name}`);
+              return 'Keine Angabe';
+            }
+            return test.lagerung;
+          })()}</p>
           <md-divider></md-divider>
-        </div>
-          <div className="details-section">
+        </div>          <div className="details-section">
           <h3>Durchführung und Befundung</h3>
-          <p><strong>Durchführung:</strong> {test.durchführung}</p>
-          <p><strong>Befundzeit:</strong> {test.befundzeit}</p>
+          <p><strong>Durchführung:</strong> {(() => {
+            if (!test.durchführung) {
+              console.warn(`[SpecimenOne Debug] Fehlendes Feld 'durchführung' in Test ${test.id}: ${test.name}`);
+              return 'Keine Angabe';
+            }
+            return test.durchführung;
+          })()}</p>
+          <p><strong>Befundzeit:</strong> {(() => {
+            if (!test.befundzeit) {
+              console.warn(`[SpecimenOne Debug] Fehlendes Feld 'befundzeit' in Test ${test.id}: ${test.name}`);
+              return 'Keine Angabe';
+            }
+            return test.befundzeit;
+          })()}</p>
           <md-divider></md-divider>
         </div>
-        
-        {(test.ebm || test.goae) && (
-          <div className="details-section">
-            <h3>Abrechnung</h3>
-            {test.ebm && <p><strong>EBM:</strong> {test.ebm}</p>}
-            {test.goae && <p><strong>GOÄ:</strong> {test.goae}</p>}
-            <md-divider></md-divider>
-          </div>
-        )}
-        
-        {test.hinweise.length > 0 && (
-          <div className="details-section">
-            <h3>Hinweise</h3>
-            <ul>
-              {test.hinweise.map((hinweis, index) => (
-                <li key={index}>{hinweis}</li>
-              ))}
-            </ul>
-            <md-divider></md-divider>
-          </div>
-        )}
-          {test.dokumente.length > 0 && (
-          <div className="details-section">
-            <h3>Dokumente</h3>
-            <ul>
-              {test.dokumente.map((dokument, index) => (
-                <li key={index}>
-                  <a href={dokument.url} target="_blank" rel="noopener noreferrer">
-                    {dokument.titel}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <md-divider></md-divider>
-          </div>
-        )}
+          {(() => {
+          // Debug-Check für fehlende Abrechnungsfelder
+          if (test.ebm === undefined) {
+            console.warn(`[SpecimenOne Debug] Fehlendes Feld 'ebm' in Test ${test.id}: ${test.name}`);
+          }
+          if (test.goae === undefined) {
+            console.warn(`[SpecimenOne Debug] Fehlendes Feld 'goae' in Test ${test.id}: ${test.name}`);
+          }
+          return (test.ebm || test.goae) && (
+            <div className="details-section">
+              <h3>Abrechnung</h3>
+              {test.ebm && <p><strong>EBM:</strong> {test.ebm}</p>}
+              {test.goae && <p><strong>GOÄ:</strong> {test.goae}</p>}
+              <md-divider></md-divider>
+            </div>
+          );
+        })()}
+          {(() => {
+          // Debug-Check für fehlende Felder
+          if (!test.hinweise) {
+            console.warn(`[SpecimenOne Debug] Fehlendes Feld 'hinweise' in Test ${test.id}: ${test.name}`);
+          }
+          return test.hinweise && test.hinweise.length > 0 && (
+            <div className="details-section">
+              <h3>Hinweise</h3>
+              <ul>
+                {test.hinweise.map((hinweis, index) => (
+                  <li key={index}>{hinweis}</li>
+                ))}
+              </ul>
+              <md-divider></md-divider>
+            </div>
+          );
+        })()}          {(() => {
+          // Debug-Check für fehlendes dokumente-Feld
+          if (!test.dokumente) {
+            console.warn(`[SpecimenOne Debug] Fehlendes Feld 'dokumente' in Test ${test.id}: ${test.name}`);
+            return null;
+          }
+          return test.dokumente.length > 0 && (
+            <div className="details-section">
+              <h3>Dokumente</h3>
+              <ul>
+                {test.dokumente.map((dokument, index) => (
+                  <li key={index}>
+                    <a href={dokument.url} target="_blank" rel="noopener noreferrer">
+                      {dokument.titel}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <md-divider></md-divider>
+            </div>
+          );
+        })()}
         
         {referenzwerte.length > 0 && (
           <div className="details-section">
@@ -421,8 +487,8 @@ function TestDetails({ test, onClose }) {
             <md-divider></md-divider>
           </div>
         )}        <div className="actions">
-          <md-filled-button onClick={handlePrint}>Drucken</md-filled-button>
-          <md-filled-button onClick={onClose}>Schließen</md-filled-button>
+          <md-filled-button onClick={handlePrint} class={tailwindBtn.classes.mdButton}>Drucken</md-filled-button>
+          <md-filled-button onClick={onClose} class={tailwindBtn.classes.mdButton}>Schließen</md-filled-button>
         </div>
       </div>
     </div>

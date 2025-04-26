@@ -48,6 +48,35 @@
                   ]
     },
     {
+        "beschreibung":  "alternatives Antikoagulans zum Ausschluss einer EDTA-Unverträglichkeit",
+        "id":  "P023",
+        "kategorie":  "Hämatologie",
+        "name":  "Kleines Blutbild im Citrat",
+        "sortierNummer":  30,
+        "tests":  [
+                      "H029",
+                      "H030",
+                      "H031",
+                      "H032",
+                      "H033",
+                      "H034",
+                      "H035",
+                      "H036",
+                      "H037"
+                  ]
+    },
+    {
+        "beschreibung":  "alternatives Antikoagulans zum Ausschluss einer EDTA-Unverträglichkeit",
+        "id":  "P024",
+        "kategorie":  "Hämatologie",
+        "name":  "Test Visualisierung",
+        "sortierNummer":  30,
+        "tests":  [
+                      "I014",
+                      "H030"
+                  ]
+    },
+    {
         "beschreibung":  "Grundlegende klinisch-chemische Parameter",
         "id":  "P003",
         "kategorie":  "Klinische Chemie",
@@ -281,5 +310,38 @@
                       "E002",
                       "E003"
                   ]
+    },
+    {
+        "beschreibung":  "Parameter zur Beurteilung des Hormonstatus",
+        "id":  "P025",
+        "kategorie":  "Klinische Chemie",
+        "name":  "Hormonstatus",
+        "sortierNummer":  5,
+        "tests":  [
+                      "E004",
+                      "E005",
+                      "E006",
+                      "E007",
+                      "E008",
+                      "E009"
+                  ]
+    },
+    {
+        "beschreibung":  "Parameter zur Beurteilung des Hormonstatus",
+        "id":  "P026",
+        "kategorie":  "Klinische Chemie",
+        "name":  "Hormonstatus, erweiterte Untersuchung",
+        "sortierNummer":  5,
+        "tests":  [
+                      "E004",
+                      "E005",
+                      "E006",
+                      "E007",
+                      "E008",
+                      "E009",
+                      "E010",
+                      "E011"
+                  ]
     }
+
 ]

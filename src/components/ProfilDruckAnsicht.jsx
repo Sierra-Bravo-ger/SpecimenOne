@@ -303,20 +303,25 @@ function ProfilDruckAnsicht({ profil, onClose }) {
   useEffect(() => {
     handlePrint();
   }, []);
-
   // Diese Komponente rendert jetzt nur noch minimale UI
   return (
-    <div className="profil-print-container">
-      <div className="print-controls">
-        <button className="print-button" onClick={handlePrint}>
+    <div className="bg-white text-black p-8 min-h-screen font-sans">
+      <div className="fixed top-5 right-5 flex gap-2 z-50">
+        <button 
+          className="px-4 py-2 bg-[var(--md-sys-color-primary,#6abf7b)] text-white rounded font-medium border-none cursor-pointer" 
+          onClick={handlePrint}
+        >
           Drucken
         </button>
-        <button className="close-button" onClick={onClose}>
+        <button 
+          className="px-4 py-2 bg-gray-600 text-white rounded font-medium border-none cursor-pointer" 
+          onClick={onClose}
+        >
           Schließen
         </button>
       </div>
-      <div className="print-content">
-        <p>Druckvorschau wird in einem neuen Fenster geöffnet...</p>
+      <div className="max-w-[210mm] mx-auto">
+        <p className="text-center text-gray-600 mt-20">Druckvorschau wird in einem neuen Fenster geöffnet...</p>
       </div>
     </div>
   );

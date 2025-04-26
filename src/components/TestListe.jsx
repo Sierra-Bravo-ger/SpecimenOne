@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
-import './TestListe.css'
+import React, { useState, useMemo, memo } from 'react'
+// Nicht mehr benötigt, da wir Tailwind verwenden - behalten jedoch Checkbox-Klassen in TestCheckbox.jsx
+// import './TestListe.css'
 import TestCheckbox from './TestCheckbox'
 import '@material/web/ripple/ripple.js'
 import '@material/web/elevation/elevation.js'
 import * as MaterialDesign from "react-icons/md"
 import { useMaterialService } from '../services/MaterialService'
 import MaterialBadge from './MaterialBadge'
+import tailwindBtn from './tailwindBtn'
 
 function TestListe({ 
   tests, 
@@ -151,56 +153,63 @@ function TestListe({
     
     // Sortierrichtung anwenden (aufsteigend oder absteigend)
     return sortDirection === 'asc' ? comparison : -comparison;
-  });
-  
-  return (
-    <div className="test-liste-container">      {tests.length === 0 ? (
-        <p className="keine-tests">Keine Tests gefunden.</p>
+  });    return (
+    <div className="w-full">      {tests.length === 0 ? (
+        <p className={`text-center py-8 ${tailwindBtn.classes.textMuted} text-lg`}>Keine Tests gefunden.</p>
       ) : (
-        <div className="tests-grid">
-          {sortedTests.map(test => (
-            <div 
-              key={test.id} 
-              className={`test-karte md-elevation-2 ${isTestSelected(test) ? 'selected' : ''} ${activeTest?.id === test.id ? 'touch-active' : ''}`}
+        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 ${tailwindBtn.classes.containerBg}`}>
+          {sortedTests.map(test => (            <div 
+              key={test.id}              className={`relative rounded-lg shadow-sm p-4 ${tailwindBtn.classes.cardBg} border ${
+                isTestSelected(test) 
+                  ? tailwindBtn.classes.selected
+                  : tailwindBtn.borderClasses
+              } ${
+                activeTest?.id === test.id 
+                  ? tailwindBtn.classes.active
+                  : tailwindBtn.classes.hoverEffect
+              } transition-all duration-200`}
               onClick={(e) => handleTestClick(test, e)}
               onPointerDown={(e) => handlePointerDown(test, e)}
               onPointerUp={handlePointerUp}
               onPointerCancel={handlePointerCancel}
               style={{"--long-press-duration": `${longPressDuration/1000}s`}}
-            >
-              <TestCheckbox 
-                test={test} 
-                isSelected={isTestSelected(test)} 
-                onToggle={toggleTestSelection}
-              />
-              <md-ripple></md-ripple>
-              <div className="test-header">
-                <h3 className={`test-titel kategorie-text-${test.kategorie ? test.kategorie.toLowerCase().replace(/\s+/g, '-') : 'unknown'}`}>
+            >              <div className="absolute bottom-3 right-3 z-10">
+                <TestCheckbox 
+                  test={test} 
+                  isSelected={isTestSelected(test)} 
+                  onToggle={toggleTestSelection}
+                />
+              </div><md-ripple></md-ripple>
+              <div className="mb-2">              <h3 className={`font-medium text-lg mb-1 ${tailwindBtn.classes.text} ${
+                  test.kategorie 
+                    ? `kategorie-text-${test.kategorie.toLowerCase().replace(/\s+/g, '-')}` 
+                    : ''
+                }`}>
                   {test.name || 'Kein Name'}
-                </h3>
-                {/* Sortier-Nummer für Endbenutzer ausgeblendet 
+                </h3>                {/* Sortier-Nummer für Endbenutzer ausgeblendet 
                 {test.sortierNummer !== undefined && (
-                  <span className="sortier-nummer">{test.sortierNummer}</span>
+                  <span className={`text-xs ${tailwindBtn.classes.textMuted} ml-2`}>{test.sortierNummer}</span>
                 )}
                 */}
-              </div>
-              <p className={`kategorie kategorie-${test.kategorie ? test.kategorie.toLowerCase().replace(/\s+/g, '-') : 'unknown'}`}>
+              </div>              <p className={`inline-block mb-3 px-2 py-1 rounded-full text-sm kategorie-badge ${
+                test.kategorie 
+                  ? `kategorie-${test.kategorie.toLowerCase().replace(/\s+/g, '-')}` 
+                  : 'bg-gray-200 text-gray-700'
+              }`}>
                 {test.kategorie || 'Keine Kategorie'}
-              </p>              <div className="test-karte-material">
-                <strong>Material:</strong>
+              </p><div className="mb-2">                <strong className={`text-sm ${tailwindBtn.classes.text}`}>Material:</strong>
                 {test.material && test.material.length > 0 ? (
-                  <div className="material-badges-container">
+                  <div className="flex flex-wrap gap-1 mt-1">
                     {test.material.map((materialId, index) => (
                       <MaterialBadge key={index} materialId={materialId} mini={true} />
                     ))}
                   </div>
                 ) : (
-                  <span className="keine-material-info">Keine Angabe</span>
+                  <span className={`text-sm italic ${tailwindBtn.classes.textMuted}`}>Keine Angabe</span>
                 )}
-              </div>
-              {test.synonyme && test.synonyme.length > 0 && (
-                <div className="test-karte-synonyme">
-                  <span className="synonyme-text">{test.synonyme.join(', ')}</span>
+              </div>              {test.synonyme && test.synonyme.length > 0 && (
+                <div className={`mt-2 pt-2 border-t ${tailwindBtn.borderClasses} border-dashed`}>
+                  <span className={`text-sm ${tailwindBtn.classes.textMuted} italic`}>{test.synonyme.join(', ')}</span>
                 </div>
               )}
             </div>

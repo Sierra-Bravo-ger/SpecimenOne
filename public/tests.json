@@ -134,7 +134,7 @@
         "lagerung":  "gefroren, -20 °C",
         "loinc":  null,
         "material":  [
-                         "SER-00"
+                         "EP-80"
                      ],
         "mindestmenge_ml":  0.6,
         "name":  "ACTH",
@@ -632,7 +632,7 @@
         "loinc":  "33959-8",
         "material":  [
                          "SER-00",
-                         "EP-80"
+                         "LP-01"
                      ],
         "mindestmenge_ml":  0.5,
         "name":  "Procalcitonin",
@@ -1237,7 +1237,7 @@
     },
     {
         "aktiv":  true,
-        "befundzeit":  "2 Stunden",
+        "befundzeit":  "1 Stunden",
         "dokumente":  [
                           {
                               "titel":  "SOP INR",
@@ -3527,8 +3527,8 @@
         "befundzeit":  "2 Stunden",
         "dokumente":  [
                           {
-                              "titel":  "SOP Ammonium",
-                              "url":  "/infobase/sop_Ammonium.pdf"
+                              "titel":  "SOP Ammoniak",
+                              "url":  "/infobase/sop_Ammoniak.pdf"
                           }
                       ],
         "durchführung":  "24/7",
@@ -3542,13 +3542,13 @@
         "lagerung":  "gekühlt, max. 24h",
         "loinc":  "3504-9",
         "material":  [
-                         "SER-00"
+                         "LP-01"
                      ],
         "mindestmenge_ml":  0.3,
-        "name":  "Ammonium",
+        "name":  "Ammoniak",
         "sortierNummer":  "1070",
         "synonyme":  [
-                         "NH4+"
+                         "NH3"
                      ],
         "einheit_id":  "UMOLL"
     },
@@ -4594,6 +4594,38 @@
         ],
         "einheit_id": "MGDL"
     },
+        {
+        "aktiv": true,
+        "befundzeit": "2 Stunden",
+        "dokumente": [
+            {
+                "titel": "SOP Carbamazepin",
+                "url": "/infobase/sop_hsTNI.pdf"
+            }
+        ],
+        "durchführung": "24/7",
+        "ebm": null,
+        "goae": null,
+        "hinweise": [
+            "Marker für Herzschädigung"
+        ],
+        "id": "K060",
+        "kategorie": "Klinische Chemie",
+        "lagerung": "gekühlt, max. 24h",
+        "loinc": "3432-2",
+        "material": [
+            "LP-01"
+        ],
+        "mindestmenge_ml": 0.5,
+        "name": "Troponin I hochsensitiv",
+        "sortierNummer": "1410",
+        "synonyme": [
+            "Troponin",
+            "Troponin I",
+            "hsTNI"
+        ],
+        "einheit_id": "NGML"
+    },
     {
         "aktiv": true,
         "befundzeit": "2 Stunden",
@@ -5049,6 +5081,18 @@
     {
         "aktiv":  true,
         "befundzeit":  "1 Stunde",
+        "dokumente":  [
+                          {
+                              "titel":  "SOP kleines Blutbild",
+                              "url":  "/infobase/kleines Blutbild.pdf"
+                          }
+                      ],
+        "durchführung":  "24/7",
+        "ebm":  "32986",
+        "goae":  "3520",
+        "hinweise":  [
+
+                     ],
         "id":  "H029",
         "kategorie":  "Hämatologie",
         "lagerung":  "Raumtemperatur",
@@ -5057,7 +5101,7 @@
                          "CB-48"
                      ],
         "mindestmenge_ml":  0.2,
-        "name":  "Leukozyten im Citratblut",
+        "name":  "Leukozyten im Citrat Blut",
         "sortierNummer":  "510",
         "synonyme":  [
                          "WBC"

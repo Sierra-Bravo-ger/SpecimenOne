@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import './ProfilListe.css';
+// ProfilListe.css nicht mehr benötigt - CSS-Klassen wurden zu tailwindBtn.js migriert
 import TestDetails from './TestDetails';
 import * as MaterialDesign from "react-icons/md";
 import '@material/web/ripple/ripple.js';
 import '@material/web/elevation/elevation.js';
 import { useMaterialService } from '../services/MaterialService';
 import MaterialBadge from './MaterialBadge';
+import tailwindBtn from './tailwindBtn';
 
 function ProfilListe({ tests, profile }) {
   const [expandedProfiles, setExpandedProfiles] = useState([]);
@@ -37,11 +38,10 @@ function ProfilListe({ tests, profile }) {
     // Sekundär nach ID sortieren
     return a.id.localeCompare(b.id);
   });
-
   return (
-    <div className="profil-liste-container">
+    <div className={tailwindBtn.classes.profileList.container}>
       {profile.length === 0 ? (
-        <p className="keine-profile">Keine Profile gefunden.</p>
+        <p className={tailwindBtn.classes.profileList.noProfilesMessage}>Keine Profile gefunden.</p>
       ) : (
         sortedProfiles.map(profil => {
           const isExpanded = expandedProfiles.includes(profil.id);
@@ -50,54 +50,52 @@ function ProfilListe({ tests, profile }) {
           );
           
           return (
-            <div key={profil.id} className="profil-karte md-elevation-2">
-              <div className="profil-header" onClick={() => toggleProfile(profil.id)}>                <md-ripple></md-ripple>                <div className="profil-info">                  <div className="profil-title-row">
-                    <h3 className={`kategorie-text-${profil.kategorie.toLowerCase().replace(/\s+/g, '-')}`}>{profil.name}</h3>
+            <div key={profil.id} className={`${tailwindBtn.classes.profileList.card} md-elevation-2`}>
+              <div className={tailwindBtn.classes.profileList.header} onClick={() => toggleProfile(profil.id)}>                <md-ripple></md-ripple>                <div className={tailwindBtn.classes.profileList.info}>                  <div className={tailwindBtn.classes.profileList.titleRow}>
+                    <h3 className={`${tailwindBtn.classes.profileList.title} kategorie-text-${profil.kategorie.toLowerCase().replace(/\s+/g, '-')}`}>{profil.name}</h3>
                     {/* Sortier-Nummer für Endbenutzer ausgeblendet 
                     {profil.sortierNummer !== undefined && (
                       <span className="sortier-nummer">{profil.sortierNummer}</span>
                     )}
                     */}
                   </div>
-                  <p className="profil-beschreibung">{profil.beschreibung}</p>
-                  <p className={`profil-kategorie kategorie-${profil.kategorie.toLowerCase().replace(/\s+/g, '-')}`}>{profil.kategorie}</p>
+                  <p className={tailwindBtn.classes.profileList.description}>{profil.beschreibung}</p>
+                  <p className={`${tailwindBtn.classes.profileList.category} kategorie-badge kategorie-${profil.kategorie.toLowerCase().replace(/\s+/g, '-')}`}>{profil.kategorie}</p>
                 </div>
-                <div className="profil-expand-icon">
+                <div className={tailwindBtn.classes.profileList.expandIcon}>
                   {isExpanded ? 
                     <MaterialDesign.MdExpandLess style={{fontSize: "24px"}} /> : 
                     <MaterialDesign.MdExpandMore style={{fontSize: "24px"}} />
                   }
                 </div>
               </div>
-              
-              {isExpanded && (
-                <div className="profil-tests">
-                  <p className="profil-tests-header">Enthaltene Tests:</p>
+                {isExpanded && (
+                <div className={tailwindBtn.classes.profileList.tests}>
+                  <p className={tailwindBtn.classes.profileList.testsHeader}>Enthaltene Tests:</p>
                   {profilTests.length === 0 ? (
-                    <p className="keine-tests-info">Keine Tests in diesem Profil gefunden.</p>
+                    <p className={tailwindBtn.classes.profileList.noTestsMessage}>Keine Tests in diesem Profil gefunden.</p>
                   ) : (
-                    <div className="profil-tests-grid">
+                    <div className={tailwindBtn.classes.profileList.testsGrid}>
                       {profilTests.map(test => (
                         <div 
                           key={test.id} 
-                          className="profil-test-item"
+                          className={tailwindBtn.classes.profileList.testItem}
                           onClick={() => handleTestClick(test)}
-                        >
-                          <md-ripple></md-ripple>                          <div className="profil-test-name">{test.name}</div>
-                          <div className="profil-test-detail">
+                        >                          <md-ripple></md-ripple>                          <div className={tailwindBtn.classes.profileList.testName}>{test.name}</div>
+                          <div className={tailwindBtn.classes.profileList.testDetail}>
                             <span>Material: </span>
                             {test.material && test.material.length > 0 ? (
-                              <div className="material-badges-container">
+                              <div className={tailwindBtn.classes.profileList.materialBadgesContainer}>
                                 {test.material.map((materialId, index) => (
                                   <MaterialBadge key={index} materialId={materialId} mini={true} />
                                 ))}
                               </div>
                             ) : (
-                              <span className="keine-material-info">Keine Angabe</span>
+                              <span className={tailwindBtn.classes.profileList.noMaterialInfo}>Keine Angabe</span>
                             )}
                           </div>
                           {test.synonyme?.length > 0 && (
-                            <div className="profil-test-synonyme">
+                            <div className={tailwindBtn.classes.profileList.testSynonyms}>
                               <small>{test.synonyme.join(', ')}</small>
                             </div>
                           )}

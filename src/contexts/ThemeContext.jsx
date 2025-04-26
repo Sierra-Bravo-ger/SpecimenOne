@@ -82,11 +82,21 @@ export function ThemeProvider({ children }) {
       setCurrentTheme(themePreference);
     }
   }, [themePreference]);
-
   // Theme-Klasse auf HTML-Dokument anwenden
   useEffect(() => {
-    document.documentElement.classList.remove(THEMES.LIGHT, THEMES.DARK);
+    // Entferne alle möglichen Theme-Klassen
+    document.documentElement.classList.remove(THEMES.LIGHT, THEMES.DARK, 'dark-theme', 'light-theme');
+    
+    // Füge die aktuellen Theme-Klassen hinzu
     document.documentElement.classList.add(currentTheme);
+    
+    // Füge spezifisch dark oder light-theme Klasse hinzu
+    if(currentTheme === THEMES.DARK) {
+      document.documentElement.classList.add('dark-theme', 'dark');
+    } else {
+      document.documentElement.classList.add('light-theme');
+    }
+    
     document.documentElement.setAttribute('data-theme', currentTheme);
   }, [currentTheme]);
 

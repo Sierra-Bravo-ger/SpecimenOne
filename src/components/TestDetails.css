@@ -1,3 +1,16 @@
+/**
+ * TestDetails CSS
+ * ================
+ * Diese CSS-Datei wird absichtlich beibehalten, auch nach der Tailwind-Migration,
+ * da sie spezielle Stile enthält, die mit Tailwind schwer umzusetzen sind:
+ * 
+ * 1. Druckansicht (@media print): Komplexe Regeln für die optimierte Druckausgabe
+ * 2. Referenzwerte-Tabelle: Spezifische Tabellenstile inkl. Dark Mode
+ * 3. Responsive Tabellenanpassungen
+ * 
+ * Der Rest der Komponente verwendet bereits Tailwind-Klassen.
+ */
+
 .test-details-overlay {
   position: fixed;
   top: 0;

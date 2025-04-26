@@ -1,22 +1,20 @@
 <!DOCTYPE html>
-<html lang="de">  <head>
-    <meta charset="UTF-8" />   
-    <link rel="icon" type="image/svg+xml" href="/images/icons/icon-128x128-new.png" />
+<html lang="de">  <head>    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/images/icons/frame.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/fonts/roboto/roboto.css">
     <link rel="stylesheet" href="/fonts/material-icons/material-icons.css">
     <title>SpecimenOne</title>
     <link rel="manifest" href="/manifest.json" />
 <meta name="theme-color" content="#6abf7b" />
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">    <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="SpecimenOne">
-    <link rel="apple-touch-icon" href="/images/icons/icon-152x152-new.png">
+    <link rel="apple-touch-icon" href="/images/icons/frame.svg">
     <meta name="description" content="Offline-fähiges Labor-Test-Menü für medizinische Einrichtungen">
+    <script src="/config.js"></script>
   </head><body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-    <script>
+    <script type="module" src="/src/main.jsx"></script>    <script>
       // Service Worker für Offline-Funktionalität registrieren
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {

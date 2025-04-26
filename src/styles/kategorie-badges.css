@@ -1,0 +1,118 @@
+/* Spezielle Styling für Kategorie-Badges */
+
+/* Gemeinsame Basis-Stil für alle Kategorie-Badges */
+.kategorie-badge {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  margin: 0.25rem 0;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+/* Hover-Effekt für alle Badges */
+.kategorie-badge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling für einzelne Kategorien */
+.kategorie-hämatologie {
+  color: #c74a4a;
+  background-color: rgba(199, 74, 74, 0.1);
+}
+
+.kategorie-klinische-chemie {
+  color: #9c6b3c;
+  background-color: rgba(156, 107, 60, 0.1);
+}
+
+.kategorie-gerinnung {
+  color: #4a995c;
+  background-color: rgba(74, 153, 92, 0.1);
+}
+
+.kategorie-immunologie {
+  color: #4a72c7;
+  background-color: rgba(74, 114, 199, 0.1);
+}
+
+.kategorie-mikrobiologie {
+  color: #8d4ac7;
+  background-color: rgba(141, 74, 199, 0.1);
+}
+
+.kategorie-endokrinologie {
+  color: #c79c4a;
+  background-color: rgba(199, 156, 74, 0.1);
+}
+
+.kategorie-virologie {
+  color: #3d99c2;
+  background-color: rgba(61, 153, 194, 0.1);
+}
+
+.kategorie-infektionsdiagnostik {
+  color: #9c6b3c;
+  background-color: rgba(156, 107, 60, 0.1);
+}
+
+.kategorie-toxikologie {
+  color: #e67e00;
+  background-color: rgba(230, 126, 0, 0.1);
+}
+
+/* Dunklerer Stil für Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .kategorie-badge {
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  }
+  
+  .kategorie-hämatologie {
+    color: #ff8080;
+    background-color: rgba(199, 74, 74, 0.2);
+  }
+  
+  .kategorie-klinische-chemie {
+    color: #d4a76c;
+    background-color: rgba(156, 107, 60, 0.2);
+  }
+  
+  .kategorie-gerinnung {
+    color: #6fd182;
+    background-color: rgba(74, 153, 92, 0.2);
+  }
+  
+  .kategorie-immunologie {
+    color: #80a7f7;
+    background-color: rgba(74, 114, 199, 0.2);
+  }
+  
+  .kategorie-mikrobiologie {
+    color: #c080ff;
+    background-color: rgba(141, 74, 199, 0.2);
+  }
+  
+  .kategorie-endokrinologie {
+    color: #ffc457;
+    background-color: rgba(199, 156, 74, 0.2);
+  }
+  
+  .kategorie-virologie {
+    color: #70c2eb;
+    background-color: rgba(61, 153, 194, 0.2);
+  }
+  
+  .kategorie-infektionsdiagnostik {
+    color: #d4a76c;
+    background-color: rgba(156, 107, 60, 0.2);
+  }
+  
+  .kategorie-toxikologie {
+    color: #ffb84d;
+    background-color: rgba(230, 126, 0, 0.2);
+  }
+}

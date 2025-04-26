@@ -1,3 +1,17 @@
+/**
+ * ProfilDruckAnsicht CSS
+ * =====================
+ * 
+ * Diese CSS-Datei wird beibehalten, auch nach der Tailwind-Migration, aus folgenden Gründen:
+ * 
+ * 1. Die Komponente generiert eine Druckansicht in einem separaten Fenster, unabhängig von Tailwind
+ * 2. Sie enthält druckspezifische Einstellungen wie page-break-inside: avoid
+ * 3. Das Layout erfordert spezielle Formatierungen für optimale Druckergebnisse
+ * 
+ * Die minimale UI im Hauptfenster wurde zu Tailwind migriert, aber der Hauptzweck
+ * dieser Komponente liegt im generierten HTML-Code mit eingebettetem CSS Stylesheet.
+ */
+
 .profil-print-container {
   background-color: #fff;
   color: #000;

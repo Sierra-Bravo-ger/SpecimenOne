@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
-import './ProfilErstellungDialog.css';
 import * as MaterialDesign from "react-icons/md";
 import { useAuth0 } from '@auth0/auth0-react';
 import { sendProfilByFormSubmit, sendProfilToDiscord, getServiceStatus } from '../services/ServiceClient';
+import tailwindBtn from './tailwindBtn';
 
 function ProfilErstellungDialog({ selectedTests, onClose, onPrint }) {
   // Auth0 Hook für Authentifizierungsstatus
@@ -113,20 +113,17 @@ function ProfilErstellungDialog({ selectedTests, onClose, onPrint }) {
       if (onClose) onClose();
     }
   };
-
   return (
-    <div className="profile-dialog-overlay">
-      <div className="profile-dialog" ref={dialogRef}>
-        <div className="profile-dialog-header">
-          <h2>Neues Profil erstellen</h2>
-          <button className="close-button" onClick={handleDialogClose}>
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 animate-fadeIn">
+      <div className="bg-[var(--md-sys-color-surface)] rounded-2xl shadow-xl w-[90%] max-w-[600px] max-h-[85vh] flex flex-col animate-slideIn" ref={dialogRef}>
+        <div className="flex justify-between items-center p-4 border-b border-[var(--md-sys-color-outline-variant)]">
+          <h2 className="text-xl font-medium text-[var(--md-sys-color-on-surface)] m-0">Neues Profil erstellen</h2>
+          <button className={tailwindBtn.close} onClick={handleDialogClose}>
             <MaterialDesign.MdClose />
           </button>
         </div>
-        
-        <div className="profile-dialog-content">
-          <div className="form-group">
-            <label htmlFor="profil-name">Profilname:</label>
+          <div className="p-6 overflow-y-auto flex-1">          <div className="mb-4">
+            <label htmlFor="profil-name" className="block mb-2 text-sm font-medium text-[var(--md-sys-color-on-surface)]">Profilname:</label>
             <input 
               type="text" 
               id="profil-name"
@@ -134,79 +131,88 @@ function ProfilErstellungDialog({ selectedTests, onClose, onPrint }) {
               onChange={(e) => setProfilName(e.target.value)}
               placeholder="z.B. Notfall-Panel" 
               required
+              className="w-full px-4 py-2 rounded-md border border-[var(--md-sys-color-outline)] bg-[var(--md-sys-color-surface)] text-[var(--md-sys-color-on-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--md-sys-color-primary)]"
             />
           </div>
-          
-          <div className="form-group">
-            <label htmlFor="user-name">Ihr Name:</label>
+            <div className="mb-4">
+            <label htmlFor="user-name" className="block mb-2 text-sm font-medium text-[var(--md-sys-color-on-surface)]">Ihr Name:</label>
             <input 
               type="text"
               id="user-name" 
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
-              placeholder="Vor- und Nachname" 
+              placeholder="Vor- und Nachname"
+              className="w-full px-4 py-2 rounded-md border border-[var(--md-sys-color-outline)] bg-[var(--md-sys-color-surface)] text-[var(--md-sys-color-on-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--md-sys-color-primary)]" 
             />
           </div>
-          
-          <div className="form-group">
-            <label htmlFor="user-email">E-Mail:</label>
+            <div className="mb-4">
+            <label htmlFor="user-email" className="block mb-2 text-sm font-medium text-[var(--md-sys-color-on-surface)]">E-Mail:</label>
             <input 
               type="email"
               id="user-email" 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="beispiel@labor.de" 
+              placeholder="beispiel@labor.de"
+              className="w-full px-4 py-2 rounded-md border border-[var(--md-sys-color-outline)] bg-[var(--md-sys-color-surface)] text-[var(--md-sys-color-on-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--md-sys-color-primary)]" 
             />
+            <small className="block mt-1 text-xs text-[var(--md-sys-color-on-surface-variant)]">Wird benötigt, wenn Sie das Profil per E-Mail erhalten möchten.</small>
           </div>
-          
-          <div className="selected-tests">            <h3>Ausgewählte Tests ({safeSelectedTests.length}):</h3>
-            <ul className="selected-tests-list">
+            <div className="mt-6">
+            <h3 className="text-lg font-medium mb-2 text-[var(--md-sys-color-on-surface)]">Ausgewählte Tests ({safeSelectedTests.length}):</h3>
+            <ul className="max-h-48 overflow-y-auto border rounded-md border-[var(--md-sys-color-outline-variant)] divide-y divide-[var(--md-sys-color-outline-variant)]">
               {safeSelectedTests.map(test => (
-                <li key={test.id} className="selected-test-item">
-                  <div className="test-info">
-                    <span className="test-id">{test.id}</span>
-                    <span className="test-name">{test.name}</span>
+                <li key={test.id} className="flex justify-between items-center p-2 hover:bg-[var(--md-sys-color-surface-variant)]">
+                  <div className="flex flex-col">
+                    <span className="font-medium text-sm">{test.id}</span>
+                    <span className="text-sm">{test.name}</span>
                   </div>
-                  <span className={`test-category category-${test.kategorie ? test.kategorie.toLowerCase().replace(/\s+/g, '-') : 'unknown'}`}>
+                  <span className={`px-2 py-1 text-xs rounded-full ${test.kategorie ? 'bg-[var(--md-sys-color-secondary-container)] text-[var(--md-sys-color-on-secondary-container)]' : 'bg-gray-200 text-gray-700'}`}>
                     {test.kategorie || 'Keine Kategorie'}
                   </span>
                 </li>
               ))}
             </ul>
           </div>
-        </div>
-          <div className="profile-dialog-footer">
-          <button className="cancel-button" onClick={handleDialogClose}>Abbrechen</button>
+        </div>          <div className="flex justify-between items-center mt-6 pt-4 border-t border-[var(--md-sys-color-outline-variant)]">
+          <button 
+            className={tailwindBtn.cancel} 
+            onClick={handleDialogClose}
+          >
+            Abbrechen
+          </button>
           
-          <div className="action-buttons">
+          <div className="flex gap-2">
             <button 
-              className="email-button"
+              className={tailwindBtn.secondary}
               onClick={handleSendEmail}
               disabled={!profilName.trim() || isSending}
             >
-              <MaterialDesign.MdEmail style={{marginRight: '8px'}} />
+              <MaterialDesign.MdEmail className="mr-2" />
               {isSending ? 'Wird gesendet...' : 'Per E-Mail senden'}
             </button>
             
             <button 
-              className="print-button"
+              className={tailwindBtn.primary}
               onClick={handlePrint}
               disabled={!profilName.trim()}
             >
-              <MaterialDesign.MdPrint style={{marginRight: '8px'}} />
+              <MaterialDesign.MdPrint className="mr-2" />
               Profil drucken
             </button>
           </div>
         </div>
-        
-        {emailStatus && (
-          <div className={`email-status ${emailStatus.type}`}>
-            <span className="status-icon">
+          {emailStatus && (
+          <div className={`flex items-center p-3 mt-4 rounded-md ${
+            emailStatus.type === 'success' ? 'bg-green-100 text-green-800' :
+            emailStatus.type === 'error' ? 'bg-red-100 text-red-800' :
+            'bg-blue-100 text-blue-800'
+          }`}>
+            <span className="text-xl mr-2">
               {emailStatus.type === 'success' && <MaterialDesign.MdCheckCircle />}
               {emailStatus.type === 'error' && <MaterialDesign.MdError />}
               {emailStatus.type === 'info' && <MaterialDesign.MdInfo />}
             </span>
-            <span className="status-message">{emailStatus.message}</span>
+            <span className="text-sm">{emailStatus.message}</span>
           </div>
         )}
       </div>

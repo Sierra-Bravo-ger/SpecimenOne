@@ -1,4 +1,15 @@
-/* Material Theme Anpassungen für das Labor-Test-Menü */
+/* 
+ * Material Theme Anpassungen für SpecimenOne
+ * =========================================
+ * Diese zentrale Datei definiert:
+ * 1. Material Design 3 Farbschema (Light und Dark Mode)
+ * 2. CSS-Variablen für konsistentes Theming
+ * 3. Anpassungen für Material Web Components
+ * 4. Dark Mode Unterstützung
+ * 5. Animation und Transition-Effekte
+ */
+
+/* ------ FARBSYSTEM & GRUNDLEGENDE VARIABLEN ------ */
 :root {
   /* Material 3 Farbschema - Light Mode (Default) */
   --md-sys-color-primary: #6abf7b;
@@ -37,10 +48,23 @@
   
   /* Transitions für Theme-Wechsel */
   --theme-transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+
+  /* Tailwind-kompatible Farbwerte - Korrespondieren mit tailwindBtn.colors */
+  --bg-light: #f5f5f5;
+  --bg-dark: #1C1B1F;
+  --surface-light: #ffffff;
+  --surface-dark: #242328;
+  --hover-light: #f5f5f5;
+  --hover-dark: #1C1B1F;
+  --border-light: rgb(229, 231, 235); /* Entspricht border-gray-200 */
+  --border-dark: rgb(55, 65, 81);    /* Entspricht border-gray-700 */
 }
 
-/* Dark Mode Theme */
-.dark-theme {
+/* ------ DARK MODE VARIABLEN ------ */
+.dark-theme, 
+.dark, 
+html.dark {
+  /* Material 3 Farbschema - Dark Mode */
   --md-sys-color-primary: #83d991;
   --md-sys-color-on-primary: #132e1c;
   --md-sys-color-primary-container: #1e4d2b;
@@ -65,9 +89,146 @@
   --md-sys-color-on-surface-variant: #CAC4D0;
   --md-sys-color-outline: #938F99;
   --md-sys-color-outline-variant: #49454F;
+  
+  /* Tailwind-kompatible Farbwerte für Dark Mode */
+  --bg-light: var(--md-sys-color-background);
+  --surface-light: var(--md-sys-color-surface);
+  --hover-light: rgba(255, 255, 255, 0.05);
+  --border-light: var(--border-dark);
 }
 
-/* Theme transition classes */
+/* ------ ANIMATIONEN & ÜBERGÄNGE ------ */
+/* 
+ * Animation für Dropdown-Menüs (verwendet in tailwindBtn.classes.search.dropdownMenu)
+ * Anwendungsbeispiel in Suchleiste.jsx:
+ * <div className={tailwindBtn.classes.search.dropdownMenu}>
+ */
+@keyframes dropdownFadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-dropdown-fade-in {
+  animation: dropdownFadeIn 0.2s ease forwards;
+}
+
+/* Dark Mode spezifische Animation-Anpassungen */
+.dark-theme .animate-dropdown-fade-in,
+html.dark .animate-dropdown-fade-in {
+  animation-duration: 0.25s;
+}
+
+/* Weitere Animations für UI-Elemente */
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 0.2s ease forwards;
+}
+
+/* Theme transition classes - für sanfte Übergänge beim Themenwechsel */
+/* ------ MATERIAL WEB COMPONENTS ANPASSUNGEN ------ */
+
+/* 
+ * Anpassungen für md-outlined-text-field 
+ * Verwendet in Suchleiste.jsx:
+ * <md-outlined-text-field id="search-input-field" className="...">
+ */
+md-outlined-text-field {
+  width: 100%;
+  --md-outlined-field-top-space: 16px;
+  --md-outlined-field-bottom-space: 16px;
+  --md-outlined-field-container-shape: 8px;
+  border-radius: 0 !important;
+  
+  /* Light Mode Standardwerte */
+  --md-outlined-field-outline-color: var(--md-sys-color-outline);
+  --md-outlined-field-focus-outline-color: var(--md-sys-color-primary);
+  --md-outlined-field-hover-outline-color: var(--md-sys-color-on-surface);
+  --md-outlined-field-label-text-color: var(--md-sys-color-on-surface-variant);
+  --md-outlined-field-input-text-color: var(--md-sys-color-on-surface);
+  --md-outlined-field-focus-input-text-color: var(--md-sys-color-on-surface);
+  --md-outlined-field-focus-label-text-color: var(--md-sys-color-primary);
+  --md-outlined-field-container-color: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Dark Mode Anpassungen für md-outlined-text-field */
+.dark-theme md-outlined-text-field,
+html.dark md-outlined-text-field,
+.dark md-outlined-text-field {
+  --md-outlined-field-outline-color: var(--md-sys-color-outline, #938F99);
+  --md-outlined-field-focus-outline-color: var(--md-sys-color-primary, #83d991);
+  --md-outlined-field-hover-outline-color: var(--md-sys-color-on-surface, #E6E1E5);
+  --md-outlined-field-label-text-color: var(--md-sys-color-on-surface-variant, #CAC4D0);
+  --md-outlined-field-input-text-color: rgba(255, 255, 255, 0.87);
+  --md-outlined-field-focus-input-text-color: white;
+  --md-outlined-field-focus-label-text-color: var(--md-sys-color-primary, #83d991);
+}
+
+/* Textfeld-spezifische Anpassungen */
+md-outlined-text-field::part(input) {
+  color: var(--md-outlined-field-input-text-color) !important;
+  caret-color: var(--md-sys-color-primary);
+}
+
+md-outlined-text-field input::selection {
+  background-color: var(--md-sys-color-primary);
+  color: white;
+}
+
+.dark md-outlined-text-field input::selection,
+html.dark md-outlined-text-field input::selection,
+.dark-theme md-outlined-text-field input::selection {
+  background-color: var(--md-sys-color-primary, #83d991);
+  color: black;
+}
+
+/* Icon-Anpassungen */
+md-outlined-text-field svg {
+  fill: var(--md-sys-color-on-surface-variant);
+}
+
+.dark md-outlined-text-field svg,
+html.dark md-outlined-text-field svg,
+.dark-theme md-outlined-text-field svg {
+  fill: var(--md-sys-color-on-surface-variant, #CAC4D0);
+}
+
+/* Spezifische Anpassungen für das Suchfeld */
+.dark-theme md-outlined-text-field#search-input-field,
+html.dark md-outlined-text-field#search-input-field,
+.dark md-outlined-text-field#search-input-field {
+  --md-outlined-field-input-text-color: white !important;
+  --md-outlined-field-focus-input-text-color: white !important;
+}
+
+/* ------ TAILWIND-KOMPATIBLE CONTAINER-ANPASSUNGEN ------ */
+
+/* 
+ * Diese Stile korrespondieren mit tailwindBtn.containerBgElevated
+ * Verwendet in App.jsx:
+ * <div className={`p-3 ${tailwindBtn.containerBgElevated} rounded-lg shadow-sm border ${tailwindBtn.colors.border.light} ${tailwindBtn.colors.border.dark} w-full`}>
+ */
+.dark-theme .bg-gray-50,
+html.dark .bg-gray-50,
+.dark .bg-gray-50 {
+  background-color: var(--md-sys-color-surface-variant, #49454F) !important;
+}
+
+/* 
+ * Diese Stile korrespondieren mit tailwindBtn.colors.border
+ * Verwendet in App.jsx mit z.B. tailwindBtn.colors.border.light
+ */
+.dark-theme .border-gray-200,
+html.dark .border-gray-200,
+.dark .border-gray-200 {
+  border-color: var(--md-sys-color-outline-variant, #49454F) !important;
+}
+
+/* Theme transition classes - für sanfte Übergänge beim Themenwechsel */
 body, .app-container, .app-header, .test-karte, .profil-karte, .search-input,
 .tab-button, .test-details-container, .app-footer {
   transition: var(--theme-transition);

@@ -12,6 +12,15 @@ Eine moderne Web-App zur Anzeige und Verwaltung von Labortests und Profilen.
 - Druckoptimierte Ausgabe für Testdetails und Profile
 - Hierarchische Tabellenansicht für strukturierte Datenübersicht
 - Referenzwerte mit alters- und geschlechtsspezifischen Grenzwerten
+- Neues vektorbasiertes SVG-Icon für scharfe Darstellung auf allen Geräten
+
+### Neu: Optimierte UI-Komponenten und Performance
+
+- **CSS-basierte Badge-Komponenten:** Verbesserte Rendering-Performance für Material- und Kategorie-Badges
+- **Verfeinerte visuelle Hierarchie:** Deutlichere visuelle Trennung von UI-Elementen mit mehreren Erhöhungsebenen
+- **Optimierte Farbgebung:** Konsistente Farbpalette mit optimiertem Kontrast, besonders im Dark Mode
+- **Tailwind-Integration:** Einheitliche, wartbare UI-Komponenten durch zentralisierte Styling-Definitionen
+- **Reduzierte JavaScript-Berechnungen:** Schnellere Ladezeiten und flüssigere Interaktion durch CSS-Optimierung
 
 ### Neu: Benutzerdefinierte Testprofile
 
