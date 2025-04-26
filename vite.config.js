@@ -57,30 +57,34 @@ export default defineConfig({
             purpose: 'any'
           },
           {
-            src: '/images/icons/icon-72x72-new.png',
+            src: '/images/icons/icon_72x72.png',
             sizes: '72x72',
-            type: 'image/png'
+            type: 'image/png',
+            purpose: 'any'
           },
           {
-            src: '/images/icons/icon-96x96-new.png',
+            src: '/images/icons/icon_96x96.png',
             sizes: '96x96',
-            type: 'image/png'
+            type: 'image/png',
+            purpose: 'any'
           },
           {
-            src: '/images/icons/icon-144x144-new.png',
+            src: '/images/icons/icon_144x144.png',
             sizes: '144x144',
-            type: 'image/png'
+            type: 'image/png',
+            purpose: 'any'
           },
           {
-            src: '/images/icons/icon-192x192-new.png',
+            src: '/images/icons/icon_192x192.png',
             sizes: '192x192',
             type: 'image/png',
             purpose: 'any'
           },
           {
-            src: '/images/icons/icon-512x512-new.png',
+            src: '/images/icons/icon_512x512.png',
             sizes: '512x512',
-            type: 'image/png'
+            type: 'image/png',
+            purpose: 'any'
           }
         ]
       }

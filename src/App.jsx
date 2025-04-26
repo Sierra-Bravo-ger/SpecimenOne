@@ -272,7 +272,7 @@ function App() {
   if (authLoading) {
     return (
       <div className={`min-h-screen flex flex-col items-center justify-center ${tailwindBtn.classes.containerBg} ${tailwindBtn.appLayout.fadeIn}`}>
-        <img src="/images/icons/icon-512x512-new.png" alt="SpecimenOne Logo" className="h-32 w-auto mb-6 filter drop-shadow-lg" />
+        <img src="/images/icons/icon_512x512.png" alt="SpecimenOne Logo" className="h-32 w-auto mb-6 filter drop-shadow-lg" />
         <h2 className="text-xl font-medium text-gray-800 dark:text-gray-200 mb-6">SpecimenOne wird geladen</h2>
         <md-circular-progress indeterminate></md-circular-progress>
       </div>
@@ -284,7 +284,7 @@ function App() {
   // Wenn der Benutzer authentifiziert ist, zeigen wir die App
   return (
     <div className={`flex flex-col min-h-screen font-roboto m-0 p-0 overflow-x-hidden w-full transition-colors duration-500 ease-in-out ${isDark ? 'dark-theme dark bg-[#1C1B1F] text-[#E6E1E5]' : 'bg-white text-[#1C1B1F]'}`}><header className="bg-primary dark:bg-primary-dark text-white shadow-md flex justify-between items-center w-full p-3 box-border border-none">
-        <div className="flex items-center justify-start flex-1">          <img src="/images/icons/icon-512x512-new.png" alt="SpecimenOne Logo" className="h-20 w-auto mr-4 filter drop-shadow" />
+        <div className="flex items-center justify-start flex-1">          <img src="/images/icons/icon_512x512.png" alt="SpecimenOne Logo" className="h-20 w-auto mr-4 filter drop-shadow" />
           {/* Desktop-Version des Titels (einzeilig) */}
           <h1 className="m-0 text-2xl font-medium text-white hidden md:block" style={{textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)'}}>SpecimenOne</h1>
           {/* Mobile-Version des Titels (zweizeilig) */}
