@@ -57,6 +57,9 @@ function App() {
   const [showProfilErstellung, setShowProfilErstellung] = useState(false);
   const [showProfilDruck, setShowProfilDruck] = useState(false);
   const [customProfil, setCustomProfil] = useState(null);
+  // Neue States für persönliche Profile
+  const [showSpeichernDialog, setShowSpeichernDialog] = useState(false);
+  const [speicherErfolgreich, setSpeicherErfolgreich] = useState(false);
   // Neue States für die Sortierung
   const [sortOption, setSortOption] = useState('id'); // 'id', 'name', 'kategorie', 'material'
   const [sortDirection, setSortDirection] = useState('asc'); // 'asc', 'desc'
@@ -245,6 +248,34 @@ function App() {
     setShowProfilDruck(false);
     setSelectedTests([]);
   };
+  // Funktion zum Speichern persönlicher Profile
+  const handleSpeichern = (name, beschreibung, kategorie = "Keine Kategorie") => {
+    // Neues Profil erstellen
+    const neuesProfil = {
+      id: Date.now().toString(), // Einfache ID-Generierung
+      name,
+      beschreibung,
+      kategorie, // Kategorie hinzufügen
+      erstelltAm: new Date().toISOString(),
+      // Speichere immer noch vollständige Test-Objekte für die interne Verarbeitung
+      tests: selectedTests.map(test => {
+        return {
+          id: test.id,
+          name: test.name
+        };
+      })
+    };
+    
+    // Zum LocalStorage hinzufügen
+    const gespeicherteProfile = JSON.parse(localStorage.getItem('persoenlicheProfile') || '[]');
+    gespeicherteProfile.push(neuesProfil);
+    localStorage.setItem('persoenlicheProfile', JSON.stringify(gespeicherteProfile));
+    
+    // Dialog schließen und Feedback anzeigen
+    setShowSpeichernDialog(false);
+    setSpeicherErfolgreich(true);
+    setTimeout(() => setSpeicherErfolgreich(false), 3000);
+  };
   
   // Handler für manuelle Anmeldung
   const handleLoginClick = () => {
@@ -283,7 +314,7 @@ function App() {
   
   // Wenn der Benutzer authentifiziert ist, zeigen wir die App
   return (
-    <div className={`flex flex-col min-h-screen font-roboto m-0 p-0 overflow-x-hidden w-full transition-colors duration-500 ease-in-out ${isDark ? 'dark-theme dark bg-[#1C1B1F] text-[#E6E1E5]' : 'bg-white text-[#1C1B1F]'}`}><header className="bg-primary dark:bg-primary-dark text-white shadow-md flex justify-between items-center w-full p-3 box-border border-none">
+    <div className={`flex flex-col min-h-screen font-roboto m-0 p-0 overflow-x-hidden w-full ${isDark ? 'dark-theme dark bg-surface-dark text-on-surface-dark' : 'bg-white text-on-surface'}`}><header className="bg-primary dark:bg-primary-dark text-white shadow-md flex justify-between items-center w-full p-3 box-border border-none">
         <div className="flex items-center justify-start flex-1">          <img src="/images/icons/icon_512x512.png" alt="SpecimenOne Logo" className="h-20 w-auto mr-4 filter drop-shadow" />
           {/* Desktop-Version des Titels (einzeilig) */}
           <h1 className="m-0 text-2xl font-medium text-white hidden md:block" style={{textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)'}}>SpecimenOne</h1>
@@ -296,11 +327,10 @@ function App() {
         <div className="flex items-center gap-5">
           <ThemeSwitcher />
           <LoginButton />
-        </div>
-      </header>      <main className="flex-1 p-8 max-w-7xl mx-auto w-full">
+        </div>      </header>      <main className="flex-1 p-4 w-full">
         {isLoading && <div className="flex justify-center my-8"><md-circular-progress indeterminate></md-circular-progress></div>}
         {error && <p className="bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 p-4 rounded border-l-4 border-red-600 dark:border-red-500">Fehler: {error}</p>}
-        {!isLoading && !error && (  <>            <div className="mb-8">            <div className="mb-4 space-y-3">
+        {!isLoading && !error && (  <>            <div className="mb-8">            <div className="mb-4 space-y-3 max-w-screen-2xl mx-auto">
                 <div className={`p-3 ${tailwindBtn.containerBgElevated} rounded-lg shadow-sm border ${tailwindBtn.colors.border.light} ${tailwindBtn.colors.border.dark} w-full`}>
                   <Suchleiste 
                     suchbegriff={suchbegriff} 
@@ -315,10 +345,11 @@ function App() {
                     setSortOption={setSortOption}
                     sortDirection={sortDirection}
                     setSortDirection={setSortDirection}
-                  />
-                </div>
-              </div><div className="w-full">
-                <div className={`flex mb-6 border-b-2 ${tailwindBtn.borderClasses} w-full ${tailwindBtn.classes.cardBg} rounded-t-lg shadow-sm overflow-hidden`}><button                    className={`flex items-center justify-center px-2 py-3 flex-1 text-sm font-medium relative border-none cursor-pointer ${tailwindBtn.classes.cardBg} transition-all ${
+                  />                </div>
+              </div>
+              <div className="w-full max-w-screen-2xl mx-auto">
+                <div className={`flex mb-6 border-b-2 ${tailwindBtn.borderClasses} w-full ${tailwindBtn.classes.cardBg} rounded-t-lg shadow-sm overflow-hidden`}>
+                  <button className={`flex items-center justify-center px-2 py-3 flex-1 text-sm font-medium relative border-none cursor-pointer ${tailwindBtn.classes.cardBg} transition-all ${
                       ansicht === 'tests' 
                         ? 'text-[var(--md-sys-color-primary)] dark:text-[var(--md-sys-color-primary)] border-b-2 border-[var(--md-sys-color-primary)] dark:border-[var(--md-sys-color-primary)] bg-primary/5 dark:bg-primary-dark/10' 
                         : `${tailwindBtn.classes.text} ${tailwindBtn.classes.hover} border-b-2 border-transparent`
@@ -356,9 +387,10 @@ function App() {
                     <div className="flex items-center justify-center">
                       <MaterialDesign.MdTimeline className="mr-1" /> Grafiken
                     </div>
-                  </button>
-                </div>
-              </div>            </div>            <div className={`mt-6 w-full ${tailwindBtn.classes.containerBg} rounded-lg shadow-sm overflow-hidden border border-gray-200 dark:border-gray-700`}>
+                  </button>                </div>
+              </div>
+            </div>
+            <div className={`mt-6 ${ansicht === 'tests' ? 'w-full' : 'max-w-screen-2xl mx-auto'} ${tailwindBtn.classes.containerBg} rounded-lg shadow-sm overflow-hidden border border-gray-200 dark:border-gray-700`}>
               {ansicht === 'tests' && (
                 <>
                   <TestListe 
@@ -369,9 +401,11 @@ function App() {
                     sortOption={sortOption}
                     sortDirection={sortDirection}
                   />
-                </>              )}{ansicht === 'timeline' && (
+                </>
+              )}
+              {ansicht === 'timeline' && (
                 <TimelineView key="timeline-view" />
-            )}
+              )}
               
               {ansicht === 'profile' && (
                 <ProfilListe tests={tests} profile={filteredProfile} />
@@ -462,6 +496,32 @@ function App() {
               <MaterialDesign.MdCreateNewFolder className="mr-2" />
               Profil erstellen
             </button>
+            {/* Speicherbutton für persönliche Profile, styled like other buttons */}
+            <button 
+              className={`
+  flex items-center justify-center gap-2
+  py-2.5 px-4
+  bg-[var(--md-sys-color-primary)]
+  text-[var(--md-sys-color-on-primary)]
+  font-medium
+  border-none rounded-md
+  text-[0.9rem]
+  relative overflow-hidden
+  transition-all duration-200
+  hover:bg-[var(--md-sys-color-primary-hover,#5aaf6b)]
+  hover:shadow-md
+  active:translate-y-[1px]
+  disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none
+`}
+              onClick={() => {
+                // Rufe die Funktion speicherePersoenlichesProfil über ein Ref-Objekt auf
+                if (ansicht === 'tests' && tests && tests.length > 0) {
+                  setShowSpeichernDialog(true);
+                }
+              }}
+            >
+              <MaterialDesign.MdBookmarkAdd className="mr-2" /> Als persönliches Profil speichern
+            </button>
           </div>
         </div>
       )}
@@ -485,14 +545,32 @@ function App() {
           />
         </div>
       )}
-      
-      {/* Profildruck-Ansicht */}
+        {/* Profildruck-Ansicht */}
       {showProfilDruck && customProfil && (
         <div className="z-50">
           <ProfilDruckAnsicht
             profil={customProfil}
             onClose={closeProfilDruck}
           />
+        </div>
+      )}
+      
+      {/* Dialog zum Speichern persönlicher Profile - Wiederverwendung der ProfilErstellungDialog-Komponente */}
+      {showSpeichernDialog && (
+        <div className="z-50">
+          <ProfilErstellungDialog 
+            selectedTests={selectedTests}
+            onClose={() => setShowSpeichernDialog(false)} 
+            onSpeichern={handleSpeichern}
+            mode="save"
+          />
+        </div>
+      )}
+        {/* Erfolgsmeldung beim Speichern eines persönlichen Profils */}
+      {speicherErfolgreich && (
+        <div className={tailwindBtn.classes.successToast}>
+          <MaterialDesign.MdCheckCircle className="text-xl" /> 
+          Profil erfolgreich gespeichert!
         </div>
       )}
     </div>

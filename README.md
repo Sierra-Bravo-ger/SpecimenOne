@@ -17,6 +17,7 @@ Eine moderne Web-App zur Anzeige und Verwaltung von Labortests und Profilen.
 ### Neu: Optimierte UI-Komponenten und Performance
 
 - **CSS-basierte Badge-Komponenten:** Verbesserte Rendering-Performance für Material- und Kategorie-Badges
+- **Automatisierte CSS-Generierung:** Script zur automatischen Erstellung von Material-Badge-Stilen (`UpdateMaterialCSS.ps1`) 
 - **Verfeinerte visuelle Hierarchie:** Deutlichere visuelle Trennung von UI-Elementen mit mehreren Erhöhungsebenen
 - **Optimierte Farbgebung:** Konsistente Farbpalette mit optimiertem Kontrast, besonders im Dark Mode
 - **Tailwind-Integration:** Einheitliche, wartbare UI-Komponenten durch zentralisierte Styling-Definitionen
@@ -25,6 +26,7 @@ Eine moderne Web-App zur Anzeige und Verwaltung von Labortests und Profilen.
 ### Neu: Benutzerdefinierte Testprofile
 
 - **Testauswahl durch Checkboxen:** Einfache Mehrfachauswahl von Tests
+- **Persönliche Profile:** Speichern und Verwalten individueller Testsammlungen im Browser
 - **Profilerstellung:** Erstellung benutzerdefinierter Testprofile mit Metadaten
 - **Benachrichtigung via Webhook oder Email:** User können Wunschprofile festlegen, benennen und an eine Zentrale stelle zur Bearbeitung senden
 - **Druckoptimierte Ausgabe:** Professionelle Druckansicht für ausgewählte Tests

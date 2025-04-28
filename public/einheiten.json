@@ -1,158 +1,1045 @@
 [
   {
-    "einheit_id": "MUL",
-    "bezeichnung": "mU/l",
-    "beschreibung": "Milliunits pro Liter",
-    "kategorie": "Enzymaktivität"
+    "einheit_id": "E1",
+    "einheit_id_db": "1",
+    "bezeichnung": "1398",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
   },
   {
-    "einheit_id": "PMOLL",
-    "bezeichnung": "pmol/l",
-    "beschreibung": "Pikomol pro Liter",
-    "kategorie": "Stoffkonzentration"
+    "einheit_id": "E4675",
+    "einheit_id_db": "4675",
+    "bezeichnung": "VIEU/ml",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
   },
   {
-    "einheit_id": "NGML",
-    "bezeichnung": "ng/ml",
-    "beschreibung": "Nanogramm pro Milliliter",
-    "kategorie": "Massenkonzentration"
+    "einheit_id": "E4677",
+    "einheit_id_db": "4677",
+    "bezeichnung": "BU/ml",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
   },
   {
-    "einheit_id": "PGML",
-    "bezeichnung": "pg/ml",
-    "beschreibung": "Pikogramm pro Milliliter",
-    "kategorie": "Massenkonzentration"
+    "einheit_id": "E4678",
+    "einheit_id_db": "4678",
+    "bezeichnung": "Index",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
   },
   {
-    "einheit_id": "UIUML",
-    "bezeichnung": "μIU/ml",
-    "beschreibung": "Mikrointernationale Einheit pro Milliliter",
-    "kategorie": "Enzymaktivität"
+    "einheit_id": "E4679",
+    "einheit_id_db": "4679",
+    "bezeichnung": "% v.Ges.Eiw.",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
   },
   {
-    "einheit_id": "MIUML",
-    "bezeichnung": "mIU/ml",
-    "beschreibung": "Milliinternationale Einheit pro Milliliter",
-    "kategorie": "Enzymaktivität"
+    "einheit_id": "E4680",
+    "einheit_id_db": "4680",
+    "bezeichnung": "/min",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
   },
   {
-    "einheit_id": "MGDL",
-    "bezeichnung": "mg/dl",
-    "beschreibung": "Milligramm pro Deziliter",
-    "kategorie": "Massenkonzentration"
+    "einheit_id": "E4681",
+    "einheit_id_db": "4681",
+    "bezeichnung": "/3 Zellen",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
   },
   {
-    "einheit_id": "S",
-    "bezeichnung": "s",
-    "beschreibung": "Sekunden",
-    "kategorie": "Zeit"
-  },
-  {
-    "einheit_id": "PRZ",
-    "bezeichnung": "%",
-    "beschreibung": "Prozent",
-    "kategorie": "Verhältnis"
-  },
-  {
-    "einheit_id": "TAUSENDPUL",
-    "bezeichnung": "10^3/µl",
-    "beschreibung": "Tausend pro Mikroliter",
-    "kategorie": "Zellzahl"
-  },
-  {
-    "einheit_id": "MILLIONPUL",
-    "bezeichnung": "10^6/µl",
-    "beschreibung": "Million pro Mikroliter",
-    "kategorie": "Zellzahl"
-  },
-  {
-    "einheit_id": "GDL",
-    "bezeichnung": "g/dl",
-    "beschreibung": "Gramm pro Deziliter",
-    "kategorie": "Massenkonzentration"
-  },
-  {
-    "einheit_id": "FL",
-    "bezeichnung": "fl",
-    "beschreibung": "Femtoliter",
-    "kategorie": "Volumen"
-  },
-  {
-    "einheit_id": "PG",
-    "bezeichnung": "pg",
-    "beschreibung": "Pikogramm",
-    "kategorie": "Masse"
-  },
-  {
-    "einheit_id": "PROMILL",
-    "bezeichnung": "‰",
-    "beschreibung": "Promille",
-    "kategorie": "Verhältnis"
-  },
-  {
-    "einheit_id": "IUML",
+    "einheit_id": "E4672",
+    "einheit_id_db": "4672",
     "bezeichnung": "IU/ml",
-    "beschreibung": "Internationale Einheit pro Milliliter",
-    "kategorie": "Enzymaktivität"
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
   },
   {
-    "einheit_id": "UML",
-    "bezeichnung": "U/ml",
-    "beschreibung": "Units pro Milliliter",
-    "kategorie": "Enzymaktivität"
+    "einheit_id": "E4682",
+    "einheit_id_db": "4682",
+    "bezeichnung": "vol %",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
   },
   {
-    "einheit_id": "UL",
-    "bezeichnung": "U/l",
-    "beschreibung": "Units pro Liter",
-    "kategorie": "Enzymaktivität"
+    "einheit_id": "E4685",
+    "einheit_id_db": "4685",
+    "bezeichnung": "% Lymph",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
   },
   {
-    "einheit_id": "MMOLL",
-    "bezeichnung": "mmol/l",
-    "beschreibung": "Millimol pro Liter",
-    "kategorie": "Stoffkonzentration"
+    "einheit_id": "E4686",
+    "einheit_id_db": "4686",
+    "bezeichnung": "mIU/l",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
   },
   {
-    "einheit_id": "UMOLL",
-    "bezeichnung": "µmol/l",
-    "beschreibung": "Mikromol pro Liter",
-    "kategorie": "Stoffkonzentration"
+    "einheit_id": "E4687",
+    "einheit_id_db": "4687",
+    "bezeichnung": "mosmol/kg",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
   },
   {
-    "einheit_id": "UGDL",
-    "bezeichnung": "µg/dl",
-    "beschreibung": "Mikrogramm pro Deziliter",
-    "kategorie": "Massenkonzentration"
+    "einheit_id": "E4689",
+    "einheit_id_db": "4689",
+    "bezeichnung": "mg",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
   },
   {
-    "einheit_id": "MGL",
-    "bezeichnung": "mg/l",
-    "beschreibung": "Milligramm pro Liter",
-    "kategorie": "Massenkonzentration"
+    "einheit_id": "E4690",
+    "einheit_id_db": "4690",
+    "bezeichnung": "OD",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
   },
   {
-    "einheit_id": "ZELLUL",
-    "bezeichnung": "Zellen/µl",
-    "beschreibung": "Zellen pro Mikroliter",
-    "kategorie": "Zellzahl"
+    "einheit_id": "E4692",
+    "einheit_id_db": "4692",
+    "bezeichnung": "bis 100mg/dl",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
   },
   {
-    "einheit_id": "TITER",
+    "einheit_id": "E4684",
+    "einheit_id_db": "4684",
+    "bezeichnung": "g%",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4671",
+    "einheit_id_db": "4671",
+    "bezeichnung": "E/ml",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4669",
+    "einheit_id_db": "4669",
+    "bezeichnung": "‰",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4668",
+    "einheit_id_db": "4668",
+    "bezeichnung": "/mm3",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4444",
+    "einheit_id_db": "4444",
     "bezeichnung": "Titer",
-    "beschreibung": "Verdünnungsfaktor einer Lösung",
-    "kategorie": "Verdünnung"
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
   },
   {
-    "einheit_id": "NULL",
-    "bezeichnung": null,
-    "beschreibung": "Ohne Einheit",
-    "kategorie": "Sonstige"
+    "einheit_id": "E4445",
+    "einheit_id_db": "4445",
+    "bezeichnung": "",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
   },
   {
-    "einheit_id": "KEINE",
-    "bezeichnung": "Ohne Einheit",
-    "beschreibung": "Ohne Einheit",
-    "kategorie": "Sonstige"
+    "einheit_id": "E4451",
+    "einheit_id_db": "4451",
+    "bezeichnung": "AU/ml",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4656",
+    "einheit_id_db": "4656",
+    "bezeichnung": "Uhr",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4657",
+    "einheit_id_db": "4657",
+    "bezeichnung": "RE/ml",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4658",
+    "einheit_id_db": "4658",
+    "bezeichnung": "ml",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4659",
+    "einheit_id_db": "4659",
+    "bezeichnung": "mlU/ml",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4660",
+    "einheit_id_db": "4660",
+    "bezeichnung": "/100 Leuko",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4661",
+    "einheit_id_db": "4661",
+    "bezeichnung": "S/CO",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4662",
+    "einheit_id_db": "4662",
+    "bezeichnung": "S/N",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4663",
+    "einheit_id_db": "4663",
+    "bezeichnung": "kU/l",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4664",
+    "einheit_id_db": "4664",
+    "bezeichnung": "mval/l",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4665",
+    "einheit_id_db": "4665",
+    "bezeichnung": "mU/l",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4666",
+    "einheit_id_db": "4666",
+    "bezeichnung": "pmol/l",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4667",
+    "einheit_id_db": "4667",
+    "bezeichnung": "mIU/ml",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4693",
+    "einheit_id_db": "4693",
+    "bezeichnung": "bis 60 mg/dl",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4694",
+    "einheit_id_db": "4694",
+    "bezeichnung": "bis 10 mg/dl",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4699",
+    "einheit_id_db": "4699",
+    "bezeichnung": "ng/l",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4701",
+    "einheit_id_db": "4701",
+    "bezeichnung": "ng/mg",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4963",
+    "einheit_id_db": "4963",
+    "bezeichnung": "mg*h/L",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4964",
+    "einheit_id_db": "4964",
+    "bezeichnung": "mmol/g Cr.",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4965",
+    "einheit_id_db": "4965",
+    "bezeichnung": "µmol/g Crea",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4966",
+    "einheit_id_db": "4966",
+    "bezeichnung": "µg/g Crea",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4967",
+    "einheit_id_db": "4967",
+    "bezeichnung": "% AP-Ze",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4968",
+    "einheit_id_db": "4968",
+    "bezeichnung": "% CD34",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4969",
+    "einheit_id_db": "4969",
+    "bezeichnung": "Euro",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4970",
+    "einheit_id_db": "4970",
+    "bezeichnung": "L/min",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4971",
+    "einheit_id_db": "4971",
+    "bezeichnung": "Ratio",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4972",
+    "einheit_id_db": "4972",
+    "bezeichnung": "Einheiten",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4973",
+    "einheit_id_db": "4973",
+    "bezeichnung": "kUA/L",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4974",
+    "einheit_id_db": "4974",
+    "bezeichnung": "g/g",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4975",
+    "einheit_id_db": "4975",
+    "bezeichnung": "mmHg",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4976",
+    "einheit_id_db": "4976",
+    "bezeichnung": "BAU/ml",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4977",
+    "einheit_id_db": "4977",
+    "bezeichnung": "CU",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4962",
+    "einheit_id_db": "4962",
+    "bezeichnung": "U",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E126",
+    "einheit_id_db": "126",
+    "bezeichnung": "g/Tag",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4961",
+    "einheit_id_db": "4961",
+    "bezeichnung": "mmol/mol",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4959",
+    "einheit_id_db": "4959",
+    "bezeichnung": "µmol/mg Crea",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4703",
+    "einheit_id_db": "4703",
+    "bezeichnung": "% Leuko",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4705",
+    "einheit_id_db": "4705",
+    "bezeichnung": "µg",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4707",
+    "einheit_id_db": "4707",
+    "bezeichnung": "µmol/g",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4750",
+    "einheit_id_db": "4750",
+    "bezeichnung": "µg/min",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4710",
+    "einheit_id_db": "4710",
+    "bezeichnung": "",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4712",
+    "einheit_id_db": "4712",
+    "bezeichnung": "µg/24h",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4711",
+    "einheit_id_db": "4711",
+    "bezeichnung": "µg/g",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4851",
+    "einheit_id_db": "4851",
+    "bezeichnung": "",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4952",
+    "einheit_id_db": "4952",
+    "bezeichnung": "x 1 Mill.",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4953",
+    "einheit_id_db": "4953",
+    "bezeichnung": "ng/mg Protein",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4954",
+    "einheit_id_db": "4954",
+    "bezeichnung": "mg/ml",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4955",
+    "einheit_id_db": "4955",
+    "bezeichnung": "% Erythro.",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4956",
+    "einheit_id_db": "4956",
+    "bezeichnung": "µg Jod/g Crea",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4957",
+    "einheit_id_db": "4957",
+    "bezeichnung": "nmol/h/ml",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4958",
+    "einheit_id_db": "4958",
+    "bezeichnung": "µg/mg Crea",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4960",
+    "einheit_id_db": "4960",
+    "bezeichnung": "mg/g Crea",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4978",
+    "einheit_id_db": "4978",
+    "bezeichnung": "pg/mg",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E125",
+    "einheit_id_db": "125",
+    "bezeichnung": "g/ml",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E123",
+    "einheit_id_db": "123",
+    "bezeichnung": "mm",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E23",
+    "einheit_id_db": "23",
+    "bezeichnung": "fl",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E24",
+    "einheit_id_db": "24",
+    "bezeichnung": "‰",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E25",
+    "einheit_id_db": "25",
+    "bezeichnung": "pg",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E26",
+    "einheit_id_db": "26",
+    "bezeichnung": "min",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E27",
+    "einheit_id_db": "27",
+    "bezeichnung": "mVal/l",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E28",
+    "einheit_id_db": "28",
+    "bezeichnung": "ml/min",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E22",
+    "einheit_id_db": "22",
+    "bezeichnung": "g/dl",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E29",
+    "einheit_id_db": "29",
+    "bezeichnung": "mm/Hg",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E31",
+    "einheit_id_db": "31",
+    "bezeichnung": "mg/24h",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E32",
+    "einheit_id_db": "32",
+    "bezeichnung": "%NaCl",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E33",
+    "einheit_id_db": "33",
+    "bezeichnung": "mmol/l",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E34",
+    "einheit_id_db": "34",
+    "bezeichnung": "kg",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E35",
+    "einheit_id_db": "35",
+    "bezeichnung": "cm",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E36",
+    "einheit_id_db": "36",
+    "bezeichnung": "ng/ml",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E30",
+    "einheit_id_db": "30",
+    "bezeichnung": "g/dl",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E21",
+    "einheit_id_db": "21",
+    "bezeichnung": "M/µl",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E20",
+    "einheit_id_db": "20",
+    "bezeichnung": "T/µl",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E19",
+    "einheit_id_db": "19",
+    "bezeichnung": "BE",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E2",
+    "einheit_id_db": "2",
+    "bezeichnung": "mg/l",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E3",
+    "einheit_id_db": "3",
+    "bezeichnung": "mg/dl",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4",
+    "einheit_id_db": "4",
+    "bezeichnung": "g/l",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E5",
+    "einheit_id_db": "5",
+    "bezeichnung": "µg/ml",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E6",
+    "einheit_id_db": "6",
+    "bezeichnung": "U/ml",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E7",
+    "einheit_id_db": "7",
+    "bezeichnung": "U/l",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E8",
+    "einheit_id_db": "8",
+    "bezeichnung": "nmol/l",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E10",
+    "einheit_id_db": "10",
+    "bezeichnung": "IE",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E11",
+    "einheit_id_db": "11",
+    "bezeichnung": "mg%",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E12",
+    "einheit_id_db": "12",
+    "bezeichnung": "Klasse",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E14",
+    "einheit_id_db": "14",
+    "bezeichnung": "µl",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E15",
+    "einheit_id_db": "15",
+    "bezeichnung": "%",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E16",
+    "einheit_id_db": "16",
+    "bezeichnung": "sec",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E17",
+    "einheit_id_db": "17",
+    "bezeichnung": "µg/l",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E18",
+    "einheit_id_db": "18",
+    "bezeichnung": "µ/l",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E37",
+    "einheit_id_db": "37",
+    "bezeichnung": "µg/dl",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E38",
+    "einheit_id_db": "38",
+    "bezeichnung": "/µl",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E39",
+    "einheit_id_db": "39",
+    "bezeichnung": "mmHg",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E40",
+    "einheit_id_db": "40",
+    "bezeichnung": "mval/24h",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E60",
+    "einheit_id_db": "60",
+    "bezeichnung": "pg/ml",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E61",
+    "einheit_id_db": "61",
+    "bezeichnung": "mmol/24h",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E62",
+    "einheit_id_db": "62",
+    "bezeichnung": "g/24h",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E64",
+    "einheit_id_db": "64",
+    "bezeichnung": "IE/L",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4716",
+    "einheit_id_db": "4716",
+    "bezeichnung": "% BAL-Ze",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E65",
+    "einheit_id_db": "65",
+    "bezeichnung": "/ul",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E66",
+    "einheit_id_db": "66",
+    "bezeichnung": "µmol/l",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E67",
+    "einheit_id_db": "67",
+    "bezeichnung": "mIE/ml",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E68",
+    "einheit_id_db": "68",
+    "bezeichnung": "10^9/l",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E69",
+    "einheit_id_db": "69",
+    "bezeichnung": "10^12/l",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E70",
+    "einheit_id_db": "70",
+    "bezeichnung": "VK%",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E71",
+    "einheit_id_db": "71",
+    "bezeichnung": "IU/l",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E120",
+    "einheit_id_db": "120",
+    "bezeichnung": "mlU/l",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E121",
+    "einheit_id_db": "121",
+    "bezeichnung": "Prom",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E122",
+    "einheit_id_db": "122",
+    "bezeichnung": "IE/ml",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E59",
+    "einheit_id_db": "59",
+    "bezeichnung": "mU/ml",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E124",
+    "einheit_id_db": "124",
+    "bezeichnung": "U/g",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4715",
+    "einheit_id_db": "4715",
+    "bezeichnung": "% Liqu.Ze",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4714",
+    "einheit_id_db": "4714",
+    "bezeichnung": "% KM-Ze",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E41",
+    "einheit_id_db": "41",
+    "bezeichnung": "KU/l",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E42",
+    "einheit_id_db": "42",
+    "bezeichnung": "°C",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E43",
+    "einheit_id_db": "43",
+    "bezeichnung": "mý",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E44",
+    "einheit_id_db": "44",
+    "bezeichnung": "mm3",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E45",
+    "einheit_id_db": "45",
+    "bezeichnung": "ml/24h",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E46",
+    "einheit_id_db": "46",
+    "bezeichnung": "µU/ml",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E47",
+    "einheit_id_db": "47",
+    "bezeichnung": "EH/dl",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4713",
+    "einheit_id_db": "4713",
+    "bezeichnung": "mU/10E9 Ery",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E49",
+    "einheit_id_db": "49",
+    "bezeichnung": "/nl",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E50",
+    "einheit_id_db": "50",
+    "bezeichnung": "/pl",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E51",
+    "einheit_id_db": "51",
+    "bezeichnung": "vol%",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E52",
+    "einheit_id_db": "52",
+    "bezeichnung": "Proz",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E53",
+    "einheit_id_db": "53",
+    "bezeichnung": "10-ph",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E54",
+    "einheit_id_db": "54",
+    "bezeichnung": "mm/h",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E55",
+    "einheit_id_db": "55",
+    "bezeichnung": "NaCl%",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E57",
+    "einheit_id_db": "57",
+    "bezeichnung": "ng/dl",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
+  },
+  {
+    "einheit_id": "E4979",
+    "einheit_id_db": "4979",
+    "bezeichnung": "% PT.Ze",
+    "beschreibung": "noch keine Angabe",
+    "kategorie": "noch keine Angabe"
   }
 ]

@@ -43,6 +43,24 @@ Um ein neues Material hinzuzufügen, sind nur zwei Schritte erforderlich:
    }
    ```
 
+### Automatische CSS-Generierung
+
+Um die CSS-Klassen für alle Materialien automatisch zu generieren, kann das beiliegende PowerShell-Skript verwendet werden:
+
+1. **Skript ausführen**:
+   ```powershell
+   # Im Projektverzeichnis
+   pwsh -ExecutionPolicy Bypass -File UpdateMaterialCSS.ps1
+   ```
+
+2. **Was das Skript macht**:
+   - Liest material.json ein
+   - Erstellt ein Backup der vorhandenen CSS-Datei
+   - Generiert CSS-Klassen für jedes definierte Material
+   - Schreibt alles in die material-badges.css Datei
+
+Dieses Skript ist besonders nützlich, wenn viele neue Materialien hinzugefügt werden oder eine konsistente Farbgebung sichergestellt werden soll.
+
 ### Materialbezeichnungen
 
 Die komponente lädt automatisch Bezeichnungen aus der `material.json` und zeigt diese anstelle der IDs an. Optionale Parameter:
@@ -63,6 +81,7 @@ Der MaterialService wurde vereinfacht und nutzt denselben Cache wie die Material
 2. **Performance**: Optimierte Ladezeiten durch Caching-Mechanismus
 3. **Wartbarkeit**: Leicht zu erweitern und zu aktualisieren
 4. **Konsistenz**: Einheitlicher Ansatz mit Kategorie-Badges
+5. **Automatisierung**: CSS-Klassen können mit dem UpdateMaterialCSS.ps1 Skript automatisch generiert werden
 
 ## Verwendungsbeispiele
 

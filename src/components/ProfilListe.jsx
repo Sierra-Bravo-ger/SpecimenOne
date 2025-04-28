@@ -1,26 +1,19 @@
 import React, { useState } from 'react';
-// ProfilListe.css nicht mehr benötigt - CSS-Klassen wurden zu tailwindBtn.js migriert
 import TestDetails from './TestDetails';
 import * as MaterialDesign from "react-icons/md";
 import '@material/web/ripple/ripple.js';
 import '@material/web/elevation/elevation.js';
 import { useMaterialService } from '../services/MaterialService';
-import MaterialBadge from './MaterialBadge';
+import StandardProfileListe from './StandardProfileListe';
+import PersoenlicheProfileListe from './PersoenlicheProfileListe';
 import tailwindBtn from './tailwindBtn';
 
+// Hauptkomponente für die Profil-Ansicht mit Sub-Tab Navigation
 function ProfilListe({ tests, profile }) {
   const [expandedProfiles, setExpandedProfiles] = useState([]);
   const [selectedTest, setSelectedTest] = useState(null);
-  const { convertMaterialIdsToNames, isLoading: materialsLoading } = useMaterialService();
-
-  // Funktion zum Umschalten der Profil-Expansion
-  const toggleProfile = (profilId) => {
-    if (expandedProfiles.includes(profilId)) {
-      setExpandedProfiles(expandedProfiles.filter(id => id !== profilId));
-    } else {
-      setExpandedProfiles([...expandedProfiles, profilId]);
-    }
-  };
+  const [activeSubTab, setActiveSubTab] = useState('standard');
+  const { isLoading: materialsLoading } = useMaterialService();
 
   const handleTestClick = (test) => {
     setSelectedTest(test);
@@ -29,87 +22,37 @@ function ProfilListe({ tests, profile }) {
   const handleCloseDetails = () => {
     setSelectedTest(null);
   };
-  // Sortiere Profile nach sortierNummer (falls vorhanden) oder nach ID als Fallback
-  const sortedProfiles = [...profile].sort((a, b) => {
-    // Primär nach sortierNummer sortieren, falls vorhanden
-    if (a.sortierNummer !== undefined && b.sortierNummer !== undefined) {
-      return a.sortierNummer - b.sortierNummer;
-    }
-    // Sekundär nach ID sortieren
-    return a.id.localeCompare(b.id);
-  });
+  
   return (
-    <div className={tailwindBtn.classes.profileList.container}>
-      {profile.length === 0 ? (
-        <p className={tailwindBtn.classes.profileList.noProfilesMessage}>Keine Profile gefunden.</p>
+    <div className={tailwindBtn.classes.profileList?.container || "w-full"}>
+      {/* Sub-Tab Navigation für Profile */}
+      <div className={tailwindBtn.classes.tabContainer || "flex border-b border-gray-200 dark:border-gray-700 mb-4"}>
+        <button 
+          className={`${tailwindBtn.classes.tab || "px-4 py-2 font-medium text-sm text-gray-500"} ${activeSubTab === 'standard' ? (tailwindBtn.classes.activeTab || "text-primary-600 border-b-2 border-primary-600") : ''}`}
+          onClick={() => setActiveSubTab('standard')}>
+          Standard-Profile
+        </button>
+        <button 
+          className={`${tailwindBtn.classes.tab || "px-4 py-2 font-medium text-sm text-gray-500"} ${activeSubTab === 'persoenlich' ? (tailwindBtn.classes.activeTab || "text-primary-600 border-b-2 border-primary-600") : ''}`}
+          onClick={() => setActiveSubTab('persoenlich')}>
+          Persönliche Profile
+        </button>
+      </div>
+      
+      {/* Bedingt zu rendernder Inhalt basierend auf aktivem Tab */}
+      {activeSubTab === 'standard' ? (
+        <StandardProfileListe 
+          tests={tests} 
+          profile={profile}
+          expandedProfiles={expandedProfiles}
+          setExpandedProfiles={setExpandedProfiles}
+          onTestClick={handleTestClick}
+        />
       ) : (
-        sortedProfiles.map(profil => {
-          const isExpanded = expandedProfiles.includes(profil.id);
-          const profilTests = tests.filter(test => 
-            profil.tests.includes(test.id)
-          );
-          
-          return (
-            <div key={profil.id} className={`${tailwindBtn.classes.profileList.card} md-elevation-2`}>
-              <div className={tailwindBtn.classes.profileList.header} onClick={() => toggleProfile(profil.id)}>                <md-ripple></md-ripple>                <div className={tailwindBtn.classes.profileList.info}>                  <div className={tailwindBtn.classes.profileList.titleRow}>
-                    <h3 className={`${tailwindBtn.classes.profileList.title} kategorie-text-${profil.kategorie.toLowerCase().replace(/\s+/g, '-')}`}>{profil.name}</h3>
-                    {/* Sortier-Nummer für Endbenutzer ausgeblendet 
-                    {profil.sortierNummer !== undefined && (
-                      <span className="sortier-nummer">{profil.sortierNummer}</span>
-                    )}
-                    */}
-                  </div>
-                  <p className={tailwindBtn.classes.profileList.description}>{profil.beschreibung}</p>
-                  <p className={`${tailwindBtn.classes.profileList.category} kategorie-badge kategorie-${profil.kategorie.toLowerCase().replace(/\s+/g, '-')}`}>{profil.kategorie}</p>
-                </div>
-                <div className={tailwindBtn.classes.profileList.expandIcon}>
-                  {isExpanded ? 
-                    <MaterialDesign.MdExpandLess style={{fontSize: "24px"}} /> : 
-                    <MaterialDesign.MdExpandMore style={{fontSize: "24px"}} />
-                  }
-                </div>
-              </div>
-                {isExpanded && (
-                <div className={tailwindBtn.classes.profileList.tests}>
-                  <p className={tailwindBtn.classes.profileList.testsHeader}>Enthaltene Tests:</p>
-                  {profilTests.length === 0 ? (
-                    <p className={tailwindBtn.classes.profileList.noTestsMessage}>Keine Tests in diesem Profil gefunden.</p>
-                  ) : (
-                    <div className={tailwindBtn.classes.profileList.testsGrid}>
-                      {profilTests.map(test => (
-                        <div 
-                          key={test.id} 
-                          className={tailwindBtn.classes.profileList.testItem}
-                          onClick={() => handleTestClick(test)}
-                        >                          <md-ripple></md-ripple>                          <div className={tailwindBtn.classes.profileList.testName}>{test.name}</div>
-                          <div className={tailwindBtn.classes.profileList.testDetail}>
-                            <span>Material: </span>
-                            {test.material && test.material.length > 0 ? (
-                              <div className={tailwindBtn.classes.profileList.materialBadgesContainer}>
-                                {test.material.map((materialId, index) => (
-                                  <MaterialBadge key={index} materialId={materialId} mini={true} />
-                                ))}
-                              </div>
-                            ) : (
-                              <span className={tailwindBtn.classes.profileList.noMaterialInfo}>Keine Angabe</span>
-                            )}
-                          </div>
-                          {test.synonyme?.length > 0 && (
-                            <div className={tailwindBtn.classes.profileList.testSynonyms}>
-                              <small>{test.synonyme.join(', ')}</small>
-                            </div>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
-          );
-        })
+        <PersoenlicheProfileListe />
       )}
 
+      {/* Test-Details Dialog */}
       {selectedTest && (
         <TestDetails 
           test={selectedTest} 
@@ -120,4 +63,5 @@ function ProfilListe({ tests, profile }) {
   );
 }
 
+// Default export für die Komponente
 export default ProfilListe;

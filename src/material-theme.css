@@ -45,11 +45,10 @@
   --md-sys-shape-corner-medium: 12px;
   --md-sys-shape-corner-large: 16px;
   --md-sys-shape-corner-extra-large: 28px;
-  
-  /* Transitions für Theme-Wechsel */
+    /* Transitions für Theme-Wechsel */
   --theme-transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 
-  /* Tailwind-kompatible Farbwerte - Korrespondieren mit tailwindBtn.colors */
+  /* Tailwind-kompatible Farbwerte - Korrespondieren mit der Tailwind-Konfiguration */
   --bg-light: #f5f5f5;
   --bg-dark: #1C1B1F;
   --surface-light: #ffffff;
@@ -58,12 +57,22 @@
   --hover-dark: #1C1B1F;
   --border-light: rgb(229, 231, 235); /* Entspricht border-gray-200 */
   --border-dark: rgb(55, 65, 81);    /* Entspricht border-gray-700 */
+    /* Performance-Optimierung für Theme-Wechsel */
+  color-scheme: light;
+  
+  /* GPU-Beschleunigung für Theme-Wechsel */
+  will-change: color, background-color;
 }
 
 /* ------ DARK MODE VARIABLEN ------ */
 .dark-theme, 
 .dark, 
-html.dark {
+html.dark {  /* Performance-Optimierung für Theme-Wechsel */
+  color-scheme: dark;
+  
+  /* GPU-Beschleunigung für Theme-Wechsel */
+  will-change: color, background-color;
+  
   /* Material 3 Farbschema - Dark Mode */
   --md-sys-color-primary: #83d991;
   --md-sys-color-on-primary: #132e1c;
@@ -273,4 +282,25 @@ md-circular-progress {
 .md-elevation-5 {
   box-shadow: 0px 16px 24px 0px rgba(0, 0, 0, 0.12), 
               0px 6px 30px 0px rgba(0, 0, 0, 0.08);
+}
+
+/* 
+ * Zusätzliche Material-Loading-Klasse
+ * Für Ladezustände der MaterialBadge-Komponente
+ * Datum: 27.04.2025
+ */
+
+/* Material Loading Zustand */
+.material-loading {
+  background-color: rgba(160, 160, 160, 0.3); /* Neutrale Farbe */
+  border-color: rgba(120, 120, 120, 0.3);
+  color: rgba(60, 60, 60, 0.8);
+  position: relative;
+}
+
+/* Dark Mode Anpassung */
+.dark .material-loading {
+  background-color: rgba(80, 80, 80, 0.4);
+  border-color: rgba(100, 100, 100, 0.3);
+  color: rgba(200, 200, 200, 0.8);
 }

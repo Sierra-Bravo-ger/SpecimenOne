@@ -239,8 +239,63 @@ const classes = {
     testSynonyms: 'mt-2 text-[var(--md-sys-color-outline,#79747E)] text-xs',
     noProfilesMessage: 'text-center py-8 text-[var(--md-sys-color-on-surface-variant,#49454F)]',
     noTestsMessage: 'text-center py-5 text-[var(--md-sys-color-on-surface-variant,#49454F)]'
-  }
-};
+  },
+  
+  // Tab-Navigation für die Profilanzeige
+  tabContainer: "flex border-b border-gray-200 dark:border-gray-700 mb-4",
+  tab: "px-4 py-2 font-medium text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors",
+  activeTab: "text-primary-600 dark:text-primary-400 border-b-2 border-primary-600 dark:border-primary-400",
+  
+  // Tab-Navigation für Sub-Tabs
+  tabContainer: "flex border-b border-gray-200 dark:border-gray-700 mb-4",
+  tab: "px-4 py-2 font-medium text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors",
+  activeTab: "text-primary-600 dark:text-primary-400 border-b-2 border-primary-600 dark:border-primary-400",
+  
+  // Karten-Layout für Profile
+  cardHeader: "flex justify-between items-center mb-2",
+  cardTitle: "text-lg font-medium text-gray-900 dark:text-white",
+  cardBadge: "bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-xs font-medium px-2 py-1 rounded-full",
+  cardDescription: "text-sm text-gray-500 dark:text-gray-400 mb-3 line-clamp-2",
+  cardDate: "text-xs text-gray-400 dark:text-gray-500 mb-3",
+  cardTags: "flex flex-wrap gap-1 mb-3",
+  cardTag: "bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300 text-xs px-2 py-1 rounded",
+  cardTagMore: "bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded italic",
+  cardActions: "flex justify-end gap-2",
+  
+  // Leerer Zustand
+  emptyState: "flex flex-col items-center justify-center py-12",
+  emptyStateHeading: "text-lg font-medium text-gray-900 dark:text-white mb-2",
+  emptyStateText: "text-gray-500 dark:text-gray-400 text-center max-w-md",
+  
+  // Modals
+  modalBackdrop: "fixed inset-0 bg-black bg-opacity-50 dark:bg-opacity-70 flex items-center justify-center z-50",
+  modal: "bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 max-w-md w-full max-h-[90vh] overflow-auto",
+  modalHeader: "flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-700",
+  modalTitle: "text-lg font-medium text-gray-900 dark:text-white flex items-center gap-2",
+  modalIcon: "text-primary-600 dark:text-primary-400",
+  modalCloseButton: "text-gray-400 hover:text-gray-500 dark:hover:text-gray-300",
+  modalBody: "p-4",
+  modalInfo: "text-sm text-gray-500 dark:text-gray-400 mb-4",
+  modalFooter: "flex justify-end gap-2 p-4 border-t border-gray-200 dark:border-gray-700",
+  
+  // Buttons für Aktionen
+  primaryButton: "px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-md flex items-center justify-center gap-2 transition-colors",
+  secondaryButton: "px-4 py-2 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 rounded-md flex items-center justify-center gap-2 transition-colors",
+  iconButton: "p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors",
+  iconButtonDanger: "text-red-600 hover:bg-red-100 dark:hover:bg-red-900/30",
+    // Toast-Nachrichten
+  toast: "fixed top-4 left-1/2 transform -translate-x-1/2 p-3 rounded-lg shadow-lg z-[60] transition-all duration-300 animate-fade-in-down",
+  successToast: "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100 px-6 py-3 rounded-lg shadow-lg z-[60] border-l-4 border-green-500 dark:border-green-700 flex items-center gap-2",
+  errorToast: "bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-100 px-6 py-3 rounded-lg shadow-lg z-[60] border-l-4 border-red-500 dark:border-red-700 flex items-center gap-2",
+  
+  // Action Bar
+  actionBar: "flex justify-end gap-2 mb-4",
+  
+  // Formular-Elemente
+  formGroup: "mb-4",
+  
+  loading: "flex justify-center items-center py-12 text-gray-500 dark:text-gray-400",
+}
 
 const base = `
   flex items-center justify-center gap-2
@@ -412,7 +467,7 @@ const darkModeFilterActive = `
 
 const appLayout = {
   container: 'flex flex-col min-h-screen font-roboto m-0 p-0 overflow-x-hidden w-full',
-  main: 'flex-1 p-8 max-w-7xl mx-auto w-full',
+  main: 'flex-1 p-4 w-full',
   contentWrapper: 'mt-6 w-full rounded-lg shadow-sm overflow-hidden',
   dialog: 'fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm',
   dialogContent: 'bg-white dark:bg-[#242328] rounded-xl shadow-xl max-w-3xl w-full max-h-[90vh] overflow-hidden flex flex-col',

@@ -6,22 +6,30 @@ export default {
   ],
   darkMode: ['class', '.dark-theme'],
   theme: {
-    extend: {
-      colors: {
+    extend: {      colors: {
         gray: {
           '850': '#1a1a1e'
-        }
-      },
-      colors: {
-        primary: '#6abf7b',
-        'primary-dark': '#83d991',
-        surface: '#FFFBFE',
-        'surface-dark': '#1C1B1F',
-        background: '#F5F5F5',
-        'background-dark': '#121212',
-        'on-surface': '#1C1B1F',
-        'on-surface-dark': '#E6E1E5',
-      },      animation: {
+        },
+        // Primärfarben für beide Themes
+        primary: {
+          DEFAULT: '#6abf7b',
+          dark: '#83d991',
+        },
+        // Oberflächen- und Hintergrundfarben
+        surface: {
+          DEFAULT: '#FFFBFE',
+          dark: '#1C1B1F',
+        },
+        background: {
+          DEFAULT: '#F5F5F5',
+          dark: '#121212',
+        },
+        // Text- und Oberflächentext
+        'on-surface': {
+          DEFAULT: '#1C1B1F',
+          dark: '#E6E1E5',
+        },
+      },animation: {
         'fadeIn': 'fadeIn 0.3s ease',
         'slideIn': 'slideIn 0.3s ease',
         'slideOut': 'slideOut 0.3s ease',

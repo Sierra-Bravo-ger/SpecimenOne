@@ -82,22 +82,31 @@ export function ThemeProvider({ children }) {
       setCurrentTheme(themePreference);
     }
   }, [themePreference]);
-  // Theme-Klasse auf HTML-Dokument anwenden
+  
+  // Theme-Klasse auf HTML-Dokument anwenden - Performance-optimiert
   useEffect(() => {
-    // Entferne alle möglichen Theme-Klassen
-    document.documentElement.classList.remove(THEMES.LIGHT, THEMES.DARK, 'dark-theme', 'light-theme');
-    
-    // Füge die aktuellen Theme-Klassen hinzu
-    document.documentElement.classList.add(currentTheme);
-    
-    // Füge spezifisch dark oder light-theme Klasse hinzu
-    if(currentTheme === THEMES.DARK) {
-      document.documentElement.classList.add('dark-theme', 'dark');
-    } else {
-      document.documentElement.classList.add('light-theme');
-    }
-    
-    document.documentElement.setAttribute('data-theme', currentTheme);
+    // Performance-Optimierung durch Batch-Updates und CSS-Variablen statt vieler CSS-Klassen
+    requestAnimationFrame(() => {
+      // Minimale DOM-Manipulationen durch Überprüfung auf Notwendigkeit
+      const isDarkTheme = currentTheme === THEMES.DARK;
+      const htmlElement = document.documentElement;
+      
+      // Nur wenn sich der Modus tatsächlich ändert, DOM manipulieren
+      if (isDarkTheme) {
+        if (!htmlElement.classList.contains('dark')) {
+          htmlElement.classList.add('dark-theme', 'dark');
+          htmlElement.classList.remove('light-theme');
+        }
+      } else {
+        if (htmlElement.classList.contains('dark')) {
+          htmlElement.classList.remove('dark-theme', 'dark');
+          htmlElement.classList.add('light-theme');
+        }
+      }
+      
+      // Data-Attribut für zusätzliche Styling-Optionen
+      htmlElement.setAttribute('data-theme', currentTheme);
+    });
   }, [currentTheme]);
 
   // Funktion zum Ändern der Theme-Präferenz

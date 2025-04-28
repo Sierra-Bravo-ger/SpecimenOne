@@ -1,28 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 
 /**
- * MaterialBadge - Einfache CSS-basierte Komponente zur Anzeige von Material-Bezeichnungen
- * Analog zu Kategorie-Badges - verwendet vordefinierte CSS-Klassen statt dynamischer Logik
+ * MaterialBadge - Komponente zur Anzeige von Material-Bezeichnungen
+ * Kombiniert CSS-Klassen und dynamische Stile für maximale Flexibilität
+ * Optimiert mit Animation während des Ladens und memoization für bessere Performance
  * 
  * @param {Object} props - Component properties
- * @param {string} props.materialId - Die Material-ID (z.B. "SER-00")
+ * @param {string} props.materialId - Die Material-ID (z.B. "SE-00")
  * @param {boolean} props.showKurzbezeichnung - Wenn true, wird die Kurzbezeichnung angezeigt
  * @param {boolean} props.mini - Wenn true, wird ein kleineres Badge angezeigt
  */
-const MaterialBadge = ({ 
+const MaterialBadge = memo(({ 
   materialId, 
   showKurzbezeichnung = false,
   mini = false 
 }) => {
-  // Status für die Materialbezeichnung
+  // Status für die Materialbezeichnung und Ladezustand
   const [materialBezeichnung, setMaterialBezeichnung] = useState(materialId);
   const [materialKurz, setMaterialKurz] = useState("");
+  const [farbenId, setFarbenId] = useState("0"); // Default farbenId
+  const [isLoading, setIsLoading] = useState(true);
   
   // Lade die Material-Bezeichnung beim ersten Rendern
   useEffect(() => {
     // Cache für Material-Bezeichnungen
     if (!window.materialCache) {
       window.materialCache = {};
+    }
+    
+    // Cache für Farben
+    if (!window.farbenCache) {
+      window.farbenCache = {};
     }
     
     const loadMaterialBezeichnung = async () => {
@@ -32,6 +40,8 @@ const MaterialBadge = ({
           const cachedMaterial = window.materialCache[materialId];
           setMaterialBezeichnung(cachedMaterial.bezeichnung);
           setMaterialKurz(cachedMaterial.kurz || "");
+          setFarbenId(cachedMaterial.farbenId || "0");
+          setIsLoading(false); // Material wurde aus dem Cache geladen
           return;
         }
         
@@ -48,43 +58,70 @@ const MaterialBadge = ({
           // Zum Cache hinzufügen
           window.materialCache[materialId] = {
             bezeichnung: materialItem.material_bezeichnung,
-            kurz: materialItem.material_kurz
-          };
-          
+            kurz: materialItem.material_kurz,
+            farbe: materialItem.material_farbe || "Grau",
+            farbenId: materialItem.farben_id || "0"
+          };          
           setMaterialBezeichnung(materialItem.material_bezeichnung);
           setMaterialKurz(materialItem.material_kurz || "");
+          setFarbenId(materialItem.farben_id || "0");
+          setIsLoading(false); // Material wurde erfolgreich geladen
         }
       } catch (error) {
         console.error('Fehler beim Laden der Material-Bezeichnung:', error);
+        setIsLoading(false); // Auch bei Fehler den Ladestatus beenden
       }
     };
     
-    loadMaterialBezeichnung();
+    // Laden der Farben, falls noch nicht geschehen
+    const loadFarben = async () => {
+      if (Object.keys(window.farbenCache).length === 0) {
+        try {
+          const response = await fetch('/farben.json');
+          if (!response.ok) {
+            throw new Error('Fehler beim Laden der Farben-Daten');
+          }
+          
+          const data = await response.json();
+          if (data && data.farben) {
+            data.farben.forEach(farbe => {
+              window.farbenCache[farbe.id] = {
+                bezeichnung: farbe.bezeichnung,
+                hex: farbe.hex,
+                textColor: farbe.textColor
+              };
+            });
+          }
+        } catch (error) {
+          console.error('Fehler beim Laden der Farben:', error);
+        }
+      }
+    };
+    
+    Promise.all([loadMaterialBezeichnung(), loadFarben()]);
   }, [materialId]);
   
   // Basisklasse und Größenvariante
   const sizeClass = mini ? 'material-badge-mini' : 'material-badge-standard';
   
-  // Spezifische Klasse für das Material (basierend auf ID, in Kleinbuchstaben)
-  const materialClass = `material-${materialId.toLowerCase().replace(/[^a-z0-9-]/g, '-')}`;
+  // Material-spezifische CSS-Klasse (für Kompatibilität mit dem alten Ansatz)
+  const materialClass = `material-${materialId.toLowerCase().replace('_', '-')}`;
   
-  // Fallback-Klasse für unbekannte Materialien
-  const fallbackClass = 'material-default';
+  // Farben-ID-basierte CSS-Klasse (für den neuen Ansatz)
+  const colorClass = farbenId ? `material-color-${farbenId}` : 'material-default';
   
-  // Text zum Anzeigen, mit oder ohne Kurzbezeichnung
-  const displayText = showKurzbezeichnung && materialKurz 
-    ? `${materialBezeichnung} (${materialKurz})` 
-    : materialBezeichnung;
+  // Anzeigename basierend auf showKurzbezeichnung
+  const displayName = showKurzbezeichnung ? materialKurz || materialBezeichnung : materialBezeichnung;
   
+  // Rendere das Badge mit CSS-Klassen-Ansatz und dynamischem Stil als Fallback
   return (
-    <span className={`material-badge ${sizeClass} ${materialClass || fallbackClass}`}>
-      {displayText}
+    <span 
+      className={`material-badge ${sizeClass} ${materialClass} ${colorClass}`}
+      title={showKurzbezeichnung ? materialBezeichnung : null}
+    >
+      {isLoading ? '...' : displayName}
     </span>
   );
-};
+});
 
-// Named export
-export { MaterialBadge };
-
-// Default export
 export default MaterialBadge;

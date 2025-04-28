@@ -6,40 +6,40 @@
   "display": "standalone",
   "background_color": "#6abf7b",  "theme_color": "#6abf7b","icons": [
     {
-      "src": "/images/icons/frame.svg",
+      "src": "/images/icons/frame1.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "maskable"
     },
     {
-      "src": "/images/icons/icon-72x72-bg.png",
+      "src": "/images/icons/icon-72x72-b.png",
       "sizes": "72x72",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/images/icons/icon-96x96-bg.png",
+      "src": "/images/icons/icon-96x96-b.png",
       "sizes": "96x96",
       "type": "image/png",
       "purpose": "maskable"
     },    
     {
-      "src": "/images/icons/icon-144x144-bg.png",
+      "src": "/images/icons/icon-144x144-b.png",
       "sizes": "144x144",
       "type": "image/png",
       "purpose": "maskable"
     },    {
-      "src": "/images/icons/icon-152x152-bg.png",
+      "src": "/images/icons/icon-152x152-b.png",
       "sizes": "152x152",
       "type": "image/png",
       "purpose": "maskable"
     },    {
-      "src": "/images/icons/icon-192x192-bg.png",
+      "src": "/images/icons/icon-192x192-b.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },    {
-      "src": "/images/icons/icon-384x384-bg.png",
+      "src": "/images/icons/icon-384x384-b.png",
       "sizes": "384x384",
       "type": "image/png",
       "purpose": "maskable"

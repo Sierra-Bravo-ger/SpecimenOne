@@ -31,14 +31,14 @@ export const useMaterialService = () => {
           }
           
           const data = await response.json();
-          
-          if (data && data.materialien) {
+            if (data && data.materialien) {
             // Cache mit Materialdaten füllen
             data.materialien.forEach(material => {
               window.materialCache[material.material_id] = {
                 bezeichnung: material.material_bezeichnung,
                 kurz: material.material_kurz || "",
-                farbe: material.material_farbe || "Grau"
+                farbe: material.material_farbe || "Grau",
+                farbenId: material.farben_id || "0"  // Farben-ID für CSS-Klassen
               };
             });
           }

@@ -4,16 +4,41 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { sendProfilByFormSubmit, sendProfilToDiscord, getServiceStatus } from '../services/ServiceClient';
 import tailwindBtn from './tailwindBtn';
 
-function ProfilErstellungDialog({ selectedTests, onClose, onPrint }) {
+/**
+ * Gemeinsamer Dialog für das Erstellen und Speichern von Profilen
+ * 
+ * @param {Object} props - Komponenten-Properties
+ * @param {Array|number} props.selectedTests - Die ausgewählten Tests oder deren Anzahl
+ * @param {Function} props.onClose - Callback beim Schließen des Dialogs
+ * @param {Function} [props.onPrint] - Callback für Druckfunktion (nur im Erstellungsmodus)
+ * @param {Function} [props.onSpeichern] - Callback zum Speichern als persönliches Profil (nur im Speichernmodus)
+ * @param {('create'|'save')} [props.mode="create"] - Modus des Dialogs: "create" für Standard-Profile oder "save" für persönliche Profile
+ * @returns {JSX.Element} Der Dialog zum Erstellen oder Speichern von Profilen
+ */
+function ProfilErstellungDialog({ 
+  selectedTests, 
+  onClose, 
+  onPrint, 
+  onSpeichern,
+  mode = "create" // Standard-Modus ist Profil erstellen 
+}) {
   // Auth0 Hook für Authentifizierungsstatus
   const { isAuthenticated, loginWithRedirect, user } = useAuth0();
   
   // Sicherstellen, dass selectedTests immer ein Array ist
-  const safeSelectedTests = Array.isArray(selectedTests) ? selectedTests : [];
+  const safeSelectedTests = Array.isArray(selectedTests) ? selectedTests : 
+                          typeof selectedTests === 'number' ? Array(selectedTests).fill({}) : [];
   
   const [profilName, setProfilName] = useState('');
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
+  const [beschreibung, setBeschreibung] = useState('');
+  const [kategorie, setKategorie] = useState('Klinische Chemie');
+  const [verfuegbareKategorien] = useState([
+    'Klinische Chemie', 'Hämatologie', 'Gerinnung', 'Immunologie', 
+    'Endokrinologie', 'Infektionsdiagnostik', 'Mikrobiologie',
+    'Virologie', 'Toxikologie', 'Keine Kategorie'
+  ]);
   const [isSending, setIsSending] = useState(false);
   const [emailStatus, setEmailStatus] = useState(null);
   const [isRedirecting, setIsRedirecting] = useState(false);
@@ -29,11 +54,25 @@ function ProfilErstellungDialog({ selectedTests, onClose, onPrint }) {
       erstelltAm: new Date().toLocaleDateString('de-DE')
     };
   };
+  
   const handlePrint = () => {
     if (onPrint) onPrint(createProfil());
   };
   
-  const handleSendEmail = async () => {
+  // Funktion zum Speichern eines persönlichen Profils
+  const handleSpeichern = (e) => {
+    e.preventDefault();
+    if (!profilName.trim()) return;
+    
+    if (mode === "save" && onSpeichern) {
+      onSpeichern(profilName.trim(), beschreibung.trim(), kategorie);
+    }
+    handleDialogClose();
+  };
+  
+  const handleSendEmail = async (e) => {
+    if (e) e.preventDefault();
+    
     // Wenn Benutzer nicht eingeloggt ist, Login-Dialog anzeigen
     if (!isAuthenticated) {
       if (!isRedirecting) {
@@ -113,108 +152,181 @@ function ProfilErstellungDialog({ selectedTests, onClose, onPrint }) {
       if (onClose) onClose();
     }
   };
+  
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 animate-fadeIn">
       <div className="bg-[var(--md-sys-color-surface)] rounded-2xl shadow-xl w-[90%] max-w-[600px] max-h-[85vh] flex flex-col animate-slideIn" ref={dialogRef}>
         <div className="flex justify-between items-center p-4 border-b border-[var(--md-sys-color-outline-variant)]">
-          <h2 className="text-xl font-medium text-[var(--md-sys-color-on-surface)] m-0">Neues Profil erstellen</h2>
+          <h2 className="text-xl font-medium text-[var(--md-sys-color-on-surface)] m-0">
+            {mode === "create" ? "Neues Profil erstellen" : "Persönliches Profil speichern"}
+          </h2>
           <button className={tailwindBtn.close} onClick={handleDialogClose}>
             <MaterialDesign.MdClose />
           </button>
         </div>
-          <div className="p-6 overflow-y-auto flex-1">          <div className="mb-4">
-            <label htmlFor="profil-name" className="block mb-2 text-sm font-medium text-[var(--md-sys-color-on-surface)]">Profilname:</label>
-            <input 
-              type="text" 
-              id="profil-name"
-              value={profilName}
-              onChange={(e) => setProfilName(e.target.value)}
-              placeholder="z.B. Notfall-Panel" 
-              required
-              className="w-full px-4 py-2 rounded-md border border-[var(--md-sys-color-outline)] bg-[var(--md-sys-color-surface)] text-[var(--md-sys-color-on-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--md-sys-color-primary)]"
-            />
-          </div>
+        
+        <div className="p-6 overflow-y-auto flex-1">
+          <form onSubmit={mode === "save" ? handleSpeichern : handleSendEmail}>
             <div className="mb-4">
-            <label htmlFor="user-name" className="block mb-2 text-sm font-medium text-[var(--md-sys-color-on-surface)]">Ihr Name:</label>
-            <input 
-              type="text"
-              id="user-name" 
-              value={userName}
-              onChange={(e) => setUserName(e.target.value)}
-              placeholder="Vor- und Nachname"
-              className="w-full px-4 py-2 rounded-md border border-[var(--md-sys-color-outline)] bg-[var(--md-sys-color-surface)] text-[var(--md-sys-color-on-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--md-sys-color-primary)]" 
-            />
-          </div>
-            <div className="mb-4">
-            <label htmlFor="user-email" className="block mb-2 text-sm font-medium text-[var(--md-sys-color-on-surface)]">E-Mail:</label>
-            <input 
-              type="email"
-              id="user-email" 
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="beispiel@labor.de"
-              className="w-full px-4 py-2 rounded-md border border-[var(--md-sys-color-outline)] bg-[var(--md-sys-color-surface)] text-[var(--md-sys-color-on-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--md-sys-color-primary)]" 
-            />
-            <small className="block mt-1 text-xs text-[var(--md-sys-color-on-surface-variant)]">Wird benötigt, wenn Sie das Profil per E-Mail erhalten möchten.</small>
-          </div>
-            <div className="mt-6">
-            <h3 className="text-lg font-medium mb-2 text-[var(--md-sys-color-on-surface)]">Ausgewählte Tests ({safeSelectedTests.length}):</h3>
-            <ul className="max-h-48 overflow-y-auto border rounded-md border-[var(--md-sys-color-outline-variant)] divide-y divide-[var(--md-sys-color-outline-variant)]">
-              {safeSelectedTests.map(test => (
-                <li key={test.id} className="flex justify-between items-center p-2 hover:bg-[var(--md-sys-color-surface-variant)]">
-                  <div className="flex flex-col">
-                    <span className="font-medium text-sm">{test.id}</span>
-                    <span className="text-sm">{test.name}</span>
-                  </div>
-                  <span className={`px-2 py-1 text-xs rounded-full ${test.kategorie ? 'bg-[var(--md-sys-color-secondary-container)] text-[var(--md-sys-color-on-secondary-container)]' : 'bg-gray-200 text-gray-700'}`}>
-                    {test.kategorie || 'Keine Kategorie'}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>          <div className="flex justify-between items-center mt-6 pt-4 border-t border-[var(--md-sys-color-outline-variant)]">
-          <button 
-            className={tailwindBtn.cancel} 
-            onClick={handleDialogClose}
-          >
-            Abbrechen
-          </button>
-          
-          <div className="flex gap-2">
-            <button 
-              className={tailwindBtn.secondary}
-              onClick={handleSendEmail}
-              disabled={!profilName.trim() || isSending}
-            >
-              <MaterialDesign.MdEmail className="mr-2" />
-              {isSending ? 'Wird gesendet...' : 'Per E-Mail senden'}
-            </button>
+              <label htmlFor="profil-name" className="block mb-2 text-sm font-medium text-[var(--md-sys-color-on-surface)]">Profilname:</label>
+              <input 
+                type="text" 
+                id="profil-name"
+                value={profilName}
+                onChange={(e) => setProfilName(e.target.value)}
+                placeholder="z.B. Notfall-Panel" 
+                required
+                className="w-full px-4 py-2 rounded-md border border-[var(--md-sys-color-outline)] bg-[var(--md-sys-color-surface)] text-[var(--md-sys-color-on-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--md-sys-color-primary)]"
+              />
+            </div>
             
-            <button 
-              className={tailwindBtn.primary}
-              onClick={handlePrint}
-              disabled={!profilName.trim()}
-            >
-              <MaterialDesign.MdPrint className="mr-2" />
-              Profil drucken
-            </button>
-          </div>
-        </div>
+            {mode === "save" && (
+              <div className="mb-4">
+                <label htmlFor="beschreibung" className="block mb-2 text-sm font-medium text-[var(--md-sys-color-on-surface)]">
+                  Beschreibung (optional):
+                </label>
+                <textarea
+                  id="beschreibung"
+                  placeholder="Eine kurze Beschreibung des Profils"
+                  rows="3"
+                  className="w-full px-4 py-2 rounded-md border border-[var(--md-sys-color-outline)] bg-[var(--md-sys-color-surface)] text-[var(--md-sys-color-on-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--md-sys-color-primary)]"
+                  value={beschreibung}
+                  onChange={(e) => setBeschreibung(e.target.value)}
+                ></textarea>
+              </div>
+            )}
+            
+            {mode === "save" && (
+              <div className="mb-4">
+                <label htmlFor="kategorie" className="block mb-2 text-sm font-medium text-[var(--md-sys-color-on-surface)]">
+                  Kategorie:
+                </label>
+                <select
+                  id="kategorie"
+                  className="w-full px-4 py-2 rounded-md border border-[var(--md-sys-color-outline)] bg-[var(--md-sys-color-surface)] text-[var(--md-sys-color-on-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--md-sys-color-primary)]"
+                  value={kategorie}
+                  onChange={(e) => setKategorie(e.target.value)}
+                >
+                  {verfuegbareKategorien.map((kat) => (
+                    <option key={kat} value={kat}>{kat}</option>
+                  ))}
+                </select>
+              </div>
+            )}
+            
+            {mode === "create" && (
+              <>
+                <div className="mb-4">
+                  <label htmlFor="user-name" className="block mb-2 text-sm font-medium text-[var(--md-sys-color-on-surface)]">Ihr Name:</label>
+                  <input 
+                    type="text"
+                    id="user-name" 
+                    value={userName}
+                    onChange={(e) => setUserName(e.target.value)}
+                    placeholder="Vor- und Nachname"
+                    className="w-full px-4 py-2 rounded-md border border-[var(--md-sys-color-outline)] bg-[var(--md-sys-color-surface)] text-[var(--md-sys-color-on-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--md-sys-color-primary)]" 
+                  />
+                </div>
+                <div className="mb-4">
+                  <label htmlFor="user-email" className="block mb-2 text-sm font-medium text-[var(--md-sys-color-on-surface)]">E-Mail:</label>
+                  <input 
+                    type="email"
+                    id="user-email" 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="beispiel@labor.de"
+                    className="w-full px-4 py-2 rounded-md border border-[var(--md-sys-color-outline)] bg-[var(--md-sys-color-surface)] text-[var(--md-sys-color-on-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--md-sys-color-primary)]" 
+                  />
+                  <small className="block mt-1 text-xs text-[var(--md-sys-color-on-surface-variant)]">
+                    Wird benötigt, wenn Sie das Profil per E-Mail erhalten möchten.
+                  </small>
+                </div>
+              </>
+            )}
+            
+            <div className="mt-6">
+              <h3 className="text-lg font-medium mb-2 text-[var(--md-sys-color-on-surface)]">
+                Ausgewählte Tests ({safeSelectedTests.length}):
+              </h3>
+              <ul className="max-h-48 overflow-y-auto border rounded-md border-[var(--md-sys-color-outline-variant)] divide-y divide-[var(--md-sys-color-outline-variant)]">
+                {Array.isArray(selectedTests) && selectedTests.length > 0 ? selectedTests.map(test => (
+                  <li key={test.id} className="flex justify-between items-center p-2 hover:bg-[var(--md-sys-color-surface-variant)]">
+                    <div className="flex flex-col">
+                      <span className="font-medium text-sm">{test.id}</span>
+                      <span className="text-sm">{test.name}</span>
+                    </div>
+                    <span className={`px-2 py-1 text-xs rounded-full ${test.kategorie ? 'bg-[var(--md-sys-color-secondary-container)] text-[var(--md-sys-color-on-secondary-container)]' : 'bg-gray-200 text-gray-700'}`}>
+                      {test.kategorie || 'Keine Kategorie'}
+                    </span>
+                  </li>
+                )) : (
+                  <li className="p-3 text-[var(--md-sys-color-on-surface-variant)] italic">
+                    {safeSelectedTests.length} Test{safeSelectedTests.length !== 1 ? 'e' : ''} ausgewählt
+                  </li>
+                )}
+              </ul>
+            </div>
+
+            <div className="flex justify-between items-center mt-6 pt-4 border-t border-[var(--md-sys-color-outline-variant)]">
+              <button 
+                type="button"
+                className={tailwindBtn.cancel} 
+                onClick={handleDialogClose}
+              >
+                Abbrechen
+              </button>
+              
+              <div className="flex gap-2">
+                {mode === "create" ? (
+                  <>
+                    <button 
+                      type="submit"
+                      className={tailwindBtn.secondary}
+                      disabled={!profilName.trim() || isSending}
+                    >
+                      <MaterialDesign.MdEmail className="mr-2" />
+                      {isSending ? 'Wird gesendet...' : 'Per E-Mail senden'}
+                    </button>
+                    
+                    <button 
+                      type="button"
+                      className={tailwindBtn.primary}
+                      onClick={handlePrint}
+                      disabled={!profilName.trim()}
+                    >
+                      <MaterialDesign.MdPrint className="mr-2" />
+                      Profil drucken
+                    </button>
+                  </>
+                ) : (
+                  <button 
+                    type="submit"
+                    className={tailwindBtn.primary}
+                    disabled={!profilName.trim()}
+                  >
+                    <MaterialDesign.MdSave className="mr-2" />
+                    Profil speichern
+                  </button>
+                )}
+              </div>
+            </div>
+          </form>
+          
           {emailStatus && (
-          <div className={`flex items-center p-3 mt-4 rounded-md ${
-            emailStatus.type === 'success' ? 'bg-green-100 text-green-800' :
-            emailStatus.type === 'error' ? 'bg-red-100 text-red-800' :
-            'bg-blue-100 text-blue-800'
-          }`}>
-            <span className="text-xl mr-2">
-              {emailStatus.type === 'success' && <MaterialDesign.MdCheckCircle />}
-              {emailStatus.type === 'error' && <MaterialDesign.MdError />}
-              {emailStatus.type === 'info' && <MaterialDesign.MdInfo />}
-            </span>
-            <span className="text-sm">{emailStatus.message}</span>
-          </div>
-        )}
+            <div className={`animate-fade-in-down flex items-center p-3 mt-4 rounded-md border-l-4 ${
+              emailStatus.type === 'success' ? 'bg-green-100 text-green-800 border-green-500 dark:bg-green-900 dark:text-green-100 dark:border-green-700' :
+              emailStatus.type === 'error' ? 'bg-red-100 text-red-800 border-red-500 dark:bg-red-900 dark:text-red-100 dark:border-red-700' :
+              'bg-blue-100 text-blue-800 border-blue-500 dark:bg-blue-900 dark:text-blue-100 dark:border-blue-700'
+            }`}>
+              <span className="text-xl mr-2">
+                {emailStatus.type === 'success' && <MaterialDesign.MdCheckCircle />}
+                {emailStatus.type === 'error' && <MaterialDesign.MdError />}
+                {emailStatus.type === 'info' && <MaterialDesign.MdInfo />}
+              </span>
+              <span className="text-sm">{emailStatus.message}</span>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

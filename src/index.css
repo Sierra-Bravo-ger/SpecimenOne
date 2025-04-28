@@ -14,20 +14,24 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Globale Theme-Transition für sanften Übergang */
+/* Optimierte Theme-Transition - nur auf bestimmte Properties angewendet */
 html {
-  transition: background-color 0.5s ease, color 0.5s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Alle Elemente mit Farbänderungen beim Theme-Wechsel bekommen eine sanfte Transition */
+/* Grundlegende Box-Modell-Eigenschaften ohne Transitions */
 *, 
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+/* Performance-optimierte Transitions nur für spezifische UI-Elemente */
+.theme-transition {
   transition-property: background-color, border-color, color, fill, stroke;
-  transition-duration: 0.5s;
+  transition-duration: 0.3s;
   transition-timing-function: ease;
 }
 
@@ -53,4 +57,19 @@ body {
   a:hover {
     text-decoration: underline;
   }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.4s ease-out forwards;
 }

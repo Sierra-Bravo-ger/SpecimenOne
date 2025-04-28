@@ -15,10 +15,9 @@ const ThemeSwitcher = () => {
     const newTheme = isDark ? THEMES.LIGHT : THEMES.DARK;
     setTheme(newTheme);
   };
-
   return (
     <div 
-      className="flex items-center justify-center mx-4 cursor-pointer relative w-[60px] h-[30px] select-none"
+      className="flex items-center justify-center mx-4 cursor-pointer relative w-[60px] h-[30px] select-none theme-transition"
       title={isDark ? "Zu hellem Theme wechseln" : "Zu dunklem Theme wechseln"}
       onClick={toggleTheme}
       role="button"
