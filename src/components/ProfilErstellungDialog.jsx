@@ -29,9 +29,7 @@ function ProfilErstellungDialog({
   const safeSelectedTests = Array.isArray(selectedTests) ? selectedTests : 
                           typeof selectedTests === 'number' ? Array(selectedTests).fill({}) : [];
   
-  const [profilName, setProfilName] = useState('');
-  const [userName, setUserName] = useState('');
-  const [email, setEmail] = useState('');
+  const [profilName, setProfilName] = useState('');  // DSGVO-konform: Keine Zustandsvariablen für persönliche Daten mehr
   const [beschreibung, setBeschreibung] = useState('');
   const [kategorie, setKategorie] = useState('Klinische Chemie');
   const [verfuegbareKategorien] = useState([
@@ -43,20 +41,40 @@ function ProfilErstellungDialog({
   const [emailStatus, setEmailStatus] = useState(null);
   const [isRedirecting, setIsRedirecting] = useState(false);
   const dialogRef = useRef(null);
-
-  // Profil-Objekt erstellen
+  // Profil-Objekt erstellen (DSGVO-konform ohne persönliche Daten)
   const createProfil = () => {
     return {
       profilName,
-      userName,
-      email,
       tests: safeSelectedTests,
-      erstelltAm: new Date().toLocaleDateString('de-DE')
+      erstelltAm: new Date().toLocaleDateString('de-DE'),
+      kategorie: kategorie || 'Keine Kategorie',
+      beschreibung: beschreibung || ''
     };
   };
-  
-  const handlePrint = () => {
-    if (onPrint) onPrint(createProfil());
+    const handlePrint = async () => {
+    try {
+      // Zuerst das Profil an Discord senden (ohne persönliche Daten)
+      const profilData = createProfil();
+      
+      // Als anonymisiertes Profil kennzeichnen
+      profilData.anonymous = true;
+      
+      // Discord-Webhook aufrufen
+      try {
+        await sendProfilToDiscord(profilData);
+        console.log('Profil-Antrag erfolgreich an Discord gesendet');
+      } catch (discordError) {
+        console.error('Fehler beim Senden an Discord:', discordError);
+        // Fehler nicht an Benutzer zeigen, nur loggen
+      }
+      
+      // Druckfunktion immer aufrufen, unabhängig vom Discord-Ergebnis
+      if (onPrint) onPrint(profilData);
+    } catch (error) {
+      console.error('Fehler beim Verarbeiten des Profil-Antrags:', error);
+      // Trotzdem drucken bei Fehlern
+      if (onPrint) onPrint(createProfil());
+    }
   };
   
   // Funktion zum Speichern eines persönlichen Profils
@@ -155,10 +173,9 @@ function ProfilErstellungDialog({
   
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 animate-fadeIn">
-      <div className="bg-[var(--md-sys-color-surface)] rounded-2xl shadow-xl w-[90%] max-w-[600px] max-h-[85vh] flex flex-col animate-slideIn" ref={dialogRef}>
-        <div className="flex justify-between items-center p-4 border-b border-[var(--md-sys-color-outline-variant)]">
+      <div className="bg-[var(--md-sys-color-surface)] rounded-2xl shadow-xl w-[90%] max-w-[600px] max-h-[85vh] flex flex-col animate-slideIn" ref={dialogRef}>        <div className="flex justify-between items-center p-4 border-b border-[var(--md-sys-color-outline-variant)]">
           <h2 className="text-xl font-medium text-[var(--md-sys-color-on-surface)] m-0">
-            {mode === "create" ? "Neues Profil erstellen" : "Persönliches Profil speichern"}
+            {mode === "create" ? "Profil-Antrag erstellen" : "Persönliches Profil speichern"}
           </h2>
           <button className={tailwindBtn.close} onClick={handleDialogClose}>
             <MaterialDesign.MdClose />
@@ -213,33 +230,18 @@ function ProfilErstellungDialog({
                 </select>
               </div>
             )}
-            
+              {/* DSGVO-konform: Keine Erfassung von Namen oder E-Mail-Adressen */}
             {mode === "create" && (
               <>
                 <div className="mb-4">
-                  <label htmlFor="user-name" className="block mb-2 text-sm font-medium text-[var(--md-sys-color-on-surface)]">Ihr Name:</label>
-                  <input 
-                    type="text"
-                    id="user-name" 
-                    value={userName}
-                    onChange={(e) => setUserName(e.target.value)}
-                    placeholder="Vor- und Nachname"
-                    className="w-full px-4 py-2 rounded-md border border-[var(--md-sys-color-outline)] bg-[var(--md-sys-color-surface)] text-[var(--md-sys-color-on-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--md-sys-color-primary)]" 
-                  />
-                </div>
-                <div className="mb-4">
-                  <label htmlFor="user-email" className="block mb-2 text-sm font-medium text-[var(--md-sys-color-on-surface)]">E-Mail:</label>
-                  <input 
-                    type="email"
-                    id="user-email" 
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="beispiel@labor.de"
-                    className="w-full px-4 py-2 rounded-md border border-[var(--md-sys-color-outline)] bg-[var(--md-sys-color-surface)] text-[var(--md-sys-color-on-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--md-sys-color-primary)]" 
-                  />
-                  <small className="block mt-1 text-xs text-[var(--md-sys-color-on-surface-variant)]">
-                    Wird benötigt, wenn Sie das Profil per E-Mail erhalten möchten.
-                  </small>
+                  <div className="bg-blue-50 border-l-4 border-blue-500 p-4 text-blue-700 dark:bg-blue-900 dark:text-blue-100 dark:border-blue-700">
+                    <p className="text-sm">
+                      <strong>Hinweis:</strong> Aus Datenschutzgründen werden keine persönlichen Informationen wie Namen oder E-Mail-Adressen erfasst.
+                    </p>
+                    <p className="text-sm mt-2">
+                      Nach dem Drucken und Ausfüllen des Profil-Antrags können Sie ihn per E-Mail Versenden an den Outlook Verteiler: #Laborauskunft
+                    </p>
+                  </div>
                 </div>
               </>
             )}
@@ -278,15 +280,7 @@ function ProfilErstellungDialog({
               
               <div className="flex gap-2">
                 {mode === "create" ? (
-                  <>
-                    <button 
-                      type="submit"
-                      className={tailwindBtn.secondary}
-                      disabled={!profilName.trim() || isSending}
-                    >
-                      <MaterialDesign.MdEmail className="mr-2" />
-                      {isSending ? 'Wird gesendet...' : 'Per E-Mail senden'}
-                    </button>
+                  <>                    {/* Der E-Mail-Button wurde gemäß DSGVO-Anforderungen entfernt */}
                     
                     <button 
                       type="button"
@@ -295,7 +289,7 @@ function ProfilErstellungDialog({
                       disabled={!profilName.trim()}
                     >
                       <MaterialDesign.MdPrint className="mr-2" />
-                      Profil drucken
+                      Profil-Antrag drucken
                     </button>
                   </>
                 ) : (

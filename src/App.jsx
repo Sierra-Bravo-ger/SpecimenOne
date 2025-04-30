@@ -219,13 +219,12 @@ function App() {
     setSelectedTests(tests);
     debugLog('selectedTests nach setSelectedTests', selectedTests); // Wird den alten Wert zeigen wegen Closure
   };
-
   const openProfilErstellung = () => {
     debugLog('openProfilErstellung wurde aufgerufen, selectedTests ist', selectedTests);
     if (Array.isArray(selectedTests) && selectedTests.length > 0) {
       setShowProfilErstellung(true);
     } else {
-      alert("Bitte wählen Sie mindestens einen Test aus, um ein Profil zu erstellen.");
+      alert("Bitte wählen Sie mindestens einen Test aus, um einen Profil-Antrag zu erstellen.");
     }
   };
 
@@ -488,13 +487,12 @@ function App() {
             >
               <MaterialDesign.MdCancel className="mr-2" />
               Abbrechen
-            </button>
-            <button 
+            </button>            <button 
               className={tailwindBtn.primary}
               onClick={openProfilErstellung}
             >
               <MaterialDesign.MdCreateNewFolder className="mr-2" />
-              Profil erstellen
+              Profil-Antrag erstellen
             </button>
             {/* Speicherbutton für persönliche Profile, styled like other buttons */}
             <button 

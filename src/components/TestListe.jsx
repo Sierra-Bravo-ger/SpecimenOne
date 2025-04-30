@@ -1,12 +1,12 @@
-import React, { useState, useMemo, memo, useEffect, useCallback } from 'react'
-import TestCheckbox from './TestCheckbox'
-import '@material/web/ripple/ripple.js'
-import '@material/web/elevation/elevation.js'
-import * as MaterialDesign from "react-icons/md"
-import { useMaterialService } from '../services/MaterialService'
-import MaterialBadge from './MaterialBadge'
-import tailwindBtn from './tailwindBtn'
-import ProfilErstellungDialog from './ProfilErstellungDialog'
+import React, { useState, useMemo, memo, useEffect, useCallback } from 'react';
+import TestCheckbox from './TestCheckbox';
+import '@material/web/ripple/ripple.js';
+import '@material/web/elevation/elevation.js';
+import * as MaterialDesign from "react-icons/md";
+import { useMaterialService } from '../services/MaterialService';
+import MaterialBadge from './MaterialBadge';
+import tailwindBtn from './tailwindBtn';
+import ProfilErstellungDialog from './ProfilErstellungDialog';
 
 function TestListe({ 
   tests, 
@@ -16,9 +16,9 @@ function TestListe({
   sortOption = 'id',
   sortDirection = 'asc'
 }) {
-  // Pagination-Einstellungen
-  const ITEMS_PER_PAGE = 150; // 3x4 Grid für Desktop
-  const PAGINATION_THRESHOLD = 150; // Ab dieser Anzahl Tests wird paginiert
+  // Pagination-Einstellungen - Angepasst für größere Datenmengen (3000 Tests)
+  const ITEMS_PER_PAGE = 150; // 20 Reihen mit je 6 Karten (bei xl:grid-cols-6)
+  const PAGINATION_THRESHOLD = 120; // Ab dieser Anzahl Tests wird paginiert
   const [currentPage, setCurrentPage] = useState(1);
   const isPaginationEnabled = tests.length > PAGINATION_THRESHOLD;
 
@@ -26,13 +26,13 @@ function TestListe({
   const safeSelectedTests = selectedTests || [];
   const [selectedTest, setSelectedTest] = useState(null);
   const [activeTest, setActiveTest] = useState(null);
-  const [longPressTimer, setLongPressTimer] = useState(null);
-  const [isLongPress, setIsLongPress] = useState(false);
+  // Long-Press states beibehalten, aber nicht mehr aktiv benutzt
+  const [isLongPress, setIsLongPress] = useState(false); 
   const [showSpeichernDialog, setShowSpeichernDialog] = useState(false);
+  const [showProfilAntragDialog, setShowProfilAntragDialog] = useState(false);
   const [speicherErfolgreich, setSpeicherErfolgreich] = useState(false);
   const { convertMaterialIdsToNames, isLoading: materialsLoading } = useMaterialService();
-  
-  // Funktion zum Speichern eines persönlichen Profils
+    // Funktion zum Speichern eines persönlichen Profils
   const speicherePersoenlichesProfil = () => {
     if (safeSelectedTests.length === 0) {
       alert('Bitte wählen Sie mindestens einen Test aus.');
@@ -42,6 +42,50 @@ function TestListe({
     // Dialog zum Speichern anzeigen
     setShowSpeichernDialog(true);
   };
+  
+  // Funktion zum Erstellen eines Profil-Antrags
+  const erstelleProfilAntrag = () => {
+    if (safeSelectedTests.length === 0) {
+      alert('Bitte wählen Sie mindestens einen Test aus.');
+      return;
+    }
+    
+    // Dialog zum Erstellen eines Profil-Antrags anzeigen
+    setSelectedTest(null);
+    setShowProfilAntragDialog(true);
+  };
+
+  // Long-Press-Funktionalität deaktiviert
+  // In einem Kommentar gespeicherte Lösungsansätze für spätere Referenz
+  /*
+   * Lösungansätze für bessere Long-Press-Funktionalität:
+   * 
+   * 1. Bewegungstoleranz einbauen: Bei einer kleinen Bewegung des Fingers sollte der Long-Press abgebrochen werden:
+   *    - Im pointerDown-Handler eine Startposition speichern: const [touchStartPos, setTouchStartPos] = useState({ x: 0, y: 0 });
+   *    - Im handlePointerDown:
+   *      if (e.pointerType === 'touch') {
+   *        setTouchStartPos({ x: e.clientX, y: e.clientY });
+   *        // Rest des Codes...
+   *      }
+   *    - Im handlePointerMove:
+   *      const handlePointerMove = useCallback((e) => {
+   *        if (e.pointerType === 'touch' && longPressTimer) {
+   *          const moveX = Math.abs(e.clientX - touchStartPos.x);
+   *          const moveY = Math.abs(e.clientY - touchStartPos.y);
+   *          // Wenn Bewegung größer als Schwellenwert, Long-Press abbrechen
+   *          if (moveY > 5 || moveX > 5) {
+   *            clearTimeout(longPressTimer);
+   *            setLongPressTimer(null);
+   *          }
+   *        }
+   *      }, [longPressTimer, touchStartPos]);
+   * 
+   * 2. Einen dedizierte Long-Press-Komponente verwenden: Es gibt fertige React-Komponenten für Long-Press wie use-long-press, 
+   *    die bereits solche Edge Cases berücksichtigen.
+   * 
+   * 3. Scrollen und Long-Press trennen: Eine andere Strategie wäre, einen bestimmten Bereich jeder Karte für Long-Press zu reservieren
+   *    (z.B. ein Icon), während der Rest der Karte normales Scrollverhalten beibehält.
+   */
 
   const handleSpeichern = (name, beschreibung, kategorie) => {
     // Neues Profil erstellen
@@ -99,74 +143,36 @@ function TestListe({
       return;
     }
 
-    // Prüfen, ob es sich um ein Touch-Gerät handelt
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    
-    // Wenn Long-Press aktiv war, keinen Test öffnen (nur für Touch-Geräte)
-    if (isTouchDevice && isLongPress) {
-      setIsLongPress(false);
-      return;
-    }
-
-    // Test-Details öffnen (für Desktop oder einfachen Touch)
+    // Test Details immer direkt öffnen
     onTestClick(test);
-  }, [isLongPress, onTestClick]);
+  }, [onTestClick]);
 
-  // Moderner Pointer-Down Handler (statt touchStart)
+  // Vereinfachter Pointer-Down Handler - nur für visuelles Feedback
   const handlePointerDown = useCallback((test, e) => {
     // Ignorieren bei Checkbox-Interaktionen
-    if (e.target.closest('.test-checkbox') || e.target.classList.contains('test-cb-label') || 
-        e.target.classList.contains('test-cb-input')) {
+    if (e && e.target && (e.target.closest('.test-checkbox') || e.target.classList.contains('test-cb-label') || 
+        e.target.classList.contains('test-cb-input'))) {
       return;
     }
     
-    // Long-Press nur bei Touch aktivieren, nicht bei Maus
-    if (e.pointerType === 'touch') {
-      setActiveTest(test);
+    // Für alle Geräte nur das visuelle Feedback setzen
+    setActiveTest(test);
+  }, []);
 
-      // Timer für Long-Press starten
-      const timer = setTimeout(() => {
-        toggleTestSelection(test);
-        setIsLongPress(true);
-        
-        // Haptisches Feedback
-        if (navigator.vibrate) {
-          navigator.vibrate(50);
-        }
-      }, longPressDuration);
-      
-      setLongPressTimer(timer);
-    }
-  }, [toggleTestSelection, longPressDuration]);
-
-  // Pointer-Up Handler (statt touchEnd)
+  // Vereinfachter Pointer-Up Handler
   const handlePointerUp = useCallback(() => {
-    // Timer löschen
-    if (longPressTimer) {
-      clearTimeout(longPressTimer);
-      setLongPressTimer(null);
-    }
-    
-    // Nach einer Weile den Long-Press-Status zurücksetzen
-    if (isLongPress) {
-      setTimeout(() => {
-        setIsLongPress(false);
-      }, 300);
-    }
-    
+    // Einfach nur den aktiven Test zurücksetzen
     setActiveTest(null);
-  }, [longPressTimer, isLongPress]);
+    
+    // Long-Press zurücksetzen
+    setIsLongPress(false);
+  }, []);
 
-  // Pointer-Cancel Handler (z.B. bei Scroll)
+  // Vereinfachter Pointer-Cancel Handler
   const handlePointerCancel = useCallback(() => {
-    // Timer löschen
-    if (longPressTimer) {
-      clearTimeout(longPressTimer);
-      setLongPressTimer(null);
-    }
-    
+    // Einfach nur den aktiven Test zurücksetzen
     setActiveTest(null);
-  }, [longPressTimer]);
+  }, []);
   
   // Flexibel sortieren basierend auf den übergebenen Sortieroptionen
   const sortedTests = useMemo(() => {
@@ -295,13 +301,53 @@ function TestListe({
     // Berechnete Werte für Karten-Styling
     const isSelected = isTestSelected(test);
     const isActive = activeTest?.id === test.id;
-    
-    // Event-Handler
+      // Event-Handler - einfach und direkt
     const clickHandler = useCallback((e) => handleTestClick(test, e), [test]);
     const pointerDownHandler = useCallback((e) => handlePointerDown(test, e), [test]);
+      // Touch-Handler mit Scroll-Erkennung
+    const [touchStartPos, setTouchStartPos] = useState(null);
+    
+    const handleTouchStart = useCallback((e) => {
+      if (e?.touches?.[0]) {
+        setTouchStartPos({
+          x: e.touches[0].clientX,
+          y: e.touches[0].clientY,
+          time: Date.now()
+        });
+      }
+    }, []);
+    
+    const handleTouchEnd = useCallback((e) => {
+      // Ignorieren bei Checkbox-Interaktionen
+      if (e && e.target && (e.target.closest('.test-checkbox') || e.target.classList.contains('test-cb-label') || 
+          e.target.classList.contains('test-cb-input'))) {
+        return;
+      }
+      
+      // Scroll-Erkennung: Wenn kein Start-Punkt vorhanden ist oder zu viel Zeit vergangen ist, nichts tun
+      if (!touchStartPos || Date.now() - touchStartPos.time > 300) {
+        setTouchStartPos(null);
+        return;
+      }
+      
+      // Wenn eine Bewegung stattgefunden hat (Scrollen), kein Klick auslösen
+      if (e?.changedTouches?.[0]) {
+        const moveX = Math.abs(e.changedTouches[0].clientX - touchStartPos.x);
+        const moveY = Math.abs(e.changedTouches[0].clientY - touchStartPos.y);
+        
+        // Wenn mehr als 10px Bewegung, war es ein Scroll
+        if (moveX > 10 || moveY > 10) {
+          setTouchStartPos(null);
+          return;
+        }
+      }
+      
+      // Wenn kein Scroll erkannt wurde, Test öffnen
+      setTouchStartPos(null);
+      onTestClick(test);
+    }, [test, onTestClick, touchStartPos]);
 
-    return (
-      <div
+    return (      <div
         className={`relative rounded-lg shadow-sm p-4 ${tailwindBtn.classes.cardBg} border ${
           isSelected
             ? tailwindBtn.classes.selected
@@ -312,10 +358,12 @@ function TestListe({
             : tailwindBtn.classes.hoverEffect
         } theme-transition`}
         onClick={clickHandler}
-        onPointerDown={pointerDownHandler}
-        onPointerUp={handlePointerUp}
-        onPointerCancel={handlePointerCancel}
-        style={{"--long-press-duration": `${longPressDuration/1000}s`}}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        style={{
+          "--long-press-duration": `${longPressDuration/1000}s`,
+          WebkitTapHighlightColor: "transparent" // Entfernt das Highlight beim Tippen auf iOS
+        }}
       >
         {/* Separater Checkbox-Bereich */}
         <TestCardCheckbox test={test} />
@@ -348,7 +396,7 @@ function TestListe({
     
     // Helper für die Seitenauswahl
     const pages = [];
-    const maxVisiblePages = 5; // Maximale Anzahl sichtbarer Seitenzahlen
+    const maxVisiblePages = 7; // Erhöht von 5 auf 7 für bessere Navigation bei großen Datenmengen
     
     // Bestimme, welche Seitenzahlen angezeigt werden sollen
     let startPage = Math.max(1, Math.min(currentPage - Math.floor(maxVisiblePages / 2), totalPages - maxVisiblePages + 1));
@@ -362,81 +410,88 @@ function TestListe({
     for (let i = startPage; i <= endPage; i++) {
       pages.push(i);
     }
-
+    
+    // Einheitliche Stile für alle Buttons definieren
+    const btnBaseClass = `flex items-center justify-center min-w-[40px] px-3 py-1 border ${tailwindBtn.borderClasses}`;
+    const btnHoverClass = `${tailwindBtn.classes.hoverEffect} hover:bg-gray-100 dark:hover:bg-gray-700 theme-transition`;
+    
     return (
-      <div className="flex justify-center items-center my-6 select-none">
-        {/* Zurück-Button */}
-        <button 
-          onClick={() => handlePageChange(currentPage - 1)}
-          disabled={currentPage === 1}
-          className={`px-3 py-1 rounded-l-lg border ${tailwindBtn.borderClasses} ${
-            currentPage === 1 
-              ? 'opacity-50 cursor-not-allowed'
-              : `${tailwindBtn.classes.hoverEffect} hover:bg-gray-100 dark:hover:bg-gray-700`
-          } theme-transition`}
-          aria-label="Vorherige Seite"
-        >
-          <MaterialDesign.MdChevronLeft className="text-xl" />
-        </button>
-        
-        {/* Erste Seite, wenn nicht im sichtbaren Bereich */}
-        {startPage > 1 && (
-          <>
-            <button 
-              onClick={() => handlePageChange(1)}
-              className={`px-3 py-1 border-y ${tailwindBtn.borderClasses} ${tailwindBtn.classes.hoverEffect} hover:bg-gray-100 dark:hover:bg-gray-700 theme-transition`}
-            >
-              1
-            </button>
-            {startPage > 2 && (
-              <span className={`px-3 py-1 border-y ${tailwindBtn.borderClasses} ${tailwindBtn.classes.textMuted}`}>...</span>
-            )}
-          </>
-        )}
-        
-        {/* Seitenzahlen */}
-        {pages.map(page => (
+      <div className="flex justify-center items-center my-4 select-none">
+        {/* Container mit fester Breite für die Pagination */}
+        <div className="inline-flex justify-center items-center w-auto min-w-[350px]">
+          {/* Zurück-Button */}
           <button 
-            key={page}
-            onClick={() => handlePageChange(page)}
-            className={`px-3 py-1 border-y ${tailwindBtn.borderClasses} ${
-              currentPage === page 
-                ? `${tailwindBtn.classes.selected} font-medium`
-                : `${tailwindBtn.classes.hoverEffect} hover:bg-gray-100 dark:hover:bg-gray-700`
-            } theme-transition`}
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+            className={`${btnBaseClass} rounded-l-lg ${
+              currentPage === 1 
+                ? 'opacity-50 cursor-not-allowed'
+                : btnHoverClass
+            }`}
+            aria-label="Vorherige Seite"
           >
-            {page}
+            <MaterialDesign.MdChevronLeft className="text-xl" />
           </button>
-        ))}
-        
-        {/* Letzte Seite, wenn nicht im sichtbaren Bereich */}
-        {endPage < totalPages && (
-          <>
-            {endPage < totalPages - 1 && (
-              <span className={`px-3 py-1 border-y ${tailwindBtn.borderClasses} ${tailwindBtn.classes.textMuted}`}>...</span>
-            )}
+          
+          {/* Erste Seite, wenn nicht im sichtbaren Bereich */}
+          {startPage > 1 && (
+            <>
+              <button 
+                onClick={() => handlePageChange(1)}
+                className={`${btnBaseClass} border-y ${btnHoverClass}`}
+              >
+                1
+              </button>
+              {startPage > 2 && (
+                <span className={`${btnBaseClass} border-y ${tailwindBtn.classes.textMuted}`}>...</span>
+              )}
+            </>
+          )}
+          
+          {/* Seitenzahlen */}
+          {pages.map(page => (
             <button 
-              onClick={() => handlePageChange(totalPages)}
-              className={`px-3 py-1 border-y ${tailwindBtn.borderClasses} ${tailwindBtn.classes.hoverEffect} hover:bg-gray-100 dark:hover:bg-gray-700 theme-transition`}
+              key={page}
+              onClick={() => handlePageChange(page)}
+              className={`${btnBaseClass} border-y ${
+                currentPage === page 
+                  ? `${tailwindBtn.classes.selected} font-medium`
+                  : btnHoverClass
+              }`}
             >
-              {totalPages}
+              {page}
             </button>
-          </>
-        )}
-        
-        {/* Weiter-Button */}
-        <button 
-          onClick={() => handlePageChange(currentPage + 1)}
-          disabled={currentPage === totalPages}
-          className={`px-3 py-1 rounded-r-lg border ${tailwindBtn.borderClasses} ${
-            currentPage === totalPages 
-              ? 'opacity-50 cursor-not-allowed'
-              : `${tailwindBtn.classes.hoverEffect} hover:bg-gray-100 dark:hover:bg-gray-700`
-          } theme-transition`}
-          aria-label="Nächste Seite"
-        >
-          <MaterialDesign.MdChevronRight className="text-xl" />
-        </button>
+          ))}
+          
+          {/* Letzte Seite, wenn nicht im sichtbaren Bereich */}
+          {endPage < totalPages && (
+            <>
+              {endPage < totalPages - 1 && (
+                <span className={`${btnBaseClass} border-y ${tailwindBtn.classes.textMuted}`}>...</span>
+              )}
+              <button 
+                onClick={() => handlePageChange(totalPages)}
+                className={`${btnBaseClass} border-y ${btnHoverClass}`}
+              >
+                {totalPages}
+              </button>
+            </>
+          )}
+          
+          {/* Weiter-Button */}
+          <button 
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className={`${btnBaseClass} rounded-r-lg ${
+              currentPage === totalPages 
+                ? 'opacity-50 cursor-not-allowed'
+                : btnHoverClass
+            }`}
+            aria-label="Nächste Seite"
+          >
+            <MaterialDesign.MdChevronRight className="text-xl" />
+          </button>
+        </div>
       </div>
     );
   };
@@ -448,28 +503,45 @@ function TestListe({
     </div>
   ), [currentTests]);
   
+  // Handler für Druckfunktion
+  const handlePrint = (profilData) => {
+    // Hier kann die Druckfunktionalität implementiert werden
+    console.log('Drucke Profil-Antrag:', profilData);
+    // Hier könnte z.B. die Weiterleitung zur Druckansicht erfolgen
+    // oder ein Druckdialog geöffnet werden
+  };
+
   return (
     <div className="w-full test-liste-container">
       {tests.length === 0 ? (
         <p className={`text-center py-8 ${tailwindBtn.classes.textMuted} text-lg`}>Keine Tests gefunden.</p>
       ) : (
         <>
-          {/* Anzeige der aktuellen Seite und Gesamtanzahl */}
+          {/* Anzeige der aktuellen Seite und Gesamtanzahl mit Pagination oben */}
           {isPaginationEnabled && (
-            <div className={`mb-3 text-sm ${tailwindBtn.classes.textMuted} flex justify-between items-center`}>
-              <span>
-                Zeige {(currentPage - 1) * ITEMS_PER_PAGE + 1} - {Math.min(currentPage * ITEMS_PER_PAGE, sortedTests.length)} von {sortedTests.length} Tests
-              </span>
-              <span>
-                Seite {currentPage} von {totalPages}
-              </span>
+            <div className="mb-4">
+              <div className={`mb-2 text-sm ${tailwindBtn.classes.textMuted} flex justify-between items-center`}>
+                <span>
+                  Zeige {(currentPage - 1) * ITEMS_PER_PAGE + 1} - {Math.min(currentPage * ITEMS_PER_PAGE, sortedTests.length)} von {sortedTests.length} Tests
+                </span>
+                <span>
+                  Seite {currentPage} von {totalPages}
+                </span>
+              </div>
+              {/* Pagination Controls (oben) */}
+              <PaginationControls />
             </div>
-          )}          
+          )}
+          
           {/* Test-Karten-Grid mit optimierter Render-Strategie */}
           {TestCardGrid}
           
-          {/* Pagination Controls (unten) */}
-          <PaginationControls />
+          {/* Pagination Controls (unten) mit Abstand nach oben */}
+          {isPaginationEnabled && (
+            <div className="mt-6">
+              <PaginationControls />
+            </div>
+          )}
         </>
       )}
       
@@ -480,6 +552,16 @@ function TestListe({
           onClose={() => setShowSpeichernDialog(false)} 
           onSpeichern={handleSpeichern}
           mode="save"
+        />
+      )}
+      
+      {/* Dialog zum Erstellen eines Profil-Antrags */}
+      {showProfilAntragDialog && (
+        <ProfilErstellungDialog 
+          selectedTests={safeSelectedTests}
+          onClose={() => setShowProfilAntragDialog(false)} 
+          onPrint={handlePrint}
+          mode="create"
         />
       )}
       

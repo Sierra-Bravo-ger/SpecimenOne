@@ -29,6 +29,7 @@ function Backup-JsonFile {
 Backup-JsonFile -jsonPath "public/material.json"
 Backup-JsonFile -jsonPath "public/einheiten.json"
 Backup-JsonFile -jsonPath "public/tests.json"
+Backup-JsonFile -jsonPath "public/referenzwerte.json"
 
 Write-Host ""
 Write-Host "0. Material-Erweiterungs-Mapping wird generiert (falls noetig)..." -ForegroundColor Cyan
@@ -45,6 +46,10 @@ Write-Host "2. Einheiten-Konvertierung wird ausgefuehrt..." -ForegroundColor Cya
 Write-Host ""
 Write-Host "3. Tests-Konvertierung wird ausgefuehrt..." -ForegroundColor Cyan
 & .\ConvertTesteCsvToJson.ps1
+
+Write-Host ""
+Write-Host "4. Normwerte-Konvertierung wird ausgefuehrt..." -ForegroundColor Cyan
+& .\ConvertNormwerteCsvToJson.ps1
 
 Write-Host ""
 Write-Host "Alle Konvertierungen abgeschlossen." -ForegroundColor Green

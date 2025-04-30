@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import TestDetails from './TestDetails';
 import * as MaterialDesign from "react-icons/md";
 import '@material/web/ripple/ripple.js';
@@ -7,6 +7,7 @@ import { useMaterialService } from '../services/MaterialService';
 import MaterialBadge from './MaterialBadge';
 import tailwindBtn from './tailwindBtn';
 import '../styles/kategorie-badges.css';
+import { sendProfilToDiscord } from '../services/ServiceClient';
 
 function PersoenlicheProfileListe() {
   const [persoenlicheProfile, setPersoenlicheProfile] = useState([]);
@@ -73,15 +74,35 @@ function PersoenlicheProfileListe() {
       localStorage.setItem('persoenlicheProfile', JSON.stringify(aktualisierteListe));
     }
   };
-  
-  // Profil drucken
+    // Profil-Antrag drucken
   const handleProfilDrucken = (profil, e) => {
     // Verhindern, dass der Click auf den Button auch das Profil expandiert
     e.stopPropagation();
     
-    // Hier später Druckfunktionalität integrieren
-    console.log("Profil drucken:", profil);
-    alert("Druckfunktionalität wird in einer späteren Version implementiert.");
+    try {
+      // Discord-Webhook aufrufen mit anonymisierten Daten
+      const profilData = {
+        profilName: profil.name,
+        tests: profil.tests,
+        erstelltAm: new Date().toLocaleDateString('de-DE'),
+        kategorie: profil.kategorie || 'Keine Kategorie',
+        beschreibung: profil.beschreibung || '',
+        anonymous: true // DSGVO-konform
+      };
+        // Discord-Webhook aufrufen
+      sendProfilToDiscord(profilData)
+        .then(() => {
+          console.log("Profil-Antrag erfolgreich gesendet");
+          alert("Profil-Antrag erfolgreich übermittelt und wird zum Drucken vorbereitet...");
+        })
+        .catch(error => {
+          console.error("Fehler beim Senden des Profil-Antrags:", error);
+          alert("Profil-Antrag wird zum Drucken vorbereitet...");
+        });
+    } catch (error) {
+      console.error("Fehler beim Verarbeiten des Profil-Antrags:", error);
+      alert("Es ist ein Fehler beim Verarbeiten des Profil-Antrags aufgetreten.");
+    }
   };
   // Exportieren und Importieren
   const exportProfile = () => {
@@ -229,11 +250,10 @@ function PersoenlicheProfileListe() {
                     Erstellt am {new Date(profil.erstelltAm).toLocaleDateString('de-DE')}
                   </p>
                   {/* Aktionsbuttons */}
-                  <div className="mt-2 flex gap-2">
-                    <button 
+                  <div className="mt-2 flex gap-2">                    <button 
                       className="p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                       onClick={(e) => handleProfilDrucken(profil, e)}
-                      aria-label="Profil drucken"
+                      aria-label="Profil-Antrag drucken"
                     >
                       <MaterialDesign.MdPrint className="text-gray-700 dark:text-gray-300" />
                     </button>

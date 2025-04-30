@@ -162,17 +162,25 @@ function Get-MaterialId {
 
 # Funktion: Formatiere die Test-ID aus TEST_NR
 function Format-TestId {
-    param($testNr)
+    param(
+        [Parameter(Mandatory=$true)]
+        [string]$testNr,
+        
+        [Parameter(Mandatory=$false)]
+        [int]$digits = 4  # Standard: 4 Stellen, für zukünftige Erweiterung auf 5 vorbereitet
+    )
     
     # Entferne Dezimalstellen, falls vorhanden
     if ($testNr -match '(\d+),\d+') {
         $testNr = $matches[1]
     } elseif ($testNr -match '(\d+)\.0') {
         $testNr = $matches[1]
+    } elseif ($testNr -match '(\d+)\..*') {
+        $testNr = $matches[1]  # Entferne alle Dezimalstellen
     }
     
-    # Formatiere als 'T' + vierstellige Zahl
-    return "T" + $testNr.PadLeft(4, '0')
+    # Formatiere als 'T' + vierstellige Zahl (oder mehr, wenn $digits > 4)
+    return "T" + $testNr.PadLeft($digits, '0')
 }
 
 # Funktion: Generiere zufällige Befundzeit
@@ -181,11 +189,30 @@ function Get-RandomBefundzeit {
     return "$stunden Stunden"
 }
 
+# Bestimmen der maximalen Test-Nummer für die Entscheidung 4/5-stellig
+$maxTestNumber = 0
+foreach ($row in $csv) {
+    if ($row.TEST_NR -match '(\d+)') {
+        $testNumber = [int]$matches[1]
+        if ($testNumber -gt $maxTestNumber) {
+            $maxTestNumber = $testNumber
+        }
+    }
+}
+
+# Entscheide ob 4 oder 5 Stellen nötig sind
+$requiredDigits = 4
+if ($maxTestNumber -ge 10000) {
+    $requiredDigits = 5
+    Write-Host "5-stellige Test-IDs erkannt, verwende Format T00000." -ForegroundColor Yellow
+} else {
+    Write-Host "Verwende Standard-Format T0000 für Test-IDs." -ForegroundColor Green
+}
+
 # Umwandlung in die gewünschte JSON-Struktur
 $tests = @()
-foreach ($row in $csv) {
-    # Test-ID formatieren basierend auf TEST_NR gemäß Mapping
-    $testId = Format-TestId -testNr $row.TEST_NR
+foreach ($row in $csv) {    # Test-ID formatieren basierend auf TEST_NR gemäß Mapping
+    $testId = Format-TestId -testNr $row.TEST_NR -digits $requiredDigits
     
     # Name aus NAME_BEFUND_LANG gemäß Mapping
     $name = $row.NAME_BEFUND_LANG

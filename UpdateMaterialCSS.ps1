@@ -34,6 +34,23 @@ function DarkenColor($hex, $percent) {
     return $newHex
 }
 
+# Funktion zur Bereinigung von Strings für CSS-Selektoren
+function Get-CSSValidSelector($string) {
+    if ([string]::IsNullOrWhiteSpace($string)) {
+        return "unbekannt"
+    }
+    
+    # Entferne ungültige Zeichen für CSS-Selektoren (wie ?, :, etc.)
+    $validSelector = $string -replace '[^a-zA-Z0-9\-_]', '-'
+    
+    # Stelle sicher, dass der Selektor nicht mit einer Zahl oder einem Bindestrich beginnt
+    if ($validSelector -match '^[0-9-]') {
+        $validSelector = "m" + $validSelector
+    }
+    
+    return $validSelector
+}
+
 # Header und Footer für die generierte CSS
 $cssHeader = @"
 /* 
@@ -184,15 +201,20 @@ $processedMaterials = @{}
 $cssColorsByFarbenId = @{}
 
 foreach ($item in $material) {
+    # Material-ID für CSS bereinigen
+    $materialId = $item.material_id
+    $cssValidMaterialId = Get-CSSValidSelector -string $materialId
+    
     # Nur eindeutige Material-IDs verarbeiten
-    $materialId = $item.material_id.ToLower()
-    if ($processedMaterials.ContainsKey($materialId)) {
+    if ($processedMaterials.ContainsKey($cssValidMaterialId)) {
+        Write-ColorText "Warnung: Doppeltes Material mit CSS-ID '$cssValidMaterialId' gefunden, überspringe..." "Yellow"
         continue
     }
     
     $materialBezeichnung = $item.material_bezeichnung
+    $cssValidMaterialBezeichnung = Get-CSSValidSelector -string $materialBezeichnung
     $farbenId = $item.farben_id
-    $cssClass = "material-$($materialId.ToLower().Replace('_', '-'))"
+    $cssClass = "material-$($cssValidMaterialId.ToLower())"
     
     # CSS für Farben-ID basierte Klassen
     if ($farbenId -and $farbenMap.ContainsKey($farbenId)) {
@@ -244,7 +266,7 @@ foreach ($item in $material) {
 "@
     }
     
-    $processedMaterials[$materialId] = $true
+    $processedMaterials[$cssValidMaterialId] = $true
 }
 
 # Farben-ID-basierte Klassen hinzufügen

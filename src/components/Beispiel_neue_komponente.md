@@ -202,9 +202,11 @@ const handleSpeichern = (name, beschreibung) => {
 
 // Speicher-Dialog als bedingter Render:
 {showSpeichernDialog && (
-  <ProfilSpeichernDialog
-    onAbbrechen={() => setShowSpeichernDialog(false)}
+  <ProfilErstellungDialog
+    selectedTests={selectedTests}
+    onClose={() => setShowSpeichernDialog(false)}
     onSpeichern={handleSpeichern}
+    mode="save"
   />
 )}
 
@@ -216,39 +218,69 @@ const handleSpeichern = (name, beschreibung) => {
 )}
 ```
 
-### 4. ProfilSpeichernDialog Komponente
+### 4. ProfilErstellungDialog Komponente
 
 ```jsx
-// Neue Komponente in ProfilSpeichernDialog.jsx
-import React, { useState } from 'react';
+// In ProfilErstellungDialog.jsx - wird für beide Funktionen verwendet (Erstellen und Speichern)
+import { useState, useRef, useEffect } from 'react';
+import * as MaterialDesign from "react-icons/md";
+import { useAuth0 } from '@auth0/auth0-react';
+import { sendProfilByFormSubmit, sendProfilToDiscord, getServiceStatus } from '../services/ServiceClient';
 import tailwindBtn from './tailwindBtn';
-import '@material/web/dialog/dialog.js';
-import '@material/web/textfield/filled-text-field.js';
-import '@material/web/button/text-button.js';
 
-function ProfilSpeichernDialog({ onAbbrechen, onSpeichern }) {
-  const [name, setName] = useState('');
+/**
+ * Gemeinsamer Dialog für das Erstellen und Speichern von Profilen
+ * 
+ * @param {Object} props - Komponenten-Properties
+ * @param {Array|number} props.selectedTests - Die ausgewählten Tests oder deren Anzahl
+ * @param {Function} props.onClose - Callback beim Schließen des Dialogs
+ * @param {Function} [props.onPrint] - Callback für Druckfunktion (nur im Erstellungsmodus)
+ * @param {Function} [props.onSpeichern] - Callback zum Speichern als persönliches Profil (nur im Speichernmodus)
+ * @param {('create'|'save')} [props.mode="create"] - Modus des Dialogs: "create" oder "save"
+ */
+function ProfilErstellungDialog({ 
+  selectedTests, 
+  onClose, 
+  onPrint, 
+  onSpeichern,
+  mode = "create" // Standard-Modus ist Profil erstellen 
+}) {
+  const { isAuthenticated, loginWithRedirect, user } = useAuth0();
+  
+  // Zustandsvariablen
+  const [profilName, setProfilName] = useState('');
   const [beschreibung, setBeschreibung] = useState('');
+  const [kategorie, setKategorie] = useState('Klinische Chemie');
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!name) return;
+    if (!profilName) return;
     
-    onSpeichern(name, beschreibung);
+    if (mode === "save") {
+      // Im Speichern-Modus: Persönliches Profil speichern
+      onSpeichern(profilName, beschreibung);
+    } else {
+      // Im Erstellen-Modus: Standard-Profil erstellen
+      // ... Code zum Erstellen eines Standard-Profils
+    }
   };
   
+  // Verschiedene Renders je nach Modus (erstellen oder speichern)
   return (
     <div className={tailwindBtn.classes.modalBackdrop}>
       <div className={tailwindBtn.classes.modal}>
-        <h3 className={tailwindBtn.classes.modalTitle}>Persönliches Profil speichern</h3>
+        <h3 className={tailwindBtn.classes.modalTitle}>
+          {mode === "create" ? "Neues Profil erstellen" : "Persönliches Profil speichern"}
+        </h3>
         
         <form onSubmit={handleSubmit}>
+          {/* Gemeinsame Formularelemente */}
           <div className={tailwindBtn.classes.formGroup}>
             <md-filled-text-field
               label="Profilname"
               required
-              value={name}
-              onInput={(e) => setName(e.target.value)}
+              value={profilName}
+              onInput={(e) => setProfilName(e.target.value)}
             ></md-filled-text-field>
           </div>
           
@@ -262,13 +294,15 @@ function ProfilSpeichernDialog({ onAbbrechen, onSpeichern }) {
             ></md-filled-text-field>
           </div>
           
+          {/* Weitere Formularelemente basierend auf dem Modus */}
+          
           <div className={tailwindBtn.classes.modalActions}>
-            <md-text-button onClick={onAbbrechen}>
+            <md-text-button onClick={onClose}>
               Abbrechen
             </md-text-button>
             
-            <md-text-button type="submit" disabled={!name}>
-              Speichern
+            <md-text-button type="submit" disabled={!profilName}>
+              {mode === "create" ? "Erstellen" : "Speichern"}
             </md-text-button>
           </div>
         </form>
@@ -277,7 +311,7 @@ function ProfilSpeichernDialog({ onAbbrechen, onSpeichern }) {
   );
 }
 
-export default ProfilSpeichernDialog;
+export default ProfilErstellungDialog;
 ```
 
 ### 5. Aktualisieren von tailwindBtn.js mit neuen Klassen

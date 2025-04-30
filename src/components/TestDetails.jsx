@@ -275,7 +275,17 @@ function TestDetails({ test, onClose }) {
                       ref.Geschlecht === 2000 ? "Weiblich" : 
                       ref.Geschlecht === 3000 ? "Alle" : ""
                     }</td>
-                    <td style="padding: 8px; border: 1px solid #ddd;">${ref.Wert_untere_Grenze} - ${ref.Wert_obere_Grenze} ${getEinheitBezeichnung(test.einheit_id)}</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">${
+                      ref.Anzeige_Label 
+                        ? `${ref.Anzeige_Label} ${getEinheitBezeichnung(test.einheit_id)}`
+                        : (ref.Wert_untere_Grenze !== null && ref.Wert_obere_Grenze !== null)
+                          ? `${ref.Wert_untere_Grenze} - ${ref.Wert_obere_Grenze} ${getEinheitBezeichnung(test.einheit_id)}`
+                          : ref.Wert_untere_Grenze !== null
+                            ? `> ${ref.Wert_untere_Grenze} ${getEinheitBezeichnung(test.einheit_id)}`
+                            : ref.Wert_obere_Grenze !== null
+                              ? `< ${ref.Wert_obere_Grenze} ${getEinheitBezeichnung(test.einheit_id)}`
+                              : "-"
+                    }</td>
                     <td style="padding: 8px; border: 1px solid #ddd;">${ref.Schwangerschaft ? `Schwangerschaft (${ref.Besondere_Bedingung})` : ref.Besondere_Bedingung || "-"}</td>
                   </tr>
                 `).join('')}
@@ -353,7 +363,7 @@ function TestDetails({ test, onClose }) {
               }              return test.material && test.material.length > 0 ? (
                 <div className={`${tailwindBtn.classes.badge.badgesContainer}`}>
                   {test.material.map((materialId, index) => (
-                    <MaterialBadge key={index} materialId={materialId} showKurzbezeichnung={true} />
+                    <MaterialBadge key={index} materialId={materialId} showKurzbezeichnung={false} />
                   ))}
                 </div>
               ) : (
@@ -478,7 +488,18 @@ function TestDetails({ test, onClose }) {
                        `${ref.Alter_von}-${ref.Alter_bis} Jahre`}
                     </td>
                     <td>{getGeschlechtText(ref.Geschlecht)}</td>
-                    <td>{`${ref.Wert_untere_Grenze} - ${ref.Wert_obere_Grenze} ${getEinheitBezeichnung(test.einheit_id)}`}</td>
+                    <td>
+                      {ref.Anzeige_Label 
+                        ? `${ref.Anzeige_Label} ${getEinheitBezeichnung(test.einheit_id)}`
+                        : (ref.Wert_untere_Grenze !== null && ref.Wert_obere_Grenze !== null)
+                          ? `${ref.Wert_untere_Grenze} - ${ref.Wert_obere_Grenze} ${getEinheitBezeichnung(test.einheit_id)}`
+                          : ref.Wert_untere_Grenze !== null
+                            ? `> ${ref.Wert_untere_Grenze} ${getEinheitBezeichnung(test.einheit_id)}`
+                            : ref.Wert_obere_Grenze !== null
+                              ? `< ${ref.Wert_obere_Grenze} ${getEinheitBezeichnung(test.einheit_id)}`
+                              : "-"
+                      }
+                    </td>
                     <td>{ref.Schwangerschaft ? `Schwangerschaft (${ref.Besondere_Bedingung})` : ref.Besondere_Bedingung || "-"}</td>
                   </tr>
                 ))}

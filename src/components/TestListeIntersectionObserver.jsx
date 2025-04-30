@@ -1,4 +1,4 @@
-import React, { useState, useMemo, memo } from 'react'
+import React, { useState, useMemo, memo, useRef } from 'react'
 import TestCheckbox from './TestCheckbox'
 import '@material/web/ripple/ripple.js'
 import '@material/web/elevation/elevation.js'
@@ -26,6 +26,21 @@ function TestListe({
   const [showSpeichernDialog, setShowSpeichernDialog] = useState(false);
   const [speicherErfolgreich, setSpeicherErfolgreich] = useState(false);
   const { convertMaterialIdsToNames, isLoading: materialsLoading } = useMaterialService();
+  
+  // Verbesserte Touch-Tracking-Logik
+  const touchState = useRef({
+    startX: 0,
+    startY: 0,
+    startTime: 0,
+    isScrolling: false,
+    testId: null,
+    moved: false,
+    touchActive: false
+  });
+  
+  // Konstanten für die Touch-Erkennung
+  const SCROLL_THRESHOLD = 8; // Pixel ab denen eine Bewegung als Scrolling gilt
+  const LONG_PRESS_DELAY = 600; // ms für Long Press
   
   // Funktion zum Speichern eines persönlichen Profils
   const speicherePersoenlichesProfil = () => {
@@ -64,90 +79,22 @@ function TestListe({
     setSpeicherErfolgreich(true);
     setTimeout(() => setSpeicherErfolgreich(false), 3000);
   };
-  
-  // Konvertiere ms in Sekunden für CSS-Variable
-  const longPressDuration = 600; // ms
-  
-  // Standard Click-Handler für Desktop-Nutzung und zur Anzeige der Details
+
+  // Standard Click-Handler für Desktop-Nutzung 
   const handleTestClick = (test, e) => {
     // Wenn auf die Checkbox oder deren Label geklickt wurde, nichts tun
     if (e && (e.target.closest('.test-checkbox') || e.target.classList.contains('test-cb-label') || 
               e.target.classList.contains('test-cb-input'))) {
       return;
     }
-
-    // Prüfen, ob es sich um ein Touch-Gerät handelt
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     
-    // Wenn Long-Press aktiv war, keinen Test öffnen (nur für Touch-Geräte)
-    if (isTouchDevice && isLongPress) {
-      setIsLongPress(false);
+    // Bei Touch-Geräten nicht reagieren - hier übernehmen die Touch-Events
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
       return;
     }
 
-    // Test-Details öffnen (für Desktop oder einfachen Touch)
+    // Bei Desktop-Geräten: Test öffnen
     onTestClick(test);
-  };
-  
-  // Moderner Pointer-Down Handler (statt touchStart)
-  const handlePointerDown = (test, e) => {
-    // Ignorieren bei Checkbox-Interaktionen
-    if (e.target.closest('.test-checkbox') || e.target.classList.contains('test-cb-label') || 
-        e.target.classList.contains('test-cb-input')) {
-      return;
-    }
-    
-    // Long-Press nur bei Touch aktivieren, nicht bei Maus
-    if (e.pointerType === 'touch') {
-      setActiveTest(test);
-
-      // Timer für Long-Press starten
-      const timer = setTimeout(() => {
-        toggleTestSelection(test);
-        setIsLongPress(true);
-        
-        // Haptisches Feedback
-        if (navigator.vibrate) {
-          navigator.vibrate(50);
-        }
-      }, longPressDuration);
-      
-      setLongPressTimer(timer);
-    }
-  };
-
-  // Pointer-Up Handler (statt touchEnd)
-  const handlePointerUp = (e) => {
-    // Timer löschen
-    if (longPressTimer) {
-      clearTimeout(longPressTimer);
-      setLongPressTimer(null);
-    }
-    
-    // Nach einer Weile den Long-Press-Status zurücksetzen
-    if (isLongPress) {
-      setTimeout(() => {
-        setIsLongPress(false);
-      }, 300);
-    }
-    
-    setActiveTest(null);
-  };
-
-  // Pointer-Cancel Handler (z.B. bei Scroll)
-  const handlePointerCancel = () => {
-    // Timer löschen
-    if (longPressTimer) {
-      clearTimeout(longPressTimer);
-      setLongPressTimer(null);
-    }
-    
-    setActiveTest(null);
-  };
-  
-  // Prüfen, ob ein Test ausgewählt ist
-  const isTestSelected = (test) => {
-    return safeSelectedTests.some(selectedTest => selectedTest.id === test.id);
   };
 
   // Test-Auswahl umschalten
@@ -159,6 +106,125 @@ function TestListe({
       // Test hinzufügen, wenn nicht ausgewählt
       onTestSelect([...safeSelectedTests, test]);
     }
+  };
+  
+  // Prüfen, ob ein Test ausgewählt ist
+  const isTestSelected = (test) => {
+    return safeSelectedTests.some(selectedTest => selectedTest.id === test.id);
+  };
+  
+  // Touch-Start-Handler
+  const handleTouchStart = (e, test) => {
+    // Ignoriere Touch-Events auf Checkbox
+    if (e.target.closest('.test-checkbox') || e.target.classList.contains('test-cb-label') || 
+        e.target.classList.contains('test-cb-input')) {
+      return;
+    }
+    
+    const touch = e.touches[0];
+    
+    // Touch-Status zurücksetzen und neue Touch-Werte speichern
+    touchState.current = {
+      startX: touch.clientX,
+      startY: touch.clientY,
+      startTime: Date.now(),
+      isScrolling: false,
+      testId: test.id,
+      moved: false,
+      touchActive: true
+    };
+    
+    // Aktiven Test für UI-Feedback setzen
+    setActiveTest(test);
+    
+    // Long-Press Timer starten
+    const timer = setTimeout(() => {
+      // Long-Press nur erkennen, wenn:
+      // 1. Touch noch aktiv ist
+      // 2. Keine Scrollbewegung erkannt wurde
+      // 3. Der Timer nicht während eines Scrollvorgangs ausgelöst wurde
+      if (touchState.current.touchActive && !touchState.current.isScrolling && !touchState.current.moved) {
+        setIsLongPress(true);
+        toggleTestSelection(test);
+        
+        // Haptisches Feedback
+        if (navigator.vibrate) {
+          navigator.vibrate(50);
+        }
+      }
+    }, LONG_PRESS_DELAY);
+    
+    setLongPressTimer(timer);
+  };
+  
+  // Touch-Move-Handler
+  const handleTouchMove = (e) => {
+    // Wenn kein Touch aktiv ist, nichts tun
+    if (!touchState.current.touchActive) return;
+    
+    const touch = e.touches[0];
+    const deltaX = Math.abs(touch.clientX - touchState.current.startX);
+    const deltaY = Math.abs(touch.clientY - touchState.current.startY);
+    
+    // Als Scrollvorgang erkennen, wenn Bewegung über Schwellenwert geht
+    if (deltaX > SCROLL_THRESHOLD || deltaY > SCROLL_THRESHOLD) {
+      touchState.current.moved = true;
+      
+      // Wenn bisher kein Scrolling erkannt, jetzt als Scrolling markieren
+      if (!touchState.current.isScrolling) {
+        touchState.current.isScrolling = true;
+        
+        // Long-Press Timer abbrechen, da wir scrollen
+        if (longPressTimer) {
+          clearTimeout(longPressTimer);
+          setLongPressTimer(null);
+        }
+        
+        // Aktiven Test zurücksetzen
+        setActiveTest(null);
+      }
+    }
+  };
+  
+  // Touch-End-Handler
+  const handleTouchEnd = (e, test) => {
+    // Long-Press Timer abbrechen
+    if (longPressTimer) {
+      clearTimeout(longPressTimer);
+      setLongPressTimer(null);
+    }
+    
+    // Wenn wir einen Long-Press hatten, keine weitere Aktion
+    if (isLongPress) {
+      setTimeout(() => setIsLongPress(false), 300);
+      touchState.current.touchActive = false;
+      return;
+    }
+    
+    // Wenn es ein einfacher Tap ohne Scrolling war, Test öffnen
+    if (!touchState.current.isScrolling && !touchState.current.moved && 
+        touchState.current.testId === test.id) {
+      // Nur als Tap erkennen, wenn Touch weniger als 300ms dauert
+      if (Date.now() - touchState.current.startTime < 300) {
+        onTestClick(test);
+      }
+    }
+    
+    // Touch-Status zurücksetzen
+    touchState.current.touchActive = false;
+    setActiveTest(null);
+  };
+  
+  // Touch-Cancel-Handler
+  const handleTouchCancel = () => {
+    // Timer abbrechen und Status zurücksetzen
+    if (longPressTimer) {
+      clearTimeout(longPressTimer);
+      setLongPressTimer(null);
+    }
+    
+    touchState.current.touchActive = false;
+    setActiveTest(null);
   };
   
   // Flexibel sortieren basierend auf den übergebenen Sortieroptionen
@@ -198,124 +264,120 @@ function TestListe({
       return sortDirection === 'asc' ? comparison : -comparison;
     });
   }, [tests, sortOption, sortDirection]);
-
-  // TestCard mit IntersectionObserver-Hook
-  const TestCard = memo(({ test }) => {
-    // InView-Hook für Lazy-Loading
-    const [ref, inView] = useInView({
-      triggerOnce: true,
-      rootMargin: '200px 0px',
-    });
-
-    return (
-      <div 
-        ref={ref}
-        className={`relative rounded-lg shadow-sm p-4 ${tailwindBtn.classes.cardBg} border ${
-          isTestSelected(test) 
-            ? tailwindBtn.classes.selected
-            : tailwindBtn.borderClasses
-        } ${
-          activeTest?.id === test.id 
-            ? tailwindBtn.classes.active
-            : tailwindBtn.classes.hoverEffect
-        } theme-transition ${inView ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
-        onClick={(e) => handleTestClick(test, e)}
-        onPointerDown={(e) => handlePointerDown(test, e)}
-        onPointerUp={handlePointerUp}
-        onPointerCancel={handlePointerCancel}
-        style={{"--long-press-duration": `${longPressDuration/1000}s`}}
-      >
-        {inView && (
-          <>
-            <div className="absolute bottom-3 right-3 z-10">
-              <TestCheckbox 
-                test={test} 
-                isSelected={isTestSelected(test)} 
-                onToggle={toggleTestSelection}
-              />
-            </div>
-            <md-ripple></md-ripple>
-            <div className="mb-2">
-              <h3 className={`font-medium text-lg mb-1 ${tailwindBtn.classes.text} ${
-                test.kategorie 
-                  ? `kategorie-text-${test.kategorie.toLowerCase().replace(/\s+/g, '-')}` 
-                  : ''
-              }`}>
-                {test.name || 'Kein Name'}
-              </h3>
-            </div>
-            <p className={`inline-block mb-3 px-2 py-1 rounded-full text-sm kategorie-badge ${
-              test.kategorie 
-                ? `kategorie-${test.kategorie.toLowerCase().replace(/\s+/g, '-')}` 
-                : 'bg-gray-200 text-gray-700'
-            }`}>
-              {test.kategorie || 'Keine Kategorie'}
-            </p>
-            <div className="mb-2">
-              <strong className={`text-sm ${tailwindBtn.classes.text}`}>Material:</strong>
-              {test.material && test.material.length > 0 ? (
-                <div className="flex flex-wrap gap-1 mt-1">
-                  {test.material.map((materialId, index) => (
-                    <MaterialBadge key={index} materialId={materialId} mini={true} />
-                  ))}
-                </div>
-              ) : (
-                <span className={`text-sm italic ${tailwindBtn.classes.textMuted}`}>Keine Angabe</span>
-              )}
-            </div>
-            {test.synonyme && test.synonyme.length > 0 && (
-              <div className={`mt-2 pt-2 border-t ${tailwindBtn.borderClasses} border-dashed`}>
-                <span className={`text-sm ${tailwindBtn.classes.textMuted} italic`}>{test.synonyme.join(', ')}</span>
-              </div>
-            )}
-          </>
-        )}
-        
-        {!inView && (
-          // Placeholder für nicht sichtbare Karten
-          <>
-            <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-3 animate-pulse"></div>
-            <div className="h-5 bg-gray-200 dark:bg-gray-700 rounded w-1/3 mb-4 animate-pulse"></div>
-            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-full mb-2 animate-pulse"></div>
-            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-full mb-2 animate-pulse"></div>
-            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-2/3 animate-pulse"></div>
-          </>
-        )}
-      </div>
-    );
+  
+  // Intersection Observer für virtualisiertes Rendering
+  const { ref, inView } = useInView({
+    triggerOnce: false,
+    threshold: 0.1,
   });
 
+  // Rendere die Liste als virtualisierte List-Items
   return (
     <div className="w-full">
-      {tests.length === 0 ? (
-        <p className={`text-center py-8 ${tailwindBtn.classes.textMuted} text-lg`}>Keine Tests gefunden.</p>
-      ) : (
-        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 ${tailwindBtn.classes.containerBg}`}>
-          {sortedTests.map(test => (
-            <TestCard key={test.id} test={test} />
-          ))}
+      <div className="sticky top-0 z-10 flex justify-between bg-white dark:bg-gray-800 p-2 border-b border-gray-300 dark:border-gray-600 shadow-sm">
+        <div className="flex items-center">
+          <span className="text-sm font-medium text-gray-600 dark:text-gray-300 mr-2">
+            {safeSelectedTests.length} ausgewählt
+          </span>
         </div>
-      )}
-      
-      {/* Dialog zum Speichern persönlicher Profile - Wiederverwendung der ProfilErstellungDialog-Komponente */}
-      {showSpeichernDialog && (
-        <ProfilErstellungDialog 
-          selectedTests={safeSelectedTests}
-          onClose={() => setShowSpeichernDialog(false)} 
-          onSpeichern={handleSpeichern}
-          mode="save"
-        />
-      )}
-      
-      {/* Erfolgsmeldung mit Animation */}
+        
+        <button 
+          onClick={speicherePersoenlichesProfil}
+          disabled={safeSelectedTests.length === 0}
+          className={`
+            ${safeSelectedTests.length > 0
+              ? 'bg-blue-600 hover:bg-blue-700 text-white' 
+              : 'bg-gray-300 text-gray-500 cursor-not-allowed'}
+            px-3 py-1 rounded-md text-sm font-medium transition-colors duration-200
+          `}
+        >
+          <MaterialDesign.MdBookmarkAdd className="inline mr-1" />
+          Als Profil speichern
+        </button>
+      </div>
+
+      {/* Erfolgsmeldung beim Speichern */}
       {speicherErfolgreich && (
-        <div className={tailwindBtn.classes.successToast}>
-          <MaterialDesign.MdCheckCircle className="text-xl" /> 
-          Profil erfolgreich gespeichert!
+        <div className="bg-green-100 border-l-4 border-green-500 text-green-700 p-2 mb-4">
+          <p className="font-medium">Profil erfolgreich gespeichert!</p>
         </div>
       )}
+      
+      {/* Liste der Tests mit Touch-Event-Handlern */}
+      <ul className="divide-y divide-gray-300 dark:divide-gray-700">
+        {sortedTests.map(test => (
+          <li
+            key={test.id}
+            ref={ref}
+            className={`
+              relative px-4 py-3 flex items-center 
+              ${test.aktiv === false ? 'opacity-50' : ''}
+              ${activeTest?.id === test.id ? 'bg-blue-50 dark:bg-blue-900/20' : 'hover:bg-gray-50 dark:hover:bg-gray-800/50'}
+              transition-colors duration-200
+            `}
+            onClick={(e) => handleTestClick(test, e)}
+            onTouchStart={(e) => handleTouchStart(e, test)}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={(e) => handleTouchEnd(e, test)}
+            onTouchCancel={handleTouchCancel}
+          >
+            {/* Checkbox für Auswahl */}
+            <TestCheckbox 
+              test={test} 
+              isSelected={isTestSelected(test)} 
+              onToggle={toggleTestSelection}
+            />
+            
+            <div className="flex-1 ml-3">
+              {/* Test-ID mit Aktiv-Status */}
+              <div className="flex items-center">
+                <span className="text-xs text-gray-500 dark:text-gray-400 font-mono">{test.id}</span>
+                {test.aktiv === false && (
+                  <span className="ml-2 px-1.5 py-0.5 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded text-xs">
+                    Inaktiv
+                  </span>
+                )}
+              </div>
+              
+              {/* Test-Name */}
+              <div className="font-medium text-gray-900 dark:text-gray-100 mb-0.5 line-clamp-2">
+                {test.name || <span className="italic text-gray-500">Kein Name</span>}
+              </div>
+              
+              {/* Kategorie und Material */}
+              <div className="flex flex-wrap gap-1 mt-1">
+                {test.kategorie && (
+                  <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200">
+                    {test.kategorie}
+                  </span>
+                )}
+                
+                {test.material && test.material.map((materialId, index) => (
+                  <MaterialBadge 
+                    key={index} 
+                    materialId={materialId} 
+                    mini={true}
+                    showKurzbezeichnung={true} 
+                  />
+                ))}
+              </div>
+            </div>
+            
+            <MaterialDesign.MdChevronRight className="text-gray-400 dark:text-gray-500 text-xl" />
+          </li>
+        ))}
+      </ul>
+      
+      {/* Dialog zum Speichern des Profils */}
+      <ProfilErstellungDialog
+        isOpen={showSpeichernDialog}
+        selectedTests={safeSelectedTests}
+        onClose={() => setShowSpeichernDialog(false)} 
+        onSpeichern={handleSpeichern}
+        mode="save"
+      />
     </div>
   );
 }
 
-export default TestListe;
+export default memo(TestListe);

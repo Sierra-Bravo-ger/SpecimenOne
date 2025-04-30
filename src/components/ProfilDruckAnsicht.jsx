@@ -9,7 +9,7 @@ function ProfilDruckAnsicht({ profil, onClose }) {
         <html>
         <head>
           <meta charset="utf-8">
-          <title>${profil.profilName} - SpecimenOne Testprofil</title>
+          <title>${profil.profilName} - SpecimenOne Profil-Antrag</title>
           <style>
             @page { margin: 1cm; }
             body { 
@@ -31,10 +31,15 @@ function ProfilDruckAnsicht({ profil, onClose }) {
               height: 60px;
               width: auto;
               margin-right: 15px;
-            }
-            h1 {
+            }            h1 {
               font-size: 18pt;
               margin: 0;
+            }
+            .subtitle {
+              font-size: 12pt;
+              margin: 5px 0 0 0;
+              color: #666;
+              font-style: italic;
             }
             h2 {
               font-size: 14pt;
@@ -51,13 +56,18 @@ function ProfilDruckAnsicht({ profil, onClose }) {
             .meta-row {
               display: flex;
               margin-bottom: 0.2cm;
-            }
-            .meta-label {
+            }            .meta-label {
               font-weight: bold;
-              width: 150px;
+              width: 200px;
             }
             .meta-value {
               flex: 1;
+            }            .form-field {
+              border-bottom: 1px solid #000;
+              padding-bottom: 3px;
+              min-width: 300px;
+              background: transparent; /* Transparenter Hintergrund */
+              display: inline-block; /* Verbessert die Darstellung */
             }
             .tests-table {
               width: 100%;
@@ -151,7 +161,11 @@ function ProfilDruckAnsicht({ profil, onClose }) {
               .print-controls {
                 display: none;
               }
+            }            .signature-section {
+              margin-top: 2cm;
+              padding-top: 1cm;
             }
+            /* Signature-Stile entfernt, da jetzt direkt im HTML-Table definiert */
             footer {
               margin-top: 1cm;
               padding-top: 0.5cm;
@@ -160,27 +174,48 @@ function ProfilDruckAnsicht({ profil, onClose }) {
               font-size: 9pt;
               color: #999;
             }
+            .privacy-note {
+              font-style: italic;
+              margin-top: 0.5cm;
+              font-size: 8pt;
+            }
           </style>
         </head>
-        <body>
-          <div class="print-controls">
-            <button class="print-button" onclick="window.print();">Drucken</button>
+        <body>          <div class="print-controls">
+            <button class="print-button" onclick="window.print();">Profil-Antrag drucken</button>
             <button class="close-button" onclick="window.close();">Schließen</button>
           </div>
-          
-          <div class="header">
+            <div class="header">
             <img src="/images/icons/icon_512x512.png" alt="SpecimenOne Logo" class="logo">
-            <h1>${profil.profilName}</h1>
+            <div>
+              <h1>${profil.profilName}</h1>
+              <p class="subtitle">Profil-Antrag</p>
+            </div>
           </div>
-          
-          <div class="meta-info">
+            <div class="meta-info">
             <div class="meta-row">
               <span class="meta-label">Erstellt von:</span>
-              <span class="meta-value">${profil.userName || 'Nicht angegeben'}</span>
+              <span class="meta-value form-field"></span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Funktion:</span>
+              <span class="meta-value form-field"></span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Bereich/Abteilung:</span>
+              <span class="meta-value form-field"></span>
             </div>
             <div class="meta-row">
               <span class="meta-label">E-Mail:</span>
-              <span class="meta-value">${profil.email || 'Nicht angegeben'}</span>
+              <span class="meta-value form-field"></span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Telefon-Nummer:</span>
+              <span class="meta-value form-field"></span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Vorgesetzte Führungskraft:</span>
+              <span class="meta-value form-field"></span>
             </div>
             <div class="meta-row">
               <span class="meta-label">Erstellungsdatum:</span>
@@ -266,10 +301,19 @@ function ProfilDruckAnsicht({ profil, onClose }) {
                 </div>
               </div>
             `).join('')}
+          </div>          <div class="signature-section">
+            <table style="width: 100%; border-collapse: collapse; margin-top: 3cm;">
+              <tr>
+                <td style="width: 45%; padding-top: 30px; border-top: 2px solid #000; text-align: center;">Datum</td>
+                <td style="width: 10%;"></td> <!-- Abstand zwischen den Feldern -->
+                <td style="width: 45%; padding-top: 30px; border-top: 2px solid #000; text-align: center;">Unterschrift</td>
+              </tr>
+            </table>
           </div>
           
           <footer>
             <p>Automatisch erstellt mit SpecimenOne - ${new Date().toLocaleDateString('de-DE')}</p>
+            <p class="privacy-note">Datenschutzhinweis: Bitte beachten Sie, dass keine personenbezogenen Daten elektronisch erfasst werden. Die Felder sind zum manuellen Ausfüllen vorgesehen.</p>
           </footer>
         </body>
         </html>
@@ -302,8 +346,7 @@ function ProfilDruckAnsicht({ profil, onClose }) {
   // Automatisch drucken nach dem Rendern
   useEffect(() => {
     handlePrint();
-  }, []);
-  // Diese Komponente rendert jetzt nur noch minimale UI
+  }, []);  // Diese Komponente rendert jetzt nur noch minimale UI
   return (
     <div className="bg-white text-black p-8 min-h-screen font-sans">
       <div className="fixed top-5 right-5 flex gap-2 z-50">
@@ -311,7 +354,7 @@ function ProfilDruckAnsicht({ profil, onClose }) {
           className="px-4 py-2 bg-[var(--md-sys-color-primary,#6abf7b)] text-white rounded font-medium border-none cursor-pointer" 
           onClick={handlePrint}
         >
-          Drucken
+          Profil-Antrag drucken
         </button>
         <button 
           className="px-4 py-2 bg-gray-600 text-white rounded font-medium border-none cursor-pointer" 
@@ -321,7 +364,12 @@ function ProfilDruckAnsicht({ profil, onClose }) {
         </button>
       </div>
       <div className="max-w-[210mm] mx-auto">
-        <p className="text-center text-gray-600 mt-20">Druckvorschau wird in einem neuen Fenster geöffnet...</p>
+        <p className="text-center text-gray-600 mt-10 mb-5">Profil-Antrag wird in einem neuen Fenster geöffnet...</p>
+        <p className="text-center text-gray-500">
+          <strong>Hinweis zur DSGVO-Konformität:</strong><br/>
+          Keine persönlichen Daten werden elektronisch erfasst oder gespeichert.<br/>
+          Der ausgedruckte Profil-Antrag enthält Felder zum manuellen Ausfüllen.
+        </p>
       </div>
     </div>
   );
