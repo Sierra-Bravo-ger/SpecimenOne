@@ -1,6 +1,6 @@
 # SpecimenOne
 
-Eine moderne Web-App zur Anzeige und Verwaltung von Labortests und Profilen.
+Eine moderne Web-App zur Anzeige und Verwaltung von Labortests und Profilen.  
 
 ## Features
 
