@@ -2991,16 +2991,7 @@
     "kategorie": "Sonstige",
     "sortierNummer": 42350,
     "tests": [
-      "T9703"
-    ]
-  },
-  {
-    "id": "P122",
-    "name": "Toxocara",
-    "beschreibung": "Toxocara",
-    "kategorie": "Sonstige",
-    "sortierNummer": 42350,
-    "tests": [
+      "T9703",
       "T9707",
       "T9706",
       "T9705",

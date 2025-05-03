@@ -33,9 +33,9 @@ function ProfilErstellungDialog({
   const [beschreibung, setBeschreibung] = useState('');
   const [kategorie, setKategorie] = useState('Klinische Chemie');
   const [verfuegbareKategorien] = useState([
-    'Klinische Chemie', 'Hämatologie', 'Gerinnung', 'Immunologie', 
-    'Endokrinologie', 'Infektionsdiagnostik', 'Mikrobiologie',
-    'Virologie', 'Toxikologie', 'Keine Kategorie'
+    'Klinische Chemie', 'Hämatologie','Gerinnung', 'Immunologie', 
+    'Elektrophorese', 'Immunologie', 'Infektserologie',
+    'Urinstatus', 'Toxikologie', 'Keine Kategorie'
   ]);
   const [isSending, setIsSending] = useState(false);
   const [emailStatus, setEmailStatus] = useState(null);

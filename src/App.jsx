@@ -470,11 +470,38 @@ function App() {
           </>
         )}      
         </main>      <footer className="bg-gray-100 dark:bg-gray-800 py-4 px-8 border-t border-gray-200 dark:border-gray-700 mt-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto w-full">
-          <p className="text-gray-600 dark:text-gray-300 text-sm mb-2 md:mb-0">© {new Date().getFullYear()} SpecimenOne</p>
-          <div className="flex items-center gap-4">
-            <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-sm transition-colors">Datenschutz</a>
-            <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-sm transition-colors">Impressum</a>
+        <div className="flex flex-col gap-4 max-w-7xl mx-auto w-full">
+          {/* Rechtshinweise und Links */}
+          <div className="flex flex-col md:flex-row justify-between items-center w-full">
+            <p className="text-gray-600 dark:text-gray-300 text-sm mb-2 md:mb-0">© {new Date().getFullYear()} SpecimenOne</p>
+            <div className="flex items-center gap-4">
+              <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-sm transition-colors">Datenschutz</a>
+              <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-sm transition-colors">Impressum</a>
+            </div>
+          </div>
+          
+          {/* Technologie-Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-2 border-t border-gray-200 dark:border-gray-700">
+            <div className="flex flex-col items-center text-center p-2">
+              <div className="font-medium text-xs text-gray-500 dark:text-gray-400">Entwickelt mit</div>
+              <div className="font-medium text-sm text-gray-700 dark:text-gray-300">React</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400">UI-Bibliothek</div>
+            </div>
+            <div className="flex flex-col items-center text-center p-2">
+              <div className="font-medium text-xs text-gray-500 dark:text-gray-400">Styling mit</div>
+              <div className="font-medium text-sm text-gray-700 dark:text-gray-300">Tailwind CSS</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400">CSS-Framework</div>
+            </div>
+            <div className="flex flex-col items-center text-center p-2">
+              <div className="font-medium text-xs text-gray-500 dark:text-gray-400">Build-Tool</div>
+              <div className="font-medium text-sm text-gray-700 dark:text-gray-300">Vite</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400">Frontend-Tooling</div>
+            </div>
+            <div className="flex flex-col items-center text-center p-2">
+              <div className="font-medium text-xs text-gray-500 dark:text-gray-400">Datenanalyse</div>
+              <div className="font-medium text-sm text-gray-700 dark:text-gray-300">DuckDB</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400">SQL-Engine</div>
+            </div>
           </div>
         </div>
       </footer>

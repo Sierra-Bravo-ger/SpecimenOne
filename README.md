@@ -29,6 +29,21 @@ Eine moderne Web-App zur Anzeige und Verwaltung von Labortests und Profilen.
 - **Persönliche Profile:** Speichern und Verwalten individueller Testsammlungen im Browser
 - **Profilerstellung:** Erstellung benutzerdefinierter Testprofile mit Metadaten
 - **Benachrichtigung via Webhook oder Email:** User können Wunschprofile festlegen, benennen und an eine Zentrale stelle zur Bearbeitung senden
+
+### Neu: Erweiterte Datenanalyse
+
+- **DuckDB-Integration:** Leistungsstarke SQL-basierte Datenanalyse für komplexe Abfragen
+- **JSON-Datenanalyse:** Verbesserte Analyse und Aktualisierung von JSON-Datensätzen
+
+## Lizenzhinweise
+
+Dieses Projekt verwendet verschiedene Open-Source-Bibliotheken. Die vollständigen Lizenzinformationen finden Sie in der [LICENSES.md](./LICENSES.md)-Datei.
+
+Hauptsächlich verwendete Lizenzen:
+- SpecimenOne: MIT-Lizenz
+- DuckDB: MIT-Lizenz
+- React: MIT-Lizenz
+- Material Web Components: Apache License 2.0
 - **Druckoptimierte Ausgabe:** Professionelle Druckansicht für ausgewählte Tests
 - **Long-Press-Funktionalität:** Optimierte Bedienung auf Touch-Geräten
 - **E-Mail-Integration:** Direkte Übermittlung von erstellten Profilen per E-Mail

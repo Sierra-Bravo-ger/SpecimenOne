@@ -99,8 +99,7 @@ function TestDetails({ test, onClose }) {
         <html>
         <head>
           <meta charset="utf-8">
-          <title>${test.name} - Labortest</title>
-          <style>
+          <title>${test.name} - Labortest</title>          <style>
             @page { margin: 1cm; }
             body { 
               font-family: Arial, sans-serif; 
@@ -178,6 +177,28 @@ function TestDetails({ test, onClose }) {
             .close-button:hover {
               background: #777;
             }
+            .material-badges {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 5px;
+              margin-bottom: 10px;
+            }
+            .print-material-badge {
+              font-size: 10pt;
+              font-weight: bold;
+            }
+            /* Farbdefinitionen für Material-Badges */
+            :root {
+              --material-color-1: #FFD700; /* Gelb */
+              --material-color-2: #28a745; /* Grün */
+              --material-color-3: #dc3545; /* Rot */
+              --material-color-4: #007bff; /* Blau */
+              --material-color-8: #8B4513; /* Braun */
+              --material-color-10: #9932CC; /* Lila */
+              --material-color-14: #FF1493; /* Fuchsia */
+              --material-color-124: #FFA500; /* Orange */
+              --material-color-128: #808080; /* Grau */
+            }
             @media print {
               .print-controls {
                 display: none;
@@ -207,10 +228,18 @@ function TestDetails({ test, onClose }) {
             <p><strong>Kategorie:</strong> ${test.kategorie}</p>
             ${test.einheit_id ? `<p><strong>Einheit:</strong> ${getEinheitBezeichnung(test.einheit_id)}</p>` : ''}
           </div>
-          
-          <div class="section">
+            <div class="section">
             <h2>Probenanforderungen</h2>
-            <p><strong>Material:</strong> ${test.material.join(', ')}</p>
+            <p><strong>Material:</strong></p>
+            <div class="material-badges">
+              ${test.material.map(materialId => {                // Hole die Material-Informationen aus dem Cache (falls verfügbar)
+                const materialItem = window.materialCache?.[materialId] || { bezeichnung: materialId, kurz: "", farbenId: "0" };
+                const materialColor = materialItem.farbenId ? `var(--material-color-${materialItem.farbenId})` : 'gray';
+                return `<span class="print-material-badge" style="background-color: ${materialColor}; color: white; padding: 2px 8px; border-radius: 4px; margin-right: 8px; display: inline-block; margin-bottom: 5px;">
+                  ${materialId}
+                </span>`;
+              }).join('')}
+            </div>
             <p><strong>Mindestmenge:</strong> ${test.mindestmenge_ml} ml</p>
             <p><strong>Lagerung:</strong> ${test.lagerung}</p>
           </div>
@@ -363,7 +392,7 @@ function TestDetails({ test, onClose }) {
               }              return test.material && test.material.length > 0 ? (
                 <div className={`${tailwindBtn.classes.badge.badgesContainer}`}>
                   {test.material.map((materialId, index) => (
-                    <MaterialBadge key={index} materialId={materialId} showKurzbezeichnung={false} />
+                    <MaterialBadge key={index} materialId={materialId} showKurzbezeichnung={true} mini={false} />
                   ))}
                 </div>
               ) : (

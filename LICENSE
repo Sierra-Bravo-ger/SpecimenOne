@@ -19,3 +19,21 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
 SOFTWARE.
+
+
+LOINC License Notice
+
+This project uses LOINC® data provided by the Regenstrief Institute, Inc.
+
+    LOINC® is a registered trademark of Regenstrief Institute, Inc.
+    Used with permission. LOINC content is © Regenstrief Institute, Inc.
+
+The LOINC data may be freely used, redistributed, and integrated into software under the LOINC Terms of Use, provided that:
+
+    proper attribution is given,
+
+    no claim of official endorsement is made,
+
+    and copyright notices are preserved.
+
+This project is not affiliated with the Regenstrief Institute or the LOINC organization. It is an independent project based on publicly available LOINC data.

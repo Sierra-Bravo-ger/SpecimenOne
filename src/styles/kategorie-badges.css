@@ -20,24 +20,240 @@
 }
 
 /* Styling für einzelne Kategorien */
+
+/* Hämatologie Gruppe - Rottöne */
 .kategorie-hämatologie {
   color: #c74a4a;
   background-color: rgba(199, 74, 74, 0.1);
 }
 
-.kategorie-klinische-chemie {
+.kategorie-hämatologie-immunzytometrie {
+  color: #d45252;
+  background-color: rgba(212, 82, 82, 0.1);
+}
+
+.kategorie-hämatologie-sonder {
+  color: #e15959;
+  background-color: rgba(225, 89, 89, 0.1);
+}
+
+/* Chemie Gruppe - Brauntöne */
+.kategorie-chemie {
   color: #9c6b3c;
   background-color: rgba(156, 107, 60, 0.1);
 }
 
+.kategorie-quantitative-urinanalytik {
+  color: #b27a45;
+  background-color: rgba(178, 122, 69, 0.1);
+}
+
+.kategorie-urinstatus {
+  color: #c8894e;
+  background-color: rgba(200, 137, 78, 0.1);
+}
+
+.kategorie-crea-clearence {
+  color: #a57548;
+  background-color: rgba(165, 117, 72, 0.1);
+}
+
+.kategorie-stuhlanalyse {
+  color: #8f6136;
+  background-color: rgba(143, 97, 54, 0.1);
+}
+
+.kategorie-steinanalyse {
+  color: #7a5330;
+  background-color: rgba(122, 83, 48, 0.1);
+}
+
+/* Gerinnung Gruppe - Grüntöne */
 .kategorie-gerinnung {
   color: #4a995c;
   background-color: rgba(74, 153, 92, 0.1);
 }
 
+.kategorie-gerinnung-faktoren {
+  color: #56b26a;
+  background-color: rgba(86, 178, 106, 0.1);
+}
+
+.kategorie-gerinnung-thrombophilie {
+  color: #62cc78;
+  background-color: rgba(98, 204, 120, 0.1);
+}
+
+.kategorie-gerinnung-sondertest {
+  color: #41844f;
+  background-color: rgba(65, 132, 79, 0.1);
+}
+
+/* Immunologie Gruppe - Blautöne */
 .kategorie-immunologie {
   color: #4a72c7;
   background-color: rgba(74, 114, 199, 0.1);
+}
+
+.kategorie-autoantikörper {
+  color: #5681e0;
+  background-color: rgba(86, 129, 224, 0.1);
+}
+
+.kategorie-infektserologie {
+  color: #6291f8;
+  background-color: rgba(98, 145, 248, 0.1);
+}
+
+.kategorie-tumormarker {
+  color: #3d64b3;
+  background-color: rgba(61, 100, 179, 0.1);
+}
+
+.kategorie-allergie {
+  color: #345aa0;
+  background-color: rgba(52, 90, 160, 0.1);
+}
+
+/* Elektrophorese & Proteine - Lilattöne */
+.kategorie-elektrophorese {
+  color: #8d4ac7;
+  background-color: rgba(141, 74, 199, 0.1);
+}
+
+.kategorie-proteine {
+  color: #9956d4;
+  background-color: rgba(153, 86, 212, 0.1);
+}
+
+/* Endokrinologie & RIA - Goldtöne */
+.kategorie-ria {
+  color: #c79c4a;
+  background-color: rgba(199, 156, 74, 0.1);
+}
+
+.kategorie-ria-online {
+  color: #d8ab51;
+  background-color: rgba(216, 171, 81, 0.1);
+}
+
+/* Medizinische Spezialgebiete - Türkistöne */
+.kategorie-medikamente {
+  color: #3d99c2;
+  background-color: rgba(61, 153, 194, 0.1);
+}
+
+.kategorie-toxikologie {
+  color: #e67e00;
+  background-color: rgba(230, 126, 0, 0.1);
+}
+
+.kategorie-liquor {
+  color: #45b2e0;
+  background-color: rgba(69, 178, 224, 0.1);
+}
+
+/* Spezielle Kategorien - Verschiedene Farben */
+.kategorie-molekulargenetik {
+  color: #9055a2;
+  background-color: rgba(144, 85, 162, 0.1);
+}
+
+.kategorie-blutbank {
+  color: #e74c3c;
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+.kategorie-transfusionsmedizin {
+  color: #c0392b;
+  background-color: rgba(192, 57, 43, 0.1);
+}
+
+.kategorie-versand {
+  background: linear-gradient(
+    to right,
+    #ff0000,
+    #ff8000,
+    #ffff00,
+    #00ff00,
+    #00ffff,
+    #0000ff,
+    #8000ff
+  );
+  background-size: 200% auto;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  border: none;
+  animation: rainbow-pulse 8s linear infinite;
+  font-weight: bold;
+}
+
+@keyframes rainbow-pulse {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Regenbogen-Stil für die linke Kante des Tabellenkopfs */
+.border-l-rainbow {
+  border-left: 4px solid transparent;
+  border-image: linear-gradient(
+    to bottom,
+    #ff0000,
+    #ff8000,
+    #ffff00,
+    #00ff00,
+    #00ffff,
+    #0000ff,
+    #8000ff
+  ) 1 100%;
+}
+
+/* Leichte Regenbogen-Hintergrundfarbe für Tabellenzeilen */
+.rainbow-bg-opacity {
+  background-color: rgba(127, 140, 141, 0.05);
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 0, 0, 0.03),
+    rgba(255, 128, 0, 0.03),
+    rgba(255, 255, 0, 0.03),
+    rgba(0, 255, 0, 0.03),
+    rgba(0, 255, 255, 0.03),
+    rgba(0, 0, 255, 0.03),
+    rgba(128, 0, 255, 0.03)
+  );
+  background-size: 200% auto;
+}
+
+/* Dark Mode Anpassung für Regenbogen-Hintergrund */
+@media (prefers-color-scheme: dark) {
+  .rainbow-bg-opacity {
+    background-color: rgba(127, 140, 141, 0.08); /* Etwas stärker im Dark Mode */
+    background-image: linear-gradient(
+      to right,
+      rgba(255, 0, 0, 0.05),
+      rgba(255, 128, 0, 0.05),
+      rgba(255, 255, 0, 0.05),
+      rgba(0, 255, 0, 0.05),
+      rgba(0, 255, 255, 0.05),
+      rgba(0, 0, 255, 0.05),
+      rgba(128, 0, 255, 0.05)
+    );
+  }
+}
+
+.kategorie-extern {
+  color: #95a5a6;
+  background-color: rgba(149, 165, 166, 0.1);
+}
+
+/* Legacy-Kategorie für Abwärtskompatibilität */
+.kategorie-klinische-chemie {
+  color: #9c6b3c;
+  background-color: rgba(156, 107, 60, 0.1);
 }
 
 .kategorie-mikrobiologie {
@@ -60,35 +276,207 @@
   background-color: rgba(156, 107, 60, 0.1);
 }
 
-.kategorie-toxikologie {
-  color: #e67e00;
-  background-color: rgba(230, 126, 0, 0.1);
-}
-
 /* Dunklerer Stil für Dark Mode */
 @media (prefers-color-scheme: dark) {
   .kategorie-badge {
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
   }
   
+  /* Hämatologie Gruppe - Rottöne */
   .kategorie-hämatologie {
     color: #ff8080;
     background-color: rgba(199, 74, 74, 0.2);
   }
   
-  .kategorie-klinische-chemie {
+  .kategorie-hämatologie-immunzytometrie {
+    color: #ff9090;
+    background-color: rgba(212, 82, 82, 0.2);
+  }
+  
+  .kategorie-hämatologie-sonder {
+    color: #ffa0a0;
+    background-color: rgba(225, 89, 89, 0.2);
+  }
+  
+  /* Chemie Gruppe - Brauntöne */
+  .kategorie-chemie {
     color: #d4a76c;
     background-color: rgba(156, 107, 60, 0.2);
   }
   
+  .kategorie-quantitative-urinanalytik {
+    color: #e0b67a;
+    background-color: rgba(178, 122, 69, 0.2);
+  }
+  
+  .kategorie-urinstatus {
+    color: #ebc587;
+    background-color: rgba(200, 137, 78, 0.2);
+  }
+  
+  .kategorie-crea-clearence {
+    color: #d9b078;
+    background-color: rgba(165, 117, 72, 0.2);
+  }
+  
+  .kategorie-stuhlanalyse {
+    color: #c9a066;
+    background-color: rgba(143, 97, 54, 0.2);
+  }
+  
+  .kategorie-steinanalyse {
+    color: #b48c58;
+    background-color: rgba(122, 83, 48, 0.2);
+  }
+  
+  /* Gerinnung Gruppe - Grüntöne */
   .kategorie-gerinnung {
     color: #6fd182;
     background-color: rgba(74, 153, 92, 0.2);
   }
   
+  .kategorie-gerinnung-faktoren {
+    color: #7fe494;
+    background-color: rgba(86, 178, 106, 0.2);
+  }
+  
+  .kategorie-gerinnung-thrombophilie {
+    color: #8ffca4;
+    background-color: rgba(98, 204, 120, 0.2);
+  }
+  
+  .kategorie-gerinnung-sondertest {
+    color: #5eb871;
+    background-color: rgba(65, 132, 79, 0.2);
+  }
+  
+  /* Immunologie Gruppe - Blautöne */
   .kategorie-immunologie {
     color: #80a7f7;
     background-color: rgba(74, 114, 199, 0.2);
+  }
+  
+  .kategorie-autoantikörper {
+    color: #8fb8ff;
+    background-color: rgba(86, 129, 224, 0.2);
+  }
+  
+  .kategorie-infektserologie {
+    color: #9ec8ff;
+    background-color: rgba(98, 145, 248, 0.2);
+  }
+  
+  .kategorie-tumormarker {
+    color: #709eed;
+    background-color: rgba(61, 100, 179, 0.2);
+  }
+  
+  .kategorie-allergie {
+    color: #6288db;
+    background-color: rgba(52, 90, 160, 0.2);
+  }
+  
+  /* Elektrophorese & Proteine - Lilattöne */
+  .kategorie-elektrophorese {
+    color: #c080ff;
+    background-color: rgba(141, 74, 199, 0.2);
+  }
+  
+  .kategorie-proteine {
+    color: #cd92ff;
+    background-color: rgba(153, 86, 212, 0.2);
+  }
+  
+  /* Endokrinologie & RIA - Goldtöne */
+  .kategorie-ria {
+    color: #ffc457;
+    background-color: rgba(199, 156, 74, 0.2);
+  }
+  
+  .kategorie-ria-online {
+    color: #ffd170;
+    background-color: rgba(216, 171, 81, 0.2);
+  }
+  
+  /* Medizinische Spezialgebiete - Türkistöne */
+  .kategorie-medikamente {
+    color: #70c2eb;
+    background-color: rgba(61, 153, 194, 0.2);
+  }
+  
+  .kategorie-toxikologie {
+    color: #ffb84d;
+    background-color: rgba(230, 126, 0, 0.2);
+  }
+  
+  .kategorie-liquor {
+    color: #7dddff;
+    background-color: rgba(69, 178, 224, 0.2);
+  }
+  
+  /* Spezielle Kategorien - Verschiedene Farben */
+  .kategorie-molekulargenetik {
+    color: #cc84e2;
+    background-color: rgba(144, 85, 162, 0.2);
+  }
+  
+  .kategorie-blutbank {
+    color: #ff6b5b;
+    background-color: rgba(231, 76, 60, 0.2);
+  }
+  
+  .kategorie-transfusionsmedizin {
+    color: #ff5445;
+    background-color: rgba(192, 57, 43, 0.2);
+  }
+    .kategorie-versand {
+    background: linear-gradient(
+      to right,
+      #ff0000,
+      #ff8000, 
+      #ffff00,
+      #00ff00,
+      #00ffff,
+      #0000ff,
+      #8000ff
+    );
+    background-size: 200% auto;
+    color: white;    /* Text-Effekte für bessere Lesbarkeit */
+    text-shadow: 
+      -1px -1px 0 #000,  
+       1px -1px 0 #000,
+      -1px  1px 0 #000,
+       1px  1px 0 #000,
+       0 1px 3px rgba(0, 0, 0, 0.7); /* Mehrfacher Schatten für Outline-Effekt */
+    -webkit-text-stroke: 0.5px black; /* Dünne schwarze Outline für WebKit-Browser */
+    border: none;
+    animation: rainbow-pulse 8s linear infinite;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Leichter Schatten für 3D-Effekt */
+  }
+  
+  /* Verbesserte Version des Regenbogen-Pulses im Dark Mode */
+  @media (prefers-color-scheme: dark) {
+    .kategorie-versand {
+      filter: brightness(1.2); /* Leicht heller im Dark Mode für besseren Kontrast */
+      text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000,
+         0 1px 4px rgba(0, 0, 0, 0.8); /* Stärkerer Schatten für den Dark Mode */
+    }
+  }
+  
+  .kategorie-extern {
+    color: #c5d5d6;
+    background-color: rgba(149, 165, 166, 0.2);
+  }
+  
+  /* Legacy-Kategorie für Abwärtskompatibilität */
+  .kategorie-klinische-chemie {
+    color: #d4a76c;
+    background-color: rgba(156, 107, 60, 0.2);
   }
   
   .kategorie-mikrobiologie {
@@ -109,10 +497,5 @@
   .kategorie-infektionsdiagnostik {
     color: #d4a76c;
     background-color: rgba(156, 107, 60, 0.2);
-  }
-  
-  .kategorie-toxikologie {
-    color: #ffb84d;
-    background-color: rgba(230, 126, 0, 0.2);
   }
 }

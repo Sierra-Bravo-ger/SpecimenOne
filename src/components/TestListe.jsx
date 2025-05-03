@@ -5,6 +5,7 @@ import '@material/web/elevation/elevation.js';
 import * as MaterialDesign from "react-icons/md";
 import { useMaterialService } from '../services/MaterialService';
 import MaterialBadge from './MaterialBadge';
+import TestCardContent from './TestCardContent';
 import tailwindBtn from './tailwindBtn';
 import ProfilErstellungDialog from './ProfilErstellungDialog';
 
@@ -14,7 +15,8 @@ function TestListe({
   selectedTests, 
   onTestSelect = () => {},
   sortOption = 'id',
-  sortDirection = 'asc'
+  sortDirection = 'asc',
+  onCheckboxToggle = null
 }) {
   // Pagination-Einstellungen - Angepasst für größere Datenmengen (3000 Tests)
   const ITEMS_PER_PAGE = 150; // 20 Reihen mit je 6 Karten (bei xl:grid-cols-6)
@@ -118,22 +120,33 @@ function TestListe({
   const longPressDuration = 600; // ms
   
   // WICHTIG: Diese Funktionen müssen VOR ihrer Verwendung definiert werden!
-  
-  // Prüfen, ob ein Test ausgewählt ist - mit useCallback stabilisiert
+    // Überprüfen, ob ein Test ausgewählt ist
   const isTestSelected = useCallback((test) => {
     return safeSelectedTests.some(selectedTest => selectedTest.id === test.id);
-  }, [safeSelectedTests]);
-
-  // Test-Auswahl umschalten - mit useCallback stabilisiert
+  }, [safeSelectedTests]);  // Test-Auswahl umschalten - mit useCallback stabilisiert
   const toggleTestSelection = useCallback((test) => {
-    if (safeSelectedTests.some(selectedTest => selectedTest.id === test.id)) {
+    const wasSelected = safeSelectedTests.some(selectedTest => selectedTest.id === test.id);
+    
+    if (wasSelected) {
       // Test entfernen, wenn bereits ausgewählt
-      onTestSelect(safeSelectedTests.filter(t => t.id !== test.id));
+      const newSelectedTests = safeSelectedTests.filter(t => t.id !== test.id);
+      onTestSelect(newSelectedTests);
+      
+      // Optional: Debug-Callback aufrufen, wenn vorhanden
+      if (onCheckboxToggle) {
+        onCheckboxToggle(test, true, false);
+      }
     } else {
       // Test hinzufügen, wenn nicht ausgewählt
-      onTestSelect([...safeSelectedTests, test]);
+      const newSelectedTests = [...safeSelectedTests, test];
+      onTestSelect(newSelectedTests);
+      
+      // Optional: Debug-Callback aufrufen, wenn vorhanden
+      if (onCheckboxToggle) {
+        onCheckboxToggle(test, false, true);
+      }
     }
-  }, [safeSelectedTests, onTestSelect]);
+  }, [safeSelectedTests, onTestSelect, onCheckboxToggle]);
   
   // Standard Click-Handler für Desktop-Nutzung und zur Anzeige der Details
   const handleTestClick = useCallback((test, e) => {
@@ -229,50 +242,13 @@ function TestListe({
   // Setze die aktuelle Seite zurück, wenn sich die sortierten Tests ändern
   useEffect(() => {
     setCurrentPage(1);
-  }, [sortOption, sortDirection]);
-
-  // Separate Komponente für den Inhalt einer Testkarte
-  const TestCardContent = memo(({ test }) => (
-    <>
-      <md-ripple></md-ripple>
-      <div className="mb-2">
-        <h3 className={`font-medium text-lg mb-1 ${tailwindBtn.classes.text} ${
-          test.kategorie 
-            ? `kategorie-text-${test.kategorie.toLowerCase().replace(/\s+/g, '-')}` 
-            : ''
-        }`}>
-          {test.name || 'Kein Name'}
-        </h3>
-      </div>
-      <p className={`inline-block mb-3 px-2 py-1 rounded-full text-sm kategorie-badge ${
-        test.kategorie 
-          ? `kategorie-${test.kategorie.toLowerCase().replace(/\s+/g, '-')}` 
-          : 'bg-gray-200 text-gray-700'
-      }`}>
-        {test.kategorie || 'Keine Kategorie'}
-      </p>
-      <div className="mb-2">
-        <strong className={`text-sm ${tailwindBtn.classes.text}`}>Material:</strong>
-        {test.material && test.material.length > 0 ? (
-          <div className="flex flex-wrap gap-1 mt-1">
-            {test.material.map((materialId, index) => (
-              <MaterialBadge key={index} materialId={materialId} mini={true} />
-            ))}
-          </div>
-        ) : (
-          <span className={`text-sm italic ${tailwindBtn.classes.textMuted}`}>Keine Angabe</span>
-        )}
-      </div>
-      {test.synonyme && test.synonyme.length > 0 && (
-        <div className={`mt-2 pt-2 border-t ${tailwindBtn.borderClasses} border-dashed`}>
-          <span className={`text-sm ${tailwindBtn.classes.textMuted} italic`}>{test.synonyme.join(', ')}</span>
-        </div>
-      )}
-    </>
-  ), (prevProps, nextProps) => {
-    // Nur neu rendern wenn sich die Test ID ändert
-    return prevProps.test.id === nextProps.test.id;
-  });
+  }, [sortOption, sortDirection]);  // Stabile Key-Funktion für MaterialBadges
+  const getStableMaterialKey = useCallback((materialId, index) => {
+    // Erzeuge einen stabilen Key basierend auf materialId und Index
+    return `material-${materialId}-${index}`;
+  }, []);  // Separate Komponente für den Inhalt einer Testkarte
+  // Externe Komponente für bessere Memoization
+  /* TestCardContent wurde in eigene Datei ausgelagert */
 
   // Separate Komponente für die Checkbox, um Re-Renders zu isolieren
   const TestCardCheckbox = memo(({ test }) => {
@@ -367,9 +343,8 @@ function TestListe({
       >
         {/* Separater Checkbox-Bereich */}
         <TestCardCheckbox test={test} />
-        
-        {/* Inhalt der Karte */}
-        <TestCardContent test={test} />
+          {/* Inhalt der Karte */}
+        <TestCardContent test={test} getStableMaterialKey={getStableMaterialKey} />
       </div>
     );
   }, (prevProps, nextProps) => {

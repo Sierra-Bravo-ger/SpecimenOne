@@ -1,0 +1,140 @@
+{
+  "kategorie_mapping": [
+    {
+      "alt": "Klinische Chemie",
+      "neu": "Chemie"
+    },
+    {
+      "alt": "Mikrobiologie",
+      "neu": "Infektserologie"
+    },
+    {
+      "alt": "Endokrinologie",
+      "neu": "Immunologie"
+    },
+    {
+      "alt": "Virologie",
+      "neu": "Infektserologie"
+    },
+    {
+      "alt": "Infektionsdiagnostik",
+      "neu": "Infektserologie"
+    },
+    {
+      "alt": "Allergie",
+      "neu": "Allergie"
+    },
+    {
+      "alt": "Allergie/löschen",
+      "neu": "Allergie"
+    },
+    {
+      "alt": "Autoantikörper",
+      "neu": "Autoantikörper"
+    },
+    {
+      "alt": "Blutbank",
+      "neu": "Blutbank"
+    },
+    {
+      "alt": "Crea-Clearence",
+      "neu": "Crea-Clearence"
+    },
+    {
+      "alt": "Elektrophorese",
+      "neu": "Elektrophorese"
+    },
+    {
+      "alt": "Extern",
+      "neu": "Extern"
+    },
+    {
+      "alt": "Gerinnung",
+      "neu": "Gerinnung"
+    },
+    {
+      "alt": "Gerinnung Faktoren",
+      "neu": "Gerinnung Faktoren"
+    },
+    {
+      "alt": "Gerinnung Sondertest",
+      "neu": "Gerinnung Sondertest"
+    },
+    {
+      "alt": "Gerinnung Thrombophilie",
+      "neu": "Gerinnung Thrombophilie"
+    },
+    {
+      "alt": "Hämatologie",
+      "neu": "Hämatologie"
+    },
+    {
+      "alt": "Hämatologie Immunzytometrie",
+      "neu": "Hämatologie Immunzytometrie"
+    },
+    {
+      "alt": "Hämatologie Sonder",
+      "neu": "Hämatologie Sonder"
+    },
+    {
+      "alt": "Immunologie",
+      "neu": "Immunologie"
+    },
+    {
+      "alt": "Liquor",
+      "neu": "Liquor"
+    },
+    {
+      "alt": "Medikamente",
+      "neu": "Medikamente"
+    },
+    {
+      "alt": "Molekulargenetik",
+      "neu": "Molekulargenetik"
+    },
+    {
+      "alt": "Proteine",
+      "neu": "Proteine"
+    },
+    {
+      "alt": "Quantitative Urinanalytik",
+      "neu": "Quantitative Urinanalytik"
+    },
+    {
+      "alt": "Ria",
+      "neu": "Ria"
+    },
+    {
+      "alt": "Ria Online",
+      "neu": "Ria Online"
+    },
+    {
+      "alt": "Steinanalyse",
+      "neu": "Steinanalyse"
+    },
+    {
+      "alt": "Stuhlanalyse",
+      "neu": "Stuhlanalyse"
+    },
+    {
+      "alt": "Toxikologie",
+      "neu": "Toxikologie"
+    },
+    {
+      "alt": "Transfusionsmedizin",
+      "neu": "Transfusionsmedizin"
+    },
+    {
+      "alt": "Tumormarker",
+      "neu": "Tumormarker"
+    },
+    {
+      "alt": "Urinstatus",
+      "neu": "Urinstatus"
+    },
+    {
+      "alt": "Versand",
+      "neu": "Versand"
+    }
+  ]
+}

@@ -17,18 +17,54 @@ function DrilldownTable({
   groupBy,
   onRowClick,
   renderDetail 
-}) {
-  // Farbdefinitionen für verschiedene Kategorien
+}) {  // Farbdefinitionen für verschiedene Kategorien
   const categoryColors = {
+    // Hämatologie Gruppe
     'hämatologie': { bg: '#f44336', bgOpacity: 'rgba(244, 67, 54, 0.05)', text: 'white' },
+    'hämatologie-immunzytometrie': { bg: '#d45252', bgOpacity: 'rgba(212, 82, 82, 0.05)', text: 'white' },
+    'hämatologie-sonder': { bg: '#e15959', bgOpacity: 'rgba(225, 89, 89, 0.05)', text: 'white' },
+    
+    // Chemie Gruppe
+    'chemie': { bg: '#795548', bgOpacity: 'rgba(121, 85, 72, 0.05)', text: 'white' },
     'klinische-chemie': { bg: '#795548', bgOpacity: 'rgba(121, 85, 72, 0.05)', text: 'white' },
+    'quantitative-urinanalytik': { bg: '#b27a45', bgOpacity: 'rgba(178, 122, 69, 0.05)', text: 'white' },
+    'urinstatus': { bg: '#c8894e', bgOpacity: 'rgba(200, 137, 78, 0.05)', text: 'white' },
+    'crea-clearence': { bg: '#a57548', bgOpacity: 'rgba(165, 117, 72, 0.05)', text: 'white' },
+    'stuhlanalyse': { bg: '#8f6136', bgOpacity: 'rgba(143, 97, 54, 0.05)', text: 'white' },
+    'steinanalyse': { bg: '#7a5330', bgOpacity: 'rgba(122, 83, 48, 0.05)', text: 'white' },
+    
+    // Gerinnung Gruppe
     'gerinnung': { bg: '#4CAF50', bgOpacity: 'rgba(76, 175, 80, 0.05)', text: 'white' },
+    'gerinnung-faktoren': { bg: '#56b26a', bgOpacity: 'rgba(86, 178, 106, 0.05)', text: 'white' },
+    'gerinnung-thrombophilie': { bg: '#62cc78', bgOpacity: 'rgba(98, 204, 120, 0.05)', text: 'white' },
+    'gerinnung-sondertest': { bg: '#41844f', bgOpacity: 'rgba(65, 132, 79, 0.05)', text: 'white' },
+    
+    // Immunologie Gruppe
     'immunologie': { bg: '#2196F3', bgOpacity: 'rgba(33, 150, 243, 0.05)', text: 'white' },
-    'mikrobiologie': { bg: '#9C27B0', bgOpacity: 'rgba(156, 39, 176, 0.05)', text: 'white' },
-    'endokrinologie': { bg: '#FFC107', bgOpacity: 'rgba(255, 193, 7, 0.05)', text: 'black' },
-    'virologie': { bg: '#00BCD4', bgOpacity: 'rgba(0, 188, 212, 0.05)', text: 'white' },
-    'infektionsdiagnostik': { bg: '#795548', bgOpacity: 'rgba(121, 85, 72, 0.05)', text: 'white' },
+    'autoantikörper': { bg: '#5681e0', bgOpacity: 'rgba(86, 129, 224, 0.05)', text: 'white' },
+    'infektserologie': { bg: '#6291f8', bgOpacity: 'rgba(98, 145, 248, 0.05)', text: 'white' },
+    'tumormarker': { bg: '#3d64b3', bgOpacity: 'rgba(61, 100, 179, 0.05)', text: 'white' },
+    'allergie': { bg: '#345aa0', bgOpacity: 'rgba(52, 90, 160, 0.05)', text: 'white' },
+    
+    // Elektrophorese & Proteine
+    'elektrophorese': { bg: '#9C27B0', bgOpacity: 'rgba(156, 39, 176, 0.05)', text: 'white' },
+    'proteine': { bg: '#9956d4', bgOpacity: 'rgba(153, 86, 212, 0.05)', text: 'white' },
+    
+    // Ria Gruppe
+    'ria': { bg: '#FFC107', bgOpacity: 'rgba(255, 193, 7, 0.05)', text: 'black' },
+    'ria-online': { bg: '#d8ab51', bgOpacity: 'rgba(216, 171, 81, 0.05)', text: 'black' },
+    
+    // Spezialgebiete
+    'medikamente': { bg: '#00BCD4', bgOpacity: 'rgba(0, 188, 212, 0.05)', text: 'white' },
     'toxikologie': { bg: '#FF9800', bgOpacity: 'rgba(255, 152, 0, 0.05)', text: 'black' },
+    'liquor': { bg: '#45b2e0', bgOpacity: 'rgba(69, 178, 224, 0.05)', text: 'white' },
+    'molekulargenetik': { bg: '#9055a2', bgOpacity: 'rgba(144, 85, 162, 0.05)', text: 'white' },
+    'blutbank': { bg: '#e74c3c', bgOpacity: 'rgba(231, 76, 60, 0.05)', text: 'white' },
+    'transfusionsmedizin': { bg: '#c0392b', bgOpacity: 'rgba(192, 57, 43, 0.05)', text: 'white' },
+    'versand': { bg: 'rainbow', bgOpacity: 'rgba(127, 140, 141, 0.05)', text: 'white' },
+    'extern': { bg: '#95a5a6', bgOpacity: 'rgba(149, 165, 166, 0.05)', text: 'white' },
+    
+    // Fallback für unbekannte Kategorien
     'unknown': { bg: '#9E9E9E', bgOpacity: 'rgba(158, 158, 158, 0.05)', text: 'white' }
   };
 
@@ -85,13 +121,21 @@ function DrilldownTable({
     } else {
       toggleRow(item.id);
     }
-  };
-  // Farbkodierung und Stile für Kategorie bestimmen
+  };  // Farbkodierung und Stile für Kategorie bestimmen
   const getCategoryInfo = (category) => {
     if (!category) return { key: 'unknown', colors: categoryColors['unknown'] };
     
     const key = category.toLowerCase().replace(/\s+/g, '-');
     const colors = categoryColors[key] || categoryColors['unknown'];
+    
+    // Prüfen, ob der Regenbogen-Stil verwendet werden soll
+    if (colors.bg === 'rainbow') {
+      return { 
+        key, 
+        colors,
+        isRainbow: true 
+      };
+    }
     
     return { key, colors };
   };
@@ -119,18 +163,16 @@ function DrilldownTable({
             
             return (
               <React.Fragment key={groupName}>
-                {/* Gruppenkopf */}
-                <tr 
-                  className={`cursor-pointer bg-[var(--md-sys-color-secondary-container,#E8F5E9)] dark:bg-[var(--md-sys-color-surface-variant,#3E3E42)] transition-colors duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:bg-[var(--md-sys-color-surface-variant,#E7E0EC)]`}
-                  style={{ borderLeft: `4px solid ${categoryInfo.colors.bg}` }}
+                {/* Gruppenkopf */}                <tr 
+                  className={`cursor-pointer bg-[var(--md-sys-color-secondary-container,#E8F5E9)] dark:bg-[var(--md-sys-color-surface-variant,#3E3E42)] transition-colors duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:bg-[var(--md-sys-color-surface-variant,#E7E0EC)] ${categoryInfo.isRainbow ? 'border-l-rainbow' : ''}`}
+                  style={{ borderLeft: categoryInfo.isRainbow ? undefined : `4px solid ${categoryInfo.colors.bg}` }}
                   onClick={() => toggleGroup(groupName)}
                 >
                   <td colSpan={columns.length + 1} className="p-3">                    <div className="flex items-center justify-between font-medium">
-                      <div className="flex-1">{groupName}</div>
-                      <div 
-                        className="rounded-full py-0.5 px-2 text-xs mr-4 shadow-sm transition-all duration-300 ease-in-out hover:shadow-md hover:-translate-y-0.5 hover:scale-105"
+                      <div className="flex-1">{groupName}</div>                      <div 
+                        className={`rounded-full py-0.5 px-2 text-xs mr-4 shadow-sm transition-all duration-300 ease-in-out hover:shadow-md hover:-translate-y-0.5 hover:scale-105 ${categoryInfo.isRainbow ? 'kategorie-versand' : ''}`}
                         style={{ 
-                          backgroundColor: categoryInfo.colors.bg,
+                          backgroundColor: categoryInfo.isRainbow ? undefined : categoryInfo.colors.bg,
                           color: categoryInfo.colors.text
                         }}
                       >
@@ -152,10 +194,9 @@ function DrilldownTable({
                     { colors: { bgOpacity: 'transparent' }};
                   
                   return (
-                    <React.Fragment key={item.id}>
-                      <tr 
-                        className="cursor-pointer transition-colors duration-200 hover:bg-[var(--md-sys-color-surface-variant,#E7E0EC)]"
-                        style={{ backgroundColor: categoryInfo.colors.bgOpacity }}
+                    <React.Fragment key={item.id}>                      <tr 
+                        className={`cursor-pointer transition-colors duration-200 hover:bg-[var(--md-sys-color-surface-variant,#E7E0EC)] ${categoryInfo.isRainbow ? 'rainbow-bg-opacity' : ''}`}
+                        style={{ backgroundColor: categoryInfo.isRainbow ? undefined : categoryInfo.colors.bgOpacity }}
                         onClick={() => handleRowClick(item)}
                       >
                         {columns.map(column => (

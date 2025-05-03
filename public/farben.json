@@ -31,9 +31,39 @@
       "textColor": "black"
     },
     {
+      "id": "6",
+      "bezeichnung": "Lime",
+      "hex": "#00FF00",
+      "textColor": "black"
+    },
+    {
+      "id": "7",
+      "bezeichnung": "Oliv",
+      "hex": "#808000",
+      "textColor": "white"
+    },
+    {
       "id": "8",
       "bezeichnung": "Braun",
       "hex": "#795548",
+      "textColor": "white"
+    },
+    {
+      "id": "9",
+      "bezeichnung": "Navy",
+      "hex": "#000080",
+      "textColor": "white"
+    },
+    {
+      "id": "10",
+      "bezeichnung": "Lila",
+      "hex": "#800080",
+      "textColor": "white"
+    },
+    {
+      "id": "11",
+      "bezeichnung": "Teal",
+      "hex": "#008080",
       "textColor": "white"
     },
     {
@@ -43,10 +73,94 @@
       "textColor": "white"
     },
     {
+      "id": "13",
+      "bezeichnung": "Silber",
+      "hex": "#C0C0C0",
+      "textColor": "black"
+    },
+    {
+      "id": "14",
+      "bezeichnung": "Fuchsia",
+      "hex": "#FF00FF",
+      "textColor": "white"
+    },
+    {
+      "id": "15",
+      "bezeichnung": "Aqua",
+      "hex": "#00FFFF",
+      "textColor": "black"
+    },
+    {
+      "id": "16",
+      "bezeichnung": "Hellgrau",
+      "hex": "#C0C0C0",
+      "textColor": "black"
+    },
+    {
+      "id": "17",
+      "bezeichnung": "Dunkelgrau",
+      "hex": "#808080",
+      "textColor": "white"
+    },
+    {
+      "id": "18",
+      "bezeichnung": "Weiß",
+      "hex": "#FFFFFF",
+      "textColor": "black"
+    },
+    {
+      "id": "19",
+      "bezeichnung": "MoneyGreen",
+      "hex": "#C0DCC0",
+      "textColor": "black"
+    },
+    {
+      "id": "20",
+      "bezeichnung": "Himmelblau",
+      "hex": "#A6CAF0",
+      "textColor": "black"
+    },
+    {
+      "id": "21",
+      "bezeichnung": "Cream",
+      "hex": "#FFFBF0",
+      "textColor": "black"
+    },
+    {
+      "id": "22",
+      "bezeichnung": "MedGray",
+      "hex": "#A0A0A4",
+      "textColor": "white"
+    },
+    {
+      "id": "123",
+      "bezeichnung": "Gelb2",
+      "hex": "#FFCC00",
+      "textColor": "black"
+    },
+    {
       "id": "124",
       "bezeichnung": "Orange",
       "hex": "#FF9800",
       "textColor": "black"
+    },
+    {
+      "id": "125",
+      "bezeichnung": "Gelb",
+      "hex": "#FFFF00",
+      "textColor": "black"
+    },
+    {
+      "id": "126",
+      "bezeichnung": "Rot",
+      "hex": "#FF0000",
+      "textColor": "white"
+    },
+    {
+      "id": "127",
+      "bezeichnung": "Grün",
+      "hex": "#008000",
+      "textColor": "white"
     },
     {
       "id": "128",

@@ -111,12 +111,48 @@ const TestListeDebug = ({
       console.error('Fehler beim Öffnen des Test-Details:', error);
     }
   }, [onTestClick]);
-    // Verwenden des lokalen States für die Darstellung
+  
+  // BADGE-FLICKER-DEBUG: Wrapped TestListe mit verbesserten Event-Handlern 
+  // und Monitoring für alle Checkbox-Interaktionen
+  const handleCheckboxToggle = (test, wasSelected, isNowSelected) => {
+    const timestamp = Date.now();
+    checkboxInteractions.current.push({
+      id: test.id,
+      timestamp,
+      wasSelected,
+      isNowSelected
+    });
+    
+    console.group(`[DEBUG] Checkbox-Interaktion - ${test.id}`);
+    console.log(`Zeitpunkt: ${new Date(timestamp).toLocaleTimeString()}.${timestamp % 1000}`);
+    console.log(`Status: ${wasSelected ? 'Ausgewählt' : 'Nicht ausgewählt'} -> ${isNowSelected ? 'Ausgewählt' : 'Nicht ausgewählt'}`);
+    
+    // Überwache DOM-Updates nach der Interaktion
+    const materialBadges = document.querySelectorAll('.material-badge');
+    console.log(`Anzahl Material Badges auf der Seite: ${materialBadges.length}`);
+    
+    // Starte einen MutationObserver, um DOM-Änderungen an den Badges zu überwachen
+    setTimeout(() => {
+      const badges = Array.from(document.querySelectorAll('.material-badge'));
+      badges.forEach((badge, index) => {
+        if (index < 3) { // Nur die ersten drei Badges inspizieren
+          console.log(`Badge #${index} classList:`, badge.className);
+        }
+      });
+      
+      // Überprüfe, ob ein Flash-Fix erforderlich ist
+      if (badges.length > 0) {
+        console.log(`[DEBUG] Potenzieller BADGE-FLICKER-FIX: Setze keys auf MaterialBadge basierend auf stabil bleibenden Werten`);
+      }
+    }, 10);
+    
+    console.groupEnd();
+  };
+
+  // Verwenden des lokalen States für die Darstellung
   // Dies sorgt für konsistente UI, auch wenn der Parent-State
   // nicht sofort aktualisiert wird
-  const localSelectedTests = lastSelectedTests.length > 0 ? lastSelectedTests : safeSelectedTests;
-
-  // Die Komponente mit verbesserten Event-Handlern rendern
+  const localSelectedTests = lastSelectedTests.length > 0 ? lastSelectedTests : safeSelectedTests;  // Die Komponente mit verbesserten Event-Handlern rendern
   return (
     <TestListe 
       tests={tests}

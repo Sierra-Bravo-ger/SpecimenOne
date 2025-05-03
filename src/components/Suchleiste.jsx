@@ -8,18 +8,41 @@ import tailwindBtn from './tailwindBtn.js' // Importiere die Tailwind-Button-Bib
 function Suchleiste({ suchbegriff, onSuchbegriffChange, selectedKategorie, onKategorieChange }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
-    // Liste aller verfügbaren Kategorien
+  // Liste aller verfügbaren Kategorien  
   const kategorien = [
-    "Alle",
-    "Hämatologie",
-    "Klinische Chemie",
-    "Gerinnung",
-    "Immunologie",
-    "Mikrobiologie",
-    "Endokrinologie",
-    "Virologie",
-    "Infektionsdiagnostik",
-    "Toxikologie"
+  "Alle",
+  "Allergie",
+//    "Blutbank",
+//    "Chemie",
+//    "Crea-Clearence",
+  "Elektrophorese",
+//  "Endokrinologie",
+//  "Extern",
+  "Gerinnung",
+//    "Gerinnung Faktoren",
+//    "Gerinnung Sondertest",
+//    "Gerinnung Thrombophilie",
+  "Hämatologie",
+//   "Hämatologie Immunzytometrie",
+//      "Hämatologie Sonder",
+  "Immunologie",
+  "Infektserologie",
+  "Klinische Chemie",
+//  "Liquor",
+//  "Medikamente",
+//  "Molekulargenetik",
+//  "Proteine",
+//  "Quantitative Urinanalytik",
+//  "Ria",
+//  "Ria Online",
+//  "Steinanalyse",
+//  "Stuhlanalyse",
+  "Toxikologie",
+//  "TDM",
+//  "Transfusionsmedizin",
+//  "Tumormarker",
+  "Urinstatus",
+  "Versand"
   ];
 
   // Schließen des Dropdown-Menüs bei Klick außerhalb

@@ -85,23 +85,63 @@ function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den 
   const [profiles, setProfiles] = useState([]);
   const [tests, setTests] = useState([]);
   const [dataLoaded, setDataLoaded] = useState(false);
-  
-  // Farben für die verschiedenen Kategorien - mit useMemo memoiziert
+    // Farben für die verschiedenen Kategorien - mit useMemo memoiziert
   const categoryColors = useMemo(() => ({
-    'Hämatologie': '#c74a4a',
-    'Klinische Chemie': '#9c6b3c',
-    'Gerinnung': '#4a995c',
-    'Immunologie': '#4a72c7',
-    'Mikrobiologie': '#8d4ac7',
-    'Endokrinologie': '#c79c4a',
-    'Virologie': '#3d99c2',
-    'Infektionsdiagnostik': '#9c6b3c',
-    'Toxikologie': '#e67e00'
+    // Hämatologie Gruppe
+    'Hämatologie': '#f44336',
+    'Hämatologie Immunzytometrie': '#d45252',
+    'Hämatologie Sonder': '#e15959',
+    
+    // Chemie Gruppe
+    'Klinische Chemie': '#795548',
+    'Chemie': '#795548',
+    'Quantitative Urinanalytik': '#b27a45',
+    'Urinstatus': '#c8894e',
+    'Crea-Clearence': '#a57548',
+    'Stuhlanalyse': '#8f6136',
+    'Steinanalyse': '#7a5330',
+    
+    // Gerinnung Gruppe
+    'Gerinnung': '#4CAF50',
+    'Gerinnung Faktoren': '#56b26a',
+    'Gerinnung Thrombophilie': '#62cc78',
+    'Gerinnung Sondertest': '#41844f',
+    
+    // Immunologie Gruppe
+    'Immunologie': '#2196F3',
+    'Autoantikörper': '#5681e0',
+    'Infektserologie': '#6291f8',
+    'Tumormarker': '#3d64b3',
+    'Allergie': '#345aa0',
+    
+    // Elektrophorese & Proteine
+    'Elektrophorese': '#9C27B0',
+    'Proteine': '#9956d4',
+    
+    // Ria Gruppe
+    'Ria': '#FFC107',
+    'Ria Online': '#d8ab51',
+    
+    // Spezialgebiete
+    'Medikamente': '#00BCD4',
+    'Toxikologie': '#FF9800',
+    'Liquor': '#45b2e0',
+    'Molekulargenetik': '#9055a2',
+    'Blutbank': '#e74c3c',
+    'Transfusionsmedizin': '#c0392b',
+    'Versand': 'rainbow',
+    'Extern': '#95a5a6',
   }), []);
   
   // Farbe für eine Kategorie abrufen
   const getCategoryColor = useCallback((category) => {
-    return categoryColors[category] || '#888888';
+    const color = categoryColors[category];
+    if (color === 'rainbow') {
+      // Falls in Timeline ein Regenbogen nicht funktioniert, 
+      // einen repräsentativen Farbton zurückgeben
+      return '#ff8c00'; // Ein kräftiges Orange als Alternative
+    }
+    return color || '#888888';
   }, [categoryColors]);
   
   // Hilfsfunktion zum Konvertieren der Zeitangaben
