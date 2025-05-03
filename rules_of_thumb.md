@@ -2,7 +2,7 @@
 
 ## 📋 1. Jede Erkenntnis verdient eine Regel – auch wenn sie sich später ändern darf
 
-> Lieber eine unvollkommene Regel als gar keine. Was heute als "Faustregel" dient,
+> Lieber eine unvollkommene Regel als gar keine. Was heute als "Faustregel" dient,  
 > kann morgen präzisiert oder ersetzt werden. Wichtig ist, dass es dokumentiert ist.
 
 **Gelernt bei:** Podcast über Software Architektur 'Software Architektur TV'
@@ -21,12 +21,12 @@
 
 ## 📌 3. Legacy Magic Numbers – implizite Regeln in Legacy Systemen
 
-> Legacy Systeme enthalten oft implizite Business-Rules. Dafür werden unter anderem Verwendet: Prozeduren oder anderweitig ausgelagerte Berechnungen
-> Hintergrund: „Dieses Testergebnis braucht eine spezielle Behandlung“
+> Legacy Systeme enthalten oft implizite Business-Rules. Dafür werden unter anderem Verwendet: Prozeduren oder anderweitig ausgelagerte Berechnungen  
+> Meistens historischer Hintergrund: „Dieses Testergebnis braucht eine spezielle Behandlung“
   
   Jede Testnummer kann ein Einhorn sein. 🦄
 
 Wenn in einer Prozedur steht: `if Test_Nr = 4711 then ...`, dann bedeutet das: dieser Test hat eine Sonderrolle.
 
-**Folge:** Solche Einhörner müssen identifiziert, dokumentiert und idealerweise entkoppelt werden.  
+**Folge:** Solche Einhörner müssen identifiziert, dokumentiert und in einer idealen Welt standardisiert werden.  
 **Status:** 🚧 offene Baustelle – systematisch in Bearbeitung
