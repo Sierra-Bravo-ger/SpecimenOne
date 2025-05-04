@@ -1,11 +1,11 @@
-#!/usr/bin/env pwsh
+﻿#!/usr/bin/env pwsh
 # TestsJsonUpdaterWithDuckDB.ps1
 # Dieses Skript demonstriert, wie DuckDB verwendet werden kann, um tests.json zu aktualisieren
 # Autor: Copilot
 # Datum: 02.05.2024
 
 # Stellen Sie sicher, dass die erforderlichen Module verfügbar sind
-$testsJsonPath = "./public/tests.json"
+$testsJsonPath = "../../public/tests.json"
 $backupFolder = "./backups"
 
 # Prüft, ob DuckDB CLI installiert ist

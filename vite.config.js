@@ -15,7 +15,8 @@ export default defineConfig({
         description: 'Offline-fähige Labor-Test-Verwaltung',
         theme_color: '#6abf7b',
         background_color: '#ffffff',
-        icons: [          {
+        icons: [
+          {
             src: '/images/icons/frame1.svg',
             sizes: 'any',
             type: 'image/svg+xml',
@@ -85,6 +86,22 @@ export default defineConfig({
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any'
+          }
+        ]
+      },
+      workbox: {
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/one\.madmoench\.de\/api\//,
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'specimen-api',
+              expiration: {
+                maxEntries: 100,
+                maxAgeSeconds: 3600 // 1 Stunde
+              },
+              networkTimeoutSeconds: 10
+            }
           }
         ]
       }

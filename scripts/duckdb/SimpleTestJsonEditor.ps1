@@ -1,11 +1,11 @@
-#!/usr/bin/env pwsh
+﻿#!/usr/bin/env pwsh
 # SimpleTestJsonEditor.ps1
 # Ein vereinfachtes Skript zum Hinzufügen von Tests zu tests.json mit DuckDB
 # Autor: GitHub Copilot
 # Datum: 02.05.2025
 
 # Pfad zur tests.json Datei
-$testsJsonPath = "./public/tests.json"
+$testsJsonPath = "../../public/tests.json"
 $backupFolder = "./backups"
 
 # Stellt sicher, dass der Backup-Ordner existiert

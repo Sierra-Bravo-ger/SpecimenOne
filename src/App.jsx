@@ -13,10 +13,14 @@ import ProfilDruckAnsicht from './components/ProfilDruckAnsicht'
 import ThemeSwitcher from './components/ThemeSwitcher'
 import LoginButton from './components/LoginButton'
 import tailwindBtn from './components/tailwindBtn'
+// API-Integration aktiviert
 import { useAuth0 } from '@auth0/auth0-react'
 import { useTheme } from './contexts/ThemeContext'
 import { useMaterialService } from './services/MaterialService'
 import { EinheitenServiceProvider, useEinheitenService } from './services/EinheitenService'
+import { useProfileService } from './services/ProfileService.api'
+import { API_BASE_URL } from './services/apiConfig'
+import { useTestsService } from './services/TestsService'
 import '@material/web/button/filled-button.js'
 import '@material/web/button/text-button.js'
 import '@material/web/icon/icon.js'
@@ -43,7 +47,7 @@ function App() {
   // State für die Auth-Weiterleitung, um Endlosschleifen zu vermeiden
   const [isRedirecting, setIsRedirecting] = useState(false);
   
-  const [tests, setTests] = useState([]);
+  const [tests, setTests] = useState([]);  // Initialisiere profile als leeres Array, falls es undefined ist
   const [profile, setProfile] = useState([]);
   const [ansicht, setAnsicht] = useState('tests'); // 'tests', 'profile' oder 'tabelle'
   const [isLoading, setIsLoading] = useState(true);
@@ -62,11 +66,13 @@ function App() {
   const [speicherErfolgreich, setSpeicherErfolgreich] = useState(false);
   // Neue States für die Sortierung
   const [sortOption, setSortOption] = useState('id'); // 'id', 'name', 'kategorie', 'material'
-  const [sortDirection, setSortDirection] = useState('asc'); // 'asc', 'desc'
-  // Theme-Management über den ThemeContext-Hook
+  const [sortDirection, setSortDirection] = useState('asc'); // 'asc', 'desc'  // Theme-Management über den ThemeContext-Hook
   const { currentTheme, isDark } = useTheme();
   // MaterialService für die Materialbezeichnungen
   const { convertMaterialIdsToNames, isLoading: materialsLoading } = useMaterialService();
+  // Neu: API-Services für Tests und Profile
+  const testsService = useTestsService();
+  const profileService = useProfileService();
   
   // Überprüfen der URL-Parameter beim Laden
   useEffect(() => {
@@ -98,37 +104,38 @@ function App() {
   useEffect(() => {
     localStorage.setItem('specimenOne.sortOption', sortOption);
     localStorage.setItem('specimenOne.sortDirection', sortDirection);
-  }, [sortOption, sortDirection]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // Tests laden
-        const testsResponse = await fetch('/tests.json');
-        if (!testsResponse.ok) {
-          throw new Error('Fehler beim Laden der Testdaten');
-        }
+  }, [sortOption, sortDirection]);  useEffect(() => {
+    const fetchData = async () => {      try {
+        console.log('App.jsx: Direkte API-Anfragen werden gesendet');
+        
+        // Direkte API-Anfrage für Tests - erhöhtes Limit für alle Tests
+        const testsResponse = await fetch(`${API_BASE_URL}/tests?limit=2000`);
         const testsData = await testsResponse.json();
-        // Prüfen, ob die Daten in der neuen Struktur mit value-Attribut vorliegen
-        const testsArray = testsData.value ? testsData.value : testsData;
-        setTests(testsArray);
-
-        // Profile laden
-        const profileResponse = await fetch('/profile.json');
-        if (!profileResponse.ok) {
-          throw new Error('Fehler beim Laden der Profildaten');
+        
+        if (testsData && testsData.tests) {
+          console.log('API-Tests empfangen:', testsData.tests.length);
+          setTests(testsData.tests);
         }
+        
+        // Direkte API-Anfrage für Profile
+        const profileResponse = await fetch(`${API_BASE_URL}/profile`);
         const profileData = await profileResponse.json();
-        setProfile(profileData);
+        
+        if (profileData && profileData.profile) {
+          console.log('API-Profile direkt empfangen:', profileData.profile.length);
+          setProfile(profileData.profile);
+        }
       } catch (err) {
         setError(err.message);
+        console.error('Fehler beim direkten Laden der Daten:', err);
       } finally {
         setIsLoading(false);
       }
     };
 
+    // Beim ersten Laden ausführen
     fetchData();
-  }, []);  
+  }, []);
   // Theme wird jetzt über den ThemeContext verwaltet
 
   // Filterung für Suche und Kategorie implementieren  
@@ -174,22 +181,43 @@ function App() {
       return true;
     }
     return false;
+  });  // Filterung für Profile mit Berücksichtigung der Kategorie
+  console.log("App.jsx: Profile vor Filterung:", {
+    profileLength: profile.length,
+    isArray: Array.isArray(profile),
+    firstItem: profile.length > 0 ? profile[0] : null,
+    selectedKategorie
   });
-  // Filterung für Profile mit Berücksichtigung der Kategorie
-  const filteredProfile = profile.filter(profil => {
-    // Erst nach Kategorie filtern
-    if (selectedKategorie !== 'Alle' && profil.kategorie !== selectedKategorie) {
-      return false;
+  
+  const filteredProfile = Array.isArray(profile) ? profile.filter(profil => {
+    if (!profil) return false;
+    
+    // Debug für jedes Profil
+    if (profile.length > 0 && profile.indexOf(profil) < 5) {
+      console.log(`Profil ${profil.id} Kategorie: ${profil.kategorie}, Selected: ${selectedKategorie}`);
     }
     
-    // Wenn kein Suchbegriff, dann nur nach Kategorie filtern
-    if (!suchbegriff) {
-      return true;
+    // Wenn "Alle" ausgewählt ist oder die Kategorie übereinstimmt
+    if (selectedKategorie === 'Alle' || profil.kategorie === selectedKategorie) {
+      // Wenn kein Suchbegriff, dann nur nach Kategorie filtern
+      if (!suchbegriff) {
+        return true;
+      }
+      
+      // Mit Suchbegriff filtern
+      const searchTerm = suchbegriff.toLowerCase();
+      return (profil.name && profil.name.toLowerCase().includes(searchTerm)) || 
+             (profil.beschreibung && profil.beschreibung.toLowerCase().includes(searchTerm)) || 
+             (profil.kategorie && profil.kategorie.toLowerCase().includes(searchTerm));
     }
-    const searchTerm = suchbegriff.toLowerCase();
-    return profil.name.toLowerCase().includes(searchTerm) || 
-           profil.beschreibung.toLowerCase().includes(searchTerm) || 
-           profil.kategorie.toLowerCase().includes(searchTerm);
+    
+    return false;
+  }) : [];
+  
+  // Debug-Ausgabe für filteredProfile
+  console.log("App.jsx: Gefilterte Profile:", {
+    count: filteredProfile.length,
+    firstItem: filteredProfile.length > 0 ? filteredProfile[0] : null
   });
   
   const handleSuchbegriffChange = (newValue) => {
@@ -405,9 +433,8 @@ function App() {
               {ansicht === 'timeline' && (
                 <TimelineView key="timeline-view" />
               )}
-              
-              {ansicht === 'profile' && (
-                <ProfilListe tests={tests} profile={filteredProfile} />
+                {ansicht === 'profile' && (
+                <ProfilListe tests={tests} profile={profileService.profiles || []} />
               )}
               
               {ansicht === 'tabelle' && (

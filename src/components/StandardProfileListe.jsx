@@ -11,6 +11,15 @@ import tailwindBtn from './tailwindBtn';
 // aus der ursprünglichen ProfilListe für Standard-Profile
 function StandardProfileListe({ tests, profile, expandedProfiles, setExpandedProfiles, onTestClick }) {
   const { isLoading: materialsLoading } = useMaterialService();
+    // Stellen Sie sicher, dass profile immer ein Array ist
+  const profileArray = Array.isArray(profile) ? profile : [];
+  
+  // Debug-Ausgabe für empfangene Profile
+  console.log("StandardProfileListe: Profile empfangen:", {
+    count: profileArray.length,
+    isArray: Array.isArray(profile),
+    firstItem: profileArray.length > 0 ? profileArray[0] : null
+  });
 
   // Funktion zum Umschalten der Profil-Expansion
   const toggleProfile = (profilId) => {
@@ -20,26 +29,48 @@ function StandardProfileListe({ tests, profile, expandedProfiles, setExpandedPro
       setExpandedProfiles([...expandedProfiles, profilId]);
     }
   };
-
-  // Sortiere Profile nach sortierNummer (falls vorhanden) oder nach ID als Fallback
-  const sortedProfiles = [...profile].sort((a, b) => {
-    // Primär nach sortierNummer sortieren, falls vorhanden
-    if (a.sortierNummer !== undefined && b.sortierNummer !== undefined) {
-      return a.sortierNummer - b.sortierNummer;
-    }
-    // Sekundär nach ID sortieren
-    return a.id.localeCompare(b.id);
-  });
-
+  
+  // Sortiere Profile nach sortiernummer (falls vorhanden) oder nach ID als Fallback
+  // Nur sortieren, wenn es Profile gibt
+  const sortedProfiles = profileArray.length > 0 
+    ? [...profileArray].sort((a, b) => {
+        // Primär nach sortiernummer sortieren, falls vorhanden
+        if (a.sortiernummer !== undefined && b.sortiernummer !== undefined) {
+          return a.sortiernummer - b.sortiernummer;
+        }
+        // Sekundär nach ID sortieren
+        return a.id.localeCompare(b.id);
+      })
+    : [];
   return (
     <div className={tailwindBtn.classes.profileList.container}>
-      {profile.length === 0 ? (
+      {profileArray.length === 0 ? (
         <p className={tailwindBtn.classes.profileList.noProfilesMessage}>Keine Profile gefunden.</p>
       ) : (
-        sortedProfiles.map(profil => {
-          const isExpanded = expandedProfiles.includes(profil.id);
+        sortedProfiles.map(profil => {          const isExpanded = expandedProfiles.includes(profil.id);          
+          
+          // Konvertiere tests-Eigenschaft zu einem Array von Test-IDs
+          let testIdsArray = [];
+          
+          if (Array.isArray(profil.tests)) {
+            // Fall 1: Tests ist ein Array mit pipe-getrennten Test-IDs in einem Element
+            if (profil.tests.length === 1 && typeof profil.tests[0] === 'string' && profil.tests[0].includes('|')) {
+              testIdsArray = profil.tests[0].split('|');
+            } 
+            // Fall 2: Tests ist ein Array mit einzelnen Test-IDs als Elemente
+            else {
+              testIdsArray = profil.tests;
+            }
+          } 
+          // Fall 3: Tests ist ein pipe-getrennter String
+          else if (typeof profil.tests === 'string') {
+            testIdsArray = profil.tests.split('|');
+          }
+          
+          console.log(`Profil ${profil.name}: TestIDs gefunden:`, testIdsArray);
+          
           const profilTests = tests.filter(test => 
-            profil.tests.includes(test.id)
+            testIdsArray.includes(test.id)
           );
 
           return (

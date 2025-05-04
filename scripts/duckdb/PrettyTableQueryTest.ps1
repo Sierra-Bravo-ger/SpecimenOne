@@ -1,11 +1,11 @@
-#!/usr/bin/env pwsh
+﻿#!/usr/bin/env pwsh
 # PrettyTableQueryTest.ps1
 # Dieses Skript demonstriert eine verbesserte Tabellenformatierung für DuckDB-Abfragen
 # Autor: GitHub Copilot
 # Datum: 03.05.2025
 
 # Pfad zur tests.json Datei
-$testsJsonPath = "./public/tests.json"
+$testsJsonPath = "../../public/tests.json"
 
 # Funktion zum Ausführen einer Abfrage und Formatieren der Ausgabe
 function Invoke-FormattedQuery {

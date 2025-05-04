@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TestDetails from './TestDetails';
 import * as MaterialDesign from "react-icons/md";
 import '@material/web/ripple/ripple.js';
@@ -14,6 +14,15 @@ function ProfilListe({ tests, profile }) {
   const [selectedTest, setSelectedTest] = useState(null);
   const [activeSubTab, setActiveSubTab] = useState('standard');
   const { isLoading: materialsLoading } = useMaterialService();
+  const [loadedProfile, setLoadedProfile] = useState([]);
+
+  // Profile übernehmen, sobald sie verfügbar sind
+  useEffect(() => {
+    if (profile && Array.isArray(profile) && profile.length > 0) {
+      setLoadedProfile(profile);
+      console.log("ProfilListe: Profile geladen, Anzahl:", profile.length);
+    }
+  }, [profile]);
 
   const handleTestClick = (test) => {
     setSelectedTest(test);
@@ -38,12 +47,11 @@ function ProfilListe({ tests, profile }) {
           Persönliche Profile
         </button>
       </div>
-      
-      {/* Bedingt zu rendernder Inhalt basierend auf aktivem Tab */}
+        {/* Bedingt zu rendernder Inhalt basierend auf aktivem Tab */}
       {activeSubTab === 'standard' ? (
         <StandardProfileListe 
           tests={tests} 
-          profile={profile}
+          profile={loadedProfile.length > 0 ? loadedProfile : profile}
           expandedProfiles={expandedProfiles}
           setExpandedProfiles={setExpandedProfiles}
           onTestClick={handleTestClick}

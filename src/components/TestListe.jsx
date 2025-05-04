@@ -17,9 +17,8 @@ function TestListe({
   sortOption = 'id',
   sortDirection = 'asc',
   onCheckboxToggle = null
-}) {
-  // Pagination-Einstellungen - Angepasst für größere Datenmengen (3000 Tests)
-  const ITEMS_PER_PAGE = 150; // 20 Reihen mit je 6 Karten (bei xl:grid-cols-6)
+}) {  // Pagination-Einstellungen - Angepasst für größere Datenmengen (2000+ Tests)
+  const ITEMS_PER_PAGE = 200; // Erhöht, um mehr Tests auf einmal anzuzeigen
   const PAGINATION_THRESHOLD = 120; // Ab dieser Anzahl Tests wird paginiert
   const [currentPage, setCurrentPage] = useState(1);
   const isPaginationEnabled = tests.length > PAGINATION_THRESHOLD;

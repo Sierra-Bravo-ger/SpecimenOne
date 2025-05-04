@@ -28,6 +28,9 @@ const TIME_FORMAT_CACHE = {
 let warningCount = 0;
 const MAX_WARNINGS = 3;
 
+import { useProfileService } from '../services/ProfileService.api';
+import { useTestsService } from '../services/TestsService';
+
 function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den Zustand, der keine Re-Renders auslösen soll
   const initialRender = React.useRef(true);
   
@@ -80,6 +83,9 @@ function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den 
   const [activeTab, setActiveTab] = useState('timeline'); // 'timeline' oder 'treemap'
   const [currentPage, setCurrentPage] = useState(0);
   const profilesPerPage = 5; // Anzahl Profile pro Seite
+    // API-Services für Tests und Profile
+  const profileService = useProfileService();
+  const testsService = useTestsService();
   
   // Wir verwenden useState für die Profil- und Testdaten
   const [profiles, setProfiles] = useState([]);
@@ -121,8 +127,7 @@ function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den 
     // Ria Gruppe
     'Ria': '#FFC107',
     'Ria Online': '#d8ab51',
-    
-    // Spezialgebiete
+      // Spezialgebiete
     'Medikamente': '#00BCD4',
     'Toxikologie': '#FF9800',
     'Liquor': '#45b2e0',
@@ -131,6 +136,7 @@ function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den 
     'Transfusionsmedizin': '#c0392b',
     'Versand': 'rainbow',
     'Extern': '#95a5a6',
+    'Sonstige': '#607d8b', // Hinzugefügt für API-Profile
   }), []);
   
   // Farbe für eine Kategorie abrufen
@@ -143,15 +149,22 @@ function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den 
     }
     return color || '#888888';
   }, [categoryColors]);
-  
   // Hilfsfunktion zum Konvertieren der Zeitangaben
   const convertTimeToMinutes = useCallback((timeString) => {
-    if (!timeString) return 60; // Standardwert für leere Angaben
+    if (!timeString) {
+      console.log('[TimelineView] Leere Zeitangabe - verwende Standardwert (60 min)');
+      return 60; // Standardwert für leere Angaben
+    }
+    
+    // Normalisiere die Eingabe (entferne mehrfache Leerzeichen, trimme)
+    const normalizedTimeString = timeString.trim().replace(/\s+/g, ' ');
     
     // Wenn das Format bereits im Cache ist, gespeicherten Wert verwenden
-    if (timeString in TIME_FORMAT_CACHE) {
-      return TIME_FORMAT_CACHE[timeString];
+    if (normalizedTimeString in TIME_FORMAT_CACHE) {
+      return TIME_FORMAT_CACHE[normalizedTimeString];
     }
+    
+    console.log(`[TimelineView] Konvertiere Zeitangabe: "${timeString}" (normalisiert: "${normalizedTimeString}")`);
     
     let minutes = 60; // Standardwert
     let matched = false;
@@ -162,6 +175,7 @@ function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den 
       // Bei Bereichsangaben den höheren Wert verwenden
       const days = daysMatch[2] ? parseInt(daysMatch[2]) : parseInt(daysMatch[1]);
       minutes = days * 24 * 60;
+      console.log(`[TimelineView] Tagesangabe erkannt: ${days} Tage => ${minutes} Minuten`);
       matched = true;
     }
     // "Max. X Tage" Angaben
@@ -169,11 +183,13 @@ function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den 
       const maxDaysMatch = timeString.match(/Max\.\s*(\d+)\s*Tage?/i);
       if (maxDaysMatch) {
         minutes = parseInt(maxDaysMatch[1]) * 24 * 60;
+        console.log(`[TimelineView] Max. Tage erkannt: ${maxDaysMatch[1]} Tage => ${minutes} Minuten`);
         matched = true;
       }
       // "am selben Tag" Angaben
       else if (timeString.toLowerCase().includes('am selben tag')) {
         minutes = 8 * 60; // 8 Stunden für "am selben Tag"
+        console.log('[TimelineView] "Am selben Tag" erkannt => 480 Minuten');
         matched = true;
       }
       // Stundenangaben
@@ -181,6 +197,7 @@ function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den 
         const hoursMatch = timeString.match(/(\d+)\s*Stunden?/i);
         if (hoursMatch) {
           minutes = parseInt(hoursMatch[1]) * 60;
+          console.log(`[TimelineView] Stundenangabe erkannt: ${hoursMatch[1]} Stunden => ${minutes} Minuten`);
           matched = true;
         }
         // Minutenangaben
@@ -231,47 +248,57 @@ function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den 
         console.warn('[SpecimenOne] Weitere Warnungen werden unterdrückt um die Konsole übersichtlich zu halten.');
       }
     }
-    
-    // Ergebnis im Cache speichern für zukünftige Aufrufe
-    TIME_FORMAT_CACHE[timeString] = minutes;
+      // Ergebnis im Cache speichern für zukünftige Aufrufe (mit normalisiertem String)
+    TIME_FORMAT_CACHE[normalizedTimeString] = minutes;
     return minutes;
-  }, []);
-  
-  // Diese useEffect lädt die Daten nur einmal beim ersten Rendering
+  }, []);  // Diese useEffect lädt die Daten aus den API-Services und nutzt die neue Methode zum Laden ALLER Tests
   useEffect(() => {
     const loadInitialData = async () => {
       try {
         setLoading(true);
+        console.log('[TimelineView] Daten werden geladen...');
         
-        // Profile und Tests laden
-        const profilesResponse = await fetch('/profile.json');
-        const testsResponse = await fetch('/tests.json');
-        
-        if (!profilesResponse.ok || !testsResponse.ok) {
-          throw new Error('Fehler beim Laden der Daten');
+        // Warten bis Profile geladen sind
+        if (!profileService.isLoading && profileService.profiles) {
+          console.log('[TimelineView] Profile aus API-Services geladen:', {
+            profiles: profileService.profiles.length
+          });
+          
+          setProfiles(profileService.profiles);
+          
+          // Alle verfügbaren Kategorien extrahieren
+          const kategorien = [...new Set(profileService.profiles.map(p => p.kategorie))].filter(Boolean);
+          setAvailableKategorien(['Alle', ...kategorien]);
+          
+          // Für die Timeline und Treemap brauchen wir ALLE Tests ohne Paginierung
+          console.log('[TimelineView] Lade jetzt ALLE Tests für Treemap und Timeline...');
+          
+          try {
+            // Verwende die neue Methode, die direkt ein Array zurückgibt
+            const allTests = await testsService.loadAllTestsAtOnce();
+            
+            // Setze die Tests direkt
+            console.log(`[TimelineView] ${allTests.length} Tests wurden für die Visualisierung geladen`);
+            setTests(allTests);
+            
+            // Jetzt sind alle Daten geladen
+            setDataLoaded(true);
+          } catch (testErr) {
+            console.error('[TimelineView] Fehler beim Laden aller Tests:', testErr);
+            setError(testErr.message);
+          } finally {
+            setLoading(false);
+          }
         }
-        
-        const profilesData = await profilesResponse.json();
-        const testsData = await testsResponse.json();
-        
-        setProfiles(profilesData);
-        setTests(testsData);
-        
-        // Alle verfügbaren Kategorien extrahieren
-        const kategorien = [...new Set(profilesData.map(p => p.kategorie))];
-        setAvailableKategorien(['Alle', ...kategorien]);
-        
-        setDataLoaded(true);
       } catch (err) {
-        console.error('Fehler beim Laden der Timeline-Daten:', err);
+        console.error('[TimelineView] Fehler beim Laden der Daten:', err);
         setError(err.message);
-      } finally {
         setLoading(false);
       }
     };
     
     loadInitialData();
-  }, []);
+  }, [profileService.profiles, profileService.isLoading]);
   
   // Verwende useMemo zur Berechnung der anzuzeigenden Profile
   const profilesToRender = useMemo(() => {
@@ -356,12 +383,63 @@ function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den 
         const testEntries = [];
         // Sammle alle einzigartigen Kategorien in diesem Profil
         const uniqueCategories = new Set();
-        
-        for (const testId of profile.tests) {
-          const test = tests.find(t => t.id === testId);
-          if (!test) continue;
+          // Konvertiere tests-String in Array, falls nötig
+        const testsArray = Array.isArray(profile.tests) 
+          ? profile.tests 
+          : (typeof profile.tests === 'string' 
+             ? profile.tests.split('|') 
+             : []);
+          // Debugging-Informationen für dieses Profil
+        console.log(`[TimelineView] Verarbeite Profil ${profile.id} (${profile.name}) mit ${testsArray.length} Tests:`, testsArray);
+          for (const testId of testsArray) {
+          // Überprüfen, ob die Test-ID noch Pipe-Zeichen enthält und ggf. weiter aufteilen
+          if (testId.includes('|')) {
+            console.warn(`[TimelineView] Test-ID '${testId}' enthält immer noch Pipe-Zeichen, wird weiter aufgeteilt.`);
+            // Rekursiv die Suche für jeden Teil ausführen
+            const subIds = testId.split('|');
+            for (const subId of subIds) {
+              const trimmedSubId = subId.trim();
+              const subTest = tests.find(t => t.id === trimmedSubId);
+              if (!subTest) {
+                console.warn(`[TimelineView] Unter-Test mit ID '${trimmedSubId}' nicht gefunden für Profil ${profile.id}`);
+                continue;
+              }
+              // Den gefundenen Unter-Test verarbeiten
+              const duration = convertTimeToMinutes(subTest.befundzeit || '');
+              maxDuration = Math.max(maxDuration, duration);
+              const category = subTest.kategorie || 'Unbekannt';
+              uniqueCategories.add(category);
+              testEntries.push({
+                id: subTest.id,
+                name: subTest.name,
+                duration,
+                category
+              });
+            }
+            // Weiter zur nächsten ID in der Hauptschleife
+            continue;
+          }
+          
+          // Normale Verarbeitung einer einzelnen Test-ID
+          const testIdTrimmed = testId.trim(); // Whitespace entfernen, falls vorhanden
+          const test = tests.find(t => t.id === testIdTrimmed);
+          
+          if (!test) {
+            console.warn(`[TimelineView] Test mit ID '${testIdTrimmed}' nicht gefunden für Profil ${profile.id}`);
+            continue;
+          }
+          
+          // Debugging: Überprüfe die gefundenen Test-Daten
+          console.log(`[TimelineView] Test gefunden:`, {
+            id: test.id,
+            name: test.name,
+            befundzeit: test.befundzeit,
+            kategorie: test.kategorie
+          });
           
           const duration = convertTimeToMinutes(test.befundzeit || '');
+          console.log(`[TimelineView] Konvertierte Zeit für ${test.id}: ${test.befundzeit} => ${duration} Minuten`);
+          
           maxDuration = Math.max(maxDuration, duration);
           const category = test.kategorie || 'Unbekannt';
           
@@ -444,10 +522,14 @@ function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den 
       color: getCategoryColor(test.category)
     }));
   }, [getCategoryColor]);
-  
   // Vorbereitung der Daten für die Treemap-Visualisierung
   const prepareTreemapData = useMemo(() => {
-    if (!tests || tests.length === 0) return { name: 'tests', children: [] };
+    if (!tests || tests.length === 0) {
+      console.warn('[TimelineView] Keine Tests für Treemap verfügbar');
+      return { name: 'tests', children: [] };
+    }
+    
+    console.log('[TimelineView] Bereite Treemap-Daten vor mit', tests.length, 'Tests');
     
     // Tests nach Kategorie gruppieren
     const categoryCounts = {};

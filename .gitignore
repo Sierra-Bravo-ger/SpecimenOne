@@ -4,6 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
+**/node_modules/
+package-lock.json
+**/package-lock.json
 
 # Build-Verzeichnisse
 /dist
@@ -49,17 +52,57 @@ lerna-debug.log*
 # Spezifisch für Ihr Projekt
 /temp_csv
 tests_exportiert*.csv
-tests_exportiert.csv
+profile_exportiert*.csv
+material_exportiert*.csv
+einheiten_exportiert*.csv
+referenzwerte_exportiert*.csv
+farben_exportiert*.csv
+*_exportiert*.csv
 *.xlsx
 *.xls
 *.bak
 /data-backup
+/scripts/duckdb/duckdb.exe
+duckdb.exe
+/public/duckdb.exe
 tests_importiert*.json
 profile_exportiert*.json
 profile_exportiert.json
 config.ini
 src/services/FormSubmitService.js
 src/services/ServiceClient.js
+
+# API Server und Integration
+/server/node_modules/
+/server/config/
+/server/.env
+debug_profile_api.json
+run-api-*.ps1
+setup-api-*.ps1
+# Nur temporäre API-Dokumente ignorieren, wichtige README-Dateien behalten
+API-INTEGRATION.md
+Integration.md
+JSONL-Support.md
+specimenone-nas.session.sql
+import_*.sql
+
+# Alte API Service Versionen (nur während der Entwicklung)
+src/services/*Service.refactored.jsx
+src/hooks/useLeistungsverzeichnis*.js
+
+# DuckDB und SQL-Tools
+/public/speci-db
+*.sql
+*DuckDB*.ps1
+*WithDuckDB*.ps1
+*Synonym*.ps1
+*Synonym*.sql
+UpdateTest*.ps1
+UpdateTest*.sql
+UpdateKategorien*.ps1
+Convert*ToCsv.ps1
+Convert*ToJson.ps1
+/scripts/duckdb/backups
 
 # Lokale Konfigurationsdateien
 *.local.json
@@ -68,7 +111,7 @@ src/services/ServiceClient.js
 *-log.txt
 *_output.json
 
-# Entwicklungsnotizen
+# Persönliche Entwicklungsnotizen
 TODO.md
 NOTES.md
 copilot_rules.md

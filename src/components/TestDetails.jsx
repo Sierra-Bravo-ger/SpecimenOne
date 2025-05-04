@@ -9,31 +9,35 @@ import '@material/web/elevation/elevation.js'
 import * as MaterialDesign from "react-icons/md"
 import { useMaterialService } from '../services/MaterialService'
 import { useEinheitenService } from '../services/EinheitenService'
+import { loadJsonData } from '../utils/jsonLoader' // Importieren der Hilfsfunktion
+import { API_BASE_URL } from '../services/apiConfig'
 import MaterialBadge from './MaterialBadge'
 import tailwindBtn from './tailwindBtn' // Importiere unsere zentrale Styling-Bibliothek
 
 function TestDetails({ test, onClose }) {
   // Ref für den Ausdruck
   const printContentRef = useRef(null);  // State für Referenzwerte
-  const [referenzwerte, setReferenzwerte] = useState([]);
-  // Material-Service für die Anzeige der Materialbezeichnungen
-  const { convertMaterialIdsToNames, isLoading: materialsLoading } = useMaterialService();
-  // Einheiten-Service für die Anzeige der Einheitsbezeichnungen
-  const { getEinheitBezeichnung, isLoading: einheitenLoading } = useEinheitenService();
+  const [referenzwerte, setReferenzwerte] = useState([]);  // Material-Service für die Anzeige der Materialbezeichnungen  const { convertMaterialIdsToNames, isLoading: materialsLoading } = useMaterialService();  // Einheiten-Service für die Anzeige der Einheitsbezeichnungen
+  const { formatEinheit, isLoading: einheitenLoading } = useEinheitenService();
   
   // Laden der Referenzwerte beim Mounten der Komponente
   useEffect(() => {
     const fetchReferenzwerte = async () => {
       try {
-        const response = await fetch('/referenzwerte.json');
+        // Verwende die API, um die Referenzwerte direkt vom Test zu laden
+        const response = await fetch(`${API_BASE_URL}/tests/${test.id}`);
         if (!response.ok) {
-          throw new Error('Netzwerkantwort war nicht ok');
+          throw new Error('Fehler beim Laden der Test-Details');
         }
-        const data = await response.json();
-        // Prüfen ob Referenzwerte für diesen Test existieren
-        if (data[test.id]) {
-          setReferenzwerte(data[test.id]);
+        
+        const testData = await response.json();
+        
+        // Die API liefert die Referenzwerte im Test-Objekt
+        if (testData && testData.referenzwerte) {
+          console.log(`Referenzwerte für ${test.id} von API geladen:`, testData.referenzwerte.length);
+          setReferenzwerte(testData.referenzwerte);
         } else {
+          console.warn(`Keine Referenzwerte für Test ${test.id} gefunden`);
           setReferenzwerte([]);
         }
       } catch (error) {
@@ -44,14 +48,13 @@ function TestDetails({ test, onClose }) {
 
     fetchReferenzwerte();
   }, [test.id]);
-  
-  // Übersetzt die Geschlechter-IDs in lesbare Bezeichnungen
+    // Übersetzt die Geschlechter-IDs in lesbare Bezeichnungen
   const getGeschlechtText = (geschlechtId) => {
-    switch (geschlechtId) {
+    switch (Number(geschlechtId)) {
       case 1000: return 'Männlich';
       case 2000: return 'Weiblich';
       case 3000: return 'Alle';
-      default: return '';
+      default: return 'Alle'; // Default zur Sicherheit
     }
   };
   
@@ -226,7 +229,7 @@ function TestDetails({ test, onClose }) {
             <p><strong>ID:</strong> ${test.id}</p>
             <p><strong>LOINC:</strong> ${test.loinc}</p>
             <p><strong>Kategorie:</strong> ${test.kategorie}</p>
-            ${test.einheit_id ? `<p><strong>Einheit:</strong> ${getEinheitBezeichnung(test.einheit_id)}</p>` : ''}
+            ${test.einheit_id ? `<p><strong>Einheit:</strong> ${formatEinheit(test.einheit_id)}</p>` : ''}
           </div>
             <div class="section">
             <h2>Probenanforderungen</h2>
@@ -369,18 +372,25 @@ function TestDetails({ test, onClose }) {
               console.warn(`[SpecimenOne Debug] Fehlendes Feld 'loinc' in Test ${test.id}: ${test.name}`);
               return 'N/A';
             }            return test.loinc;
-          })()}</p>
-          <p className={`${tailwindBtn.classes.text}`}><strong>Kategorie:</strong> {(() => {
-            if (!test.kategorie) {
-              console.warn(`[SpecimenOne Debug] Fehlendes Feld 'kategorie' in Test ${test.id}: ${test.name}`);
-              return 'Keine Kategorie';
-            }
-            return test.kategorie;
-          })()}</p>
-          {(() => {            if (!test.einheit_id) {
+          })()}</p>          <div className={`${tailwindBtn.classes.badge.materialRow}`}>
+            <p className={`${tailwindBtn.classes.text} ${tailwindBtn.classes.badge.materialRowText}`}><strong>Kategorie:</strong></p>
+            {(() => {
+              if (!test.kategorie) {
+                console.warn(`[SpecimenOne Debug] Fehlendes Feld 'kategorie' in Test ${test.id}: ${test.name}`);
+                return <span className={`${tailwindBtn.classes.badge.noMaterialInfo}`}>Keine Kategorie</span>;
+              }
+              return (
+                <div className={`${tailwindBtn.classes.badge.badgesContainer}`}>
+                  <span className={`${tailwindBtn.getKategorieBadgeClasses(test.kategorie)}`}>
+                    {test.kategorie}
+                  </span>
+                </div>
+              );
+            })()}
+          </div>          {(() => {            if (!test.einheit_id) {
               console.warn(`[SpecimenOne Debug] Fehlendes Feld 'einheit_id' in Test ${test.id}: ${test.name}`);
             }
-            return test.einheit_id && <p className={`${tailwindBtn.classes.text}`}><strong>Einheit:</strong> {getEinheitBezeichnung(test.einheit_id)}</p>;
+            return test.einheit_id && <p className={`${tailwindBtn.classes.text}`}><strong>Einheit:</strong> {formatEinheit(test.einheit_id)}</p>;
           })()}
           <md-divider></md-divider>
         </div>        <div className="details-section">
@@ -502,36 +512,48 @@ function TestDetails({ test, onClose }) {
                   <th>Bedingung</th>
                 </tr>
               </thead>
-              <tbody>
-                {referenzwerte.map((ref, index) => (
-                  <tr key={index}>
-                    <td>
-                      {ref.Besondere_Bedingung || 
-                       (ref.Alter_von === 0 && ref.Alter_bis === 1 ? "Neugeborene" : 
-                        ref.Alter_von === 0 && ref.Alter_bis < 18 ? "Kinder" : 
-                        ref.Alter_von >= 1 && ref.Alter_bis < 18 ? "Kinder/Jugendliche" : 
-                        "Erwachsene")}
-                    </td>
-<td>
-                      {ref.Alter_von === 0 && ref.Alter_bis === 99 ? "Alle" : 
-                       `${ref.Alter_von}-${ref.Alter_bis} Jahre`}
-                    </td>
-                    <td>{getGeschlechtText(ref.Geschlecht)}</td>
-                    <td>
-                      {ref.Anzeige_Label 
-                        ? `${ref.Anzeige_Label} ${getEinheitBezeichnung(test.einheit_id)}`
-                        : (ref.Wert_untere_Grenze !== null && ref.Wert_obere_Grenze !== null)
-                          ? `${ref.Wert_untere_Grenze} - ${ref.Wert_obere_Grenze} ${getEinheitBezeichnung(test.einheit_id)}`
-                          : ref.Wert_untere_Grenze !== null
-                            ? `> ${ref.Wert_untere_Grenze} ${getEinheitBezeichnung(test.einheit_id)}`
-                            : ref.Wert_obere_Grenze !== null
-                              ? `< ${ref.Wert_obere_Grenze} ${getEinheitBezeichnung(test.einheit_id)}`
-                              : "-"
-                      }
-                    </td>
-                    <td>{ref.Schwangerschaft ? `Schwangerschaft (${ref.Besondere_Bedingung})` : ref.Besondere_Bedingung || "-"}</td>
-                  </tr>
-                ))}
+              <tbody>                {referenzwerte.map((ref, index) => {
+                  // Konvertieren der Feldnamen für API-Kompatibilität
+                  const besondereBedingung = ref.besondere_bedingung || ref.Besondere_Bedingung || "";
+                  const alterVon = ref.alter_von !== undefined ? ref.alter_von : (ref.Alter_von !== undefined ? ref.Alter_von : 0);
+                  const alterBis = ref.alter_bis !== undefined ? ref.alter_bis : (ref.Alter_bis !== undefined ? ref.Alter_bis : 999);
+                  const geschlecht = ref.geschlecht || ref.Geschlecht || 3000; // Default auf "Alle" setzen
+                  const anzeigeLabel = ref.anzeige_label || ref.Anzeige_Label || "";
+                  const wertUntereGrenze = ref.wert_untere_grenze || ref.Wert_untere_Grenze || null;
+                  const wertObereGrenze = ref.wert_obere_grenze || ref.Wert_obere_Grenze || null;
+                  const schwangerschaft = ref.schwangerschaft || ref.Schwangerschaft || false;
+                  
+                  return (
+                    <tr key={index}>                      <td>
+                        {/* Immer die Altersgruppe berechnen, unabhängig von besondereBedingung */}
+                        {alterVon === 0 && alterBis === 1 ? "Neugeborene" : 
+                          alterVon === 0 && alterBis < 18 ? "Kinder" : 
+                          alterVon >= 1 && alterBis < 18 ? "Kinder/Jugendliche" : 
+                          "Erwachsene"}
+                      </td>
+                      <td>
+                        {alterVon === 0 && (alterBis === 99 || alterBis === 999) ? "Alle" : 
+                         `${alterVon || 0}-${alterBis || 999} Jahre`}
+                      </td>
+                      <td>{getGeschlechtText(geschlecht)}</td>
+                      <td>
+                        {anzeigeLabel 
+                          ? `${anzeigeLabel} ${formatEinheit(test.einheit_id)}`
+                          : (wertUntereGrenze && wertObereGrenze)
+                            ? `${wertUntereGrenze} - ${wertObereGrenze} ${formatEinheit(test.einheit_id)}`
+                            : wertUntereGrenze
+                              ? `> ${wertUntereGrenze} ${formatEinheit(test.einheit_id)}`
+                              : wertObereGrenze
+                                ? `< ${wertObereGrenze} ${formatEinheit(test.einheit_id)}`
+                                : besondereBedingung // Wenn kein Referenzbereich, prüfe ob besondereBedingung vorhanden ist
+                                  ? `${besondereBedingung}`
+                                  : "-"
+                        }
+                      </td>
+                      <td>{schwangerschaft ? `Schwangerschaft` : "-"}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
             <md-divider></md-divider>

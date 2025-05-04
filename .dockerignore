@@ -56,3 +56,25 @@ copilot_rules.md
 *.log
 *-log.txt
 *_output.json
+
+# API-spezifische Dateien
+debug_profile_api.json
+run-api-*.ps1
+setup-api-*.ps1
+API-INTEGRATION.md
+Integration.md
+JSONL-Support.md
+specimenone-nas.session.sql
+import_*.sql
+
+# DuckDB und SQL-Tools
+*DuckDB*.ps1
+*WithDuckDB*.ps1
+*Synonym*.ps1
+UpdateTest*.ps1
+Convert*ToCsv.ps1
+Convert*ToJson.ps1
+
+# Alte API Service Versionen (nur während der Entwicklung)
+src/services/*Service.refactored.jsx
+src/hooks/useLeistungsverzeichnis*.js

@@ -7,8 +7,7 @@ import tailwindBtn from './tailwindBtn.js' // Importiere die Tailwind-Button-Bib
 
 function Suchleiste({ suchbegriff, onSuchbegriffChange, selectedKategorie, onKategorieChange }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRef = useRef(null);
-  // Liste aller verfügbaren Kategorien  
+  const dropdownRef = useRef(null);  // Liste aller verfügbaren Kategorien  
   const kategorien = [
   "Alle",
   "Allergie",
@@ -37,6 +36,7 @@ function Suchleiste({ suchbegriff, onSuchbegriffChange, selectedKategorie, onKat
 //  "Ria Online",
 //  "Steinanalyse",
 //  "Stuhlanalyse",
+  "Sonstige",  // Hinzugefügt, um mit der API-Datenstruktur übereinzustimmen
   "Toxikologie",
 //  "TDM",
 //  "Transfusionsmedizin",
