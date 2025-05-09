@@ -53,10 +53,12 @@ lerna-debug.log*
 /cypress/videos/
 /cypress/screenshots/
 
-# Spezifisch für Ihr Projekt
+# Spezifisch für Ihr ProjektS
+relationales_datenmodell_Grist
+db_export
+profile.json
 teste_db
 teste_db_2
-.db_export/*
 /temp_csv
 tests_exportiert*.csv
 profile_exportiert*.csv
