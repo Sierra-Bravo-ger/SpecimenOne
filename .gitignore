@@ -46,7 +46,8 @@ lerna-debug.log*
 !.vscode/extensions.json
 .vscode/settings.json
 /backup*/
-/db_expor*/
+/db_export/*.csv
+/db_export/*.json
 
 # Lokale Testdateien
 /cypress/videos/
