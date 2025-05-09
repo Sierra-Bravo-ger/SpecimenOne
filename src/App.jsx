@@ -434,7 +434,7 @@ function App() {
                 <TimelineView key="timeline-view" />
               )}
                 {ansicht === 'profile' && (
-                <ProfilListe tests={tests} profile={profileService.profiles || []} />
+                <ProfilListe tests={filteredTests} profile={filteredProfile} />
               )}
               
               {ansicht === 'tabelle' && (

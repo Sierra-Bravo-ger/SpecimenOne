@@ -1,3 +1,5 @@
+# Archivierte alte API-Readmes
+archived_api_docs/
 // filepath: c:\Projekte\labor-test-menu\.gitignore
 
 # Abhängigkeiten
@@ -44,12 +46,14 @@ lerna-debug.log*
 !.vscode/extensions.json
 .vscode/settings.json
 /backup*/
+/db_expor*/
 
 # Lokale Testdateien
 /cypress/videos/
 /cypress/screenshots/
 
 # Spezifisch für Ihr Projekt
+.db_export/*
 /temp_csv
 tests_exportiert*.csv
 profile_exportiert*.csv
@@ -86,9 +90,6 @@ JSONL-Support.md
 specimenone-nas.session.sql
 import_*.sql
 
-# Alte API Service Versionen (nur während der Entwicklung)
-src/services/*Service.refactored.jsx
-src/hooks/useLeistungsverzeichnis*.js
 
 # DuckDB und SQL-Tools
 /public/speci-db

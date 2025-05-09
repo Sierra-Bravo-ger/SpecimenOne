@@ -63,12 +63,7 @@ Nützliche Tools für die Entwicklung:
 
 1. **API-Tester**: `test-api-connection.ps1` - Prüft alle API-Endpunkte
 2. **Setup-Skript**: `setup-api-integration.ps1` - Richtet die API-Integration ein
-3. **Browser-Entwicklertools**: Netzwerktab für API-Anfragen überwachen
 
-## ⚠️ Bekannte Probleme
-
-- Die Funktionalität zum Erstellen eigener Profile ist noch nicht vollständig implementiert
-- Nach längerer Inaktivität kann es zu Verbindungsproblemen kommen
 
 ## 📝 Änderungsprotokoll
 

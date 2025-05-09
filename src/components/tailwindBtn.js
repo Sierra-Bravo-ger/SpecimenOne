@@ -217,14 +217,13 @@ const classes = {
     unchecked: 'bg-white dark:bg-[var(--md-sys-color-surface-variant)] border border-[var(--md-sys-color-outline)] dark:border-[var(--md-sys-color-outline-variant)] hover:bg-[var(--md-sys-color-surface-variant)]',
     checked: 'bg-[var(--md-sys-color-primary)] dark:bg-[var(--md-sys-color-primary)] text-white shadow-sm'
   },
-  
-  profileList: {
+    profileList: {
     container: 'mt-4',
     card: 'bg-white dark:bg-[#242328] rounded-xl mb-4 overflow-hidden relative',
     header: 'p-5 cursor-pointer flex justify-between items-center relative overflow-hidden hover:bg-[#f5f5f5] dark:hover:bg-[#1C1B1F]',
     info: 'flex-1',
     titleRow: 'flex justify-between items-start',
-    title: 'm-0 text-[var(--md-sys-color-primary,#34eb8c)] text-lg mb-1 flex-1',
+    title: 'm-0 text-[var(--md-sys-color-on-surface,#1C1B1F)] dark:text-[var(--md-sys-color-on-surface,#E6E1E5)] text-lg mb-1 flex-1',
     description: 'm-0 text-[var(--md-sys-color-on-surface-variant,#49454F)] text-sm',
     category: 'inline-block bg-[var(--md-sys-color-primary-container,#d0f9e3)] text-[var(--md-sys-color-on-primary-container,#003921)] text-xs py-0.5 px-2.5 rounded-full mt-2',
     expandIcon: 'text-[var(--md-sys-color-on-surface-variant,#49454F)] flex items-center p-2',

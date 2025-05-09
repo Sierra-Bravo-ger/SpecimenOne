@@ -7,7 +7,7 @@ import { useMaterialService } from '../services/MaterialService';
 import MaterialBadge from './MaterialBadge';
 import tailwindBtn from './tailwindBtn';
 
-// Diese Komponente enthält die extrahierte Funktionalität 
+// Diese Komponente enthält die extrahierte Funktionalität
 // aus der ursprünglichen ProfilListe für Standard-Profile
 function StandardProfileListe({ tests, profile, expandedProfiles, setExpandedProfiles, onTestClick }) {
   const { isLoading: materialsLoading } = useMaterialService();
@@ -77,12 +77,17 @@ function StandardProfileListe({ tests, profile, expandedProfiles, setExpandedPro
             <div key={profil.id} className={`${tailwindBtn.classes.profileList.card} md-elevation-2`}>
               <div className={tailwindBtn.classes.profileList.header} onClick={() => toggleProfile(profil.id)}>
                 <md-ripple></md-ripple>
-                <div className={tailwindBtn.classes.profileList.info}>
-                  <div className={tailwindBtn.classes.profileList.titleRow}>
-                    <h3 className={`${tailwindBtn.classes.profileList.title} kategorie-text-${profil.kategorie.toLowerCase().replace(/\s+/g, '-')}`}>{profil.name}</h3>
+                <div className={tailwindBtn.classes.profileList.info}>                  <div className={tailwindBtn.classes.profileList.titleRow}>
+                    <h3 className={`${tailwindBtn.classes.profileList.title} kategorie-text-${profil.kategorie?.toLowerCase().replace(/\s+/g, '-') || ''}`}>{profil.name}</h3>
                   </div>
                   <p className={tailwindBtn.classes.profileList.description}>{profil.beschreibung}</p>
-                  <p className={`${tailwindBtn.classes.profileList.category} kategorie-badge kategorie-${profil.kategorie.toLowerCase().replace(/\s+/g, '-')}`}>{profil.kategorie}</p>
+                  <p className={`inline-block px-2 py-1 rounded-full text-sm kategorie-badge ${
+                    profil.kategorie 
+                      ? `kategorie-${profil.kategorie.toLowerCase().replace(/\s+/g, '-')}` 
+                      : 'bg-gray-200 text-gray-700'
+                  }`}>
+                    {profil.kategorie || 'Keine Kategorie'}
+                  </p>
                 </div>
                 <div className={tailwindBtn.classes.profileList.expandIcon}>
                   {isExpanded ? 

@@ -90,18 +90,23 @@ export default defineConfig({
         ]
       },
       workbox: {
+        navigateFallback: '/index.html',
         runtimeCaching: [
           {
-            urlPattern: /^https:\/\/one\.madmoench\.de\/api\//,
+            urlPattern: /^https:\/\/one\.madmoench\.de\/api\/.*$/,
             handler: 'NetworkFirst',
             options: {
-              cacheName: 'specimen-api',
+              cacheName: 'api-cache',
               expiration: {
-                maxEntries: 100,
-                maxAgeSeconds: 3600 // 1 Stunde
+                maxAgeSeconds: 86400  // 1 Stunde
               },
               networkTimeoutSeconds: 10
-            }
+            },
+          },
+          {
+            urlPattern: ({ request }) => request.destination === 'document',
+            handler: 'NetworkFirst',
+            options: { cacheName: 'html-cache' }
           }
         ]
       }
