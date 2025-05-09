@@ -1,8 +1,0 @@
-﻿beschreibung;id;kategorie;name;sortierNummer;tests
-"Grundlegende hämatologische Parameter";"P001";"Hämatologie";"Kleines Blutbild";"10";"H001|H002|H003|H004|H005|H006|H007|H008|H009"
-"maschinelle Differenzierung (Großes Blutbild)";"P002";"Hämatologie";"Großes Blutbild, maschinell";"20";"H013|H014|H015|H016|H017|H018|H019|H020|H021"
-"maschinelle Differenzierung (Retikulozyten)";"P007";"Hämatologie";"Retikulozyten";"30";"H010|H011|H012"
-"Grundlegende klinisch-chemische Parameter";"P003";"Klinische Chemie";"Klinische Chemie Basis";"40";"K001|K002|K003|K004|K005|K006|K007"
-"Parameter zur Beurteilung der Leberfunktion";"P004";"Klinische Chemie";"Leberwerte";"50";"K008|K009|K010"
-"Parameter zur Beurteilung der Blutgerinnung";"P005";"Gerinnung";"Gerinnungsstatus";"60";"G001|G002|G003"
-"Parameter zur Beurteilung der Schilddrüsenfunktion";"P006";"Klinische Chemie";"Schilddrüsenparameter";"5";"K011"
