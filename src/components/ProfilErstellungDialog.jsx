@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import * as MaterialDesign from "react-icons/md";
-import { useAuth0 } from '@auth0/auth0-react';
+// Auth0 vorübergehend deaktiviert
+// import { useAuth0 } from '@auth0/auth0-react';
 import { sendProfilByFormSubmit, sendProfilToDiscord, getServiceStatus } from '../services/ServiceClient';
 import tailwindBtn from './tailwindBtn';
 
@@ -22,8 +23,11 @@ function ProfilErstellungDialog({
   onSpeichern,
   mode = "create" // Standard-Modus ist Profil erstellen 
 }) {
-  // Auth0 Hook für Authentifizierungsstatus
-  const { isAuthenticated, loginWithRedirect, user } = useAuth0();
+  // Auth0 vorübergehend deaktiviert - simuliere angemeldeten Zustand
+  // const { isAuthenticated, loginWithRedirect, user } = useAuth0();
+  const isAuthenticated = true; // Simuliere authentifizierten Status
+  const user = { name: "Testbenutzer", email: "test@example.com" }; // Simulierter Benutzer
+  const loginWithRedirect = () => console.log("Login-Funktion vorübergehend deaktiviert");
   
   // Sicherstellen, dass selectedTests immer ein Array ist
   const safeSelectedTests = Array.isArray(selectedTests) ? selectedTests : 
@@ -87,11 +91,11 @@ function ProfilErstellungDialog({
     }
     handleDialogClose();
   };
-  
-  const handleSendEmail = async (e) => {
+    const handleSendEmail = async (e) => {
     if (e) e.preventDefault();
     
-    // Wenn Benutzer nicht eingeloggt ist, Login-Dialog anzeigen
+    // Auth0-Prüfung vorübergehend deaktiviert
+    /*
     if (!isAuthenticated) {
       if (!isRedirecting) {
         setIsRedirecting(true);
@@ -104,6 +108,7 @@ function ProfilErstellungDialog({
       }
       return;
     }
+    */
     
     // Normales Verhalten wenn Benutzer eingeloggt ist
     if (!profilName.trim()) {

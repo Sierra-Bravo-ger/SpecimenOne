@@ -13,8 +13,8 @@ import ProfilDruckAnsicht from './components/ProfilDruckAnsicht'
 import ThemeSwitcher from './components/ThemeSwitcher'
 import LoginButton from './components/LoginButton'
 import tailwindBtn from './components/tailwindBtn'
-// API-Integration aktiviert
-import { useAuth0 } from '@auth0/auth0-react'
+// Auth0 vorübergehend deaktiviert
+// import { useAuth0 } from '@auth0/auth0-react'
 import { useTheme } from './contexts/ThemeContext'
 import { useMaterialService } from './services/MaterialService'
 import { EinheitenServiceProvider, useEinheitenService } from './services/EinheitenService'
@@ -41,8 +41,10 @@ const debugLog = (message, value) => {
 };
 
 function App() {
-  // Auth0 Authentifizierungsstatus
-  const { isAuthenticated, isLoading: authLoading, loginWithRedirect } = useAuth0();
+  // Auth0 vorübergehend deaktiviert
+  // const { isAuthenticated, isLoading: authLoading, loginWithRedirect } = useAuth0();
+  const isAuthenticated = true; // Simuliert einen authentifizierten Zustand
+  const authLoading = false;
   
   // State für die Auth-Weiterleitung, um Endlosschleifen zu vermeiden
   const [isRedirecting, setIsRedirecting] = useState(false);

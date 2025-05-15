@@ -14,12 +14,48 @@ import { API_BASE_URL } from '../services/apiConfig'
 import MaterialBadge from './MaterialBadge'
 import tailwindBtn from './tailwindBtn' // Importiere unsere zentrale Styling-Bibliothek
 
+// function TestDetails({ test, onClose }) {
+//   // Ref für den Ausdruck
+//   const printContentRef = useRef(null);  // State für Referenzwerte
+//   const [referenzwerte, setReferenzwerte] = useState([]);  // Material-Service für die Anzeige der Materialbezeichnungen  const { convertMaterialIdsToNames, isLoading: materialsLoading } = useMaterialService();  // Einheiten-Service für die Anzeige der Einheitsbezeichnungen
+//   const { formatEinheit, isLoading: einheitenLoading } = useEinheitenService();
+  
+
+
 function TestDetails({ test, onClose }) {
   // Ref für den Ausdruck
-  const printContentRef = useRef(null);  // State für Referenzwerte
-  const [referenzwerte, setReferenzwerte] = useState([]);  // Material-Service für die Anzeige der Materialbezeichnungen  const { convertMaterialIdsToNames, isLoading: materialsLoading } = useMaterialService();  // Einheiten-Service für die Anzeige der Einheitsbezeichnungen
+  const printContentRef = useRef(null);
+  // State für vollständige Testdetails (inkl. versandinfos etc.)
+  const [testDetails, setTestDetails] = useState(test);
+  const [referenzwerte, setReferenzwerte] = useState(test.referenzwerte || []);
+  const { convertMaterialIdsToNames, isLoading: materialsLoading } = useMaterialService();
   const { formatEinheit, isLoading: einheitenLoading } = useEinheitenService();
-  
+
+  // Nachladen der vollständigen Testdetails beim Mounten
+  useEffect(() => {
+    let isMounted = true;
+    const fetchTestDetails = async () => {
+      try {
+        const response = await fetch(`${API_BASE_URL}/tests/${test.id}`);
+        if (!response.ok) throw new Error('Fehler beim Laden der Test-Details');
+        const testData = await response.json();
+        if (isMounted) {
+          setTestDetails(testData);
+          setReferenzwerte(testData.referenzwerte || []);
+        }
+      } catch (error) {
+        console.error('Fehler beim Laden der Testdetails:', error);
+        if (isMounted) {
+          setTestDetails(test);
+          setReferenzwerte([]);
+        }
+      }
+    };
+    fetchTestDetails();
+    return () => { isMounted = false; };
+  }, [test.id]);
+
+
   // Laden der Referenzwerte beim Mounten der Komponente
   useEffect(() => {
     const fetchReferenzwerte = async () => {
@@ -288,8 +324,7 @@ function TestDetails({ test, onClose }) {
                   <th style="padding: 8px; border: 1px solid #ddd; text-align: left;">Bedingung</th>
                 </tr>
               </thead>
-              <tbody>
-                ${referenzwerte.map(ref => `
+              <tbody>                ${referenzwerte.map(ref => `
                   <tr>
                     <td style="padding: 8px; border: 1px solid #ddd;">${
                       ref.Besondere_Bedingung || 
@@ -309,13 +344,13 @@ function TestDetails({ test, onClose }) {
                     }</td>
                     <td style="padding: 8px; border: 1px solid #ddd;">${
                       ref.Anzeige_Label 
-                        ? `${ref.Anzeige_Label} ${getEinheitBezeichnung(test.einheit_id)}`
+                        ? `${ref.Anzeige_Label} ${formatEinheit(test.einheit_id)}`
                         : (ref.Wert_untere_Grenze !== null && ref.Wert_obere_Grenze !== null)
-                          ? `${ref.Wert_untere_Grenze} - ${ref.Wert_obere_Grenze} ${getEinheitBezeichnung(test.einheit_id)}`
+                          ? `${ref.Wert_untere_Grenze} - ${ref.Wert_obere_Grenze} ${formatEinheit(test.einheit_id)}`
                           : ref.Wert_untere_Grenze !== null
-                            ? `> ${ref.Wert_untere_Grenze} ${getEinheitBezeichnung(test.einheit_id)}`
+                            ? `> ${ref.Wert_untere_Grenze} ${formatEinheit(test.einheit_id)}`
                             : ref.Wert_obere_Grenze !== null
-                              ? `< ${ref.Wert_obere_Grenze} ${getEinheitBezeichnung(test.einheit_id)}`
+                              ? `< ${ref.Wert_obere_Grenze} ${formatEinheit(test.einheit_id)}`
                               : "-"
                     }</td>
                     <td style="padding: 8px; border: 1px solid #ddd;">${ref.Schwangerschaft ? `Schwangerschaft (${ref.Besondere_Bedingung})` : ref.Besondere_Bedingung || "-"}</td>
@@ -350,58 +385,58 @@ function TestDetails({ test, onClose }) {
         <md-text-button className={`close-button ${tailwindBtn.classes.textMuted}`} onClick={onClose}>
           <MaterialDesign.MdClose style={{fontSize: "24px"}} />
         </md-text-button>
-          <h2 className={`${tailwindBtn.classes.text} ${test.kategorie ? `kategorie-text-${test.kategorie.toLowerCase().replace(/\s+/g, '-')}` : ''}`}>{test.name}</h2>
+          <h2 className={`${tailwindBtn.classes.text} ${testDetails.kategorie ? `kategorie-text-${testDetails.kategorie.toLowerCase().replace(/\s+/g, '-')}` : ''}`}>{testDetails.name}</h2>
         
         {(() => {
           // Debug-Check für fehlendes synonyme-Feld
-          if (!test.synonyme) {
-            console.warn(`[SpecimenOne Debug] Fehlendes Feld 'synonyme' in Test ${test.id}: ${test.name}`);
+          if (!testDetails.synonyme) {
+            console.warn(`[SpecimenOne Debug] Fehlendes Feld 'synonyme' in Test ${testDetails.id}: ${testDetails.name}`);
             return null;
-          }          return test.synonyme.length > 0 && (
+          }          return testDetails.synonyme.length > 0 && (
             <div className="details-section">
               <h3 className={`${tailwindBtn.classes.headingSecondary}`}>Synonyme</h3>
-              <p className={`${tailwindBtn.classes.text}`}>{test.synonyme.join(', ')}</p>
+              <p className={`${tailwindBtn.classes.text}`}>{testDetails.synonyme.join(', ')}</p>
               <md-divider></md-divider>
             </div>
           );
         })()}          <div className="details-section">
           <h3 className={`${tailwindBtn.classes.headingSecondary}`}>Allgemeine Informationen</h3>
-          <p className={`${tailwindBtn.classes.text}`}><strong>ID:</strong> {test.id}</p>
+          <p className={`${tailwindBtn.classes.text}`}><strong>ID:</strong> {testDetails.id}</p>
           <p className={`${tailwindBtn.classes.text}`}><strong>LOINC:</strong> {(() => {
-            if (!test.loinc) {
-              console.warn(`[SpecimenOne Debug] Fehlendes Feld 'loinc' in Test ${test.id}: ${test.name}`);
+            if (!testDetails.loinc) {
+              console.warn(`[SpecimenOne Debug] Fehlendes Feld 'loinc' in Test ${testDetails.id}: ${testDetails.name}`);
               return 'N/A';
-            }            return test.loinc;
+            }            return testDetails.loinc;
           })()}</p>          <div className={`${tailwindBtn.classes.badge.materialRow}`}>
             <p className={`${tailwindBtn.classes.text} ${tailwindBtn.classes.badge.materialRowText}`}><strong>Kategorie:</strong></p>
             {(() => {
-              if (!test.kategorie) {
-                console.warn(`[SpecimenOne Debug] Fehlendes Feld 'kategorie' in Test ${test.id}: ${test.name}`);
+              if (!testDetails.kategorie) {
+                console.warn(`[SpecimenOne Debug] Fehlendes Feld 'kategorie' in Test ${testDetails.id}: ${testDetails.name}`);
                 return <span className={`${tailwindBtn.classes.badge.noMaterialInfo}`}>Keine Kategorie</span>;
               }
               return (
                 <div className={`${tailwindBtn.classes.badge.badgesContainer}`}>
-                  <span className={`${tailwindBtn.getKategorieBadgeClasses(test.kategorie)}`}>
-                    {test.kategorie}
+                  <span className={`${tailwindBtn.getKategorieBadgeClasses(testDetails.kategorie)}`}>
+                    {testDetails.kategorie}
                   </span>
                 </div>
               );
             })()}
-          </div>          {(() => {            if (!test.einheit_id) {
-              console.warn(`[SpecimenOne Debug] Fehlendes Feld 'einheit_id' in Test ${test.id}: ${test.name}`);
+          </div>          {(() => {            if (!testDetails.einheit_id) {
+              console.warn(`[SpecimenOne Debug] Fehlendes Feld 'einheit_id' in Test ${testDetails.id}: ${testDetails.name}`);
             }
-            return test.einheit_id && <p className={`${tailwindBtn.classes.text}`}><strong>Einheit:</strong> {formatEinheit(test.einheit_id)}</p>;
+            return testDetails.einheit_id && <p className={`${tailwindBtn.classes.text}`}><strong>Einheit:</strong> {formatEinheit(testDetails.einheit_id)}</p>;
           })()}
           <md-divider></md-divider>
         </div>        <div className="details-section">
           <h3 className={`${tailwindBtn.classes.headingSecondary}`}>Probenanforderungen</h3>          <div className={`${tailwindBtn.classes.badge.materialRow}`}>
             <p className={`${tailwindBtn.classes.text} ${tailwindBtn.classes.badge.materialRowText}`}><strong>Material:</strong></p>
-            {(() => {              if (!test.material) {
-                console.warn(`[SpecimenOne Debug] Fehlendes Feld 'material' in Test ${test.id}: ${test.name}`);
+            {(() => {              if (!testDetails.material) {
+                console.warn(`[SpecimenOne Debug] Fehlendes Feld 'material' in Test ${testDetails.id}: ${testDetails.name}`);
                 return <span className={`${tailwindBtn.classes.badge.noMaterialInfo}`}>Keine Angabe</span>;
-              }              return test.material && test.material.length > 0 ? (
+              }              return testDetails.material && testDetails.material.length > 0 ? (
                 <div className={`${tailwindBtn.classes.badge.badgesContainer}`}>
-                  {test.material.map((materialId, index) => (
+                  {testDetails.material.map((materialId, index) => (
                     <MaterialBadge key={index} materialId={materialId} showKurzbezeichnung={true} mini={false} />
                   ))}
                 </div>
@@ -411,51 +446,75 @@ function TestDetails({ test, onClose }) {
             })()}
           </div>
           <p><strong>Mindestmenge:</strong> {(() => {
-            if (test.mindestmenge_ml === undefined || test.mindestmenge_ml === null) {
-              console.warn(`[SpecimenOne Debug] Fehlendes Feld 'mindestmenge_ml' in Test ${test.id}: ${test.name}`);
+            if (testDetails.mindestmenge_ml === undefined || testDetails.mindestmenge_ml === null) {
+              console.warn(`[SpecimenOne Debug] Fehlendes Feld 'mindestmenge_ml' in Test ${testDetails.id}: ${testDetails.name}`);
               return 'Keine Angabe';
             }
-            return `${test.mindestmenge_ml} ml`;
+            return `${testDetails.mindestmenge_ml} ml`;
           })()}</p>
           <p><strong>Lagerung:</strong> {(() => {
-            if (!test.lagerung) {
-              console.warn(`[SpecimenOne Debug] Fehlendes Feld 'lagerung' in Test ${test.id}: ${test.name}`);
+            if (!testDetails.lagerung) {
+              console.warn(`[SpecimenOne Debug] Fehlendes Feld 'lagerung' in Test ${testDetails.id}: ${testDetails.name}`);
               return 'Keine Angabe';
             }
-            return test.lagerung;
+            return testDetails.lagerung;
           })()}</p>
           <md-divider></md-divider>
-        </div>          <div className="details-section">
+        </div>
+        {/* Versandinformationen */}
+        {Array.isArray(testDetails.versandinfos) && testDetails.versandinfos.length > 0 && (
+          <div className="details-section">
+            <h3>Versandinformationen</h3>
+            <table className="referenzwerte-tabelle">
+              <thead>
+                <tr>
+                  <th>Empfänger/Labor</th>
+                  <th>Versandart</th>
+                </tr>
+              </thead>
+              <tbody>
+                {testDetails.versandinfos.map((info, idx) => (
+                  <tr key={idx}>
+                    <td>{info.stations_bezlang || '–'}</td>
+                    <td>{info.versandart_anz || '–'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <md-divider></md-divider>
+          </div>
+        )}
+        <div className="details-section">
           <h3>Durchführung und Befundung</h3>
           <p><strong>Durchführung:</strong> {(() => {
-            if (!test.durchführung) {
-              console.warn(`[SpecimenOne Debug] Fehlendes Feld 'durchführung' in Test ${test.id}: ${test.name}`);
+            if (!testDetails.durchführung) {
+              console.warn(`[SpecimenOne Debug] Fehlendes Feld 'durchführung' in Test ${testDetails.id}: ${testDetails.name}`);
               return 'Keine Angabe';
             }
-            return test.durchführung;
+            return testDetails.durchführung;
           })()}</p>
           <p><strong>Befundzeit:</strong> {(() => {
-            if (!test.befundzeit) {
-              console.warn(`[SpecimenOne Debug] Fehlendes Feld 'befundzeit' in Test ${test.id}: ${test.name}`);
+            if (!testDetails.befundzeit) {
+              console.warn(`[SpecimenOne Debug] Fehlendes Feld 'befundzeit' in Test ${testDetails.id}: ${testDetails.name}`);
               return 'Keine Angabe';
             }
-            return test.befundzeit;
+            return testDetails.befundzeit;
           })()}</p>
           <md-divider></md-divider>
         </div>
           {(() => {
           // Debug-Check für fehlende Abrechnungsfelder
-          if (test.ebm === undefined) {
-            console.warn(`[SpecimenOne Debug] Fehlendes Feld 'ebm' in Test ${test.id}: ${test.name}`);
+          if (testDetails.ebm === undefined) {
+            console.warn(`[SpecimenOne Debug] Fehlendes Feld 'ebm' in Test ${testDetails.id}: ${testDetails.name}`);
           }
-          if (test.goae === undefined) {
-            console.warn(`[SpecimenOne Debug] Fehlendes Feld 'goae' in Test ${test.id}: ${test.name}`);
+          if (testDetails.goae === undefined) {
+            console.warn(`[SpecimenOne Debug] Fehlendes Feld 'goae' in Test ${testDetails.id}: ${testDetails.name}`);
           }
-          return (test.ebm || test.goae) && (
+          return (testDetails.ebm || testDetails.goae) && (
             <div className="details-section">
               <h3>Abrechnung</h3>
-              {test.ebm && <p><strong>EBM:</strong> {test.ebm}</p>}
-              {test.goae && <p><strong>GOÄ:</strong> {test.goae}</p>}
+              {testDetails.ebm && <p><strong>EBM:</strong> {testDetails.ebm}</p>}
+              {testDetails.goae && <p><strong>GOÄ:</strong> {testDetails.goae}</p>}
               <md-divider></md-divider>
             </div>
           );
@@ -465,11 +524,11 @@ function TestDetails({ test, onClose }) {
           if (!test.hinweise) {
             console.warn(`[SpecimenOne Debug] Fehlendes Feld 'hinweise' in Test ${test.id}: ${test.name}`);
           }
-          return test.hinweise && test.hinweise.length > 0 && (
+          return testDetails.hinweise && testDetails.hinweise.length > 0 && (
             <div className="details-section">
               <h3>Hinweise</h3>
               <ul>
-                {test.hinweise.map((hinweis, index) => (
+                {testDetails.hinweise.map((hinweis, index) => (
                   <li key={index}>{hinweis}</li>
                 ))}
               </ul>
@@ -478,15 +537,15 @@ function TestDetails({ test, onClose }) {
           );
         })()}          {(() => {
           // Debug-Check für fehlendes dokumente-Feld
-          if (!test.dokumente) {
-            console.warn(`[SpecimenOne Debug] Fehlendes Feld 'dokumente' in Test ${test.id}: ${test.name}`);
+          if (!testDetails.dokumente) {
+            console.warn(`[SpecimenOne Debug] Fehlendes Feld 'dokumente' in Test ${testDetails.id}: ${testDetails.name}`);
             return null;
           }
-          return test.dokumente.length > 0 && (
+          return testDetails.dokumente.length > 0 && (
             <div className="details-section">
               <h3>Dokumente</h3>
               <ul>
-                {test.dokumente.map((dokument, index) => (
+                {testDetails.dokumente.map((dokument, index) => (
                   <li key={index}>
                     <a href={dokument.url} target="_blank" rel="noopener noreferrer">
                       {dokument.titel}

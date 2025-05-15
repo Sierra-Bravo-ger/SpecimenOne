@@ -94,21 +94,38 @@ app.get('/api/tests/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const testResult = await pool.query('SELECT * FROM tests WHERE id = $1', [id]);
-    
     if (testResult.rows.length === 0) {
       return res.status(404).json({ error: 'Test nicht gefunden' });
     }
-    
+
     // Referenzwerte für diesen Test abrufen
     const refResult = await pool.query(
       'SELECT * FROM referenzwerte WHERE test_id = $1',
       [id]
     );
 
+    // Versandinfos abrufen (test_versand, empfaenger, versandart)
+    // Numerischen Teil der Test-ID extrahieren (z.B. T0049 -> 49)
+    const testNrMatch = id.match(/T(\d+)/);
+    let versandinfos = [];
+    if (testNrMatch) {
+      const testNr = parseInt(testNrMatch[1], 10);
+      const versandResult = await pool.query(
+        `SELECT e.stations_bezlang, v.versandart_anz
+         FROM test_versand tv
+         LEFT JOIN empfaenger e ON tv.einsender_id = e.einsender_id
+         LEFT JOIN versandart v ON NULLIF(split_part(tv.versandart_id, ',', 1), '')::integer = v.versandart_id
+         WHERE tv.test_nr = $1`,
+        [testNr]
+      );
+      versandinfos = versandResult.rows;
+    }
+
     // Ergebnisse zusammenführen
     const result = {
       ...testResult.rows[0],
-      referenzwerte: refResult.rows
+      referenzwerte: refResult.rows,
+      versandinfos
     };
 
     res.json(result);
