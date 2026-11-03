@@ -9,7 +9,6 @@ import SortierMenu from './components/SortierMenu'
 import ProfilErstellungDialog from './components/ProfilErstellungDialog'
 import ProfilDruckAnsicht from './components/ProfilDruckAnsicht'
 import ThemeSwitcher from './components/ThemeSwitcher'
-import LoginButton from './components/LoginButton'
 import tailwindBtn from './components/tailwindBtn'
 // Auth0 vorübergehend deaktiviert
 // import { useAuth0 } from '@auth0/auth0-react'
@@ -286,10 +285,6 @@ function App() {
       </div>
     );
   }
-  // Benutzer kann die App nutzen, unabhängig vom Auth-Status
-  // Der Login erfolgt über den LoginButton in der Navigationsleiste
-  
-  // Wenn der Benutzer authentifiziert ist, zeigen wir die App
   return (
     <div className={`flex flex-col min-h-screen font-roboto m-0 p-0 overflow-x-hidden w-full ${isDark ? 'dark-theme dark bg-surface-dark text-on-surface-dark' : 'bg-white text-on-surface'}`}><header className="bg-primary dark:bg-primary-dark text-white shadow-md flex justify-between items-center w-full p-3 box-border border-none">
         <div className="flex items-center justify-start flex-1">          <img src="/images/icons/icon_512x512.png" alt="SpecimenOne Logo" className="h-20 w-auto mr-4 filter drop-shadow" />
@@ -303,7 +298,6 @@ function App() {
         </div>
         <div className="flex items-center gap-5">
           <ThemeSwitcher />
-          <LoginButton />
         </div>      </header>      <main className="flex-1 p-4 w-full">
         {isLoading && <div className="flex justify-center my-8"><md-circular-progress indeterminate></md-circular-progress></div>}
         {error && <p className="bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 p-4 rounded border-l-4 border-red-600 dark:border-red-500">Fehler: {error}</p>}
