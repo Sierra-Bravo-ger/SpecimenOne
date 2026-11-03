@@ -112,6 +112,9 @@ export default defineConfig({
       }
     })
   ],
+  test: {
+    include: ['src/**/*.test.{js,jsx}'],
+  },
   server: {
     proxy: {
       '/api': process.env.API_PROXY_TARGET || 'http://localhost:3001'

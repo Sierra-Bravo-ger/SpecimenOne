@@ -8,6 +8,8 @@ import MaterialBadge from './MaterialBadge';
 import TestCardContent from './TestCardContent';
 import tailwindBtn from './tailwindBtn';
 import ProfilErstellungDialog from './ProfilErstellungDialog';
+import { debugLog } from '../utils/debug';
+import { sortTests } from '../utils/testFilter';
 
 function TestListe({ 
   tests, 
@@ -187,42 +189,10 @@ function TestListe({
   }, []);
   
   // Flexibel sortieren basierend auf den übergebenen Sortieroptionen
-  const sortedTests = useMemo(() => {
-    return [...tests].sort((a, b) => {
-      let comparison = 0;
-      
-      switch (sortOption) {
-        case 'name':
-          // Nach Namen sortieren
-          comparison = (a.name || '').localeCompare(b.name || '');
-          break;
-        case 'kategorie':
-          // Nach Kategorie sortieren, dann nach Namen
-          comparison = (a.kategorie || '').localeCompare(b.kategorie || '');
-          if (comparison === 0) {
-            comparison = (a.name || '').localeCompare(b.name || '');
-          }
-          break;
-        case 'material':
-          // Nach dem ersten Material sortieren (falls vorhanden), dann nach Namen
-          const aMaterial = a.material && a.material.length > 0 ? a.material[0] : '';
-          const bMaterial = b.material && b.material.length > 0 ? b.material[0] : '';
-          comparison = aMaterial.localeCompare(bMaterial);
-          if (comparison === 0) {
-            comparison = (a.name || '').localeCompare(b.name || '');
-          }
-          break;
-        case 'id':
-        default:
-          // Nach ID sortieren (Standard)
-          comparison = a.id.localeCompare(b.id);
-          break;
-      }
-      
-      // Sortierrichtung anwenden (aufsteigend oder absteigend)
-      return sortDirection === 'asc' ? comparison : -comparison;
-    });
-  }, [tests, sortOption, sortDirection]);
+  const sortedTests = useMemo(
+    () => sortTests(tests, sortOption, sortDirection),
+    [tests, sortOption, sortDirection]
+  );
   
   // Aktuelle Seite von Tests für Pagination
   const currentTests = useMemo(() => {
@@ -480,7 +450,7 @@ function TestListe({
   // Handler für Druckfunktion
   const handlePrint = (profilData) => {
     // Hier kann die Druckfunktionalität implementiert werden
-    console.log('Drucke Profil-Antrag:', profilData);
+    debugLog('Drucke Profil-Antrag:', profilData);
     // Hier könnte z.B. die Weiterleitung zur Druckansicht erfolgen
     // oder ein Druckdialog geöffnet werden
   };

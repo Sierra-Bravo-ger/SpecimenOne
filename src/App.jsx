@@ -28,17 +28,8 @@ import '@material/web/progress/circular-progress.js'
 import '@material/web/tabs/primary-tab.js'
 import '@material/web/tabs/tabs.js'
 import * as MaterialDesign from "react-icons/md"
-
-// Debug-Logger Funktion
-const debugLog = (message, value) => {
-  console.log(`DEBUG: ${message}`, value);
-  try {
-    // Versuch, den Wert in einer Zeichenkette umzuwandeln
-    console.log(`Type: ${typeof value}, isArray: ${Array.isArray(value)}, Value: ${JSON.stringify(value)}`);
-  } catch (e) {
-    console.log('Konnte Wert nicht als String darstellen:', e);
-  }
-};
+import { debugLog } from './utils/debug';
+import { filterTests } from './utils/testFilter';
 
 function App() {
   // Auth0 vorübergehend deaktiviert
@@ -108,14 +99,14 @@ function App() {
     localStorage.setItem('specimenOne.sortDirection', sortDirection);
   }, [sortOption, sortDirection]);  useEffect(() => {
     const fetchData = async () => {      try {
-        console.log('App.jsx: Direkte API-Anfragen werden gesendet');
+        debugLog('App.jsx: Direkte API-Anfragen werden gesendet');
         
         // Direkte API-Anfrage für Tests - erhöhtes Limit für alle Tests
         const testsResponse = await fetch(`${API_BASE_URL}/tests?limit=2000`);
         const testsData = await testsResponse.json();
         
         if (testsData && testsData.tests) {
-          console.log('API-Tests empfangen:', testsData.tests.length);
+          debugLog('API-Tests empfangen:', testsData.tests.length);
           setTests(testsData.tests);
         }
         
@@ -124,7 +115,7 @@ function App() {
         const profileData = await profileResponse.json();
         
         if (profileData && profileData.profile) {
-          console.log('API-Profile direkt empfangen:', profileData.profile.length);
+          debugLog('API-Profile direkt empfangen:', profileData.profile.length);
           setProfile(profileData.profile);
         }
       } catch (err) {
@@ -141,50 +132,10 @@ function App() {
   // Theme wird jetzt über den ThemeContext verwaltet
 
   // Filterung für Suche und Kategorie implementieren  
-  const filteredTests = tests.filter(test => {
-    // Erst nach Kategorie filtern
-    if (selectedKategorie !== 'Alle' && test.kategorie !== selectedKategorie) {
-      return false;
-    }
-    
-    // Wenn kein Suchbegriff, dann nur nach Kategorie filtern
-    if (!suchbegriff) {
-      return true;
-    }
-    
-    const searchTerm = suchbegriff.toLowerCase();
-    
-    // Suche im Namen
-    if (test.name && test.name.toLowerCase().includes(searchTerm)) {
-      return true;
-    }
-    // Suche in Synonymen
-    if (test.synonyme && test.synonyme.some(synonym => 
-      synonym.toLowerCase().includes(searchTerm))
-    ) {
-      return true;
-    }
-    // Suche in Kategorie
-    if (test.kategorie && test.kategorie.toLowerCase().includes(searchTerm)) {
-      return true;
-    }
-    // Suche in LOINC-Code
-    if (test.loinc && test.loinc.toLowerCase().includes(searchTerm)) {
-      return true;
-    }
-    // Suche in Test-ID
-    if (test.id && test.id.toLowerCase().includes(searchTerm)) {
-      return true;
-    }
-    // Suche im Material
-    if (test.material && Array.isArray(test.material) && test.material.some(mat => 
-      mat.toLowerCase().includes(searchTerm))
-    ) {
-      return true;
-    }
-    return false;
-  });  // Filterung für Profile mit Berücksichtigung der Kategorie
-  console.log("App.jsx: Profile vor Filterung:", {
+  const filteredTests = filterTests(tests, { suchbegriff: suchbegriff, kategorie: selectedKategorie });
+
+  // Filterung für Profile mit Berücksichtigung der Kategorie
+  debugLog("App.jsx: Profile vor Filterung:", {
     profileLength: profile.length,
     isArray: Array.isArray(profile),
     firstItem: profile.length > 0 ? profile[0] : null,
@@ -196,7 +147,7 @@ function App() {
     
     // Debug für jedes Profil
     if (profile.length > 0 && profile.indexOf(profil) < 5) {
-      console.log(`Profil ${profil.id} Kategorie: ${profil.kategorie}, Selected: ${selectedKategorie}`);
+      debugLog(`Profil ${profil.id} Kategorie: ${profil.kategorie}, Selected: ${selectedKategorie}`);
     }
     
     // Wenn "Alle" ausgewählt ist oder die Kategorie übereinstimmt
@@ -217,7 +168,7 @@ function App() {
   }) : [];
   
   // Debug-Ausgabe für filteredProfile
-  console.log("App.jsx: Gefilterte Profile:", {
+  debugLog("App.jsx: Gefilterte Profile:", {
     count: filteredProfile.length,
     firstItem: filteredProfile.length > 0 ? filteredProfile[0] : null
   });
@@ -306,19 +257,6 @@ function App() {
     setTimeout(() => setSpeicherErfolgreich(false), 3000);
   };
   
-  // Handler für manuelle Anmeldung
-  const handleLoginClick = () => {
-    if (!isRedirecting) {
-      setIsRedirecting(true);
-      // Spezielle Optionen für Benutzernamen-Unterstützung hinzufügen
-      loginWithRedirect({
-        authorizationParams: {
-          login_hint: 'username',
-          prompt: 'login'
-        }
-      });
-    }
-  };
     // UseEffect um den Authentifizierungsstatus zu überwachen
   useEffect(() => {
     // Reset isRedirecting wenn der User authentifiziert ist

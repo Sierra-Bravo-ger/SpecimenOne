@@ -7,6 +7,7 @@ import { useMaterialService } from '../services/MaterialService';
 import StandardProfileListe from './StandardProfileListe';
 import PersoenlicheProfileListe from './PersoenlicheProfileListe';
 import tailwindBtn from './tailwindBtn';
+import { debugLog } from '../utils/debug';
 
 // Hauptkomponente für die Profil-Ansicht mit Sub-Tab Navigation
 function ProfilListe({ tests, profile }) {
@@ -20,7 +21,7 @@ function ProfilListe({ tests, profile }) {
   useEffect(() => {
     if (profile && Array.isArray(profile) && profile.length > 0) {
       setLoadedProfile(profile);
-      console.log("ProfilListe: Profile geladen, Anzahl:", profile.length);
+      debugLog("ProfilListe: Profile geladen, Anzahl:", profile.length);
     }
   }, [profile]);
 

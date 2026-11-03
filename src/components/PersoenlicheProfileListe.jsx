@@ -9,6 +9,7 @@ import MaterialBadge from './MaterialBadge';
 import tailwindBtn from './tailwindBtn';
 import '../styles/kategorie-badges.css';
 import { sendProfilToDiscord } from '../services/ServiceClient';
+import { debugLog } from '../utils/debug';
 
 function PersoenlicheProfileListe() {
   const [persoenlicheProfile, setPersoenlicheProfile] = useState([]);
@@ -93,7 +94,7 @@ function PersoenlicheProfileListe() {
         // Discord-Webhook aufrufen
       sendProfilToDiscord(profilData)
         .then(() => {
-          console.log("Profil-Antrag erfolgreich gesendet");
+          debugLog("Profil-Antrag erfolgreich gesendet");
           alert("Profil-Antrag erfolgreich übermittelt und wird zum Drucken vorbereitet...");
         })
         .catch(error => {

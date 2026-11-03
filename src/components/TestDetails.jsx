@@ -11,6 +11,7 @@ import { useMaterialService } from '../services/MaterialService'
 import { useEinheitenService } from '../services/EinheitenService'
 import { API_BASE_URL } from '../services/apiConfig'
 import MaterialBadge from './MaterialBadge'
+import { debugLog } from '../utils/debug';
 import tailwindBtn from './tailwindBtn' // Importiere unsere zentrale Styling-Bibliothek
 
 // function TestDetails({ test, onClose }) {
@@ -360,7 +361,7 @@ function TestDetails({ test, onClose }) {
         {(() => {
           // Debug-Check für fehlendes synonyme-Feld
           if (!testDetails.synonyme) {
-            console.warn(`[SpecimenOne Debug] Fehlendes Feld 'synonyme' in Test ${testDetails.id}: ${testDetails.name}`);
+            debugLog(`[SpecimenOne Debug] Fehlendes Feld 'synonyme' in Test ${testDetails.id}: ${testDetails.name}`);
             return null;
           }          return testDetails.synonyme.length > 0 && (
             <div className="details-section">
@@ -374,14 +375,14 @@ function TestDetails({ test, onClose }) {
           <p className={`${tailwindBtn.classes.text}`}><strong>ID:</strong> {testDetails.id}</p>
           <p className={`${tailwindBtn.classes.text}`}><strong>LOINC:</strong> {(() => {
             if (!testDetails.loinc) {
-              console.warn(`[SpecimenOne Debug] Fehlendes Feld 'loinc' in Test ${testDetails.id}: ${testDetails.name}`);
+              debugLog(`[SpecimenOne Debug] Fehlendes Feld 'loinc' in Test ${testDetails.id}: ${testDetails.name}`);
               return 'N/A';
             }            return testDetails.loinc;
           })()}</p>          <div className={`${tailwindBtn.classes.badge.materialRow}`}>
             <p className={`${tailwindBtn.classes.text} ${tailwindBtn.classes.badge.materialRowText}`}><strong>Kategorie:</strong></p>
             {(() => {
               if (!testDetails.kategorie) {
-                console.warn(`[SpecimenOne Debug] Fehlendes Feld 'kategorie' in Test ${testDetails.id}: ${testDetails.name}`);
+                debugLog(`[SpecimenOne Debug] Fehlendes Feld 'kategorie' in Test ${testDetails.id}: ${testDetails.name}`);
                 return <span className={`${tailwindBtn.classes.badge.noMaterialInfo}`}>Keine Kategorie</span>;
               }
               return (
@@ -393,7 +394,7 @@ function TestDetails({ test, onClose }) {
               );
             })()}
           </div>          {(() => {            if (!testDetails.einheit_id) {
-              console.warn(`[SpecimenOne Debug] Fehlendes Feld 'einheit_id' in Test ${testDetails.id}: ${testDetails.name}`);
+              debugLog(`[SpecimenOne Debug] Fehlendes Feld 'einheit_id' in Test ${testDetails.id}: ${testDetails.name}`);
             }
             return testDetails.einheit_id && <p className={`${tailwindBtn.classes.text}`}><strong>Einheit:</strong> {formatEinheit(testDetails.einheit_id)}</p>;
           })()}
@@ -402,7 +403,7 @@ function TestDetails({ test, onClose }) {
           <h3 className={`${tailwindBtn.classes.headingSecondary}`}>Probenanforderungen</h3>          <div className={`${tailwindBtn.classes.badge.materialRow}`}>
             <p className={`${tailwindBtn.classes.text} ${tailwindBtn.classes.badge.materialRowText}`}><strong>Material:</strong></p>
             {(() => {              if (!testDetails.material) {
-                console.warn(`[SpecimenOne Debug] Fehlendes Feld 'material' in Test ${testDetails.id}: ${testDetails.name}`);
+                debugLog(`[SpecimenOne Debug] Fehlendes Feld 'material' in Test ${testDetails.id}: ${testDetails.name}`);
                 return <span className={`${tailwindBtn.classes.badge.noMaterialInfo}`}>Keine Angabe</span>;
               }              return testDetails.material && testDetails.material.length > 0 ? (
                 <div className={`${tailwindBtn.classes.badge.badgesContainer}`}>
@@ -417,14 +418,14 @@ function TestDetails({ test, onClose }) {
           </div>
           <p><strong>Mindestmenge:</strong> {(() => {
             if (testDetails.mindestmenge_ml === undefined || testDetails.mindestmenge_ml === null) {
-              console.warn(`[SpecimenOne Debug] Fehlendes Feld 'mindestmenge_ml' in Test ${testDetails.id}: ${testDetails.name}`);
+              debugLog(`[SpecimenOne Debug] Fehlendes Feld 'mindestmenge_ml' in Test ${testDetails.id}: ${testDetails.name}`);
               return 'Keine Angabe';
             }
             return `${testDetails.mindestmenge_ml} ml`;
           })()}</p>
           <p><strong>Lagerung:</strong> {(() => {
             if (!testDetails.lagerung) {
-              console.warn(`[SpecimenOne Debug] Fehlendes Feld 'lagerung' in Test ${testDetails.id}: ${testDetails.name}`);
+              debugLog(`[SpecimenOne Debug] Fehlendes Feld 'lagerung' in Test ${testDetails.id}: ${testDetails.name}`);
               return 'Keine Angabe';
             }
             return testDetails.lagerung;
@@ -458,14 +459,14 @@ function TestDetails({ test, onClose }) {
           <h3>Durchführung und Befundung</h3>
           <p><strong>Durchführung:</strong> {(() => {
             if (!testDetails.durchführung) {
-              console.warn(`[SpecimenOne Debug] Fehlendes Feld 'durchführung' in Test ${testDetails.id}: ${testDetails.name}`);
+              debugLog(`[SpecimenOne Debug] Fehlendes Feld 'durchführung' in Test ${testDetails.id}: ${testDetails.name}`);
               return 'Keine Angabe';
             }
             return testDetails.durchführung;
           })()}</p>
           <p><strong>Befundzeit:</strong> {(() => {
             if (!testDetails.befundzeit) {
-              console.warn(`[SpecimenOne Debug] Fehlendes Feld 'befundzeit' in Test ${testDetails.id}: ${testDetails.name}`);
+              debugLog(`[SpecimenOne Debug] Fehlendes Feld 'befundzeit' in Test ${testDetails.id}: ${testDetails.name}`);
               return 'Keine Angabe';
             }
             return testDetails.befundzeit;
@@ -475,10 +476,10 @@ function TestDetails({ test, onClose }) {
           {(() => {
           // Debug-Check für fehlende Abrechnungsfelder
           if (testDetails.ebm === undefined) {
-            console.warn(`[SpecimenOne Debug] Fehlendes Feld 'ebm' in Test ${testDetails.id}: ${testDetails.name}`);
+            debugLog(`[SpecimenOne Debug] Fehlendes Feld 'ebm' in Test ${testDetails.id}: ${testDetails.name}`);
           }
           if (testDetails.goae === undefined) {
-            console.warn(`[SpecimenOne Debug] Fehlendes Feld 'goae' in Test ${testDetails.id}: ${testDetails.name}`);
+            debugLog(`[SpecimenOne Debug] Fehlendes Feld 'goae' in Test ${testDetails.id}: ${testDetails.name}`);
           }
           return (testDetails.ebm || testDetails.goae) && (
             <div className="details-section">
@@ -492,7 +493,7 @@ function TestDetails({ test, onClose }) {
           {(() => {
           // Debug-Check für fehlende Felder
           if (!test.hinweise) {
-            console.warn(`[SpecimenOne Debug] Fehlendes Feld 'hinweise' in Test ${test.id}: ${test.name}`);
+            debugLog(`[SpecimenOne Debug] Fehlendes Feld 'hinweise' in Test ${test.id}: ${test.name}`);
           }
           return testDetails.hinweise && testDetails.hinweise.length > 0 && (
             <div className="details-section">
@@ -508,7 +509,7 @@ function TestDetails({ test, onClose }) {
         })()}          {(() => {
           // Debug-Check für fehlendes dokumente-Feld
           if (!testDetails.dokumente) {
-            console.warn(`[SpecimenOne Debug] Fehlendes Feld 'dokumente' in Test ${testDetails.id}: ${testDetails.name}`);
+            debugLog(`[SpecimenOne Debug] Fehlendes Feld 'dokumente' in Test ${testDetails.id}: ${testDetails.name}`);
             return null;
           }
           return testDetails.dokumente.length > 0 && (

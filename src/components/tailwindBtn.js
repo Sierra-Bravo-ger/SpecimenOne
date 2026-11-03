@@ -59,13 +59,11 @@ const classes = {
   containerBgElevated: 'bg-gray-50 dark:bg-gray-850 dark-theme:bg-[#1a1a1e]',
   
   // Kartenhintergrund (für UI-Elemente im Vordergrund)
-  cardBg: 'bg-[#ffffff] dark:bg-[#242328]',
   
   // Standardborder
   border: `border ${colors.border.light} ${colors.border.dark}`,
   
   // Standardtext
-  text: textClasses,
   
   // Hover-Effekt
   hover: 'hover:bg-[#f5f5f5] dark:hover:bg-[#1C1B1F]',
@@ -246,9 +244,6 @@ const classes = {
   activeTab: "text-primary-600 dark:text-primary-400 border-b-2 border-primary-600 dark:border-primary-400",
   
   // Tab-Navigation für Sub-Tabs
-  tabContainer: "flex border-b border-gray-200 dark:border-gray-700 mb-4",
-  tab: "px-4 py-2 font-medium text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors",
-  activeTab: "text-primary-600 dark:text-primary-400 border-b-2 border-primary-600 dark:border-primary-400",
   
   // Karten-Layout für Profile
   cardHeader: "flex justify-between items-center mb-2",

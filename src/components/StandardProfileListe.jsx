@@ -6,6 +6,7 @@ import '@material/web/elevation/elevation.js';
 import { useMaterialService } from '../services/MaterialService';
 import MaterialBadge from './MaterialBadge';
 import tailwindBtn from './tailwindBtn';
+import { debugLog } from '../utils/debug';
 
 // Diese Komponente enthält die extrahierte Funktionalität
 // aus der ursprünglichen ProfilListe für Standard-Profile
@@ -15,7 +16,7 @@ function StandardProfileListe({ tests, profile, expandedProfiles, setExpandedPro
   const profileArray = Array.isArray(profile) ? profile : [];
   
   // Debug-Ausgabe für empfangene Profile
-  console.log("StandardProfileListe: Profile empfangen:", {
+  debugLog("StandardProfileListe: Profile empfangen:", {
     count: profileArray.length,
     isArray: Array.isArray(profile),
     firstItem: profileArray.length > 0 ? profileArray[0] : null
@@ -67,7 +68,7 @@ function StandardProfileListe({ tests, profile, expandedProfiles, setExpandedPro
             testIdsArray = profil.tests.split('|');
           }
           
-          console.log(`Profil ${profil.name}: TestIDs gefunden:`, testIdsArray);
+          debugLog(`Profil ${profil.name}: TestIDs gefunden:`, testIdsArray);
           
           const profilTests = tests.filter(test => 
             testIdsArray.includes(test.id)

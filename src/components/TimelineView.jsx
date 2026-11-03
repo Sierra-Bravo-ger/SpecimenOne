@@ -30,6 +30,7 @@ const MAX_WARNINGS = 3;
 
 import { useProfileService } from '../services/ProfileService.api';
 import { useTestsService } from '../services/TestsService';
+import { debugLog } from '../utils/debug';
 
 function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den Zustand, der keine Re-Renders auslösen soll
   const initialRender = React.useRef(true);
@@ -152,7 +153,7 @@ function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den 
   // Hilfsfunktion zum Konvertieren der Zeitangaben
   const convertTimeToMinutes = useCallback((timeString) => {
     if (!timeString) {
-      console.log('[TimelineView] Leere Zeitangabe - verwende Standardwert (60 min)');
+      debugLog('[TimelineView] Leere Zeitangabe - verwende Standardwert (60 min)');
       return 60; // Standardwert für leere Angaben
     }
     
@@ -164,7 +165,7 @@ function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den 
       return TIME_FORMAT_CACHE[normalizedTimeString];
     }
     
-    console.log(`[TimelineView] Konvertiere Zeitangabe: "${timeString}" (normalisiert: "${normalizedTimeString}")`);
+    debugLog(`[TimelineView] Konvertiere Zeitangabe: "${timeString}" (normalisiert: "${normalizedTimeString}")`);
     
     let minutes = 60; // Standardwert
     let matched = false;
@@ -175,7 +176,7 @@ function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den 
       // Bei Bereichsangaben den höheren Wert verwenden
       const days = daysMatch[2] ? parseInt(daysMatch[2]) : parseInt(daysMatch[1]);
       minutes = days * 24 * 60;
-      console.log(`[TimelineView] Tagesangabe erkannt: ${days} Tage => ${minutes} Minuten`);
+      debugLog(`[TimelineView] Tagesangabe erkannt: ${days} Tage => ${minutes} Minuten`);
       matched = true;
     }
     // "Max. X Tage" Angaben
@@ -183,13 +184,13 @@ function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den 
       const maxDaysMatch = timeString.match(/Max\.\s*(\d+)\s*Tage?/i);
       if (maxDaysMatch) {
         minutes = parseInt(maxDaysMatch[1]) * 24 * 60;
-        console.log(`[TimelineView] Max. Tage erkannt: ${maxDaysMatch[1]} Tage => ${minutes} Minuten`);
+        debugLog(`[TimelineView] Max. Tage erkannt: ${maxDaysMatch[1]} Tage => ${minutes} Minuten`);
         matched = true;
       }
       // "am selben Tag" Angaben
       else if (timeString.toLowerCase().includes('am selben tag')) {
         minutes = 8 * 60; // 8 Stunden für "am selben Tag"
-        console.log('[TimelineView] "Am selben Tag" erkannt => 480 Minuten');
+        debugLog('[TimelineView] "Am selben Tag" erkannt => 480 Minuten');
         matched = true;
       }
       // Stundenangaben
@@ -197,7 +198,7 @@ function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den 
         const hoursMatch = timeString.match(/(\d+)\s*Stunden?/i);
         if (hoursMatch) {
           minutes = parseInt(hoursMatch[1]) * 60;
-          console.log(`[TimelineView] Stundenangabe erkannt: ${hoursMatch[1]} Stunden => ${minutes} Minuten`);
+          debugLog(`[TimelineView] Stundenangabe erkannt: ${hoursMatch[1]} Stunden => ${minutes} Minuten`);
           matched = true;
         }
         // Minutenangaben
@@ -225,11 +226,11 @@ function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den 
               
               // Begrenzte Anzahl an Warnungen ausgeben
               if (warningCount < MAX_WARNINGS) {
-                console.warn(`[SpecimenOne] Durchführungszeitangabe erkannt: "${timeString}" - verwende Standardwert (240 min)`);
+                debugLog(`[SpecimenOne] Durchführungszeitangabe erkannt: "${timeString}" - verwende Standardwert (240 min)`);
                 warningCount++;
                 
                 if (warningCount === MAX_WARNINGS) {
-                  console.warn('[SpecimenOne] Weitere Warnungen werden unterdrückt um die Konsole übersichtlich zu halten.');
+                  debugLog('[SpecimenOne] Weitere Warnungen werden unterdrückt um die Konsole übersichtlich zu halten.');
                 }
               }
               matched = true;
@@ -241,11 +242,11 @@ function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den 
     
     // Unbekanntes Format
     if (!matched && warningCount < MAX_WARNINGS) {
-      console.warn(`[SpecimenOne] Unbekanntes Zeitformat: "${timeString}" - verwende Standardwert (60 min)`);
+      debugLog(`[SpecimenOne] Unbekanntes Zeitformat: "${timeString}" - verwende Standardwert (60 min)`);
       warningCount++;
       
       if (warningCount === MAX_WARNINGS) {
-        console.warn('[SpecimenOne] Weitere Warnungen werden unterdrückt um die Konsole übersichtlich zu halten.');
+        debugLog('[SpecimenOne] Weitere Warnungen werden unterdrückt um die Konsole übersichtlich zu halten.');
       }
     }
       // Ergebnis im Cache speichern für zukünftige Aufrufe (mit normalisiertem String)
@@ -256,11 +257,11 @@ function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den 
     const loadInitialData = async () => {
       try {
         setLoading(true);
-        console.log('[TimelineView] Daten werden geladen...');
+        debugLog('[TimelineView] Daten werden geladen...');
         
         // Warten bis Profile geladen sind
         if (!profileService.isLoading && profileService.profiles) {
-          console.log('[TimelineView] Profile aus API-Services geladen:', {
+          debugLog('[TimelineView] Profile aus API-Services geladen:', {
             profiles: profileService.profiles.length
           });
           
@@ -271,14 +272,14 @@ function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den 
           setAvailableKategorien(['Alle', ...kategorien]);
           
           // Für die Timeline und Treemap brauchen wir ALLE Tests ohne Paginierung
-          console.log('[TimelineView] Lade jetzt ALLE Tests für Treemap und Timeline...');
+          debugLog('[TimelineView] Lade jetzt ALLE Tests für Treemap und Timeline...');
           
           try {
             // Verwende die neue Methode, die direkt ein Array zurückgibt
             const allTests = await testsService.loadAllTestsAtOnce();
             
             // Setze die Tests direkt
-            console.log(`[TimelineView] ${allTests.length} Tests wurden für die Visualisierung geladen`);
+            debugLog(`[TimelineView] ${allTests.length} Tests wurden für die Visualisierung geladen`);
             setTests(allTests);
             
             // Jetzt sind alle Daten geladen
@@ -320,7 +321,7 @@ function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den 
           // Profile nach ausgewählter Kategorie filtern
           if (selectedKategorie !== 'Alle') {
             const filteredProfiles = profiles.filter(p => p.kategorie === selectedKategorie).map(p => p.id);
-            console.log(`[TimelineView] Filter '${selectedKategorie}': ${filteredProfiles.length} Profile gefunden`);
+            debugLog(`[TimelineView] Filter '${selectedKategorie}': ${filteredProfiles.length} Profile gefunden`);
             return filteredProfiles;
           } else {
             // Wenn 'Alle' gewählt ist, ein paar Profile aus jeder Kategorie nehmen
@@ -343,25 +344,7 @@ function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den 
             return result;
           }
         default: // 'alle'
-          // Alle Profile verwenden (ohne Performance-Limit)
-          const allProfiles = profiles.map(p => p.id);
-          console.log(`[TimelineView] Filter 'Alle': ${allProfiles.length} Profile gefunden`);
-          console.log(`[TimelineView] Kategorien in den Daten:`, [...new Set(profiles.map(p => p.kategorie))]);
-          
-          // Logge die Anzahl der Profile pro Kategorie
-          const categoryCount = {};
-          profiles.forEach(p => {
-            if (!p.kategorie) {
-              if (!categoryCount['Keine Kategorie']) categoryCount['Keine Kategorie'] = 0;
-              categoryCount['Keine Kategorie']++;
-            } else {
-              if (!categoryCount[p.kategorie]) categoryCount[p.kategorie] = 0;
-              categoryCount[p.kategorie]++;
-            }
-          });
-          console.log('[TimelineView] Profile pro Kategorie:', categoryCount);
-          
-          return allProfiles;
+          return profiles.map(p => p.id);
       }
     }
   }, [dataLoaded, selectedProfiles, profileFilter, selectedKategorie, profiles]);
@@ -390,18 +373,18 @@ function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den 
              ? profile.tests.split('|') 
              : []);
           // Debugging-Informationen für dieses Profil
-        console.log(`[TimelineView] Verarbeite Profil ${profile.id} (${profile.name}) mit ${testsArray.length} Tests:`, testsArray);
+        debugLog(`[TimelineView] Verarbeite Profil ${profile.id} (${profile.name}) mit ${testsArray.length} Tests:`, testsArray);
           for (const testId of testsArray) {
           // Überprüfen, ob die Test-ID noch Pipe-Zeichen enthält und ggf. weiter aufteilen
           if (testId.includes('|')) {
-            console.warn(`[TimelineView] Test-ID '${testId}' enthält immer noch Pipe-Zeichen, wird weiter aufgeteilt.`);
+            debugLog(`[TimelineView] Test-ID '${testId}' enthält immer noch Pipe-Zeichen, wird weiter aufgeteilt.`);
             // Rekursiv die Suche für jeden Teil ausführen
             const subIds = testId.split('|');
             for (const subId of subIds) {
               const trimmedSubId = subId.trim();
               const subTest = tests.find(t => t.id === trimmedSubId);
               if (!subTest) {
-                console.warn(`[TimelineView] Unter-Test mit ID '${trimmedSubId}' nicht gefunden für Profil ${profile.id}`);
+                debugLog(`[TimelineView] Unter-Test mit ID '${trimmedSubId}' nicht gefunden für Profil ${profile.id}`);
                 continue;
               }
               // Den gefundenen Unter-Test verarbeiten
@@ -425,12 +408,12 @@ function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den 
           const test = tests.find(t => t.id === testIdTrimmed);
           
           if (!test) {
-            console.warn(`[TimelineView] Test mit ID '${testIdTrimmed}' nicht gefunden für Profil ${profile.id}`);
+            debugLog(`[TimelineView] Test mit ID '${testIdTrimmed}' nicht gefunden für Profil ${profile.id}`);
             continue;
           }
           
           // Debugging: Überprüfe die gefundenen Test-Daten
-          console.log(`[TimelineView] Test gefunden:`, {
+          debugLog(`[TimelineView] Test gefunden:`, {
             id: test.id,
             name: test.name,
             befundzeit: test.befundzeit,
@@ -438,7 +421,7 @@ function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den 
           });
           
           const duration = convertTimeToMinutes(test.befundzeit || '');
-          console.log(`[TimelineView] Konvertierte Zeit für ${test.id}: ${test.befundzeit} => ${duration} Minuten`);
+          debugLog(`[TimelineView] Konvertierte Zeit für ${test.id}: ${test.befundzeit} => ${duration} Minuten`);
           
           maxDuration = Math.max(maxDuration, duration);
           const category = test.kategorie || 'Unbekannt';
@@ -525,11 +508,11 @@ function TimelineView({ selectedProfiles = [] }) {  // Verwende useRef für den 
   // Vorbereitung der Daten für die Treemap-Visualisierung
   const prepareTreemapData = useMemo(() => {
     if (!tests || tests.length === 0) {
-      console.warn('[TimelineView] Keine Tests für Treemap verfügbar');
+      debugLog('[TimelineView] Keine Tests für Treemap verfügbar');
       return { name: 'tests', children: [] };
     }
     
-    console.log('[TimelineView] Bereite Treemap-Daten vor mit', tests.length, 'Tests');
+    debugLog('[TimelineView] Bereite Treemap-Daten vor mit', tests.length, 'Tests');
     
     // Tests nach Kategorie gruppieren
     const categoryCounts = {};

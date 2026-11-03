@@ -10,6 +10,7 @@ import { EinheitenServiceProvider } from './services/EinheitenService'
 // Auth0Provider vorübergehend deaktiviert
 // import { Auth0Provider } from '@auth0/auth0-react'
 import { registerSW } from 'virtual:pwa-register'
+import { debugLog } from './utils/debug';
 
 // Service Worker-Registrierung mit automatischer Aktualisierung
 const updateSW = registerSW({
@@ -19,7 +20,7 @@ const updateSW = registerSW({
     }
   },
   onOfflineReady() {
-    console.log('App ist bereit für den Offline-Einsatz');
+    debugLog('App ist bereit für den Offline-Einsatz');
   },
 });
 
