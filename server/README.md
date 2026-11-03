@@ -38,14 +38,12 @@ npm start
 
 ## Konfiguration
 
-Die Datenbankverbindung wird in der `index.js` konfiguriert. Falls nötig, passen Sie die Verbindungsparameter an:
+Die Datenbankverbindung kommt aus Umgebungsvariablen (Defaults in Klammern):
+`PGHOST` (styx), `PGPORT` (5433), `PGUSER` (specimen), `PGPASSWORD`, `PGDATABASE` (specimenone), `PORT` (3001).
 
-```javascript
-const pool = new Pool({
-  host: '192.168.178.43',
-  port: 5433,
-  user: 'specimen',
-  password: 'specimenpw',
-  database: 'specimenone'
-});
-```
+## Betrieb (Docker, styx)
+
+- Image: `sierrabravoger/specimenone-api` (`docker build -t sierrabravoger/specimenone-api:latest server`)
+- Läuft als Service `api` im Stack `specimenone-styx` (siehe `compose.yaml` im Repo-Root), ohne eigenen Host-Port.
+- Das Frontend-nginx leitet `/api/*` an `api:3001` weiter; das Frontend ruft die API relativ unter `/api` auf.
+- Lokale Entwicklung: `cd server && npm start`, dann im Root `npm run dev` (Vite-Proxy `/api` → `localhost:3001`).

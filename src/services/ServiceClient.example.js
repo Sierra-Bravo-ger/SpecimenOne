@@ -69,7 +69,12 @@ export async function sendProfilToDiscord(profil) {
     profil.profilName, '(', profil.tests?.length || 0, 'Tests)');
   
   // DIREKTE IMPLEMENTIERUNG OHNE UMWEG ÜBER DEN SERVICE
-  const DISCORD_WEBHOOK_URL = "YOUR DISCORD WEBHOOK URL HERE"; // Ersetzen Sie dies durch Ihre Webhook-URL
+  // Webhook kommt zur Laufzeit aus config.js (Container-Env VITE_DISCORD_WEBHOOK_URL)
+  const DISCORD_WEBHOOK_URL = getDiscordWebhookUrl();
+  if (!DISCORD_WEBHOOK_URL || !DISCORD_WEBHOOK_URL.startsWith('https://')) {
+    console.warn('ServiceClient: Kein Discord-Webhook konfiguriert');
+    return { status: 'not_configured' };
+  }
   
   console.log('💡 ServiceClient: Verwende DIREKTEN Discord-Webhook ohne Service:', 
     DISCORD_WEBHOOK_URL.substring(0, 60) + '...');

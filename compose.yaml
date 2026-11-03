@@ -1,33 +1,42 @@
-version: '3.8'
-
+# Produktiv-Stack (styx): Frontend (nginx) + REST-API + PostgreSQL
+# Das Frontend leitet /api/* an den Service "api" weiter (siehe nginx.conf).
 services:
   specimenone:
     image: sierrabravoger/specimenone:latest
-    container_name: specimenone    
     ports:
-      - "0.0.0.0:8100:80"  # Explizites Binding an alle Interfaces, externe Port 8100, interne Port 80
+      - 8100:80
     restart: unless-stopped
-    # Optional: Umgebungsvariablen
+    depends_on:
+      - api
     # environment:
-    #   - API_URL=https://api.example.com
-    # Optional: Volumes für persistente Daten
-    # volumes:
-    #   - ./public/tests.json:/usr/share/nginx/html/tests.json
-    #   - ./public/profile.json:/usr/share/nginx/html/profile.json
-    healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://localhost:80/index.html"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 10s
-    # Verwende das Standard-Bridge-Netzwerk
-
-# Falls Sie später weitere Services hinzufügen möchten (z.B. eine API)
-# api:
-#   image: specimenone-api:latest
-#   container_name: specimenone-api
-#   restart: unless-stopped
-#   ports:
-#     - "3000:3000"
-#   depends_on:
-#     - specimenone
+    #   - VITE_DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/...
+    volumes:
+      - /home/sebri/specimenone/tests.json:/usr/share/nginx/html/tests.json
+      - /home/sebri/specimenone/profile.json:/usr/share/nginx/html/profile.json
+      - /home/sebri/specimenone/referenzwerte.json:/usr/share/nginx/html/referenzwerte.json
+      - /home/sebri/specimenone/material.json:/usr/share/nginx/html/material.json
+      - /home/sebri/specimenone/einheiten.json:/usr/share/nginx/html/einheiten.json
+  api:
+    image: sierrabravoger/specimenone-api:latest
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    environment:
+      - PGHOST=postgres
+      - PGPORT=5432
+      - PGUSER=specimen
+      - PGPASSWORD=specimenpw
+      - PGDATABASE=specimenone
+  postgres:
+    container_name: specimenone-postgresql-db
+    image: postgres:17.5-alpine3.21
+    ports:
+      - 5433:5432
+    restart: unless-stopped
+    volumes:
+      - /home/sebri/postgresql/:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=specimenpw
+      - POSTGRES_USER=specimen
+      - POSTGRES_DB=specimenone
+networks: {}

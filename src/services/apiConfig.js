@@ -14,7 +14,8 @@ export const API_MODE = true;
 // API-Basis-URL
 // Für lokale Entwicklung: 'http://localhost:3001/api'
 // Für Produktionsumgebung: 'https://one.madmoench.de/api'
-export const API_BASE_URL = 'https://one.madmoench.de/api' 
+// Relativ: nginx (Produktion) bzw. Vite-Proxy (Entwicklung) leiten /api an den API-Server weiter
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api'
 //export const API_BASE_URL = isMobileOrProduction 
 //  ? 'https://one.madmoench.de/api' 
 //  : 'http://localhost:3001/api';

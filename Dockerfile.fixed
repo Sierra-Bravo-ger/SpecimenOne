@@ -9,6 +9,9 @@ RUN npm install
 # Kopiere den Quellcode (ohne node_modules und andere ignorierte Dateien)
 COPY . .
 
+# ServiceClient.js ist gitignored: Fallback auf die Example-Version (Webhook per Runtime-Config)
+RUN [ -f src/services/ServiceClient.js ] || cp src/services/ServiceClient.example.js src/services/ServiceClient.js
+
 # Erstelle einen leeren/Dummy DiscordService, wenn keiner existiert
 # Dies vermeidet Fehler beim Build, wenn die Datei fehlt
 RUN echo "// Dummy DiscordService für den Build-Prozess" > src/services/DiscordService.js

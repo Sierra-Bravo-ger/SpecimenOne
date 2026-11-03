@@ -2,15 +2,15 @@ const express = require('express');
 const cors = require('cors');
 const { Pool } = require('pg');
 const app = express();
-const port = 3001;
+const port = parseInt(process.env.PORT || '3001', 10);
 
 // PostgreSQL Verbindung konfigurieren
 const pool = new Pool({
-  host: '192.168.178.43',
-  port: 5433,
-  user: 'specimen',
-  password: 'specimenpw',
-  database: 'specimenone'
+  host: process.env.PGHOST || 'styx',
+  port: parseInt(process.env.PGPORT || '5433', 10),
+  user: process.env.PGUSER || 'specimen',
+  password: process.env.PGPASSWORD || 'specimenpw',
+  database: process.env.PGDATABASE || 'specimenone'
 });
 
 app.use(cors());
