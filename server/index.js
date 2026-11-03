@@ -59,8 +59,8 @@ app.get('/api/tests', async (req, res) => {
     let params = [];
 
     if (search) {
-      query += ' WHERE name ILIKE $1 OR id ILIKE $1 OR $1 = ANY(synonyme)';
-      countQuery += ' WHERE name ILIKE $1 OR id ILIKE $1 OR $1 = ANY(synonyme)';
+      query += ' WHERE name ILIKE $1 OR id ILIKE $1 OR loinc ILIKE $1 OR kategorie ILIKE $1 OR EXISTS (SELECT 1 FROM unnest(synonyme) s WHERE s ILIKE $1)';
+      countQuery += ' WHERE name ILIKE $1 OR id ILIKE $1 OR loinc ILIKE $1 OR kategorie ILIKE $1 OR EXISTS (SELECT 1 FROM unnest(synonyme) s WHERE s ILIKE $1)';
       params.push(`%${search}%`);
     }
 
