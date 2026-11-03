@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'robots.txt', 'images/**/*', 'fonts/**/*', '*.json'],
+      includeAssets: ['favicon.ico', 'robots.txt', 'images/**/*', 'fonts/**/*'],
       manifest: {
         name: 'SpecimenOne',
         short_name: 'SpecimenOne',

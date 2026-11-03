@@ -1,4 +1,5 @@
 import React, { useState, useEffect, memo, useRef, useCallback } from 'react';
+import { API_BASE_URL } from '../services/apiConfig';
 
 /**
  * MaterialBadge mit optimiertem Rendering-Verhalten
@@ -117,8 +118,8 @@ const MaterialBadgeContainer = ({
           return;
         }
         
-        // Sonst lade aus material.json
-        const response = await fetch('/material.json');
+        // Sonst lade über die API
+        const response = await fetch(`${API_BASE_URL}/material`);
         if (!response.ok) {
           throw new Error('Fehler beim Laden der Materialdaten');
         }

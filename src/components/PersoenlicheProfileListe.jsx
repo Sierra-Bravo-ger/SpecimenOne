@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import TestDetails from './TestDetails';
+import { API_BASE_URL } from '../services/apiConfig';
 import * as MaterialDesign from "react-icons/md";
 import '@material/web/ripple/ripple.js';
 import '@material/web/elevation/elevation.js';
@@ -25,13 +26,13 @@ function PersoenlicheProfileListe() {
     // Lade auch die vollständigen Testdaten für Materialanzeige usw.
     const fetchAllTests = async () => {
       try {
-        const response = await fetch('/tests.json');
+        const response = await fetch(`${API_BASE_URL}/tests?limit=2000`);
         if (!response.ok) {
           throw new Error('Fehler beim Laden der Tests');
         }
         
         const testsData = await response.json();
-        setAllTests(testsData);
+        setAllTests(testsData.tests || []);
       } catch (error) {
         console.error('Fehler beim Laden der Testdetails:', error);
       } finally {
