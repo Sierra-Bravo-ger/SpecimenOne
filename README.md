@@ -1,243 +1,68 @@
 # SpecimenOne
 
-Eine moderne Web-App zur Anzeige und Verwaltung von Labortests und Profilen.  
-
-## Features
-
-- Übersichtliche Darstellung von Labortests mit detaillierten Informationen
-- Filterung nach Fachbereichen und erweiterte Suchfunktion
-- Detailansicht für Labortests mit allen wichtigen Parametern
-- Vorgegebene Testprofile für gängige Untersuchungen
-- Dark Mode für optimale Lesbarkeit in verschiedenen Arbeitsumgebungen
-- Druckoptimierte Ausgabe für Testdetails und Profile
-- Hierarchische Tabellenansicht für strukturierte Datenübersicht
-- Referenzwerte mit alters- und geschlechtsspezifischen Grenzwerten
-- Neues vektorbasiertes SVG-Icon für scharfe Darstellung auf allen Geräten
-
-### Neu: Optimierte UI-Komponenten und Performance
-
-- **CSS-basierte Badge-Komponenten:** Verbesserte Rendering-Performance für Material- und Kategorie-Badges
-- **Automatisierte CSS-Generierung:** Script zur automatischen Erstellung von Material-Badge-Stilen (`UpdateMaterialCSS.ps1`) 
-- **Verfeinerte visuelle Hierarchie:** Deutlichere visuelle Trennung von UI-Elementen mit mehreren Erhöhungsebenen
-- **Optimierte Farbgebung:** Konsistente Farbpalette mit optimiertem Kontrast, besonders im Dark Mode
-- **Tailwind-Integration:** Einheitliche, wartbare UI-Komponenten durch zentralisierte Styling-Definitionen
-- **Reduzierte JavaScript-Berechnungen:** Schnellere Ladezeiten und flüssigere Interaktion durch CSS-Optimierung
-
-### Neu: Benutzerdefinierte Testprofile
-
-- **Testauswahl durch Checkboxen:** Einfache Mehrfachauswahl von Tests
-- **Persönliche Profile:** Speichern und Verwalten individueller Testsammlungen im Browser
-- **Profilerstellung:** Erstellung benutzerdefinierter Testprofile mit Metadaten
-- **Benachrichtigung via Webhook oder Email:** User können Wunschprofile festlegen, benennen und an eine Zentrale stelle zur Bearbeitung senden
-
-### Neu: Erweiterte Datenanalyse
-
-- **DuckDB-Integration:** Leistungsstarke SQL-basierte Datenanalyse für komplexe Abfragen
-- **JSON-Datenanalyse:** Verbesserte Analyse und Aktualisierung von JSON-Datensätzen
-
-## Lizenzhinweise
-
-Dieses Projekt verwendet verschiedene Open-Source-Bibliotheken. Die vollständigen Lizenzinformationen finden Sie in der [LICENSES.md](./LICENSES.md)-Datei.
-
-Hauptsächlich verwendete Lizenzen:
-- SpecimenOne: MIT-Lizenz
-- DuckDB: MIT-Lizenz
-- React: MIT-Lizenz
-- Material Web Components: Apache License 2.0
-- **Druckoptimierte Ausgabe:** Professionelle Druckansicht für ausgewählte Tests
-- **Long-Press-Funktionalität:** Optimierte Bedienung auf Touch-Geräten
-- **E-Mail-Integration:** Direkte Übermittlung von erstellten Profilen per E-Mail
-
-### Neu: Progressive Web App (PWA)
-
-- **Offline-Funktionalität:** Zugriff auf Testdaten auch ohne Internetverbindung
-- **Installierbar:** Kann wie eine native App auf dem Homescreen/Desktop installiert werden
-- **Automatische Updates:** Benachrichtigung und nahtlose Aktualisierung bei neuen Versionen
-- **Intelligente Caching-Strategien:** 
-  - Cache-First für statische Assets (schnelle Ladezeiten)
-  - Network-First für Testdaten (Aktualität bei bestehender Internetverbindung)
-- **Plattformübergreifend:** Konsistentes Erscheinungsbild auf Android, iOS und Desktop-Systemen
-- **Adaptive App-Icons:** Optimierte Icons mit Akzentfarbe für verschiedene Betriebssysteme
-
-### Verbesserte mobile Nutzererfahrung
-
-- **Optimierte Touch-Interaktionen:** Moderne Pointer-Events API für intuitive Bedienung
-- **Zuverlässige Gestenerkennung:** Klare Unterscheidung zwischen Tap und Long-Press
-- **Responsive Layouts:** Anpassungsfähige Darstellung für verschiedene Bildschirmgrößen
-- **Kompakter App-Header:** Platzoptimierte zweizeilige Darstellung des App-Namens auf mobilen Geräten
-- **Optimierte Benutzerinformationen:** Verkürzte E-Mail-Anzeige für bessere Lesbarkeit auf kleinen Bildschirmen
-- **Verbesserte Button-Kontraste:** Deutlich sichtbare Steuerelemente in allen Beleuchtungssituationen
-
-## Technologien
-
-- React mit Vite als Build-Tool
-- Material Design 3 (Material Web Components)
-- CSS für responsive Gestaltung
-- JSON-Datenhaltung mit bidirektionaler CSV-Konvertierung
-
-## Web-Hook-Funktionalität
-
- - Automatische Benachrichtigung über neu beantragte Testprofile
- - User geben Namen, Email und Wunsch Profilnamen ein
- - Erfassung der Teste mit intuitiver Benutzeroberfläche
-
-## Fallback E-Mail-Funktionalität
-
-Ist der Webhook nicht erreichbar hat die App hat außerdem die Möglichkeit, erstellte Profile direkt per E-Mail zu versenden:
-- Integration mit FormSubmit für zuverlässigen E-Mail-Versand
-- HTML-formatierte E-Mails mit übersichtlicher Testauflistung
-- Letzter Fallback auf den Standard-E-Mail-Client bei API-Fehlern (mailto:)
-- Optimiert für Benutzerfreundlichkeit mit Statusanzeigen
-
-## Datenmanagement
-
-Die App unterstützt die Pflege der Testdaten durch einfache Export/Import-Funktionen:
-
-- Export der Tests als CSV-Datei für einfache Bearbeitung in Excel
-- Import der bearbeiteten CSV zurück in das JSON-Format
-- Robuste Fehlerbehandlung für verschiedene CSV-Formate
-
-### Referenzwerte
-
-Die App enthält eine umfangreiche Sammlung von Referenzwerten für Labortests:
-- Alters- und geschlechtsspezifische Referenzbereiche
-- Spezielle Referenzbereiche für verschiedene Zustände (z.B. Schwangerschaft)
-- Automatische Verknüpfung zwischen Tests und ihren Referenzwerten
-
-## Ansichten
-
-Die App bietet drei verschiedene Ansichten der Labortests:
-
-1. **Tests:** Kartenbasierte Übersicht aller Tests mit Suchfunktion
-2. **Profile:** Vorgegebene und benutzerdefinierte Sammlungen zusammengehöriger Tests
-3. **Tabelle:** Hierarchische, nach Fachbereichen gruppierte Tabellenansicht
-
-## Installation und Start
-
-```bash
-# Abhängigkeiten installieren
-npm install
-
-# Entwicklungsserver starten
-npm run dev
-
-# Für Produktion bauen
-npm run build
-```
-
-### Umgebungsvariablen für Discord Webhook
-
-Für die Discord-Integration müssen Sie eine Webhook-URL konfigurieren:
-
-1. Kopieren Sie `src/services/DiscordService.example.js` zu `src/services/DiscordService.js`
-2. Für lokale Entwicklung erstellen Sie eine `.env.local` Datei im Projektroot:
-
-```
-VITE_DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/your/webhook/url
-```
-
-Die Anwendung verwendet diese Umgebungsvariable für die Discord-Integration. Ohne diese Variable wird automatisch auf den E-Mail-Fallback zurückgegriffen.
-
-## Datenkonvertierung
-
-Für die Bearbeitung der Testdaten stehen PowerShell-Skripte zur Verfügung:
-
-```powershell
-# JSON zu CSV konvertieren
-.\convertJsonToCsv.ps1
-
-# CSV zu JSON konvertieren
-.\convertCsvToJson.ps1
-```
-
-### Docker-Deployment
-
-```powershell
-# Container bauen und starten
-docker build -t specimenone:latest .
-docker run -d -p 8100:80 --name specimenone specimenone:latest
-```
-Die Anwendung ist dann unter http://localhost:8100 verfügbar.
-
-### Docker Compose
-
-```powershell
-# Mit Docker Compose starten
-docker compose up -d
-```
-
-### Portainer-Deployment
-
-1. Lade die `compose-portainer.yaml` in Portainer hoch
-2. Erstelle einen neuen Stack mit dieser Datei
-3. Deploye den Stack
+React-Web-App (PWA) zur Anzeige des Labor-Leistungsverzeichnisses: Tests, Referenzwerte, Materialien und Profile für medizinisches Personal.
 
 ## Funktionen
 
-### UI-Komponenten
-- Responsive Benutzeroberfläche auf Deutsch mit Material Design 3
-- Dark Mode mit angepasstem Farbschema (Pastelgrün #6abf7b statt Standard-Purple)
-- Intuitive Farbcodierung der Laborfachbereiche:
-  - Hämatologie: Rot
-  - Klinische Chemie: Braun
-  - Gerinnung: Grün
-  - Immunologie: Blau
-  - Mikrobiologie: Violett
-  - Endokrinologie: Amber/Gold
-  - Virologie: Hellblau
-  - Infektionsdiagnostik: Braun
+- Suche über Testname, Synonyme, Material, Fachbereich, LOINC-Code und Test-ID
+- Detailansicht je Test mit Referenzwerten (alters-, geschlechts- und zustandsabhängig), Material, Abrechnung (EBM/GOÄ) und Versandinfos
+- Drei Ansichten: Einzeltests, Test-Profile, hierarchische Tabelle nach Fachbereich
+- Persönliche Profile per Checkbox-Auswahl, gespeichert im Browser; optional Meldung per Discord-Webhook
+- Druckansicht für Testdetails und Profile
+- Dark Mode, farbcodierte Fachbereiche und Material-Badges
+- PWA: installierbar, offlinefähig (Workbox; API-Antworten NetworkFirst)
 
-### Kernfunktionalitäten
-- Erweiterte Suchfunktion für Tests (Namen, Synonyme, Fachbereiche, LOINC-Codes, Test-IDs)
-- Detaillierte Testansicht mit strukturierten Informationen
-- Umfassende Referenzwerte pro Test mit alters-, geschlechts- und zustandsbezogenen Variationen
-- Test-Profil-Funktionalität zur Gruppierung zusammengehöriger Tests
-- Tab-Navigation für Einzeltest-, Profil- und Tabellenansicht
-- Hierarchische Drilldown-Tabelle mit erweiterbaren Details nach Kategorie
-- Farblich kodierte Kategorie-Zähler für verbesserte Übersichtlichkeit
-- Abrechnungsinformationen (einheit, ebm, goae)
-- Optimierte Druckausgabe der Testdetails mit eigenem Druckfenster (SOP auf Knopfdruck)
-- Robuste Fehlerbehandlung gegen unvollständige oder fehlerhafte Datensätze
-- JSON-Datei mit bidirektionaler CSV-Konvertierung
-- Robuste Dezimalwertbehandlung bei der Konvertierung von CSV zu JSON
-- Optimierte Verarbeitung von Excel-formatierten CSV-Dateien (inklusive Apostroph-Präfixen)
-- Zentrale Definition von Einheiten in tests.json mit automatischer Verknüpfung zu Referenzwerten
-- Excel-kompatible Import/Export-Funktionalität
+## Architektur
 
-## Technologie
+```
+Browser ──/api/*──▶ nginx (Image specimenone) ──▶ api:3001 (Image specimenone-api) ──▶ PostgreSQL
+          sonst ──▶ statische App
+```
 
-- React 18+ mit Vite als Build-Tool
-- Material Design 3 Komponenten
-- Responsive Design für Desktop und mobile Ansichten
-- Docker-Container für einfache Bereitstellung
+| Teil | Technik | Ort |
+| --- | --- | --- |
+| Frontend | React 18, Vite, Tailwind, Material Web | `src/`, `public/`, `Dockerfile`, `nginx.conf` |
+| API | Node 22, Express, pg (nur lesend) | `server/` (siehe `server/README.md`) |
+| Datenbank | PostgreSQL 17 | Container im Stack, Daten auf dem Host |
+
+Das Frontend ruft die API **relativ** unter `/api` auf (`src/services/apiConfig.js`, überschreibbar mit `VITE_API_BASE_URL` beim Build). In Produktion leitet nginx `/api/` an den Compose-Service `api` weiter, in der Entwicklung macht das der Vite-Proxy.
+
+## Entwicklung
+
+```bash
+npm install
+(cd server && npm install && npm start)   # API auf :3001, DB-Default styx:5433
+npm run dev                                # Vite auf :5173, /api -> localhost:3001
+```
+
+Die DB-Verbindung der API kommt aus `PGHOST`, `PGPORT`, `PGUSER`, `PGPASSWORD`, `PGDATABASE`. Ein anderes API-Ziel für den Vite-Proxy: `API_PROXY_TARGET=http://host:3001 npm run dev`.
+
+## Build und Deployment
+
+```bash
+./scripts/build-push.sh            # baut beide Images und pusht nach Docker Hub (madmoench/…)
+./scripts/build-push.sh --no-push  # nur bauen
+```
+
+`compose.yaml` ist der Produktiv-Stack (Frontend `:8100`, API ohne Host-Port, PostgreSQL `:5433`). Optionale Umgebungsvariable im Frontend: `VITE_DISCORD_WEBHOOK_URL` (landet zur Laufzeit in `config.js`, siehe `docker-entrypoint.sh`).
+
+Hinweis zum Build: `src/services/ServiceClient.js`, `DiscordService.js` und `FormSubmitService.js` sind gitignored. Das `Dockerfile` nimmt dann `ServiceClient.example.js` und legt Dummies für die anderen beiden an.
 
 ## Projektstruktur
 
 ```
-specimenone/
-├── src/                  # Quellcode der React-Anwendung
-│   ├── components/       # React-Komponenten
-│   ├── App.jsx           # Hauptkomponente
-│   └── main.jsx          # Einstiegspunkt
-├── public/               # Statische Dateien
-│   ├── profile.json      # Test-Profil-Definitionen
-│   └── tests.json        # Testdaten
-├── Dockerfile            # Docker-Konfiguration
-├── compose.yaml          # Docker Compose Konfiguration
-├── compose-portainer.yaml # Portainer Stack Konfiguration
-└── *.ps1                 # PowerShell-Hilfsskripte
+├── src/                 React-App (components, services, contexts, styles, utils)
+├── public/              statische Dateien, Icons, Fonts, JSON-Altbestand (Fallback)
+├── server/              REST-API (Express + PostgreSQL)
+├── docs/                Entwicklungsnotizen (Theming, Material-Badges, persönliche Profile)
+├── scripts/
+│   ├── build-push.sh    Images bauen und pushen
+│   └── legacy/          PowerShell-Werkzeuge aus der JSON/CSV-Zeit inkl. Import nach PostgreSQL
+├── Dockerfile           Frontend-Image (Build + nginx)
+├── nginx.conf           SPA + /api-Proxy
+└── compose.yaml         Produktiv-Stack
 ```
 
-## Lizenzen
+## Lizenz
 
- - Dieses Projekt steht unter der [MIT License](./LICENSE).
-
-##
-
-Das Docker Image basiert auf:
-
-- **Alpine Linux 20** – MIT License  
-  [https://alpinelinux.org](https://alpinelinux.org)  
-  [MIT License Text](https://opensource.org/licenses/MIT)
-
-Weitere Abhängigkeiten siehe GitHub-Repo.
+MIT, siehe [LICENSE](LICENSE). Lizenzen der Abhängigkeiten: [LICENSES.md](LICENSES.md).

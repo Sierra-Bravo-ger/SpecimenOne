@@ -2,28 +2,12 @@
 
 Dieser Server stellt eine REST-API für die SpecimenOne-Anwendung bereit, die mit der PostgreSQL-Datenbank kommuniziert.
 
-## Installation
+## Starten
 
-1. Navigieren Sie zum Serververzeichnis
-```powershell
-cd c:\Projekte\SpecimenOne\server
-```
-
-2. Installieren Sie die Abhängigkeiten
-```powershell
+```bash
+cd server
 npm install
-```
-
-## Starten des Servers
-
-Für die Entwicklung (mit automatischem Neustart):
-```powershell
-npm run dev
-```
-
-Für den Produktivbetrieb:
-```powershell
-npm start
+npm start        # oder: npm run dev (nodemon)
 ```
 
 ## Verfügbare API-Endpunkte
