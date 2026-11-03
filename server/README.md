@@ -6,7 +6,7 @@ Dieser Server stellt eine REST-API für die SpecimenOne-Anwendung bereit, die mi
 
 ```bash
 cd server
-npm install
+npm ci
 npm start        # oder: npm run dev (nodemon)
 ```
 
