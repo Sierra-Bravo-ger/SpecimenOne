@@ -43,7 +43,7 @@ Die Datenbankverbindung kommt aus Umgebungsvariablen (Defaults in Klammern):
 
 ## Betrieb (Docker, styx)
 
-- Image: `sierrabravoger/specimenone-api` (`docker build -t sierrabravoger/specimenone-api:latest server`)
+- Image: `madmoench/specimenone-api` (`docker build -t madmoench/specimenone-api:latest server`)
 - Läuft als Service `api` im Stack `specimenone-styx` (siehe `compose.yaml` im Repo-Root), ohne eigenen Host-Port.
 - Das Frontend-nginx leitet `/api/*` an `api:3001` weiter; das Frontend ruft die API relativ unter `/api` auf.
 - Lokale Entwicklung: `cd server && npm start`, dann im Root `npm run dev` (Vite-Proxy `/api` → `localhost:3001`).
