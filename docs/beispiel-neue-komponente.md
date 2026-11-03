@@ -225,7 +225,7 @@ const handleSpeichern = (name, beschreibung) => {
 import { useState, useRef, useEffect } from 'react';
 import * as MaterialDesign from "react-icons/md";
 import { useAuth0 } from '@auth0/auth0-react';
-import { sendProfilByFormSubmit, sendProfilToDiscord, getServiceStatus } from '../services/ServiceClient';
+import { sendProfilToDiscord } from '../services/ServiceClient';
 import tailwindBtn from './tailwindBtn';
 
 /**
