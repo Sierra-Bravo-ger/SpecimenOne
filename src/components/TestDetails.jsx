@@ -9,7 +9,6 @@ import '@material/web/elevation/elevation.js'
 import * as MaterialDesign from "react-icons/md"
 import { useMaterialService } from '../services/MaterialService'
 import { useEinheitenService } from '../services/EinheitenService'
-import { loadJsonData } from '../utils/jsonLoader' // Importieren der Hilfsfunktion
 import { API_BASE_URL } from '../services/apiConfig'
 import MaterialBadge from './MaterialBadge'
 import tailwindBtn from './tailwindBtn' // Importiere unsere zentrale Styling-Bibliothek
@@ -55,35 +54,6 @@ function TestDetails({ test, onClose }) {
     return () => { isMounted = false; };
   }, [test.id]);
 
-
-  // Laden der Referenzwerte beim Mounten der Komponente
-  useEffect(() => {
-    const fetchReferenzwerte = async () => {
-      try {
-        // Verwende die API, um die Referenzwerte direkt vom Test zu laden
-        const response = await fetch(`${API_BASE_URL}/tests/${test.id}`);
-        if (!response.ok) {
-          throw new Error('Fehler beim Laden der Test-Details');
-        }
-        
-        const testData = await response.json();
-        
-        // Die API liefert die Referenzwerte im Test-Objekt
-        if (testData && testData.referenzwerte) {
-          console.log(`Referenzwerte für ${test.id} von API geladen:`, testData.referenzwerte.length);
-          setReferenzwerte(testData.referenzwerte);
-        } else {
-          console.warn(`Keine Referenzwerte für Test ${test.id} gefunden`);
-          setReferenzwerte([]);
-        }
-      } catch (error) {
-        console.error('Fehler beim Laden der Referenzwerte:', error);
-        setReferenzwerte([]);
-      }
-    };
-
-    fetchReferenzwerte();
-  }, [test.id]);
     // Übersetzt die Geschlechter-IDs in lesbare Bezeichnungen
   const getGeschlechtText = (geschlechtId) => {
     switch (Number(geschlechtId)) {
