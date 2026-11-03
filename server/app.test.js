@@ -3,6 +3,9 @@ const { test, describe } = require('node:test');
 const assert = require('node:assert/strict');
 const request = require('supertest');
 const { createApp } = require('./app');
+const { loadDbConfig } = require('./config');
+const { spawnSync } = require('node:child_process');
+const path = require('node:path');
 
 function mockPool(handler) {
   const calls = [];
@@ -23,11 +26,14 @@ describe('GET /api/health', () => {
     assert.equal(res.body.status, 'ok');
   });
 
-  test('liefert 500 bei DB-Fehler', async () => {
+  test('liefert 500 mit allgemeiner Meldung bei DB-Fehler', async (t) => {
+    const logged = t.mock.method(console, 'error', () => {});
     const pool = mockPool(() => { throw new Error('db down'); });
     const res = await request(createApp(pool)).get('/api/health');
     assert.equal(res.status, 500);
-    assert.equal(res.body.error, 'db down');
+    assert.equal(res.body.error, 'Interner Serverfehler');
+    assert.ok(!JSON.stringify(res.body).includes('db down'));
+    assert.equal(logged.mock.callCount(), 1, 'Fehler wird serverseitig geloggt');
   });
 });
 
@@ -126,4 +132,99 @@ describe('Listen-Routen', () => {
       assert.equal(res.body[key].length, 2);
     });
   }
+});
+
+describe('GET /api/tests: Validierung von page/limit', () => {
+  const handler = (sql) =>
+    sql.startsWith('SELECT COUNT') ? { rows: [{ count: '1497' }] } : { rows: [] };
+
+  test('limit=2000 (Frontend) ist erlaubt', async () => {
+    const pool = mockPool(handler);
+    const res = await request(createApp(pool)).get('/api/tests?limit=2000');
+    assert.equal(res.status, 200);
+    assert.equal(res.body.pagination.limit, 2000);
+  });
+
+  for (const qs of [
+    'limit=2001', 'limit=999999999', 'limit=0', 'limit=-5', 'limit=abc', 'limit=10abc', 'limit=1.5',
+    'limit=1&limit=2', 'page=0', 'page=-1', 'page=x', 'page=2.5', 'page=99999999999999999999',
+  ]) {
+    test(`?${qs} → 400 ohne DB-Abfrage`, async () => {
+      const pool = mockPool(handler);
+      const res = await request(createApp(pool)).get(`/api/tests?${qs}`);
+      assert.equal(res.status, 400);
+      assert.match(res.body.error, /page|limit/);
+      assert.equal(pool.calls.length, 0);
+    });
+  }
+
+  test('zu langer Suchbegriff → 400', async () => {
+    const pool = mockPool(handler);
+    const res = await request(createApp(pool)).get('/api/tests').query({ search: 'a'.repeat(201) });
+    assert.equal(res.status, 400);
+    assert.equal(pool.calls.length, 0);
+  });
+});
+
+describe('Fehlerbehandlung', () => {
+  const sqlError = () => {
+    const err = new Error('relation "tests" does not exist');
+    err.code = '42P01';
+    throw err;
+  };
+
+  for (const route of ['/api/tests', '/api/tests/T0001', '/api/material', '/api/einheiten', '/api/profile', '/api/farben']) {
+    test(`${route}: DB-Fehler → 500 ohne SQL-Details, Log per console.error`, async (t) => {
+      const logged = t.mock.method(console, 'error', () => {});
+      const res = await request(createApp(mockPool(sqlError))).get(route);
+      assert.equal(res.status, 500);
+      assert.deepEqual(res.body, { error: 'Interner Serverfehler' });
+      assert.ok(!res.text.includes('relation'));
+      assert.equal(logged.mock.callCount(), 1);
+      assert.ok(String(logged.mock.calls[0].arguments[1].message).includes('relation'));
+    });
+  }
+
+  test('unbekannter API-Pfad → JSON-404', async () => {
+    const res = await request(createApp(mockPool(() => ({ rows: [] })))).get('/api/gibtsnicht');
+    assert.equal(res.status, 404);
+    assert.deepEqual(res.body, { error: 'Nicht gefunden' });
+  });
+});
+
+describe('Header', () => {
+  test('helmet aktiv, kein X-Powered-By, kein CORS', async () => {
+    const res = await request(createApp(mockPool(() => ({ rows: [] }))))
+      .get('/api/material')
+      .set('Origin', 'https://evil.example');
+    assert.equal(res.headers['x-powered-by'], undefined);
+    assert.equal(res.headers['x-content-type-options'], 'nosniff');
+    assert.ok(res.headers['content-security-policy']);
+    assert.equal(res.headers['access-control-allow-origin'], undefined);
+  });
+});
+
+describe('Konfiguration (config.js)', () => {
+  test('ohne PGPASSWORD wird abgebrochen', () => {
+    assert.throws(() => loadDbConfig({}), /PGPASSWORD ist nicht gesetzt/);
+    assert.throws(() => loadDbConfig({ PGPASSWORD: '' }), /PGPASSWORD/);
+  });
+
+  test('mit PGPASSWORD: Passwort aus der Env, sonst Defaults', () => {
+    const cfg = loadDbConfig({ PGPASSWORD: 'geheim' });
+    assert.deepEqual(cfg, { host: 'styx', port: 5433, user: 'specimen', password: 'geheim', database: 'specimenone' });
+  });
+
+  test('Env-Werte überschreiben die Defaults', () => {
+    const cfg = loadDbConfig({ PGPASSWORD: 'x', PGHOST: 'postgres', PGPORT: '5432', PGUSER: 'u', PGDATABASE: 'd' });
+    assert.deepEqual(cfg, { host: 'postgres', port: 5432, user: 'u', password: 'x', database: 'd' });
+  });
+
+  test('index.js ohne PGPASSWORD: Exit-Code 1 und verständliche Meldung', () => {
+    const env = { ...process.env };
+    delete env.PGPASSWORD;
+    const r = spawnSync(process.execPath, [path.join(__dirname, 'index.js')], { env, encoding: 'utf8', timeout: 10000 });
+    assert.equal(r.status, 1);
+    assert.match(r.stderr, /Startabbruch: PGPASSWORD ist nicht gesetzt/);
+  });
 });

@@ -23,7 +23,13 @@ npm start        # oder: npm run dev (nodemon)
 ## Konfiguration
 
 Die Datenbankverbindung kommt aus Umgebungsvariablen (Defaults in Klammern):
-`PGHOST` (styx), `PGPORT` (5433), `PGUSER` (specimen), `PGPASSWORD`, `PGDATABASE` (specimenone), `PORT` (3001).
+`PGHOST` (styx), `PGPORT` (5433), `PGUSER` (specimen), `PGPASSWORD` (**Pflicht**, kein Default: ohne die Variable bricht der Start mit einer Meldung ab), `PGDATABASE` (specimenone), `PORT` (3001).
+
+## Absicherung
+
+- `GET /api/tests`: `page` und `limit` nur als positive Ganzzahlen, `limit` höchstens 2000, `search` höchstens 200 Zeichen. Sonst `400`.
+- Fehler: zentrale Error-Middleware. Der Client bekommt nur `{"error":"Interner Serverfehler"}`, Details landen per `console.error` im Container-Log.
+- Header: `helmet`, kein `X-Powered-By`. Kein CORS: Das Frontend ruft die API über nginx mit gleicher Herkunft auf.
 
 ## Betrieb (Docker, styx)
 
