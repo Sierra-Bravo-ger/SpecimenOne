@@ -1,5 +1,6 @@
 # Produktiv-Stack (styx): Frontend (nginx) + REST-API + PostgreSQL
 # Das Frontend leitet /api/* an den Service "api" weiter (siehe nginx.conf).
+# Startreihenfolge: postgres (healthy) → api (gestartet) → specimenone.
 services:
   specimenone:
     image: madmoench/specimenone:latest
@@ -7,19 +8,28 @@ services:
       - 8100:80
     restart: unless-stopped
     depends_on:
-      - api
+      api:
+        condition: service_started
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1/index.html > /dev/null || exit 1"]
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
     # environment:
     #   - VITE_DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/...
   api:
     image: madmoench/specimenone-api:latest
     restart: unless-stopped
+    # Healthcheck (GET /api/health) ist im Image definiert (server/Dockerfile).
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
     environment:
       - PGHOST=postgres
       - PGPORT=5432
       - PGUSER=specimen
-      - PGPASSWORD=specimenpw
+      - PGPASSWORD=specimenpw # Pflicht: ohne PGPASSWORD bricht die API beim Start ab
       - PGDATABASE=specimenone
   postgres:
     container_name: specimenone-postgresql-db
@@ -33,4 +43,10 @@ services:
       - POSTGRES_PASSWORD=specimenpw
       - POSTGRES_USER=specimen
       - POSTGRES_DB=specimenone
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U specimen -d specimenone"]
+      interval: 10s
+      timeout: 5s
+      start_period: 30s
+      retries: 5
 networks: {}
