@@ -105,8 +105,16 @@ export const useTestsService = () => {
     setIsLoading(true);
     
     try {
-      // Direkter Aufruf an API mit hohem Limit
-      const response = await testsApi.getAll({ limit: 5000 });
+      // Seitenweise mit dem API-Maximum (2000 pro Seite) laden, bis alle Tests da sind
+      const API_MAX_LIMIT = 2000;
+      let response = await testsApi.getAll({ limit: API_MAX_LIMIT, page: 1 });
+      const allTests = [...response.tests];
+      const totalPages = response.pagination?.totalPages || 1;
+      for (let page = 2; page <= totalPages; page++) {
+        response = await testsApi.getAll({ limit: API_MAX_LIMIT, page });
+        allTests.push(...response.tests);
+      }
+      response = { ...response, tests: allTests };
       debugLog(`TestsService: ${response.tests.length} Tests auf einmal geladen`);
       
       // Aktualisiere den State
