@@ -5,6 +5,7 @@
 
 import { useState, useEffect } from 'react';
 import { materialApi } from './apiClient';
+import { debugLog } from '../utils/debug';
 
 /**
  * Hook für grundlegende Material-Funktionalitäten
@@ -25,7 +26,7 @@ export const useMaterialService = () => {
           // Materialdaten über die API laden
           const data = await materialApi.getAll();
             if (data && data.materialien) {
-              console.log('Material-Daten von API geladen:', data.materialien.length);
+              debugLog('Material-Daten von API geladen:', data.materialien.length);
               // Cache mit Materialdaten füllen
               data.materialien.forEach(material => {
                 window.materialCache[material.material_id] = {

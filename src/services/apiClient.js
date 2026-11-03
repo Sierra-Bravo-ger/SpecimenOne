@@ -3,6 +3,7 @@
  */
 
 import { API_BASE_URL } from './apiConfig';
+import { debugLog } from '../utils/debug';
 
 /**
  * Generischer Fetch-Wrapper mit Fehlerbehandlung
@@ -13,14 +14,7 @@ import { API_BASE_URL } from './apiConfig';
 export async function fetchFromApi(endpoint, options = {}) {
   try {
     const url = `${API_BASE_URL}${endpoint}`;
-    console.log(`API-Anfrage an: ${url}`);
-    
-    // Erweiterte Debugging-Informationen für Mobilgeräte
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (isMobile) {
-      console.log(`Mobiles Gerät erkannt: ${navigator.userAgent}`);
-      console.log(`API-Modus: ${API_MODE}, URL: ${url}`);
-    }
+    debugLog(`API-Anfrage an: ${url}`);
     
     const response = await fetch(url, {
       ...options,

@@ -6,6 +6,7 @@
 
 import { useState, useEffect } from 'react';
 import { testsApi } from './apiClient';
+import { debugLog } from '../utils/debug';
 
 /**
  * Hook für Tests-Funktionalitäten
@@ -27,7 +28,7 @@ export const useTestsService = () => {
    * @param {Object} params - Parameter für die API-Anfrage
    */
   const loadTests = async (params = {}) => {
-    console.log('TestsService.loadTests aufgerufen mit:', params);
+    debugLog('TestsService.loadTests aufgerufen mit:', params);
     setIsLoading(true);
     try {
       const response = await testsApi.getAll(params);
@@ -47,7 +48,7 @@ export const useTestsService = () => {
     }
   };  // Initial-Ladung der ersten Seite
   useEffect(() => {
-    console.log('TestsService: Initial-Ladung der Tests wird ausgeführt');
+    debugLog('TestsService: Initial-Ladung der Tests wird ausgeführt');
     // Wir laden nur initial, wenn keine Tests vorhanden sind
     if (tests.length === 0) {
       loadTests({ page: 1, limit: 50 });
@@ -100,13 +101,13 @@ export const useTestsService = () => {
    * @returns {Promise<Array>} - Alle Tests als Array
    */
   const loadAllTestsAtOnce = async () => {
-    console.log('TestsService: Lade ALLE Tests für Visualisierungen');
+    debugLog('TestsService: Lade ALLE Tests für Visualisierungen');
     setIsLoading(true);
     
     try {
       // Direkter Aufruf an API mit hohem Limit
       const response = await testsApi.getAll({ limit: 5000 });
-      console.log(`TestsService: ${response.tests.length} Tests auf einmal geladen`);
+      debugLog(`TestsService: ${response.tests.length} Tests auf einmal geladen`);
       
       // Aktualisiere den State
       setTests(response.tests);

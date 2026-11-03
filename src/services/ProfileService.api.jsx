@@ -6,6 +6,7 @@
 
 import { useState, useEffect } from 'react';
 import { profileApi } from './apiClient';
+import { debugLog } from '../utils/debug';
 
 /**
  * Hook für Profile-Funktionalitäten
@@ -21,13 +22,13 @@ export const useProfileService = () => {  const [profiles, setProfiles] = useSta
     setIsLoading(true);
     try {
       const response = await profileApi.getAll();
-      console.log('ProfileService: API-Antwort erhalten:', response);
+      debugLog('ProfileService: API-Antwort erhalten:', response);
       
       if (response && response.profile) {
         // Stellen Sie sicher, dass profile ein Array ist
         const profileData = Array.isArray(response.profile) ? response.profile : [];
         setProfiles(profileData);
-        console.log('ProfileService: Profile geladen:', profileData.length, 'Erstes Profil:', profileData[0]);
+        debugLog('ProfileService: Profile geladen:', profileData.length, 'Erstes Profil:', profileData[0]);
         
         // Kategorien extrahieren, wenn noch nicht geladen
         if (categories.length === 0) {
@@ -35,7 +36,7 @@ export const useProfileService = () => {  const [profiles, setProfiles] = useSta
           setCategories(['Alle', ...uniqueCategories.sort()]);
         }
       } else {
-        console.warn('ProfileService: Unerwartetes Antwortformat:', response);
+        debugLog('ProfileService: Unerwartetes Antwortformat:', response);
         setProfiles([]);
       }
     } catch (err) {
@@ -114,7 +115,7 @@ export const useProfileService = () => {  const [profiles, setProfiles] = useSta
     try {
       // Hier müsste eine echte API-Anfrage erfolgen
       // Da wir noch keinen Endpoint dafür haben, simulieren wir es
-      console.log('Persönliches Profil erstellen:', profileData);
+      debugLog('Persönliches Profil erstellen:', profileData);
       
       // Simulieren einer erfolgreichen Erstellung
       const newProfile = {

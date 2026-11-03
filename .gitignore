@@ -6,8 +6,6 @@ archived_api_docs/
 /.pnp
 .pnp.js
 **/node_modules/
-package-lock.json
-**/package-lock.json
 
 # Build-Verzeichnisse
 /dist
@@ -77,8 +75,6 @@ tests_importiert*.json
 profile_exportiert*.json
 profile_exportiert.json
 config.ini
-src/services/FormSubmitService.js
-src/services/ServiceClient.js
 
 # API Server und Integration
 /server/node_modules/
@@ -122,4 +118,3 @@ NOTES.md
 copilot_rules.md
 
 # Sensitive Dienste mit Credentials
-src/services/DiscordService.js

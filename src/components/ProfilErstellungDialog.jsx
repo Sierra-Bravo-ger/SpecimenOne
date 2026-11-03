@@ -2,8 +2,9 @@ import { useState, useRef, useEffect } from 'react';
 import * as MaterialDesign from "react-icons/md";
 // Auth0 vorübergehend deaktiviert
 // import { useAuth0 } from '@auth0/auth0-react';
-import { sendProfilByFormSubmit, sendProfilToDiscord, getServiceStatus } from '../services/ServiceClient';
+import { sendProfilToDiscord } from '../services/ServiceClient';
 import tailwindBtn from './tailwindBtn';
+import { debugLog } from '../utils/debug';
 
 /**
  * Gemeinsamer Dialog für das Erstellen und Speichern von Profilen
@@ -27,7 +28,7 @@ function ProfilErstellungDialog({
   // const { isAuthenticated, loginWithRedirect, user } = useAuth0();
   const isAuthenticated = true; // Simuliere authentifizierten Status
   const user = { name: "Testbenutzer", email: "test@example.com" }; // Simulierter Benutzer
-  const loginWithRedirect = () => console.log("Login-Funktion vorübergehend deaktiviert");
+  const loginWithRedirect = () => debugLog("Login-Funktion vorübergehend deaktiviert");
   
   // Sicherstellen, dass selectedTests immer ein Array ist
   const safeSelectedTests = Array.isArray(selectedTests) ? selectedTests : 
@@ -66,7 +67,7 @@ function ProfilErstellungDialog({
       // Discord-Webhook aufrufen
       try {
         await sendProfilToDiscord(profilData);
-        console.log('Profil-Antrag erfolgreich an Discord gesendet');
+        debugLog('Profil-Antrag erfolgreich an Discord gesendet');
       } catch (discordError) {
         console.error('Fehler beim Senden an Discord:', discordError);
         // Fehler nicht an Benutzer zeigen, nur loggen
@@ -122,37 +123,15 @@ function ProfilErstellungDialog({
       
       // Wenn Benutzer eingeloggt ist, E-Mail-Adresse aus Profil verwenden
       const profilData = createProfil();
-      if (user?.email && !email) {
-        profilData.email = user.email;
-      }
       
-      // Versuche zuerst, das Profil über Discord zu senden
-      try {
-        await sendProfilToDiscord(profilData);
-        setEmailStatus({ type: 'success', message: 'Profil erfolgreich übermittelt!' });
-        
-        // Dialog nach kurzer Verzögerung schließen
-        setTimeout(() => {
-          if (onClose) onClose();
-        }, 2000);
-        return;
-      } catch (discordError) {
-        console.log('Discord-Übermittlung fehlgeschlagen, versuche FormSubmit als Fallback', discordError);
-        
-        // Discord fehlgeschlagen, versuche FormSubmit als Fallback
-        const result = await sendProfilByFormSubmit(profilData);
-        
-        if (result.status === 'success') {
-          setEmailStatus({ type: 'success', message: 'E-Mail erfolgreich gesendet!' });
-          
-          setTimeout(() => {
-            if (onClose) onClose();
-          }, 2000);
-        } else {
-          throw new Error('Unerwartete Antwort beim Versand');
-        }
+      const result = await sendProfilToDiscord(profilData);
+      if (result.status !== 'success') {
+        throw new Error('Der Versand ist auf diesem System nicht eingerichtet.');
       }
-      
+      setEmailStatus({ type: 'success', message: 'Profil erfolgreich übermittelt!' });
+      setTimeout(() => {
+        if (onClose) onClose();
+      }, 2000);
     } catch (error) {
       console.error('Fehler beim Übermitteln des Profils:', error);
       setEmailStatus({ 

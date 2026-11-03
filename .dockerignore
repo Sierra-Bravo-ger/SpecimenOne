@@ -41,7 +41,6 @@ tests_exportiert.csv
 tests_importiert*.json
 profile_exportiert*.json
 profile_exportiert.json
-src/services/FormSubmitService.js
 
 # Konfigurationsdateien mit sensiblen Daten
 config.ini

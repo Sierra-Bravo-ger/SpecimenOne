@@ -3,8 +3,6 @@
  * Konfigurationsdatei für die API-Integration
  */
 
-// API-Modus aktivieren (true) oder deaktivieren (false)
-export const API_MODE = true;
 
 // Überprüfen, ob wir auf einem Mobilgerät sind oder in einer Produktionsumgebung
 //const isMobileOrProduction = typeof window !== 'undefined' && 
@@ -20,5 +18,3 @@ export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api'
 //  ? 'https://one.madmoench.de/api' 
 //  : 'http://localhost:3001/api';
 
-// Fallback-Modus, falls API nicht erreichbar ist
-export const ENABLE_FALLBACK = true;

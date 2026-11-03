@@ -5,6 +5,7 @@
 
 import { useState, useEffect, createContext, useContext } from 'react';
 import { einheitenApi } from './apiClient';
+import { debugLog } from '../utils/debug';
 
 // Context für den EinheitenService
 const EinheitenServiceContext = createContext();
@@ -29,10 +30,8 @@ export const EinheitenServiceProvider = ({ children }) => {
  */
 export const useEinheitenService = () => {
   const context = useContext(EinheitenServiceContext);
-  if (!context) {
-    return useEinheitenServiceInternal();
-  }
-  return context;
+  const internal = useEinheitenServiceInternal();
+  return context || internal;
 };
 
 /**
@@ -54,7 +53,7 @@ const useEinheitenServiceInternal = () => {
           // Einheiten über die API laden
           const data = await einheitenApi.getAll();
           if (data && data.einheiten) {
-            console.log('Einheiten-Daten von API geladen:', data.einheiten.length);
+            debugLog('Einheiten-Daten von API geladen:', data.einheiten.length);
             // Cache mit Einheiten-Daten füllen
             data.einheiten.forEach(einheit => {
               window.einheitenCache[einheit.einheit_id] = {

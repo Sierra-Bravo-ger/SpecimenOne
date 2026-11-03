@@ -11,7 +11,7 @@ echo "};" >> /usr/share/nginx/html/config.js
 echo "console.log('Runtime config loaded successfully');" >> /usr/share/nginx/html/config.js
 
 # Ausgabe zur Bestätigung, dass die Konfigurationsdatei erstellt wurde
-echo "Runtime config wurde erstellt mit Discord-URL: $VITE_DISCORD_WEBHOOK_URL"
+echo "Runtime config wurde erstellt (Discord-Webhook: ${VITE_DISCORD_WEBHOOK_URL:+gesetzt}${VITE_DISCORD_WEBHOOK_URL:-nicht gesetzt})"
 
 # Starte Nginx im Vordergrund
 echo "Starting Nginx..."

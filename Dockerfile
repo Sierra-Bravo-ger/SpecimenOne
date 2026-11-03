@@ -1,49 +1,15 @@
-FROM node:18-alpine AS build
+FROM node:22-alpine AS build
 
 WORKDIR /app
 
 # Kopiere zuerst die package.json und installiere Abhängigkeiten
 COPY package*.json ./
-RUN npm install
+RUN npm ci
 
 # Kopiere den Quellcode (ohne node_modules und andere ignorierte Dateien)
 COPY . .
 
-# ServiceClient.js ist gitignored: Fallback auf die Example-Version (Webhook per Runtime-Config)
-RUN [ -f src/services/ServiceClient.js ] || cp src/services/ServiceClient.example.js src/services/ServiceClient.js
-
-# Erstelle einen leeren/Dummy DiscordService, wenn keiner existiert
-# Dies vermeidet Fehler beim Build, wenn die Datei fehlt
-RUN echo "// Dummy DiscordService für den Build-Prozess" > src/services/DiscordService.js
-RUN echo "export async function sendProfilToDiscord() { return { status: 'not_configured' }; }" >> src/services/DiscordService.js
-
-# Erstelle einen vollständigeren FormSubmitService mit allen erwarteten Funktionen
-# Dies ist nötig, da die Datei in .gitignore/.dockerignore steht
-RUN echo "// Dummy FormSubmitService für den Build-Prozess" > src/services/FormSubmitService.js
-RUN echo "/**" >> src/services/FormSubmitService.js
-RUN echo " * Sendet eine E-Mail über FormSubmit.co mit den Profildaten" >> src/services/FormSubmitService.js
-RUN echo " * @param {Object} profil - Das erstellte Profil mit allen Tests" >> src/services/FormSubmitService.js
-RUN echo " * @returns {Promise} - Promise mit dem Ergebnis des E-Mail-Versands" >> src/services/FormSubmitService.js
-RUN echo " */" >> src/services/FormSubmitService.js
-RUN echo "export async function sendProfilByFormSubmit(profil) {" >> src/services/FormSubmitService.js
-RUN echo "  console.log('FormSubmit-Service (Build-Dummy) wurde aufgerufen');" >> src/services/FormSubmitService.js
-RUN echo "  return { status: 'success' };" >> src/services/FormSubmitService.js
-RUN echo "}" >> src/services/FormSubmitService.js
-RUN echo "function createSimpleEmailContent(profil) {" >> src/services/FormSubmitService.js
-RUN echo "  return 'Build-Dummy-Funktion';" >> src/services/FormSubmitService.js
-RUN echo "}" >> src/services/FormSubmitService.js
-
-# Setze Platzhalter-Umgebungsvariablen nur für den BUILD
-# Diese werden NICHT im finalen Image verwendet
-ARG VITE_DISCORD_WEBHOOK_URL="placeholder-during-build"
-ENV VITE_DISCORD_WEBHOOK_URL=${VITE_DISCORD_WEBHOOK_URL}
-
-# Debug-Ausgaben vor dem Build
-RUN echo "Node version:" && node --version
-RUN echo "NPM version:" && npm --version
-RUN echo "Directory content:" && ls -la
-
-# Build mit detaillierter Ausgabe
+# Frontend bauen
 RUN npm run build
 
 # Produktions-Stage
