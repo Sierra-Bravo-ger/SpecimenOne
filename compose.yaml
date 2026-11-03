@@ -10,12 +10,6 @@ services:
       - api
     # environment:
     #   - VITE_DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/...
-    volumes:
-      - /home/sebri/specimenone/tests.json:/usr/share/nginx/html/tests.json
-      - /home/sebri/specimenone/profile.json:/usr/share/nginx/html/profile.json
-      - /home/sebri/specimenone/referenzwerte.json:/usr/share/nginx/html/referenzwerte.json
-      - /home/sebri/specimenone/material.json:/usr/share/nginx/html/material.json
-      - /home/sebri/specimenone/einheiten.json:/usr/share/nginx/html/einheiten.json
   api:
     image: madmoench/specimenone-api:latest
     restart: unless-stopped
