@@ -15,20 +15,9 @@
     <script src="/config.js"></script>
   </head><body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>    <script>
-      // Service Worker für Offline-Funktionalität registrieren
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/service-worker.js')
-            .then((registration) => {
-              console.log('Service Worker erfolgreich registriert:', registration.scope);
-            })
-            .catch((error) => {
-              console.log('Service Worker Registrierung fehlgeschlagen:', error);
-            });
-        });
-      }
-    </script>    <!-- Cloudflare Web Analytics -->
+    <script type="module" src="/src/main.jsx"></script>
+    <!-- Den Service Worker (sw.js) registriert vite-plugin-pwa in src/main.jsx -->
+    <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "578361eb87ab4960a43fc30a7eba7b83"}'></script>
     <!-- End Cloudflare Web Analytics -->
   </body>

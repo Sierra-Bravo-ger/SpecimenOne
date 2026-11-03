@@ -1,9 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy, Suspense } from 'react'
 import './material-theme.css'
 import TestListe from './components/TestListe'
 import ProfilListe from './components/ProfilListe'
-import DrilldownTable from './components/DrilldownTable'
-import TimelineView from './components/TimelineView';
 import TestDetails from './components/TestDetails'
 import MaterialBadge from './components/MaterialBadge'
 import Suchleiste from './components/Suchleiste'
@@ -30,6 +28,18 @@ import '@material/web/tabs/tabs.js'
 import * as MaterialDesign from "react-icons/md"
 import { debugLog } from './utils/debug';
 import { filterTests } from './utils/testFilter';
+
+// Selten genutzte Ansichten erst beim Öffnen laden (TimelineView bringt @nivo mit)
+const TimelineView = lazy(() => import('./components/TimelineView'))
+const DrilldownTable = lazy(() => import('./components/DrilldownTable'))
+
+function AnsichtLaedt() {
+  return (
+    <div className="p-8 text-center text-gray-500 dark:text-gray-400" role="status">
+      Ansicht wird geladen …
+    </div>
+  )
+}
 
 function App() {
   // Auth0 vorübergehend deaktiviert
@@ -371,13 +381,16 @@ function App() {
                 </>
               )}
               {ansicht === 'timeline' && (
-                <TimelineView key="timeline-view" />
+                <Suspense fallback={<AnsichtLaedt />}>
+                  <TimelineView key="timeline-view" />
+                </Suspense>
               )}
                 {ansicht === 'profile' && (
                 <ProfilListe tests={filteredTests} profile={filteredProfile} />
               )}
               
               {ansicht === 'tabelle' && (
+                <Suspense fallback={<AnsichtLaedt />}>
                 <DrilldownTable 
                   data={filteredTests}
                   columns={[
@@ -432,6 +445,7 @@ function App() {
                     </div>
                   )}
                 />
+                </Suspense>
               )}
             </div>
           </>

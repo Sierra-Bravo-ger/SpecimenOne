@@ -91,7 +91,18 @@ export default defineConfig({
       },
       workbox: {
         navigateFallback: '/index.html',
+        // Den großen Grafik-Chunk (@nivo) nicht vorab cachen: Er wird erst beim
+        // Öffnen der Grafiken-Ansicht geladen und dann zur Laufzeit gecacht.
+        globIgnores: ['**/TimelineView-*.js'],
         runtimeCaching: [
+          {
+            urlPattern: ({ url }) => url.pathname.startsWith('/assets/'),
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'lazy-assets',
+              expiration: { maxEntries: 20 }
+            },
+          },
           {
             urlPattern: ({ url }) => url.pathname.startsWith('/api/'),
             handler: 'NetworkFirst',
