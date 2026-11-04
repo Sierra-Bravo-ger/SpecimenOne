@@ -1,48 +1,40 @@
 import React, { memo } from 'react';
 import tailwindBtn from './tailwindBtn';
 
-// Extreme Optimierung mit React.memo und stopPropagation
+/** Checkbox „für Profil auswählen“ einer Testkarte; der Name nennt den Test für Screenreader. */
 const TestCheckbox = memo(({ test, isSelected, onToggle }) => {
-  // Event-Handler mit stopPropagation, um Bubble-Up zu verhindern
   const handleChange = (e) => {
     e.stopPropagation();
     onToggle(test);
   };
 
-  // Klick auf Label auch blockieren 
-  const handleLabelClick = (e) => {
-    e.stopPropagation();
-  };
-
   return (
-    <div 
+    <div
       className={`${tailwindBtn.classes.checkbox.container} test-checkbox`}
-      onClick={e => e.stopPropagation()} // Verhindert Klick-Event-Bubbling
+      onClick={e => e.stopPropagation()}
     >
       <input
         type="checkbox"
         checked={isSelected}
         onChange={handleChange}
         id={`test-cb-${test.id}`}
+        aria-label={`${test.name || test.id} für Profil auswählen`}
         className={`${tailwindBtn.classes.checkbox.input} test-cb-input`}
       />
       <label
         htmlFor={`test-cb-${test.id}`}
-        className={`${tailwindBtn.classes.checkbox.label} test-cb-label
-          ${isSelected 
-            ? tailwindBtn.classes.checkbox.checked 
+        aria-hidden="true"
+        className={`${tailwindBtn.classes.checkbox.label} test-cb-label relative after:absolute after:-inset-3 after:content-['']
+          ${isSelected
+            ? tailwindBtn.classes.checkbox.checked
             : tailwindBtn.classes.checkbox.unchecked
           }`}
-        onClick={handleLabelClick}
+        onClick={e => e.stopPropagation()}
       >
-        {isSelected ? "✓" : ""}
+        {isSelected ? '✓' : ''}
       </label>
     </div>
   );
-}, (prevProps, nextProps) => {
-  // Eigene Vergleichsfunktion für React.memo
-  // Nur neu rendern, wenn sich der isSelected-Status ändert
-  return prevProps.isSelected === nextProps.isSelected;
-});
+}, (prev, next) => prev.isSelected === next.isSelected && prev.test.id === next.test.id && prev.onToggle === next.onToggle);
 
 export default TestCheckbox;
