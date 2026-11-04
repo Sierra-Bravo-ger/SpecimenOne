@@ -19,6 +19,8 @@ import { useProfileService } from './services/ProfileService.api'
 import { API_BASE_URL, ALL_TESTS_PATH } from './services/apiConfig'
 import { useTestsService } from './services/TestsService'
 import OfflineBanner from './components/OfflineBanner'
+import WillkommenHinweis from './components/WillkommenHinweis'
+import { useWillkommen } from './hooks/useWillkommen'
 import '@material/web/button/filled-button.js'
 import '@material/web/button/text-button.js'
 import '@material/web/icon/icon.js'
@@ -52,6 +54,7 @@ function App() {
   
   const [tests, setTests] = useState([]);  // Initialisiere profile als leeres Array, falls es undefined ist
   const [profile, setProfile] = useState([]);
+  const { sichtbar: willkommenSichtbar, ausblenden: willkommenAusblenden, einblenden: willkommenEinblenden } = useWillkommen();
   const [ansicht, setAnsicht] = useState('tests'); // 'tests', 'profile' oder 'tabelle'
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -189,6 +192,13 @@ function App() {
   const handleSuchbegriffChange = (newValue) => {
     setSuchbegriff(newValue);
   };
+
+  // Beispielsuche aus dem Willkommenshinweis: Einzeltests ohne Kategoriefilter zeigen
+  const handleBeispielSuche = (begriff) => {
+    setAnsicht('tests');
+    setSelectedKategorie('Alle');
+    handleSuchbegriffChange(begriff);
+  };
   
   // Funktion zum Öffnen der Testdetails
   const openTestDetails = (test) => {
@@ -301,12 +311,26 @@ function App() {
           </div>
         </div>
         <div className="flex items-center gap-5">
+          {!willkommenSichtbar && (
+            <button
+              type="button"
+              onClick={willkommenEinblenden}
+              aria-label="Einführung und Info zum Projekt anzeigen"
+              title="Info zum Projekt"
+              className="flex h-9 w-9 items-center justify-center rounded-full border-none bg-white/15 text-white text-xl cursor-pointer hover:bg-white/25"
+            >
+              <MaterialDesign.MdHelpOutline aria-hidden="true" />
+            </button>
+          )}
           <ThemeSwitcher />
         </div>      </header>      <main className="flex-1 p-4 w-full">
         <OfflineBanner />
         {isLoading && <div className="flex justify-center my-8"><md-circular-progress indeterminate></md-circular-progress></div>}
         {error && <p className="bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 p-4 rounded border-l-4 border-red-600 dark:border-red-500">Fehler: {error}</p>}
         {!isLoading && !error && (  <>            <div className="mb-8">            <div className="mb-4 space-y-3 max-w-screen-2xl mx-auto">
+                {willkommenSichtbar && (
+                  <WillkommenHinweis onBeispielSuche={handleBeispielSuche} onSchliessen={willkommenAusblenden} />
+                )}
                 <div className={`p-3 ${tailwindBtn.containerBgElevated} rounded-lg shadow-sm border ${tailwindBtn.colors.border.light} ${tailwindBtn.colors.border.dark} w-full`}>
                   <Suchleiste 
                     suchbegriff={suchbegriff} 
@@ -455,8 +479,8 @@ function App() {
           <div className="flex flex-col md:flex-row justify-between items-center w-full">
             <p className="text-gray-600 dark:text-gray-300 text-sm mb-2 md:mb-0">© {new Date().getFullYear()} SpecimenOne</p>
             <div className="flex items-center gap-4">
-              <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-sm transition-colors">Datenschutz</a>
-              <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-sm transition-colors">Impressum</a>
+              <a href="/datenschutz.html" className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-sm transition-colors">Datenschutz</a>
+              <a href="https://sebastian-bride.pages.dev/impressum" target="_blank" rel="noopener noreferrer" className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-sm transition-colors">Impressum</a>
             </div>
           </div>
           

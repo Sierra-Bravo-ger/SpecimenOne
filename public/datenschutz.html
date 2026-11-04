@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="robots" content="noindex" />
+    <title>Datenschutz – SpecimenOne</title>
+    <style>
+      /* Eigenständige Seite: bewusst ohne externe Schriften, Skripte oder Bilder.
+         Farben folgen den Design-Tokens der App (primary #6abf7b, Dark-Surface #1C1B1F). */
+      :root { --bg: #ffffff; --text: #1c1b1f; --muted: #5f6368; --link: #2e7d45; --border: #e5e7eb; --bar: #6abf7b; }
+      @media (prefers-color-scheme: dark) {
+        :root { --bg: #1c1b1f; --text: #e6e1e5; --muted: #a8a3ad; --link: #8fd19e; --border: #3a383e; --bar: #3d7a4a; }
+      }
+      body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 Roboto, system-ui, sans-serif; }
+      header { background: var(--bar); color: #fff; padding: 14px 16px; font-size: 20px; font-weight: 500; }
+      main { max-width: 68ch; margin: 0 auto; padding: 32px 16px 48px; }
+      a { color: var(--link); }
+      h1 { font-size: 26px; margin-top: 8px; }
+      h2 { font-size: 18px; margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border); }
+      .muted { color: var(--muted); }
+      /* Platzhalter sind gelb markiert, damit nichts vergessen wird */
+      .platzhalter { background: #ffe066; color: #1c1b1f; padding: 0 4px; border-radius: 4px; }
+    </style>
+  </head>
+  <body>
+    <header>SpecimenOne</header>
+    <main>
+      <!--
+        Diese Seite beschreibt nur die Verarbeitung, die tatsächlich stattfindet:
+        keine Cookies, kein Login, keine Formulare; Cloudflare Web Analytics (cookielos) ist aktiv.
+        Gelb markierte Stellen (.platzhalter) sind noch zu prüfen bzw. auszufüllen.
+        Kein Rechtsrat.
+      -->
+      <p><a href="/">← zurück zu SpecimenOne</a></p>
+
+      <h1>Datenschutzerklärung</h1>
+      <p class="muted">SpecimenOne ist ein Portfolio-Projekt (Labor-Leistungsverzeichnis als Web-App).</p>
+
+      <h2>1. Verantwortlicher</h2>
+      <p>
+        Verantwortlich für diese Website ist die im
+        <a href="https://sebastian-bride.pages.dev/impressum" rel="noopener noreferrer">Impressum</a>
+        genannte Person. Dort stehen auch die Kontaktdaten.
+      </p>
+
+      <h2>2. Bereitstellung über Cloudflare, Server-Logs</h2>
+      <p>
+        SpecimenOne läuft auf einem Server des Betreibers und ist über einen Cloudflare Tunnel
+        und den Cloudflare-Proxy aus dem Internet erreichbar (Cloudflare, Inc., USA). Cloudflare
+        verarbeitet beim Aufruf technisch bedingt Daten wie IP-Adresse, Zeitpunkt und aufgerufene
+        Adresse, um die Website auszuliefern und Missbrauch abzuwehren. Rechtsgrundlage ist das
+        berechtigte Interesse an einer sicheren und zuverlässigen Bereitstellung
+        (Art. 6 Abs. 1 lit. f DSGVO). Eine Übermittlung in die USA kann stattfinden; Cloudflare ist
+        nach dem EU-US Data Privacy Framework zertifiziert (Angemessenheitsbeschluss, Art. 45 DSGVO).
+        Weitere Informationen:
+        <a href="https://www.cloudflare.com/de-de/privacypolicy/" rel="noopener noreferrer">Datenschutzerklärung von Cloudflare</a>.
+      </p>
+      <p>
+        Der Webserver (nginx) beim Betreiber protokolliert Zugriffe (u. a. IP-Adresse bzw. die von
+        Cloudflare weitergereichte Besucher-IP, Zeitpunkt, angefragte Adresse, Statuscode).
+        Speicherdauer der Server-Logs: <span class="platzhalter">[Speicherdauer der nginx-Logs angeben bzw. prüfen]</span>.
+      </p>
+
+      <h2>3. Reichweitenmessung: Cloudflare Web Analytics</h2>
+      <p>
+        Beim Aufruf wird ein Skript von <code>static.cloudflareinsights.com</code> geladen
+        (Cloudflare Web Analytics). Es misst Seitenaufrufe und technische Kennzahlen
+        (z. B. Ladezeiten, Browser, Land) und kommt laut Cloudflare ohne Cookies und ohne
+        Speicherung im Browser aus; Besucher werden nicht seitenübergreifend verfolgt.
+        Rechtsgrundlage ist das berechtigte Interesse an einer Auswertung der Nutzung
+        (Art. 6 Abs. 1 lit. f DSGVO)<span class="platzhalter">[Rechtsgrundlage und Widerspruchsmöglichkeit prüfen]</span>.
+        Mit einem Werbe-/Skriptblocker lässt sich das Laden des Skripts unterbinden; die App funktioniert auch ohne.
+      </p>
+
+      <h2>4. Speicherung im Browser</h2>
+      <p>
+        Die App setzt <strong>keine Cookies</strong>, es gibt <strong>kein Login</strong> und
+        <strong>keine Formulare</strong>, die Daten an den Server senden. Im Browser werden
+        lokal auf deinem Gerät gespeichert:
+      </p>
+      <ul>
+        <li>
+          <strong>localStorage:</strong> gewähltes Farbschema (hell/dunkel), Sortierung,
+          selbst angelegte persönliche Profile, ob der Willkommenshinweis ausgeblendet wurde,
+          Zeitpunkt der letzten erfolgreichen Synchronisierung und das Ergebnis der letzten Erreichbarkeitsprüfung.
+        </li>
+        <li>
+          <strong>Cache und Service-Worker:</strong> App-Dateien und zuletzt geladene Testdaten
+          (Leistungsverzeichnis), damit die App offline funktioniert.
+        </li>
+      </ul>
+      <p>
+        Diese Daten verlassen dein Gerät nicht und dienen nur dem Betrieb der App. Du kannst sie
+        in den Browser-Einstellungen unter „Website-Daten“ löschen.
+      </p>
+
+      <h2>5. Abruf der Daten (API)</h2>
+      <p>
+        Die App lädt das Leistungsverzeichnis von der API desselben Servers. Dabei werden keine
+        personenbezogenen Daten von dir übermittelt außer den technisch üblichen Verbindungsdaten
+        (siehe Abschnitt 2). Die angezeigten Inhalte sind Testdaten aus dem Leistungsverzeichnis, keine Patientendaten.
+      </p>
+
+      <h2>6. Kontakt, Links</h2>
+      <p>
+        Ein Link auf der Seite (z. B. zu GitHub oder zum Portfolio) ist kein persönlicher Kontakt.
+        Beim Anklicken gelten die Datenschutzbestimmungen der jeweiligen Zielseite. Nimmst du per
+        E-Mail Kontakt auf, werden deine Angaben nur zur Beantwortung der Anfrage verwendet.
+      </p>
+
+      <h2>7. Deine Rechte</h2>
+      <p>
+        Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung,
+        Datenübertragbarkeit und Widerspruch (Art. 15–21 DSGVO). Außerdem kannst du dich bei einer
+        Datenschutz-Aufsichtsbehörde beschweren, zuständig ist
+        <span class="platzhalter">[zuständige Aufsichtsbehörde eintragen]</span>.
+        Für Anfragen genügt eine Nachricht an die im Impressum genannte Adresse.
+      </p>
+
+      <h2>8. Stand</h2>
+      <p>November 2026</p>
+    </main>
+  </body>
+</html>

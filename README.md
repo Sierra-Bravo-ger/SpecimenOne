@@ -123,6 +123,15 @@ Secrets für den Docker-Hub-Push anlegen: Repository → **Settings** → **Secr
 └── compose.yaml         Produktiv-Stack
 ```
 
+## Rechtliches
+
+- **Impressum:** liegt im Portfolio, <https://sebastian-bride.pages.dev/impressum>; der Footer-Link „Impressum“ führt dorthin.
+- **Datenschutz:** statische Seite [`public/datenschutz.html`](public/datenschutz.html), erreichbar unter `/datenschutz.html` (Footer-Link „Datenschutz“). Sie ist eigenständig (hell/dunkel, keine externen Ressourcen), von der SPA-Navigation ausgenommen (`navigateFallbackDenylist` in `vite.config.js`) und wird von nginx direkt ausgeliefert. Gelb markierte Stellen (`.platzhalter`) sind noch zu prüfen. Kein Rechtsrat.
+
+## Willkommenshinweis
+
+Erstbesucher sehen über der Suche einen kompakten Hinweis (`src/components/WillkommenHinweis.jsx`): Kurzbeschreibung, vier Beispielsuchen als Chips (Lanoxin, Creatinin, Mycoplasma pneumoniae, F37) und „Über das Projekt“ (Stack und Links zu GitHub, API-Doku, Portfolio). Mit dem × wird er ausgeblendet; das merkt sich die App in `localStorage` (`specimenOne.willkommenAusgeblendet`, `src/hooks/useWillkommen.js`). Danach erscheint im Header ein „?“, das den Hinweis wieder einblendet.
+
 ## Lizenz
 
 MIT, siehe [LICENSE](LICENSE). Lizenzen der Abhängigkeiten: [LICENSES.md](LICENSES.md).

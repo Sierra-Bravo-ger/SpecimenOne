@@ -39,7 +39,8 @@ export default defineConfig({
         navigateFallback: '/index.html',
         // /api/docs (Swagger UI) und /api/openapi.json sind serverseitige Seiten, keine App-Routen:
         // Navigationen unter /api/ dürfen nicht auf die App (index.html) umgeleitet werden.
-        navigateFallbackDenylist: [/^\/api\//],
+        // /datenschutz.html ist eine eigenständige statische Seite (public/), keine App-Route.
+        navigateFallbackDenylist: [/^\/api\//, /^\/datenschutz\.html$/],
         // Alle Build-Chunks werden vorab gecacht, auch der Grafik-Chunk (TimelineView
         // mit @nivo, ca. 280 kB). Er wird weiterhin erst beim Öffnen der Grafiken
         // geladen (React.lazy), steht dann aber auch offline bereit.
