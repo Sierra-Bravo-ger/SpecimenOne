@@ -8,12 +8,12 @@ function SortierMenu({ sortOption, setSortOption, sortDirection, setSortDirectio
   return (
     <div className={`${tailwindBtn.classes.card} p-3`}>
       <div className="flex justify-between items-center mb-3">
-        <h3 className={`text-sm font-medium ${tailwindBtn.classes.text} flex items-center`}>
-          <MaterialDesign.MdSort className="mr-1" /> Sortierung
-        </h3>        <div className={tailwindBtn.classes.sortMenu.directionContainer}>          <button 
+        <h2 className={`text-sm font-medium ${tailwindBtn.classes.text} flex items-center m-0`}>
+          <MaterialDesign.MdSort className="mr-1" aria-hidden="true" /> Sortierung
+        </h2>        <div className={tailwindBtn.classes.sortMenu.directionContainer}>          <button 
             className="flex items-center gap-1 py-1 px-2.5 text-sm rounded-md border-none bg-[var(--md-sys-color-surface-container-high)] text-[var(--md-sys-color-on-surface)] transition-all duration-200 hover:shadow-md"
             onClick={() => setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc')}
-            aria-label={sortDirection === 'asc' ? "Aufsteigend sortiert (klicken für absteigend)" : "Absteigend sortiert (klicken für aufsteigend)"}
+            aria-label={sortDirection === 'asc' ? "A-Z, aufsteigend sortiert. Klicken für absteigend" : "Z-A, absteigend sortiert. Klicken für aufsteigend"}
             title={sortDirection === 'asc' ? "Aufsteigend sortiert (klicken für absteigend)" : "Absteigend sortiert (klicken für aufsteigend)"}
           >
             {sortDirection === 'asc' ? (
@@ -32,7 +32,7 @@ function SortierMenu({ sortOption, setSortOption, sortDirection, setSortDirectio
       </div>
       
       {/* 2x2 Grid für die Sortieroptionen - optimiert für mobile Benutzer */}
-      <div className="grid grid-cols-2 gap-2">        <label className={`flex items-center p-2 rounded cursor-pointer ${
+      <div className="grid grid-cols-2 gap-2" role="radiogroup" aria-label="Sortieren nach">        <label className={`flex items-center p-2 rounded cursor-pointer ${
           sortOption === 'id' 
             ? 'bg-[var(--md-sys-color-primary-container)] text-[var(--md-sys-color-on-primary-container)]' 
             : `${tailwindBtn.classes.hover} ${tailwindBtn.classes.text}`

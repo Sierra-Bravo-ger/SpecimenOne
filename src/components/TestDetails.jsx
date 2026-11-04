@@ -90,6 +90,48 @@ function TestDetails({ test, onClose }) {
       window.removeEventListener("popstate", handlePopState);
     };  }, [onClose]);
   
+  // Fokusführung: beim Öffnen in den Dialog, beim Schließen zurück auf das auslösende Element
+  const dialogRef = useRef(null);
+  useEffect(() => {
+    const opener = document.activeElement;
+    dialogRef.current?.focus();
+    return () => {
+      if (opener && typeof opener.focus === 'function' && document.contains(opener)) {
+        opener.focus();
+      }
+    };
+  }, []);
+
+  // Escape schließt die Detailansicht
+  useEffect(() => {
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        event.stopPropagation();
+        onClose();
+      }
+    };
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [onClose]);
+
+  // Tab bleibt im Dialog (Fokusfalle)
+  const handleDialogKeyDown = (event) => {
+    if (event.key !== 'Tab' || !dialogRef.current) return;
+    const fokussierbar = dialogRef.current.querySelectorAll(
+      'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    );
+    if (fokussierbar.length === 0) return;
+    const erstes = fokussierbar[0];
+    const letztes = fokussierbar[fokussierbar.length - 1];
+    if (event.shiftKey && (document.activeElement === erstes || document.activeElement === dialogRef.current)) {
+      event.preventDefault();
+      letztes.focus();
+    } else if (!event.shiftKey && document.activeElement === letztes) {
+      event.preventDefault();
+      erstes.focus();
+    }
+  };
+
   // Handler für Klicks außerhalb der Karte  
   const handleOverlayClick = (event) => {
     // Nur ausführen wenn der Klick direkt auf dem Overlay war, nicht auf seinen Kindern
@@ -228,7 +270,7 @@ function TestDetails({ test, onClose }) {
             <button class="close-button" onclick="window.close();">Schließen</button>
           </div>
           <div class="header">
-            <img src="/images/icons/icon_512x512.png" alt="SpecimenOne Logo" class="logo">
+            <img src="/images/icons/icon_512x512.png" alt="SpecimenOne Logo" class="logo" width="60" height="60">
             <h1>${test.name}</h1>
           </div>
           
@@ -359,11 +401,19 @@ function TestDetails({ test, onClose }) {
     }
   };  return (
     <div className="test-details-overlay" onClick={handleOverlayClick}>      
-      <div className={`test-details-container md-elevation-5 ${tailwindBtn.classes.cardBg}`}>
-        <md-text-button className={`close-button ${tailwindBtn.classes.textMuted}`} onClick={onClose}>
-          <MaterialDesign.MdClose style={{fontSize: "24px"}} />
-        </md-text-button>
-          <h2 className={`${tailwindBtn.classes.text} ${testDetails.kategorie ? `kategorie-text-${testDetails.kategorie.toLowerCase().replace(/\s+/g, '-')}` : ''}`}>{testDetails.name}</h2>
+      <div
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="test-details-titel"
+        tabIndex={-1}
+        onKeyDown={handleDialogKeyDown}
+        className={`test-details-container md-elevation-5 ${tailwindBtn.classes.cardBg}`}
+      >
+        <button type="button" className={`close-button ${tailwindBtn.classes.textMuted}`} onClick={onClose} aria-label="Details schließen">
+          <MaterialDesign.MdClose style={{fontSize: "24px"}} aria-hidden="true" />
+        </button>
+          <h2 id="test-details-titel" className={`${tailwindBtn.classes.text} ${testDetails.kategorie ? `kategorie-text-${testDetails.kategorie.toLowerCase().replace(/\s+/g, '-')}` : ''}`}>{testDetails.name}</h2>
         
         {(() => {
           // Debug-Check für fehlendes synonyme-Feld
@@ -415,7 +465,7 @@ function TestDetails({ test, onClose }) {
               }              return testDetails.material && testDetails.material.length > 0 ? (
                 <div className={`${tailwindBtn.classes.badge.badgesContainer}`}>
                   {testDetails.material.map((materialId, index) => (
-                    <MaterialBadge key={index} materialId={materialId} showKurzbezeichnung={true} mini={false} />
+                    <MaterialBadge key={index} materialId={materialId} mini={false} zeigeCode={true} />
                   ))}
                 </div>
               ) : (

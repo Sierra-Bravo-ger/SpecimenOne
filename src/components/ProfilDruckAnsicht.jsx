@@ -186,7 +186,7 @@ function ProfilDruckAnsicht({ profil, onClose }) {
             <button class="close-button" onclick="window.close();">Schließen</button>
           </div>
             <div class="header">
-            <img src="/images/icons/icon_512x512.png" alt="SpecimenOne Logo" class="logo">
+            <img src="/images/icons/icon_512x512.png" alt="SpecimenOne Logo" class="logo" width="60" height="60">
             <div>
               <h1>${profil.profilName}</h1>
               <p class="subtitle">Profil-Antrag</p>

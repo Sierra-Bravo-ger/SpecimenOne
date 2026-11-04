@@ -54,8 +54,13 @@ function Suchleiste({ suchbegriff, onSuchbegriffChange, selectedKategorie, onKat
     }
 
     document.addEventListener("mousedown", handleClickOutside);
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') setDropdownOpen(false);
+    };
+    document.addEventListener("keydown", handleEscape);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
     };  }, []);  return (
     <div className={tailwindBtn.classes.search.container}>      <div className={tailwindBtn.classes.search.inputWrapper}>        <md-outlined-text-field
           label="Testname, Synonym, Materialname, Fachbereich, LOINC oder Test-ID suchen..."
@@ -81,8 +86,9 @@ function Suchleiste({ suchbegriff, onSuchbegriffChange, selectedKategorie, onKat
           <button 
             className={tailwindBtn.classes.search.filterButton}
             onClick={() => setDropdownOpen(!dropdownOpen)}
-            aria-label="Nach Kategorie filtern"
+            aria-label={`${selectedKategorie === "Alle" ? "Filter" : selectedKategorie}: Nach Fachbereich filtern`}
             aria-expanded={dropdownOpen}
+            aria-haspopup="true"
           >
             <MaterialDesign.MdFilterList className={tailwindBtn.classes.search.filterIcon} />
             <span className={tailwindBtn.classes.search.filterLabel}>
@@ -91,24 +97,26 @@ function Suchleiste({ suchbegriff, onSuchbegriffChange, selectedKategorie, onKat
           </button>{dropdownOpen && (
           <div className={tailwindBtn.classes.search.dropdownMenu}>
             {kategorien.map((kategorie) => (
-              <div 
+              <button
+                type="button"
                 key={kategorie}
-                className={`${tailwindBtn.classes.search.dropdownMenuItem} 
+                className={`${tailwindBtn.classes.search.dropdownMenuItem} border-0 bg-transparent text-left text-base
                   ${selectedKategorie === kategorie 
                     ? tailwindBtn.classes.search.dropdownMenuItemActive
                     : tailwindBtn.classes.search.dropdownMenuItemInactive}`}
+                aria-pressed={selectedKategorie === kategorie}
                 onClick={() => {
                   onKategorieChange(kategorie);
                   setDropdownOpen(false);
                 }}
               >
                 {kategorie === selectedKategorie && (
-                  <MaterialDesign.MdCheck className={tailwindBtn.classes.search.dropdownCheckIcon} />
+                  <MaterialDesign.MdCheck className={tailwindBtn.classes.search.dropdownCheckIcon} aria-hidden="true" />
                 )}
                 <span className={`${kategorie !== "Alle" ? `kategorie-text-${kategorie.toLowerCase().replace(/\s+/g, '-')}` : ""}`}>
                   {kategorie}
                 </span>
-              </div>
+              </button>
             ))}
           </div>
         )}

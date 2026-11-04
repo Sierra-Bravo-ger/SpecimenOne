@@ -48,9 +48,29 @@
 }
 
 .test-details-container h2 {
-  color: #6abf7b;
+  color: #2b7a40;
   margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
+}
+
+.dark-theme .test-details-container h2 {
+  color: #83d991;
+}
+
+.test-details-container:focus {
+  outline: none; /* Fokus wird beim Öffnen programmatisch hierher gesetzt */
+}
+
+button.close-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 9999px;
+  background: transparent;
+  color: inherit;
 }
 
 .details-section {
@@ -62,6 +82,10 @@
   font-size: 1.1rem;
   margin-bottom: 0.8rem;
   color: #49454F;
+}
+
+.dark-theme .details-section h3 {
+  color: #CAC4D0;
 }
 
 /* Styles für die Referenzwerte-Tabelle nach Material Design 3 */

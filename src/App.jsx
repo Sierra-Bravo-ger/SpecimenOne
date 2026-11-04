@@ -1,5 +1,6 @@
 import { useState, useEffect, lazy, Suspense } from 'react'
 import './material-theme.css'
+import './styles/a11y.css'
 import TestListe from './components/TestListe'
 import ProfilListe from './components/ProfilListe'
 import TestDetails from './components/TestDetails'
@@ -35,9 +36,35 @@ import { filterTests } from './utils/testFilter';
 const TimelineView = lazy(() => import('./components/TimelineView'))
 const DrilldownTable = lazy(() => import('./components/DrilldownTable'))
 
+const ANSICHTEN = [
+  { id: 'tests', label: 'Einzelne Tests', Icon: MaterialDesign.MdListAlt },
+  { id: 'profile', label: 'Test-Profile', Icon: MaterialDesign.MdFolderOpen },
+  { id: 'tabelle', label: 'Tabellen-Ansicht', Icon: MaterialDesign.MdTableView },
+  { id: 'timeline', label: 'Grafiken', Icon: MaterialDesign.MdTimeline },
+]
+
+const SORT_LABELS = { id: 'Test-ID', name: 'Name', kategorie: 'Kategorie', material: 'Material' }
+
+/**
+ * Platzhalter-Karten, solange die Liste lädt. Die Höhe (mindestens eine Bildschirmhöhe)
+ * hält die Fußzeile unterhalb des sichtbaren Bereichs, sodass sie beim Nachladen nicht springt.
+ */
+function ListenSkeleton() {
+  return (
+    <div className="min-h-[100vh] p-2 md:p-0" role="status" aria-label="Tests werden geladen">
+      <div className="h-[52px] md:h-[88px]" />
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4" aria-hidden="true">
+        {Array.from({ length: 12 }, (_, i) => (
+          <div key={i} className="h-[196px] rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 animate-pulse" />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 function AnsichtLaedt() {
   return (
-    <div className="p-8 text-center text-gray-500 dark:text-gray-400" role="status">
+    <div className="p-8 text-center text-gray-600 dark:text-gray-400" role="status">
       Ansicht wird geladen …
     </div>
   )
@@ -72,7 +99,9 @@ function App() {
   const [speicherErfolgreich, setSpeicherErfolgreich] = useState(false);
   // Neue States für die Sortierung
   const [sortOption, setSortOption] = useState('id'); // 'id', 'name', 'kategorie', 'material'
-  const [sortDirection, setSortDirection] = useState('asc'); // 'asc', 'desc'  // Theme-Management über den ThemeContext-Hook
+  const [sortDirection, setSortDirection] = useState('asc'); // 'asc', 'desc'
+  const [sortOffen, setSortOffen] = useState(false); // mobil: Sortier-Panel aufgeklappt
+  // Theme-Management über den ThemeContext-Hook
   const { currentTheme, isDark } = useTheme();
   // MaterialService für die Materialbezeichnungen
   const { convertMaterialIdsToNames, isLoading: materialsLoading } = useMaterialService();
@@ -293,24 +322,26 @@ function App() {
   if (authLoading) {
     return (
       <div className={`min-h-screen flex flex-col items-center justify-center ${tailwindBtn.classes.containerBg} ${tailwindBtn.appLayout.fadeIn}`}>
-        <img src="/images/icons/icon_512x512.png" alt="SpecimenOne Logo" className="h-32 w-auto mb-6 filter drop-shadow-lg" />
+        <img src="/images/icons/icon_512x512.png" width="128" height="128" alt="SpecimenOne Logo" className="h-32 w-32 mb-6 filter drop-shadow-lg" />
         <h2 className="text-xl font-medium text-gray-800 dark:text-gray-200 mb-6">SpecimenOne wird geladen</h2>
         <md-circular-progress indeterminate></md-circular-progress>
       </div>
     );
   }
   return (
-    <div className={`flex flex-col min-h-screen font-roboto m-0 p-0 overflow-x-hidden w-full ${isDark ? 'dark-theme dark bg-surface-dark text-on-surface-dark' : 'bg-white text-on-surface'}`}><header className="bg-primary dark:bg-primary-dark text-white shadow-md flex justify-between items-center w-full p-3 box-border border-none">
-        <div className="flex items-center justify-start flex-1">          <img src="/images/icons/icon_512x512.png" alt="SpecimenOne Logo" className="h-20 w-auto mr-4 filter drop-shadow" />
+    <div className={`flex flex-col min-h-screen font-roboto m-0 p-0 overflow-x-clip w-full ${isDark ? 'dark-theme dark bg-surface-dark text-on-surface-dark' : 'bg-white text-on-surface'}`}>
+      <header className="bg-header dark:bg-header-dark text-white shadow-md flex justify-between items-center w-full p-2 md:p-3 box-border border-none">
+        <div className="flex items-center justify-start flex-1">
+          <img src="/images/icons/icon_512x512.png" width="80" height="80" alt="SpecimenOne Logo" className="h-11 w-11 md:h-20 md:w-20 mr-3 md:mr-4 filter drop-shadow" />
           {/* Desktop-Version des Titels (einzeilig) */}
           <h1 className="m-0 text-2xl font-medium text-white hidden md:block" style={{textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)'}}>SpecimenOne</h1>
           {/* Mobile-Version des Titels (zweizeilig) */}
-          <div className="flex flex-col leading-tight md:hidden text-white">
+          <div className="flex flex-col leading-tight md:hidden text-white" aria-hidden="true">
             <span className="text-xs font-bold tracking-wide">Specimen</span>
             <span className="text-lg font-semibold tracking-wider">One</span>
           </div>
         </div>
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-1 md:gap-5">
           {!willkommenSichtbar && (
             <button
               type="button"
@@ -323,119 +354,124 @@ function App() {
             </button>
           )}
           <ThemeSwitcher />
-        </div>      </header>      <main className="flex-1 p-4 w-full">
+        </div>
+      </header>
+      <main className="flex-1 w-full px-3 pt-2 pb-4 md:p-4">
         <OfflineBanner />
-        {isLoading && <div className="flex justify-center my-8"><md-circular-progress indeterminate></md-circular-progress></div>}
-        {error && <p className="bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 p-4 rounded border-l-4 border-red-600 dark:border-red-500">Fehler: {error}</p>}
-        {!isLoading && !error && (  <>            <div className="mb-8">            <div className="mb-4 space-y-3 max-w-screen-2xl mx-auto">
-                {willkommenSichtbar && (
-                  <WillkommenHinweis onBeispielSuche={handleBeispielSuche} onSchliessen={willkommenAusblenden} />
-                )}
-                <div className={`p-3 ${tailwindBtn.containerBgElevated} rounded-lg shadow-sm border ${tailwindBtn.colors.border.light} ${tailwindBtn.colors.border.dark} w-full`}>
-                  <Suchleiste 
-                    suchbegriff={suchbegriff} 
-                    onSuchbegriffChange={handleSuchbegriffChange}
-                    selectedKategorie={selectedKategorie}
-                    onKategorieChange={setSelectedKategorie}
-                  />
-                </div>
-                <div className="p-3 bg-gray-50 dark:bg-gray-850 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
-                  <SortierMenu 
-                    sortOption={sortOption}
-                    setSortOption={setSortOption}
-                    sortDirection={sortDirection}
-                    setSortDirection={setSortDirection}
-                  />                </div>
-              </div>
-              <div className="w-full max-w-screen-2xl mx-auto">
-                <div className={`flex mb-6 border-b-2 ${tailwindBtn.borderClasses} w-full ${tailwindBtn.classes.cardBg} rounded-t-lg shadow-sm overflow-hidden`}>
-                  <button className={`flex items-center justify-center px-2 py-3 flex-1 text-sm font-medium relative border-none cursor-pointer ${tailwindBtn.classes.cardBg} transition-all ${
-                      ansicht === 'tests' 
-                        ? 'text-[var(--md-sys-color-primary)] dark:text-[var(--md-sys-color-primary)] border-b-2 border-[var(--md-sys-color-primary)] dark:border-[var(--md-sys-color-primary)] bg-primary/5 dark:bg-primary-dark/10' 
-                        : `${tailwindBtn.classes.text} ${tailwindBtn.classes.hover} border-b-2 border-transparent`
-                    }`}
-                    onClick={() => setAnsicht('tests')}
-                  >
-                    <div className="flex items-center justify-center">
-                      <MaterialDesign.MdListAlt className="mr-1" /> Einzelne Tests
-                    </div>
-                  </button>                  <button                    className={`flex items-center justify-center px-2 py-3 flex-1 text-sm font-medium relative border-none cursor-pointer ${tailwindBtn.classes.cardBg} transition-all ${
-                      ansicht === 'profile' 
-                        ? 'text-[var(--md-sys-color-primary)] dark:text-[var(--md-sys-color-primary)] border-b-2 border-[var(--md-sys-color-primary)] dark:border-[var(--md-sys-color-primary)] bg-primary/5 dark:bg-primary-dark/10' 
-                        : `${tailwindBtn.classes.text} ${tailwindBtn.classes.hover} border-b-2 border-transparent`
-                    }`}
-                    onClick={() => setAnsicht('profile')}
-                  >
-                    <div className="flex items-center justify-center">
-                      <MaterialDesign.MdFolderOpen className="mr-1" /> Test-Profile
-                    </div>                  </button><button                    className={`flex items-center justify-center px-2 py-3 flex-1 text-sm font-medium relative border-none cursor-pointer ${tailwindBtn.classes.cardBg} transition-all ${
-                      ansicht === 'tabelle' 
-                        ? 'text-[var(--md-sys-color-primary)] dark:text-[var(--md-sys-color-primary)] border-b-2 border-[var(--md-sys-color-primary)] dark:border-[var(--md-sys-color-primary)] bg-primary/5 dark:bg-primary-dark/10' 
-                        : `${tailwindBtn.classes.text} ${tailwindBtn.classes.hover} border-b-2 border-transparent`
-                    }`}
-                    onClick={() => setAnsicht('tabelle')}
-                  >
-                    <div className="flex items-center justify-center">
-                      <MaterialDesign.MdTableView className="mr-1" /> Tabellen-Ansicht
-                    </div>                  </button>                  <button                    className={`flex items-center justify-center px-2 py-3 flex-1 text-sm font-medium relative border-none cursor-pointer ${tailwindBtn.classes.cardBg} transition-all ${
-                      ansicht === 'timeline' 
-                        ? 'text-[var(--md-sys-color-primary)] dark:text-[var(--md-sys-color-primary)] border-b-2 border-[var(--md-sys-color-primary)] dark:border-[var(--md-sys-color-primary)] bg-primary/5 dark:bg-primary-dark/10' 
-                        : `${tailwindBtn.classes.text} ${tailwindBtn.classes.hover} border-b-2 border-transparent`
-                    }`}
-                    onClick={() => setAnsicht('timeline')}
-                  >
-                    <div className="flex items-center justify-center">
-                      <MaterialDesign.MdTimeline className="mr-1" /> Grafiken
-                    </div>
-                  </button>                </div>
-              </div>
+        {willkommenSichtbar && (
+          <div className="max-w-screen-2xl mx-auto w-full mb-3">
+            <WillkommenHinweis onBeispielSuche={handleBeispielSuche} onSchliessen={willkommenAusblenden} />
+          </div>
+        )}
+
+        {/* Suche bleibt beim Scrollen oben (direktes Kind von main, damit sticky über die ganze Liste gilt) */}
+        <div className="sticky top-0 z-30 -mx-3 px-3 md:-mx-4 md:px-4 pb-2 bg-white dark:bg-surface-dark">
+          <div className={`max-w-screen-2xl mx-auto p-2 md:p-3 ${tailwindBtn.containerBgElevated} rounded-lg shadow-sm border ${tailwindBtn.colors.border.light} ${tailwindBtn.colors.border.dark} w-full`}>
+            <Suchleiste
+              suchbegriff={suchbegriff}
+              onSuchbegriffChange={handleSuchbegriffChange}
+              selectedKategorie={selectedKategorie}
+              onKategorieChange={setSelectedKategorie}
+            />
+          </div>
+        </div>
+
+        <div className="max-w-screen-2xl mx-auto w-full">
+          {/* Sortierung: mobil hinter einem Knopf, ab md immer sichtbar */}
+          <div className="mt-2 md:mt-3">
+            <button
+              type="button"
+              onClick={() => setSortOffen(o => !o)}
+              aria-expanded={sortOffen}
+              aria-controls="sortier-panel"
+              className={`md:hidden flex w-full items-center gap-2 min-h-[40px] px-3 rounded-lg border ${tailwindBtn.colors.border.light} ${tailwindBtn.colors.border.dark} ${tailwindBtn.classes.cardBg} ${tailwindBtn.classes.text} text-sm font-medium cursor-pointer`}
+            >
+              <MaterialDesign.MdSort className="text-xl" aria-hidden="true" />
+              <span className="flex-1 text-left">Sortierung: {SORT_LABELS[sortOption] || sortOption} {sortDirection === 'asc' ? 'A–Z' : 'Z–A'}</span>
+              {sortOffen
+                ? <MaterialDesign.MdExpandLess className="text-xl" aria-hidden="true" />
+                : <MaterialDesign.MdExpandMore className="text-xl" aria-hidden="true" />}
+            </button>
+            <div id="sortier-panel" className={`${sortOffen ? 'block mt-2' : 'hidden'} md:block md:mt-0`}>
+              <SortierMenu
+                sortOption={sortOption}
+                setSortOption={setSortOption}
+                sortDirection={sortDirection}
+                setSortDirection={setSortDirection}
+              />
             </div>
-            <div className={`mt-6 ${ansicht === 'tests' ? 'w-full' : 'max-w-screen-2xl mx-auto'} ${tailwindBtn.classes.containerBg} rounded-lg shadow-sm overflow-hidden border border-gray-200 dark:border-gray-700`}>
+          </div>
+
+          {/* Ansichten: mobil waagerecht scrollbar */}
+          <nav aria-label="Ansicht" className="mt-2 md:mt-3">
+            <div className={`flex overflow-x-auto no-scrollbar md:overflow-visible border-b-2 ${tailwindBtn.borderClasses} w-full ${tailwindBtn.classes.cardBg} rounded-t-lg shadow-sm`}>
+              {ANSICHTEN.map(({ id, label, Icon }) => (
+                <button
+                  type="button"
+                  key={id}
+                  aria-current={ansicht === id ? 'page' : undefined}
+                  className={`tab-knopf flex items-center justify-center shrink-0 md:shrink md:flex-1 whitespace-nowrap px-3 md:px-2 py-2.5 md:py-3 min-h-[44px] text-sm font-medium relative border-none cursor-pointer ${tailwindBtn.classes.cardBg} transition-all ${
+                    ansicht === id
+                      ? 'text-[#1e6b35] dark:text-[var(--md-sys-color-primary)] border-b-2 border-[#1e6b35] dark:border-[var(--md-sys-color-primary)] bg-primary/5 dark:bg-primary-dark/10'
+                      : `${tailwindBtn.classes.text} ${tailwindBtn.classes.hover} border-b-2 border-transparent`
+                  }`}
+                  onClick={() => setAnsicht(id)}
+                >
+                  <Icon className="mr-1.5 text-lg" aria-hidden="true" /> {label}
+                </button>
+              ))}
+            </div>
+          </nav>
+        </div>
+
+        <div className={`mt-1 md:mt-6 ${ansicht === 'tests' ? 'w-full' : 'max-w-screen-2xl mx-auto'} ${tailwindBtn.classes.containerBg} rounded-lg shadow-sm overflow-hidden border border-gray-200 dark:border-gray-700`}>
+          {error && <p className="m-3 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-300 p-4 rounded border-l-4 border-red-600 dark:border-red-500" role="alert">Fehler: {error}</p>}
+          {!error && isLoading && <ListenSkeleton />}
+          {!isLoading && !error && (
+            <>
               {ansicht === 'tests' && (
-                <>
-                  <TestListe 
-                    tests={filteredTests} 
-                    onTestClick={openTestDetails}
-                    selectedTests={selectedTests}
-                    onTestSelect={handleTestSelect}
-                    sortOption={sortOption}
-                    sortDirection={sortDirection}
-                  />
-                </>
+                <TestListe
+                  tests={filteredTests}
+                  onTestClick={openTestDetails}
+                  selectedTests={selectedTests}
+                  onTestSelect={handleTestSelect}
+                  sortOption={sortOption}
+                  sortDirection={sortDirection}
+                />
               )}
               {ansicht === 'timeline' && (
                 <Suspense fallback={<AnsichtLaedt />}>
                   <TimelineView key="timeline-view" />
                 </Suspense>
               )}
-                {ansicht === 'profile' && (
+              {ansicht === 'profile' && (
                 <ProfilListe tests={filteredTests} profile={filteredProfile} />
               )}
-              
+
               {ansicht === 'tabelle' && (
                 <Suspense fallback={<AnsichtLaedt />}>
-                <DrilldownTable 
+                <DrilldownTable
                   data={filteredTests}
                   columns={[
                     { id: 'id', label: 'Test ID', width: '10%' },
                     { id: 'name', label: 'Test', width: '30%' },
-                    { 
-                      id: 'material', 
-                      label: 'Material', 
+                    {
+                      id: 'material',
+                      label: 'Material',
                       width: '30%',
                       render: (item) => {
-                        if (!Array.isArray(item.material) || item.material.length === 0) 
+                        if (!Array.isArray(item.material) || item.material.length === 0)
                           return <span className="keine-material-info">Keine Angabe</span>;
-                        
-                        return materialsLoading 
+
+                        return materialsLoading
                           ? <span className="material-badge loading">Wird geladen...</span>
                           : (
                             <div className="material-badges-container table-badges">
                               {item.material.map((materialId, index) => (
-                                <MaterialBadge 
-                                  key={index} 
-                                  materialId={materialId} 
-                                  mini={true} 
+                                <MaterialBadge
+                                  key={index}
+                                  materialId={materialId}
+                                  mini={true}
                                 />
                               ))}
                             </div>
@@ -470,49 +506,50 @@ function App() {
                 />
                 </Suspense>
               )}
-            </div>
-          </>
-        )}      
-        </main>      <footer className="bg-gray-100 dark:bg-gray-800 py-4 px-8 border-t border-gray-200 dark:border-gray-700 mt-auto">
+            </>
+          )}
+        </div>
+      </main>
+      <footer className="bg-gray-100 dark:bg-gray-800 py-4 px-8 border-t border-gray-200 dark:border-gray-700 mt-auto">
         <div className="flex flex-col gap-4 max-w-7xl mx-auto w-full">
           {/* Rechtshinweise und Links */}
           <div className="flex flex-col md:flex-row justify-between items-center w-full">
             <p className="text-gray-600 dark:text-gray-300 text-sm mb-2 md:mb-0">© {new Date().getFullYear()} SpecimenOne</p>
             <div className="flex items-center gap-4">
-              <a href="/datenschutz.html" className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-sm transition-colors">Datenschutz</a>
-              <a href="https://sebastian-bride.pages.dev/impressum" target="_blank" rel="noopener noreferrer" className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-sm transition-colors">Impressum</a>
+              <a href="/datenschutz.html" className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 text-sm transition-colors underline">Datenschutz</a>
+              <a href="https://sebastian-bride.pages.dev/impressum" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 text-sm transition-colors underline">Impressum</a>
             </div>
           </div>
-          
+
           {/* Technologie-Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-2 border-t border-gray-200 dark:border-gray-700">
             <div className="flex flex-col items-center text-center p-2">
-              <div className="font-medium text-xs text-gray-500 dark:text-gray-400">Entwickelt mit</div>
+              <div className="font-medium text-xs text-gray-600 dark:text-gray-400">Entwickelt mit</div>
               <div className="font-medium text-sm text-gray-700 dark:text-gray-300">React</div>
-              <div className="text-xs text-gray-500 dark:text-gray-400">UI-Bibliothek</div>
+              <div className="text-xs text-gray-600 dark:text-gray-400">UI-Bibliothek</div>
             </div>
             <div className="flex flex-col items-center text-center p-2">
-              <div className="font-medium text-xs text-gray-500 dark:text-gray-400">Styling mit</div>
+              <div className="font-medium text-xs text-gray-600 dark:text-gray-400">Styling mit</div>
               <div className="font-medium text-sm text-gray-700 dark:text-gray-300">Tailwind CSS</div>
-              <div className="text-xs text-gray-500 dark:text-gray-400">CSS-Framework</div>
+              <div className="text-xs text-gray-600 dark:text-gray-400">CSS-Framework</div>
             </div>
             <div className="flex flex-col items-center text-center p-2">
-              <div className="font-medium text-xs text-gray-500 dark:text-gray-400">Build-Tool</div>
+              <div className="font-medium text-xs text-gray-600 dark:text-gray-400">Build-Tool</div>
               <div className="font-medium text-sm text-gray-700 dark:text-gray-300">Vite</div>
-              <div className="text-xs text-gray-500 dark:text-gray-400">Frontend-Tooling</div>
+              <div className="text-xs text-gray-600 dark:text-gray-400">Frontend-Tooling</div>
             </div>
             <div className="flex flex-col items-center text-center p-2">
-              <div className="font-medium text-xs text-gray-500 dark:text-gray-400">Datenanalyse</div>
+              <div className="font-medium text-xs text-gray-600 dark:text-gray-400">Datenanalyse</div>
               <div className="font-medium text-sm text-gray-700 dark:text-gray-300">DuckDB</div>
-              <div className="text-xs text-gray-500 dark:text-gray-400">SQL-Engine</div>
+              <div className="text-xs text-gray-600 dark:text-gray-400">SQL-Engine</div>
             </div>
           </div>
         </div>
       </footer>
-        {/* Schwebende Selection Controls */}      {ansicht === 'tests' && Array.isArray(selectedTests) && selectedTests.length > 0 && (        <div className="fixed bottom-[70px] left-1/2 transform -translate-x-1/2 flex justify-between items-center p-3 bg-primary/20 dark:bg-primary-dark/20 backdrop-blur-xl rounded-lg shadow-lg max-w-7xl w-full z-10">
+        {/* Schwebende Selection Controls */}      {ansicht === 'tests' && Array.isArray(selectedTests) && selectedTests.length > 0 && (        <div className="fixed bottom-3 left-1/2 transform -translate-x-1/2 flex flex-wrap gap-2 justify-between items-center p-3 bg-white dark:bg-[#242328] border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg max-w-7xl w-[calc(100%-1.5rem)] z-40">
           <div className="font-medium text-gray-800 dark:text-white drop-shadow-sm">
             {selectedTests.length} Test{selectedTests.length !== 1 ? 'e' : ''} ausgewählt
-          </div>          <div className="flex items-center gap-4">            <button 
+          </div>          <div className="flex flex-wrap items-center gap-2 md:gap-4">            <button 
               className={tailwindBtn.cancel}
               onClick={clearAllTestSelections}
             >

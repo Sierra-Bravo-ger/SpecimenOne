@@ -21,7 +21,8 @@ const PureMaterialBadge = memo(({
   badgeId,
   materialId, 
   showKurzbezeichnung,
-  mini
+  mini,
+  zeigeCode
 }) => {  
   // Basisklasse und Größenvariante
   const sizeClass = mini ? 'material-badge-mini' : 'material-badge-standard';
@@ -39,6 +40,9 @@ const PureMaterialBadge = memo(({
     // Zeige die Bezeichnung an
     displayName = materialData.materialBezeichnung;
   }
+  // Der Code (z.B. SE-00) steht nur als Zusatz neben dem Namen
+  const zusatzCode = zeigeCode && !showKurzbezeichnung && !materialData.isLoading
+    && displayName !== materialId ? materialId : null;
   
   // Rendere das Badge mit CSS-Klassen-Ansatz
   return (
@@ -48,6 +52,7 @@ const PureMaterialBadge = memo(({
       data-badge-id={badgeId}
     >
       {materialData.isLoading ? '...' : displayName}
+      {zusatzCode && <span className="ml-1.5 text-xs font-normal" data-testid="material-code">({zusatzCode})</span>}
     </span>
   );
 }, (prevProps, nextProps) => {
@@ -55,6 +60,7 @@ const PureMaterialBadge = memo(({
   return prevProps.materialId === nextProps.materialId && 
          prevProps.mini === nextProps.mini &&
          prevProps.showKurzbezeichnung === nextProps.showKurzbezeichnung &&
+         prevProps.zeigeCode === nextProps.zeigeCode &&
          prevProps.materialData === nextProps.materialData;
 });
 
@@ -62,7 +68,8 @@ const PureMaterialBadge = memo(({
 const MaterialBadgeContainer = ({ 
   materialId, 
   showKurzbezeichnung = false,
-  mini = false 
+  mini = false,
+  zeigeCode = false
 }) => {
   // Eindeutige Badge-ID für Debugging
   const badgeId = useRef(`badge-${materialId}-${Math.random().toString(36).substring(2, 7)}`).current;
@@ -179,6 +186,7 @@ const MaterialBadgeContainer = ({
       badgeId={badgeId}
       materialId={materialId}
       showKurzbezeichnung={showKurzbezeichnung}
+      zeigeCode={zeigeCode}
       mini={mini}
     />
   );

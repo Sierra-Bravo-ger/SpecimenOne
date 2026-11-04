@@ -56,6 +56,15 @@ Die App ist installierbar (Manifest `/manifest.webmanifest`, erzeugt von `vite-p
 
 **Prüfen:** `scripts/offline-check.mjs` testet das Offline-Verhalten mit Chromium über CDP gegen lokale Container auf `http://localhost:8199/`, siehe Kommentar im Skriptkopf. Es misst die Startzeit, wenn die Verbindung sofort fehlschlägt (Container gestoppt) und wenn sie hängt (Server antwortet nie). Außerdem prüft es Testdetails, Grafiken, Banner und Konsole und legt Screenshots in `docs/screenshots/` ab.
 
+## Mobil und Barrierefreiheit
+
+- **Mobile Startansicht (≤ 767 px):** Die Suche klebt oben (`sticky`), die Sortierung steckt hinter dem Knopf „Sortierung: …“, die Ansichten (Tests, Profile, Tabelle, Grafiken) sind eine waagerecht scrollbare Leiste, die Seitennavigation heißt kompakt „‹ 1/30 ›“. Die erste Testkarte beginnt auf 390 × 844 bei 353 px (Willkommenshinweis geschlossen). Ab `md` bleibt die Sortierung sichtbar.
+- **Seitengröße 50 statt Virtualisierung:** `src/utils/seitenaufteilung.js` (`ITEMS_PER_PAGE = 50`). Eine Seite sind rund 1000 DOM-Elemente (vorher 3400 bei 200 Karten). Gegen eine Virtualisierung sprach: Strg+F, Tastatur- und Screenreader-Navigation und das responsive Raster bleiben unverändert, und es kommt keine Abhängigkeit dazu.
+- **Layout-Verschiebung:** Solange die Liste lädt, zeigt `ListenSkeleton` (App.jsx) Platzhalter-Karten mit mindestens Bildschirmhöhe; Suche, Sortierung und Ansichten stehen sofort. Alle `<img>` haben `width`/`height`.
+- **Kontrast (WCAG AA):** Kopfzeile `bg-header` (`#2b7a40` / dunkel `#1e4d2b`), Fachbereichs-Badges und Material-Badges mit angepassten Farben bei gleichem Farbton. `scripts/kontrast-fix.py` hat `kategorie-badges.css` und `material-badges.css` umgerechnet (Mindestkontrast 4,6:1); die Dunkel-Regeln hängen jetzt an `.dark-theme` statt an `prefers-color-scheme`.
+- **Tastatur:** Testkarten haben einen Namensknopf (`.test-open`) über die ganze Karte, Checkboxen heißen „<Testname> für Profil auswählen“, Fokusrahmen in `src/styles/a11y.css`. Die Detailansicht ist ein Dialog (`role="dialog"`), Escape schließt sie, der Fokus geht beim Öffnen hinein und beim Schließen zurück.
+- **Prüfen:** `scripts/ux2-check.mjs` (gleicher Containeraufbau wie `offline-check.mjs`) misst Kartenposition, DOM, Kontrast aller Texte in hell/dunkel, Tastaturbedienung und legt `docs/screenshots/ux2-*.png` ab. Lighthouse: `npx -y lighthouse@12 http://localhost:8199/ --chrome-path=$(which chromium) --chrome-flags="--headless=new --no-sandbox"` (mit `--preset=desktop` für Desktop).
+
 ## Entwicklung
 
 Voraussetzung: Node.js 22.
@@ -116,6 +125,8 @@ Secrets für den Docker-Hub-Push anlegen: Repository → **Settings** → **Secr
 ├── scripts/
 │   ├── build-push.sh    Images bauen und pushen
 │   ├── offline-check.mjs  Offline-Prüfung mit Chromium (CDP)
+│   ├── ux2-check.mjs      Mobil-/Barrierefreiheitsprüfung (CDP, Screenshots)
+│   ├── kontrast-fix.py    Kontrast-Umrechnung der Badge-Farben
 │   └── legacy/          PowerShell-Werkzeuge aus der JSON/CSV-Zeit inkl. Import nach PostgreSQL
 ├── .github/workflows/   CI (Lint, Tests, Build, Docker)
 ├── Dockerfile           Frontend-Image (Build + nginx)

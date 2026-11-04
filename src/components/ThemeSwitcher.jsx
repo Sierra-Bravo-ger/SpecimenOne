@@ -20,10 +20,11 @@ const ThemeSwitcher = () => {
       className="flex items-center justify-center mx-4 cursor-pointer relative w-[60px] h-[30px] select-none theme-transition"
       title={isDark ? "Zu hellem Theme wechseln" : "Zu dunklem Theme wechseln"}
       onClick={toggleTheme}
-      role="button"
+      role="switch"
       tabIndex={0}
-      onKeyDown={(e) => {if (e.key === 'Enter' || e.key === ' ') toggleTheme();}}
+      onKeyDown={(e) => {if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleTheme(); }}}
       aria-checked={isDark}
+      aria-label="Dunkles Design"
     >
       {/* Der Slider */}      <div className={`relative cursor-pointer w-[60px] h-[30px] rounded-[30px] flex items-center transition-all duration-500 ease-in-out
         ${isDark ? 'bg-[#3f51b5]' : 'bg-[#ffb74d]'}

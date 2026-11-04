@@ -73,7 +73,7 @@ const classes = {
   
   // Textfarben für verschiedene Zustände
   text: 'text-gray-700 dark:text-gray-300',
-  textMuted: 'text-gray-500 dark:text-gray-400',
+  textMuted: 'text-gray-600 dark:text-gray-400',
   headingSecondary: 'font-medium text-lg text-gray-700 dark:text-gray-300 mb-2',
   
   // Zustände für UI-Elemente
@@ -91,14 +91,14 @@ const classes = {
     materialRow: 'flex items-start mb-3',
     materialRowText: 'm-0 mr-3',
     badgesContainer: 'flex flex-wrap gap-1.5 mt-0.5',
-    noMaterialInfo: 'italic text-gray-500 dark:text-gray-400 opacity-70'
+    noMaterialInfo: 'italic text-gray-600 dark:text-gray-400'
   },    // Suchleiste-spezifische Klassen
   search: {
     // Container für die gesamte Suchleiste
-    container: 'flex items-center w-full gap-2 mb-4',
+    container: 'flex items-center w-full gap-2 mb-0',
     
     // Wrapper für das Textfeld
-    inputWrapper: 'relative flex-1 mr-2 w-full',
+    inputWrapper: 'relative flex-1 md:mr-2 w-full',
     
     // Clear-Button im Textfeld
     clearButton: 'absolute right-3 top-1/2 transform -translate-y-1/2 bg-transparent border-none cursor-pointer ' + 
@@ -110,9 +110,9 @@ const classes = {
     filterContainer: 'relative',
     
     // Filter-Button mit Dark Mode Unterstützung
-    filterButton: 'flex items-center gap-2 py-2.5 px-4 h-12 ' +
+    filterButton: 'flex items-center gap-1 md:gap-2 py-2.5 px-3 md:px-4 h-12 ' +
                  'bg-[var(--md-sys-color-surface-variant)] text-[var(--md-sys-color-on-surface-variant)] ' +
-                 'dark:bg-[rgba(255,255,255,0.08)] dark:text-[var(--md-sys-color-on-surface-variant,#CAC4D0)] ' +
+                 'dark:bg-[rgba(255,255,255,0.08)] dark:text-white ' +
                  'border border-[var(--md-sys-color-outline)] dark:border-[var(--md-sys-color-outline,#938F99)] ' +
                  'rounded-3xl cursor-pointer transition-all duration-200 ' +
                  'shadow-sm dark:shadow-md ' +
@@ -123,7 +123,7 @@ const classes = {
     filterIcon: 'text-2xl',
     
     // Text im Filter-Button
-    filterLabel: 'text-sm font-medium whitespace-nowrap overflow-hidden text-ellipsis relative z-1',
+    filterLabel: 'text-sm font-medium max-w-[6rem] md:max-w-none whitespace-nowrap overflow-hidden text-ellipsis relative z-1',
     
     // Dropdown-Menü-Container
     dropdownMenu: 'absolute top-full left-0 z-50 mt-1 w-56 py-2 ' +
@@ -240,7 +240,7 @@ const classes = {
   
   // Tab-Navigation für die Profilanzeige
   tabContainer: "flex border-b border-gray-200 dark:border-gray-700 mb-4",
-  tab: "px-4 py-2 font-medium text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors",
+  tab: "px-4 py-2 font-medium text-sm text-gray-600 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors",
   activeTab: "text-primary-600 dark:text-primary-400 border-b-2 border-primary-600 dark:border-primary-400",
   
   // Tab-Navigation für Sub-Tabs
@@ -249,7 +249,7 @@ const classes = {
   cardHeader: "flex justify-between items-center mb-2",
   cardTitle: "text-lg font-medium text-gray-900 dark:text-white",
   cardBadge: "bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-xs font-medium px-2 py-1 rounded-full",
-  cardDescription: "text-sm text-gray-500 dark:text-gray-400 mb-3 line-clamp-2",
+  cardDescription: "text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-2",
   cardDate: "text-xs text-gray-400 dark:text-gray-500 mb-3",
   cardTags: "flex flex-wrap gap-1 mb-3",
   cardTag: "bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300 text-xs px-2 py-1 rounded",
@@ -259,7 +259,7 @@ const classes = {
   // Leerer Zustand
   emptyState: "flex flex-col items-center justify-center py-12",
   emptyStateHeading: "text-lg font-medium text-gray-900 dark:text-white mb-2",
-  emptyStateText: "text-gray-500 dark:text-gray-400 text-center max-w-md",
+  emptyStateText: "text-gray-600 dark:text-gray-400 text-center max-w-md",
   
   // Modals
   modalBackdrop: "fixed inset-0 bg-black bg-opacity-50 dark:bg-opacity-70 flex items-center justify-center z-50",
@@ -269,7 +269,7 @@ const classes = {
   modalIcon: "text-primary-600 dark:text-primary-400",
   modalCloseButton: "text-gray-400 hover:text-gray-500 dark:hover:text-gray-300",
   modalBody: "p-4",
-  modalInfo: "text-sm text-gray-500 dark:text-gray-400 mb-4",
+  modalInfo: "text-sm text-gray-600 dark:text-gray-400 mb-4",
   modalFooter: "flex justify-end gap-2 p-4 border-t border-gray-200 dark:border-gray-700",
   
   // Buttons für Aktionen
@@ -288,7 +288,7 @@ const classes = {
   // Formular-Elemente
   formGroup: "mb-4",
   
-  loading: "flex justify-center items-center py-12 text-gray-500 dark:text-gray-400",
+  loading: "flex justify-center items-center py-12 text-gray-600 dark:text-gray-400",
 }
 
 const base = `

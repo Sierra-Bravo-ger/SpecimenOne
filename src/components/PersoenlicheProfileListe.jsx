@@ -213,7 +213,7 @@ function PersoenlicheProfileListe() {
         <div className="flex flex-col items-center justify-center py-12">
           <MaterialDesign.MdBookmarkBorder style={{ fontSize: '3rem', marginBottom: '1rem' }} />
           <p className="text-lg font-medium text-gray-900 dark:text-white mb-2">Keine persönlichen Profile</p>
-          <p className="text-gray-500 dark:text-gray-400 text-center max-w-md">
+          <p className="text-gray-600 dark:text-gray-400 text-center max-w-md">
             Sie haben noch keine persönlichen Profile gespeichert. 
             Wählen Sie Tests in der Test-Ansicht aus und speichern Sie sie als persönliches Profil.
           </p>
