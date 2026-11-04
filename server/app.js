@@ -65,6 +65,28 @@ function createApp(pool) {
     }));
   }
 
+  // Alle Referenzwerte auf einmal (ca. 1500 Zeilen). Das Frontend lädt sie beim Start,
+  // damit die Testdetails auch offline vollständig sind; Zuordnung über test_id.
+  app.get('/api/referenzwerte', asyncHandler(async (req, res) => {
+    const result = await pool.query('SELECT * FROM referenzwerte ORDER BY test_id, id');
+    res.json({ referenzwerte: result.rows });
+  }));
+
+  // Alle Versandinfos auf einmal, gleiche Join-Logik wie in /api/tests/:id.
+  // test_nr ist der numerische Teil der Test-ID (T0049 → 49). Bewusst nur die
+  // Anzeigefelder: keine weiteren empfaenger-Spalten (Telefon, Bank, DFÜ …).
+  app.get('/api/versandinfos', asyncHandler(async (req, res) => {
+    const result = await pool.query(
+      `SELECT tv.test_nr, e.stations_bezlang, v.versandart_anz
+       FROM test_versand tv
+       LEFT JOIN empfaenger e ON tv.einsender_id = e.einsender_id
+       LEFT JOIN versandart v ON NULLIF(split_part(tv.versandart_id, ',', 1), '')::integer = v.versandart_id
+       WHERE tv.test_nr IS NOT NULL
+       ORDER BY tv.test_nr, tv.test_versand_id`
+    );
+    res.json({ versandinfos: result.rows });
+  }));
+
   // API-Route für Tests mit Paginierung und Suche
   app.get('/api/tests', asyncHandler(async (req, res) => {
     const page = parsePositiveInt(req.query.page, 'page', 1, MAX_PAGE);

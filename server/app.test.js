@@ -118,6 +118,53 @@ describe('GET /api/tests/:id', () => {
   });
 });
 
+describe('GET /api/referenzwerte', () => {
+  test('liefert alle Referenzwerte unter { referenzwerte }', async () => {
+    const rows = [{ id: 1, test_id: 'T0008', anzeige_label: '< 30' }, { id: 2, test_id: 'T0009' }];
+    const pool = mockPool(() => ({ rows }));
+    const res = await request(createApp(pool)).get('/api/referenzwerte');
+    assert.equal(res.status, 200);
+    assert.deepEqual(res.body, { referenzwerte: rows });
+    assert.equal(pool.calls.length, 1);
+    assert.match(pool.calls[0].sql, /FROM referenzwerte/);
+    assert.ok(!pool.calls[0].sql.includes('WHERE'), 'keine Einschränkung: alle Zeilen');
+    assert.deepEqual(pool.calls[0].params, []);
+  });
+});
+
+describe('GET /api/versandinfos', () => {
+  test('liefert alle Versandinfos mit test_nr unter { versandinfos }', async () => {
+    const rows = [
+      { test_nr: 49, stations_bezlang: 'Labor X', versandart_anz: 'Post' },
+      { test_nr: 567, stations_bezlang: 'Labor Y', versandart_anz: null },
+    ];
+    const pool = mockPool(() => ({ rows }));
+    const res = await request(createApp(pool)).get('/api/versandinfos');
+    assert.equal(res.status, 200);
+    assert.deepEqual(res.body, { versandinfos: rows });
+  });
+
+  test('gleiche Join-Logik wie /api/tests/:id, aber ohne Filter auf einen Test', async () => {
+    const pool = mockPool(() => ({ rows: [] }));
+    await request(createApp(pool)).get('/api/versandinfos');
+    const { sql, params } = pool.calls[0];
+    for (const part of ['FROM test_versand tv', 'LEFT JOIN empfaenger e ON tv.einsender_id = e.einsender_id', 'LEFT JOIN versandart v']) {
+      assert.ok(sql.includes(part), `fehlt: ${part}`);
+    }
+    assert.ok(!sql.includes('$1'), 'keine Parameter');
+    assert.deepEqual(params, []);
+  });
+
+  test('gibt nur test_nr, stations_bezlang und versandart_anz heraus (keine weiteren empfaenger-Spalten)', async () => {
+    const pool = mockPool(() => ({ rows: [] }));
+    await request(createApp(pool)).get('/api/versandinfos');
+    const sql = pool.calls[0].sql;
+    const select = sql.slice(sql.indexOf('SELECT') + 6, sql.indexOf('FROM')).split(',').map((s) => s.trim());
+    assert.deepEqual(select, ['tv.test_nr', 'e.stations_bezlang', 'v.versandart_anz']);
+    assert.ok(!/e\.\*|SELECT \*/.test(sql));
+  });
+});
+
 describe('Listen-Routen', () => {
   for (const [path, key] of [
     ['/api/material', 'materialien'],
@@ -173,7 +220,7 @@ describe('Fehlerbehandlung', () => {
     throw err;
   };
 
-  for (const route of ['/api/tests', '/api/tests/T0001', '/api/material', '/api/einheiten', '/api/profile', '/api/farben']) {
+  for (const route of ['/api/tests', '/api/tests/T0001', '/api/material', '/api/einheiten', '/api/profile', '/api/farben', '/api/referenzwerte', '/api/versandinfos']) {
     test(`${route}: DB-Fehler → 500 ohne SQL-Details, Log per console.error`, async (t) => {
       const logged = t.mock.method(console, 'error', () => {});
       const res = await request(createApp(mockPool(sqlError))).get(route);

@@ -16,7 +16,9 @@ npm start        # oder: npm run dev (nodemon)
 - `GET /api/material` - Ruft alle Materialien ab
 - `GET /api/einheiten` - Ruft alle Einheiten ab
 - `GET /api/tests` - Ruft Tests ab (mit Paginierung und Suche)
-- `GET /api/tests/:id` - Ruft einen bestimmten Test mit Referenzwerten ab
+- `GET /api/tests/:id` - Ruft einen bestimmten Test mit Referenzwerten und Versandinfos ab
+- `GET /api/referenzwerte` - Alle Referenzwerte (`{ referenzwerte: [...] }`, alle Spalten, Zuordnung über `test_id`)
+- `GET /api/versandinfos` - Alle Versandinfos (`{ versandinfos: [{ test_nr, stations_bezlang, versandart_anz }] }`; `test_nr` ist der numerische Teil der Test-ID, z.B. `T0049` → `49`). Nur diese drei Felder, keine weiteren `empfaenger`-Spalten.
 - `GET /api/profile` - Ruft alle Profile ab
 - `GET /api/farben` - Ruft alle Farben ab
 
