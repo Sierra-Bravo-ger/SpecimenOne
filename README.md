@@ -10,7 +10,7 @@ React-Web-App (PWA) zur Anzeige des Labor-Leistungsverzeichnisses: Tests, Refere
 - Persönliche Profile per Checkbox-Auswahl, gespeichert im Browser; optional Meldung per Discord-Webhook
 - Druckansicht für Testdetails und Profile
 - Dark Mode, farbcodierte Fachbereiche und Material-Badges
-- PWA: installierbar, offlinefähig (Workbox; API-Antworten NetworkFirst)
+- PWA: installierbar, vollständig offlinefähig mit Offline-Hinweis (siehe [PWA und Offline-Betrieb](#pwa-und-offline-betrieb))
 
 ## Architektur
 
@@ -27,6 +27,23 @@ Browser ──/api/*──▶ nginx (Image specimenone) ──▶ api:3001 (Imag
 
 Das Frontend ruft die API **relativ** unter `/api` auf (`src/services/apiConfig.js`, überschreibbar mit `VITE_API_BASE_URL` beim Build). In Produktion leitet nginx `/api/` an den Compose-Service `api` weiter, in der Entwicklung macht das der Vite-Proxy.
 
+## PWA und Offline-Betrieb
+
+Die App ist installierbar (Manifest `/manifest.webmanifest`, erzeugt von `vite-plugin-pwa` in `vite.config.js`) und funktioniert nach dem ersten Online-Besuch ohne Verbindung.
+
+**Offline verfügbar** (nach einem Online-Start, ohne dass einzelne Ansichten geöffnet sein müssen):
+
+- App-Shell, Fonts, Icons und alle Build-Chunks, auch die Grafiken (`TimelineView`, vorab gecacht, aber weiterhin erst beim Öffnen geladen)
+- Testliste, Profile, Materialien, Einheiten
+- Testdetails **aller** Tests inklusive Referenzwerte und Versandinfos: Die App lädt beim Start einmal `/api/referenzwerte` und `/api/versandinfos` (`src/contexts/DetailDataContext.jsx`). `/api/tests/:id` dient nur noch als Rückfall, falls diese Gesamtdaten fehlen.
+- Persönliche Profile (liegen ohnehin im `localStorage`)
+
+**Wie aktuell sind die Daten?** API-Antworten laufen über `StaleWhileRevalidate`: Die App zeigt sofort den Cache-Stand und lädt im Hintergrund nach, die neue Version erscheint beim nächsten Start. Gecacht werden nur Antworten mit Status 200. Ein Eintrag bleibt **30 Tage** gültig, gerechnet ab der letzten erfolgreichen Online-Antwort. Wer die App 30 Tage lang nie online öffnet, hat danach keine Offline-Daten mehr. Da sich die Daten praktisch nie ändern, ist der Cache-Stand in der Regel aktuell.
+
+**Offline-Hinweis:** Ohne Verbindung zeigt die App oben ein Banner „Offline – angezeigte Daten vom TT.MM.JJJJ, hh:mm“ (`src/components/OfflineBanner.jsx`). Grundlage sind `navigator.onLine` mit den Events `online`/`offline` und eine kurze Erreichbarkeitsprüfung gegen `/api/health` (Timeout 3 s, vom Service-Worker nicht gecacht), denn bei „Lie-Fi“ oder nicht erreichbarem Server meldet der Browser weiterhin „online“. Solange die App offline ist, prüft sie alle 15 s erneut. Das letzte Prüfergebnis wird gemerkt, damit das Banner beim nächsten Start ohne Verbindung sofort erscheint. Der Zeitpunkt der letzten erfolgreichen Prüfung steht in `localStorage` unter `specimenOne.lastOnlineSync`.
+
+**Prüfen:** `scripts/offline-check.mjs` testet das Offline-Verhalten mit Chromium über CDP gegen lokale Container auf `http://localhost:8199/`, siehe Kommentar im Skriptkopf. Es misst die Startzeit, wenn die Verbindung sofort fehlschlägt (Container gestoppt) und wenn sie hängt (Server antwortet nie). Außerdem prüft es Testdetails, Grafiken, Banner und Konsole und legt Screenshots in `docs/screenshots/` ab.
+
 ## Entwicklung
 
 Voraussetzung: Node.js 22.
@@ -41,7 +58,7 @@ Qualitätssicherung (läuft auch in der CI):
 
 ```bash
 npm run lint                  # ESLint (Flat Config, React-Hooks- und Refresh-Regeln)
-npm test                      # Vitest: Filter- und Sortierlogik der Testliste
+npm test                      # Vitest: Filter-/Sortierlogik der Testliste, Gruppierung der Detaildaten
 npm run build                 # Produktions-Build nach dist/
 (cd server && npm test)       # API-Tests (node:test + supertest, DB gemockt, keine Datenbank nötig)
 ```
@@ -86,6 +103,7 @@ Secrets für den Docker-Hub-Push anlegen: Repository → **Settings** → **Secr
 ├── docs/                Entwicklungsnotizen (Theming, Material-Badges, persönliche Profile)
 ├── scripts/
 │   ├── build-push.sh    Images bauen und pushen
+│   ├── offline-check.mjs  Offline-Prüfung mit Chromium (CDP)
 │   └── legacy/          PowerShell-Werkzeuge aus der JSON/CSV-Zeit inkl. Import nach PostgreSQL
 ├── .github/workflows/   CI (Lint, Tests, Build, Docker)
 ├── Dockerfile           Frontend-Image (Build + nginx)
