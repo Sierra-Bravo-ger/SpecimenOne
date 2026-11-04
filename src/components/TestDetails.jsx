@@ -2,8 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import './TestDetails.css' // Diese Datei behalten wir vorerst für Druckstile & Tabellenstile
 // TestDetails-Badge.css nicht mehr erforderlich, da wir Tailwind verwenden
 // import './TestDetails-Badge.css'
-import '@material/web/button/filled-button.js'
-import '@material/web/button/text-button.js'
 import '@material/web/divider/divider.js'
 import '@material/web/elevation/elevation.js'
 import * as MaterialDesign from "react-icons/md"
@@ -441,8 +439,8 @@ function TestDetails({ test, onClose }) {
         onKeyDown={handleDialogKeyDown}
         className={`test-details-container md-elevation-5 ${tailwindBtn.classes.cardBg}`}
       >
-        <button type="button" className={`close-button ${tailwindBtn.classes.textMuted}`} onClick={schliessen} aria-label="Details schließen">
-          <MaterialDesign.MdClose style={{fontSize: "24px"}} aria-hidden="true" />
+        <button type="button" className="close-button" onClick={schliessen} aria-label="Details schließen">
+          <MaterialDesign.MdClose size={28} aria-hidden="true" />
         </button>
           <h2 id="test-details-titel" className={`${tailwindBtn.classes.text} ${testDetails.kategorie ? `kategorie-text-${testDetails.kategorie.toLowerCase().replace(/\s+/g, '-')}` : ''}`}>{testDetails.name}</h2>
         
@@ -677,7 +675,7 @@ function TestDetails({ test, onClose }) {
             <md-divider></md-divider>
           </div>
         )}        <div className="actions">
-          <md-filled-button onClick={handlePrint} class={tailwindBtn.classes.mdButton}>Drucken</md-filled-button>
+          <button type="button" onClick={handlePrint} className="aktion-knopf">Drucken</button>
           <button
             type="button"
             onClick={handleTeilen}
@@ -686,7 +684,7 @@ function TestDetails({ test, onClose }) {
           >
             <MaterialDesign.MdShare aria-hidden="true" /> Link teilen
           </button>
-          <md-filled-button onClick={schliessen} class={tailwindBtn.classes.mdButton}>Schließen</md-filled-button>
+          <button type="button" onClick={schliessen} className="aktion-knopf">Schließen</button>
         </div>
         <p role="status" aria-live="polite" className="teilen-meldung">{teilenMeldung}</p>
       </div>
