@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense } from 'react'
+import { useState, useEffect, useMemo, lazy, Suspense } from 'react'
 import './material-theme.css'
 import './styles/a11y.css'
 import TestListe from './components/TestListe'
@@ -199,7 +199,12 @@ function App() {
   // Theme wird jetzt über den ThemeContext verwaltet
 
   // Filterung für Suche und Kategorie implementieren  
-  const filteredTests = filterTests(tests, { suchbegriff: suchbegriff, kategorie: selectedKategorie });
+  // useMemo: sonst entsteht bei jedem Render (z.B. beim Öffnen der Testdetails) ein neues Array,
+  // und TestListe springt auf Seite 1 zurück
+  const filteredTests = useMemo(
+    () => filterTests(tests, { suchbegriff: suchbegriff, kategorie: selectedKategorie }),
+    [tests, suchbegriff, selectedKategorie]
+  );
 
   // Filterung für Profile mit Berücksichtigung der Kategorie
   debugLog("App.jsx: Profile vor Filterung:", {

@@ -34,6 +34,20 @@ describe('TestListe', () => {
     expect(screen.getByTestId('bereich-kompakt').textContent).toBe('1–50 von 120');
   });
 
+  it('bleibt auf der Seite, wenn ein neues Array mit denselben Tests kommt (z.B. beim Öffnen der Details)', () => {
+    const { container, rerender, onTestClick, onTestSelect } = renderListe();
+    fireEvent.click(screen.getAllByLabelText('Nächste Seite')[0]);
+    rerender(<TestListe tests={[...tests]} onTestClick={onTestClick} selectedTests={[]} onTestSelect={onTestSelect} />);
+    expect(container.querySelector('.test-card h3').textContent).toBe('Test 51');
+  });
+
+  it('springt auf Seite 1, wenn sich die Trefferliste ändert', () => {
+    const { container, rerender, onTestClick, onTestSelect } = renderListe();
+    fireEvent.click(screen.getAllByLabelText('Nächste Seite')[0]);
+    rerender(<TestListe tests={tests.slice(10)} onTestClick={onTestClick} selectedTests={[]} onTestSelect={onTestSelect} />);
+    expect(container.querySelector('.test-card h3').textContent).toBe('Test 11');
+  });
+
   it('blättert auf Seite 2 und zeigt die nächsten Karten', () => {
     const { container } = renderListe();
     fireEvent.click(screen.getAllByLabelText('Nächste Seite')[0]);

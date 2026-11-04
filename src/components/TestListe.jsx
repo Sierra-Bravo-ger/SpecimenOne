@@ -70,10 +70,13 @@ function TestListe({
   );
   const bereich = seitenBereich(sortedTests.length, aktuelleSeite);
 
-  // Zurück auf Seite 1, wenn sich Sortierung oder Trefferliste (Suche/Filter) ändern
+  // Zurück auf Seite 1, wenn sich Sortierung oder Trefferliste (Suche/Filter) inhaltlich ändern.
+  // Verglichen wird die Folge der Test-IDs, nicht die Array-Referenz: Ein neu erzeugtes Array mit
+  // denselben Tests (Re-Render, Hintergrund-Aktualisierung der Daten) behält die aktuelle Seite.
+  const trefferSignatur = useMemo(() => tests.map(t => t.id).join('|'), [tests]);
   useEffect(() => {
     setCurrentPage(1);
-  }, [sortOption, sortDirection, tests]);
+  }, [sortOption, sortDirection, trefferSignatur]);
 
   const handlePageChange = (newPage) => {
     if (newPage < 1 || newPage > totalPages) return;
