@@ -65,6 +65,24 @@ Die App ist installierbar (Manifest `/manifest.webmanifest`, erzeugt von `vite-p
 - **Tastatur:** Testkarten haben einen Namensknopf (`.test-open`) über die ganze Karte, Checkboxen heißen „<Testname> für Profil auswählen“, Fokusrahmen in `src/styles/a11y.css`. Die Detailansicht ist ein Dialog (`role="dialog"`), Escape schließt sie, der Fokus geht beim Öffnen hinein und beim Schließen zurück.
 - **Prüfen:** `scripts/ux2-check.mjs` (gleicher Containeraufbau wie `offline-check.mjs`) misst Kartenposition, DOM, Kontrast aller Texte in hell/dunkel, Tastaturbedienung und legt `docs/screenshots/ux2-*.png` ab. Lighthouse: `npx -y lighthouse@12 http://localhost:8199/ --chrome-path=$(which chromium) --chrome-flags="--headless=new --no-sandbox"` (mit `--preset=desktop` für Desktop).
 
+## Links
+
+Jeder Test hat eine eigene, teilbare Adresse. Es gibt bewusst keine Router-Bibliothek: Zwei Zieladressen und die History API reichen (`src/utils/links.js` parst und baut die Adressen, `TestDetails.jsx` legt die Verlaufseinträge an). Das spart eine Abhängigkeit und Bundlegröße.
+
+| Adresse | Wirkung |
+| --- | --- |
+| `/test/T0003` | Liste mit geöffneter Detailansicht (Digoxin); Seitentitel „Digoxin – SpecimenOne“ |
+| `/test/T9999` | Hinweis „Test T9999 nicht gefunden“ mit Knopf „Zur Testliste“ |
+| `/profil?tests=T0003,T0008&name=Mein%20Profil` | Profil aus diesen Tests; unbekannte oder ungültige IDs werden übersprungen und gemeldet, höchstens 100 IDs |
+| `/?test=T0003` | alter Link, wird zu `/test/T0003` umgeschrieben |
+
+- **Zurück:** Ein Klick auf einen Test macht `pushState` auf `/test/<id>`. Zurück-Taste, Zurück-Geste, ×, Escape und Klick daneben schließen den Dialog und stellen die vorherige Adresse her. Wer `/test/<id>` direkt öffnet, hat die Liste (`/`) als Verlaufseintrag darunter; die Zurück-Geste verlässt die App also nicht.
+- **Link teilen:** In der Detailansicht und bei jedem persönlichen Profil. Wo `navigator.share` existiert (Handy), öffnet sich das Teilen-Menü, sonst landet der Link in der Zwischenablage („Link kopiert“).
+- **Profil speichern:** Im Profil aus einem Link legt „Als persönliches Profil speichern“ es in `localStorage` (`persoenlicheProfile`) ab.
+- **Offline und Server:** nginx (`try_files … /index.html`) und der Service Worker (`navigateFallback`) liefern für `/test/*` und `/profil` die App aus. Ausgenommen sind `/api/`, `/assets/` (404 statt index.html), `/datenschutz.html`, `/sw.js`, `/manifest.webmanifest`. Alle Pfade in `index.html` und im Manifest sind absolut (`/…`), deshalb gibt es auf Unterseiten keine weiße Seite.
+- **Noch offen:** Tabs als Pfade (`/profile`, `/tabelle`, `/grafiken`) und der Suchbegriff als `?q=` sind nicht umgesetzt.
+- **Prüfen:** `node scripts/deeplink-check.mjs` (Containeraufbau wie bei `offline-check.mjs`; mit `OFFLINE_DIRECT=1` zusätzlich offline `/test/T0008`) legt `docs/screenshots/deeplink-*.png` ab.
+
 ## Entwicklung
 
 Voraussetzung: Node.js 22.
@@ -126,6 +144,7 @@ Secrets für den Docker-Hub-Push anlegen: Repository → **Settings** → **Secr
 │   ├── build-push.sh    Images bauen und pushen
 │   ├── offline-check.mjs  Offline-Prüfung mit Chromium (CDP)
 │   ├── ux2-check.mjs      Mobil-/Barrierefreiheitsprüfung (CDP, Screenshots)
+│   ├── deeplink-check.mjs Prüfung der Links, Zurück-Geste, Teilen (CDP, Screenshots)
 │   ├── kontrast-fix.py    Kontrast-Umrechnung der Badge-Farben
 │   └── legacy/          PowerShell-Werkzeuge aus der JSON/CSV-Zeit inkl. Import nach PostgreSQL
 ├── .github/workflows/   CI (Lint, Tests, Build, Docker)

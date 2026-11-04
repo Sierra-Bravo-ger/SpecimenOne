@@ -328,3 +328,24 @@ md-divider {
   margin: 1rem 0;
   opacity: 0.6;
 }
+/* Link teilen: Knopf neben „Drucken“ und „Schließen“ */
+.actions { flex-wrap: wrap; align-items: center; gap: 0.5rem; }
+.teilen-knopf {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  padding: 0 0.9rem;
+  border: 1px solid #1e6b35;
+  border-radius: 9999px;
+  background: transparent;
+  color: #1e6b35;
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+.teilen-knopf:hover { background: rgba(30, 107, 53, 0.08); }
+.dark-theme .teilen-knopf { border-color: #83d991; color: #83d991; }
+.dark-theme .teilen-knopf:hover { background: rgba(131, 217, 145, 0.12); }
+.teilen-meldung { min-height: 1.4em; margin: 0.5rem 0 0; text-align: right; font-size: 0.9rem; }
+@media print { .teilen-meldung { display: none; } }

@@ -10,6 +10,7 @@ import tailwindBtn from './tailwindBtn';
 import '../styles/kategorie-badges.css';
 import { sendProfilToDiscord } from '../services/ServiceClient';
 import { debugLog } from '../utils/debug';
+import { MAX_PROFIL_TESTS, baueProfilPfad, baueVollstaendigeUrl, teileLink, TEILEN_MELDUNG } from '../utils/links';
 
 function PersoenlicheProfileListe() {
   const [persoenlicheProfile, setPersoenlicheProfile] = useState([]);
@@ -17,6 +18,7 @@ function PersoenlicheProfileListe() {
   const [expandedProfiles, setExpandedProfiles] = useState([]);
   const [selectedTest, setSelectedTest] = useState(null);
   const [allTests, setAllTests] = useState([]);
+  const [teilenMeldung, setTeilenMeldung] = useState({ id: null, text: '' });
   const { isLoading: materialsLoading } = useMaterialService();
   
   // Laden der persönlichen Profile und aller Tests (für vollständige Details) beim Komponenten-Mount
@@ -76,7 +78,22 @@ function PersoenlicheProfileListe() {
       localStorage.setItem('persoenlicheProfile', JSON.stringify(aktualisierteListe));
     }
   };
-    // Profil-Antrag drucken
+  // Profil als Link teilen (/profil?tests=…&name=…)
+  const handleProfilTeilen = async (profil, e) => {
+    e.stopPropagation();
+    const { pfad, abgeschnitten } = baueProfilPfad({ ids: profil.tests.map(t => t.id), name: profil.name });
+    const ergebnis = await teileLink({
+      url: baueVollstaendigeUrl(pfad),
+      titel: `${profil.name} – SpecimenOne`,
+      text: profil.name,
+    });
+    let text = TEILEN_MELDUNG[ergebnis];
+    if (text && abgeschnitten > 0) text += ` (nur die ersten ${MAX_PROFIL_TESTS} Tests, ${abgeschnitten} weitere passen nicht in den Link)`;
+    setTeilenMeldung({ id: profil.id, text });
+    if (ergebnis !== 'fehler') setTimeout(() => setTeilenMeldung({ id: null, text: '' }), 4000);
+  };
+
+  // Profil-Antrag drucken
   const handleProfilDrucken = (profil, e) => {
     // Verhindern, dass der Click auf den Button auch das Profil expandiert
     e.stopPropagation();
@@ -259,6 +276,16 @@ function PersoenlicheProfileListe() {
                     >
                       <MaterialDesign.MdPrint className="text-gray-700 dark:text-gray-300" />
                     </button>
+                    <button 
+                      className="p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors inline-flex items-center gap-1 px-2 text-sm text-gray-700 dark:text-gray-300"
+                      onClick={(e) => handleProfilTeilen(profil, e)}
+                      aria-label={`Link zum Profil ${profil.name} teilen`}
+                    >
+                      <MaterialDesign.MdShare aria-hidden="true" /> Link teilen
+                    </button>
+                    {teilenMeldung.id === profil.id && (
+                      <span role="status" aria-live="polite" className="self-center text-sm text-gray-700 dark:text-gray-300">{teilenMeldung.text}</span>
+                    )}
                     
                     <button 
                       className="p-1 rounded-full hover:bg-red-100 dark:hover:bg-red-900/30 text-red-600"

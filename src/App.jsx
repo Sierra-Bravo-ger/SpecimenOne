@@ -31,6 +31,8 @@ import '@material/web/tabs/tabs.js'
 import * as MaterialDesign from "react-icons/md"
 import { debugLog } from './utils/debug';
 import { filterTests } from './utils/testFilter';
+import { parseRoute, baueTestPfad } from './utils/links';
+import GeteiltesProfil from './components/GeteiltesProfil';
 
 // Selten genutzte Ansichten erst beim Öffnen laden (TimelineView bringt @nivo mit)
 const TimelineView = lazy(() => import('./components/TimelineView'))
@@ -109,22 +111,42 @@ function App() {
   const testsService = useTestsService();
   const profileService = useProfileService();
   
-  // Überprüfen der URL-Parameter beim Laden
+  // Adresse → Ansicht: /test/<id> öffnet die Details, /profil?tests=… ein geteiltes Profil.
+  // Die Verlaufseinträge für Tests legt TestDetails an (pushState), hier wird nur gelesen.
+  const [route, setRoute] = useState(() => parseRoute(window.location.pathname, window.location.search));
+  const [nichtGefunden, setNichtGefunden] = useState(null);
+
   useEffect(() => {
-    // Nur ausführen, wenn Tests geladen sind
-    if (tests.length === 0) return;
-    
-    const urlParams = new URLSearchParams(window.location.search);
-    const testId = urlParams.get('test');
-    
-    if (testId) {
-      const foundTest = tests.find(test => test.id === testId);
-      if (foundTest) {
-        setSelectedTest(foundTest);
-        setShowTestDetails(true);
-      }
+    const onPopState = () => setRoute(parseRoute(window.location.pathname, window.location.search));
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, []);
+
+  useEffect(() => {
+    // Erst auswerten, wenn die Tests geladen sind (auch offline aus dem Cache)
+    if (isLoading || error) return;
+    if (route.typ !== 'test') {
+      setNichtGefunden(null);
+      return;
     }
-  }, [tests]);
+    if (route.alt) {
+      // alter Link /?test=T0003 → saubere Adresse
+      window.history.replaceState(null, '', baueTestPfad(route.id));
+    }
+    const foundTest = tests.find(test => test.id === route.id);
+    if (foundTest) {
+      setSelectedTest(foundTest);
+      setShowTestDetails(true);
+      setNichtGefunden(null);
+    } else {
+      setNichtGefunden(route.id);
+    }
+  }, [route, tests, isLoading, error]);
+
+  const zurListe = () => {
+    window.history.replaceState(null, '', '/');
+    setRoute({ typ: 'start' });
+  };
 
   // Sortieroptionen aus localStorage laden
   useEffect(() => {
@@ -235,16 +257,9 @@ function App() {
     setShowTestDetails(true);
   };
   
-  // Funktion zum Schließen der Testdetails
+  // Funktion zum Schließen der Testdetails (die Adresse stellt TestDetails per history.back() zurück)
   const closeTestDetails = () => {
     setShowTestDetails(false);
-    
-    // URL-Parameter entfernen, wenn vorhanden
-    if (window.location.search) {
-      const url = new URL(window.location);
-      url.search = '';
-      window.history.replaceState({}, '', url);
-    }
   };
   // Profil-Selektor Funktionen
   const handleTestSelect = (tests) => {
@@ -601,6 +616,33 @@ function App() {
         </div>
       )}
       
+      {/* Hinweis bei unbekannter Test-ID in der Adresse */}
+      {nichtGefunden && !showTestDetails && (
+        <div className="test-details-overlay">
+          <div
+            role="alertdialog"
+            aria-modal="true"
+            aria-labelledby="nicht-gefunden-titel"
+            className={`test-details-container md-elevation-5 ${tailwindBtn.classes.cardBg}`}
+          >
+            <h2 id="nicht-gefunden-titel" className={tailwindBtn.classes.text}>Test {nichtGefunden} nicht gefunden</h2>
+            <p className={tailwindBtn.classes.text}>
+              Diesen Test gibt es nicht (mehr). Der Link ist vielleicht veraltet oder falsch geschrieben.
+            </p>
+            <div className="actions">
+              <md-filled-button autofocus onClick={zurListe} class={tailwindBtn.classes.mdButton}>Zur Testliste</md-filled-button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Geteiltes Profil (/profil?tests=…) */}
+      {route.typ === 'profil' && !isLoading && !error && (
+        <div className="z-40">
+          <GeteiltesProfil route={route} tests={tests} onClose={zurListe} />
+        </div>
+      )}
+
       {/* Profil-Erstellungsdialog */}
       {showProfilErstellung && (
         <div className="z-50">

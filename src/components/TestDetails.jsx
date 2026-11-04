@@ -13,6 +13,7 @@ import { API_BASE_URL } from '../services/apiConfig'
 import { useDetailData } from '../contexts/DetailDataContext'
 import MaterialBadge from './MaterialBadge'
 import { debugLog } from '../utils/debug';
+import { baueTestPfad, baueVollstaendigeUrl, teileLink, TEILEN_MELDUNG } from '../utils/links'
 import tailwindBtn from './tailwindBtn' // Importiere unsere zentrale Styling-Bibliothek
 
 // function TestDetails({ test, onClose }) {
@@ -72,23 +73,52 @@ function TestDetails({ test, onClose }) {
     }
   };
   
-  // Unterstützung für den Zurück-Button des Browsers
+  // Eigene Adresse: Beim Öffnen wird /test/<id> als neuer Verlaufseintrag angelegt.
+  // Wer /test/<id> direkt aufruft, bekommt zuerst die Liste („/“) als Eintrag darunter,
+  // damit die Zurück-Geste den Dialog schließt und die App nicht verlässt.
   useEffect(() => {
-    // Fügt Zustand zum Browser-Verlauf hinzu
-    window.history.pushState({ testDetail: true }, "");
-    
-    // Event-Handler für den Zurück-Button
-    const handlePopState = (event) => {
-      onClose();
-    };
-    
-    // Event-Listener registrieren
-    window.addEventListener("popstate", handlePopState);
-    
-    // Aufräumen beim Entfernen der Komponente
-    return () => {
-      window.removeEventListener("popstate", handlePopState);
-    };  }, [onClose]);
+    if (window.history.state?.testDetail) return // schon angelegt (Neuladen, StrictMode, Vorwärts)
+    if (window.location.pathname.startsWith('/test/')) {
+      window.history.replaceState(null, '', '/')
+    }
+    window.history.pushState({ testDetail: true }, '', baueTestPfad(test.id))
+  }, [test.id])
+
+  // Seitentitel „<Testname> – SpecimenOne“, beim Schließen zurück
+  useEffect(() => {
+    const vorher = document.title
+    document.title = `${test.name} – SpecimenOne`
+    return () => { document.title = vorher }
+  }, [test.name])
+
+  // Zurück-Taste/-Geste schließt den Dialog. Der Listener wird nur einmal registriert und ruft
+  // über eine Ref immer die aktuelle onClose auf: Sonst baut React ihn schon beim Neurendern durch
+  // den popstate-Listener der App ab, bevor er selbst an der Reihe ist.
+  const onCloseRef = useRef(onClose)
+  useEffect(() => { onCloseRef.current = onClose })
+  useEffect(() => {
+    const handlePopState = () => onCloseRef.current()
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [])
+
+  // Schließen (×, Escape, Klick daneben): einen Verlaufsschritt zurück, die URL ist dann wieder die vorherige
+  const schliessen = () => {
+    if (window.history.state?.testDetail) window.history.back()
+    else onClose()
+  }
+
+  // Link teilen
+  const [teilenMeldung, setTeilenMeldung] = useState('')
+  const handleTeilen = async () => {
+    const ergebnis = await teileLink({
+      url: baueVollstaendigeUrl(baueTestPfad(test.id)),
+      titel: `${test.name} – SpecimenOne`,
+      text: test.name,
+    })
+    setTeilenMeldung(TEILEN_MELDUNG[ergebnis])
+    if (ergebnis !== 'fehler') setTimeout(() => setTeilenMeldung(''), 3000)
+  }
   
   // Fokusführung: beim Öffnen in den Dialog, beim Schließen zurück auf das auslösende Element
   const dialogRef = useRef(null);
@@ -107,11 +137,12 @@ function TestDetails({ test, onClose }) {
     const handleEscape = (event) => {
       if (event.key === 'Escape') {
         event.stopPropagation();
-        onClose();
+        schliessen();
       }
     };
     document.addEventListener('keydown', handleEscape);
     return () => document.removeEventListener('keydown', handleEscape);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onClose]);
 
   // Tab bleibt im Dialog (Fokusfalle)
@@ -136,7 +167,7 @@ function TestDetails({ test, onClose }) {
   const handleOverlayClick = (event) => {
     // Nur ausführen wenn der Klick direkt auf dem Overlay war, nicht auf seinen Kindern
     if (event.target.className === 'test-details-overlay') {
-      onClose();
+      schliessen();
     }
   };
     // Verbesserte Druckfunktion
@@ -410,7 +441,7 @@ function TestDetails({ test, onClose }) {
         onKeyDown={handleDialogKeyDown}
         className={`test-details-container md-elevation-5 ${tailwindBtn.classes.cardBg}`}
       >
-        <button type="button" className={`close-button ${tailwindBtn.classes.textMuted}`} onClick={onClose} aria-label="Details schließen">
+        <button type="button" className={`close-button ${tailwindBtn.classes.textMuted}`} onClick={schliessen} aria-label="Details schließen">
           <MaterialDesign.MdClose style={{fontSize: "24px"}} aria-hidden="true" />
         </button>
           <h2 id="test-details-titel" className={`${tailwindBtn.classes.text} ${testDetails.kategorie ? `kategorie-text-${testDetails.kategorie.toLowerCase().replace(/\s+/g, '-')}` : ''}`}>{testDetails.name}</h2>
@@ -647,8 +678,17 @@ function TestDetails({ test, onClose }) {
           </div>
         )}        <div className="actions">
           <md-filled-button onClick={handlePrint} class={tailwindBtn.classes.mdButton}>Drucken</md-filled-button>
-          <md-filled-button onClick={onClose} class={tailwindBtn.classes.mdButton}>Schließen</md-filled-button>
+          <button
+            type="button"
+            onClick={handleTeilen}
+            aria-label={`Link zu ${test.name} teilen`}
+            className="teilen-knopf"
+          >
+            <MaterialDesign.MdShare aria-hidden="true" /> Link teilen
+          </button>
+          <md-filled-button onClick={schliessen} class={tailwindBtn.classes.mdButton}>Schließen</md-filled-button>
         </div>
+        <p role="status" aria-live="polite" className="teilen-meldung">{teilenMeldung}</p>
       </div>
     </div>
   )

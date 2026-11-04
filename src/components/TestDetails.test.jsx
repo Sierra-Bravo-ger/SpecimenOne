@@ -27,6 +27,7 @@ const digoxin = {
 };
 
 beforeEach(() => {
+  window.history.replaceState(null, '', '/');
   window.materialCache = { 'SE-00': { bezeichnung: 'Serum', kurz: 'SE', farbe: 'Rot', farbenId: '3' } };
   window.materialDataCache = {};
   window.badgeInstanceCache = {};
@@ -73,18 +74,52 @@ describe('Detailansicht als Dialog', () => {
     expect(document.activeElement).toBe(dialog);
   });
 
-  it('Escape schließt die Detailansicht', () => {
+  it('Escape schließt die Detailansicht', async () => {
     const onClose = vi.fn();
     render(<TestDetails test={digoxin} onClose={onClose} />);
     fireEvent.keyDown(document, { key: 'Escape' });
-    expect(onClose).toHaveBeenCalledTimes(1);
+    await waitFor(() => expect(onClose).toHaveBeenCalledTimes(1));
+    expect(window.location.pathname).toBe('/');
   });
 
-  it('der Schließen-Knopf hat einen Namen', () => {
+  it('der Schließen-Knopf hat einen Namen', async () => {
     const onClose = vi.fn();
     render(<TestDetails test={digoxin} onClose={onClose} />);
     fireEvent.click(screen.getByRole('button', { name: 'Details schließen' }));
-    expect(onClose).toHaveBeenCalledTimes(1);
+    await waitFor(() => expect(onClose).toHaveBeenCalledTimes(1));
+  });
+
+  it('legt /test/<id> als Adresse an, setzt den Titel und stellt ihn beim Schließen zurück', async () => {
+    document.title = 'SpecimenOne';
+    const onClose = vi.fn();
+    const { unmount } = render(<TestDetails test={digoxin} onClose={onClose} />);
+    expect(window.location.pathname).toBe('/test/T0003');
+    expect(document.title).toBe('Digoxin – SpecimenOne');
+    // Zurück-Geste
+    window.history.back();
+    await waitFor(() => expect(onClose).toHaveBeenCalledTimes(1));
+    expect(window.location.pathname).toBe('/');
+    unmount();
+    expect(document.title).toBe('SpecimenOne');
+  });
+
+  it('direkter Aufruf von /test/<id>: Liste liegt darunter, Zurück schließt nur den Dialog', async () => {
+    window.history.replaceState(null, '', '/test/T0003');
+    const onClose = vi.fn();
+    render(<TestDetails test={digoxin} onClose={onClose} />);
+    expect(window.location.pathname).toBe('/test/T0003');
+    window.history.back();
+    await waitFor(() => expect(onClose).toHaveBeenCalledTimes(1));
+    expect(window.location.pathname).toBe('/');
+  });
+
+  it('„Link teilen“ übergibt die Adresse des Tests an navigator.share bzw. die Zwischenablage', async () => {
+    const writeText = vi.fn().mockResolvedValue();
+    vi.stubGlobal('navigator', { clipboard: { writeText } });
+    render(<TestDetails test={digoxin} onClose={() => {}} />);
+    fireEvent.click(screen.getByRole('button', { name: 'Link zu Digoxin teilen' }));
+    await waitFor(() => expect(writeText).toHaveBeenCalledWith(`${window.location.origin}/test/T0003`));
+    expect((await screen.findByRole('status')).textContent).toBe('Link kopiert');
   });
 
   it('gibt den Fokus beim Schließen an das auslösende Element zurück', () => {
