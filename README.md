@@ -27,6 +27,18 @@ Browser ──/api/*──▶ nginx (Image specimenone) ──▶ api:3001 (Imag
 
 Das Frontend ruft die API **relativ** unter `/api` auf (`src/services/apiConfig.js`, überschreibbar mit `VITE_API_BASE_URL` beim Build). In Produktion leitet nginx `/api/` an den Compose-Service `api` weiter, in der Entwicklung macht das der Vite-Proxy.
 
+## API
+
+Die API ist lesend (nur `GET`) und mit OpenAPI 3.1 dokumentiert:
+
+- **Interaktive Doku** (Swagger UI, „Try it out“ gegen dieselbe Herkunft): [`/api/docs`](https://one.madmoench.de/api/docs)
+- **Spezifikation** als JSON: [`/api/openapi.json`](https://one.madmoench.de/api/openapi.json)
+- **Quelle** im Repo: [`server/openapi.yaml`](server/openapi.yaml)
+
+![Swagger UI unter /api/docs](docs/screenshots/api-docs.png)
+
+Die Spezifikation ist die einzige Endpunktliste. **Neue Routen müssen in `server/openapi.yaml` nachgetragen werden:** Der Vertragstest (`server/openapi.test.js`, läuft mit `cd server && npm test` und in der CI) schlägt fehl, wenn `app.js` eine Route hat, die nicht in der Spezifikation steht (oder umgekehrt), wenn die Beispiele nicht zu den Antworten passen oder die Version nicht zu `server/package.json` passt. Gegen die echte Datenbank lässt sich der Vertrag einmalig mit `node server/scripts/vertrag-live.js http://localhost:3001` prüfen (laufende API mit DB nötig).
+
 ## PWA und Offline-Betrieb
 
 Die App ist installierbar (Manifest `/manifest.webmanifest`, erzeugt von `vite-plugin-pwa` in `vite.config.js`) und funktioniert nach dem ersten Online-Besuch ohne Verbindung.

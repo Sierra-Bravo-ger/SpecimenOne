@@ -10,17 +10,11 @@ npm ci
 npm start        # oder: npm run dev (nodemon)
 ```
 
-## Verfügbare API-Endpunkte
+## API-Endpunkte
 
-- `GET /api/health` - Überprüft die Datenbankverbindung
-- `GET /api/material` - Ruft alle Materialien ab
-- `GET /api/einheiten` - Ruft alle Einheiten ab
-- `GET /api/tests` - Ruft Tests ab (mit Paginierung und Suche)
-- `GET /api/tests/:id` - Ruft einen bestimmten Test mit Referenzwerten und Versandinfos ab
-- `GET /api/referenzwerte` - Alle Referenzwerte (`{ referenzwerte: [...] }`, alle Spalten, Zuordnung über `test_id`)
-- `GET /api/versandinfos` - Alle Versandinfos (`{ versandinfos: [{ test_nr, stations_bezlang, versandart_anz }] }`; `test_nr` ist der numerische Teil der Test-ID, z.B. `T0049` → `49`). Nur diese drei Felder, keine weiteren `empfaenger`-Spalten.
-- `GET /api/profile` - Ruft alle Profile ab
-- `GET /api/farben` - Ruft alle Farben ab
+Alle Endpunkte (Parameter, Antworten, Fehlerformat, Beispiele) stehen in der OpenAPI-Spezifikation [`openapi.yaml`](openapi.yaml). Die laufende API liefert sie als `GET /api/openapi.json` und als klickbare Doku (Swagger UI) unter `GET /api/docs`.
+
+**Neue Routen müssen in `openapi.yaml` nachgetragen werden.** Der Vertragstest `openapi.test.js` (`npm test`) schlägt fehl, wenn eine Route aus `app.js` in der Spezifikation fehlt oder die Beispiele nicht mehr zu den Antworten passen. Einmalig gegen die echte Datenbank: laufende API mit DB, dann `node scripts/vertrag-live.js http://localhost:3001`.
 
 ## Konfiguration
 
@@ -31,7 +25,7 @@ Die Datenbankverbindung kommt aus Umgebungsvariablen (Defaults in Klammern):
 
 - `GET /api/tests`: `page` und `limit` nur als positive Ganzzahlen, `limit` höchstens 2000, `search` höchstens 200 Zeichen. Sonst `400`.
 - Fehler: zentrale Error-Middleware. Der Client bekommt nur `{"error":"Interner Serverfehler"}`, Details landen per `console.error` im Container-Log.
-- Header: `helmet`, kein `X-Powered-By`. Kein CORS: Das Frontend ruft die API über nginx mit gleicher Herkunft auf.
+- Header: `helmet` mit Standard-CSP auf allen Routen (auch `/api/docs`, die Swagger UI braucht keine Lockerung), kein `X-Powered-By`. Kein CORS: Das Frontend ruft die API über nginx mit gleicher Herkunft auf.
 
 ## Betrieb (Docker, styx)
 
