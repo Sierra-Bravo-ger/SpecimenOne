@@ -37,6 +37,9 @@ export default defineConfig({
       },
       workbox: {
         navigateFallback: '/index.html',
+        // /api/docs (Swagger UI) und /api/openapi.json sind serverseitige Seiten, keine App-Routen:
+        // Navigationen unter /api/ dürfen nicht auf die App (index.html) umgeleitet werden.
+        navigateFallbackDenylist: [/^\/api\//],
         // Alle Build-Chunks werden vorab gecacht, auch der Grafik-Chunk (TimelineView
         // mit @nivo, ca. 280 kB). Er wird weiterhin erst beim Öffnen der Grafiken
         // geladen (React.lazy), steht dann aber auch offline bereit.
@@ -58,8 +61,12 @@ export default defineConfig({
             // API: sofort aus dem Cache antworten, im Hintergrund aktualisieren.
             // Die Daten ändern sich praktisch nie; ohne Online-Besuch bleiben sie
             // 30 Tage offline verfügbar. /api/health ist ausgenommen, weil
-            // useOnlineStatus damit die echte Erreichbarkeit prüft.
-            urlPattern: ({ url }) => url.pathname.startsWith('/api/') && url.pathname !== '/api/health',
+            // useOnlineStatus damit die echte Erreichbarkeit prüft. /api/docs* und
+            // /api/openapi* (Doku, Spezifikation) gehören nicht in den Daten-Cache.
+            urlPattern: ({ url }) => url.pathname.startsWith('/api/')
+              && url.pathname !== '/api/health'
+              && !url.pathname.startsWith('/api/docs')
+              && !url.pathname.startsWith('/api/openapi'),
             handler: 'StaleWhileRevalidate',
             options: {
               cacheName: 'api-cache',
