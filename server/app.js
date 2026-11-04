@@ -1,5 +1,12 @@
+const fs = require('node:fs');
+const path = require('node:path');
 const express = require('express');
 const helmet = require('helmet');
+const swaggerUi = require('swagger-ui-express');
+const YAML = require('yaml');
+
+// OpenAPI-Spezifikation: einmal beim Start laden (Datei liegt neben app.js, auch im Docker-Image).
+const OPENAPI_PATH = path.join(__dirname, 'openapi.yaml');
 
 // So viele Tests lädt das Frontend (src/App.jsx) auf einmal.
 const MAX_LIMIT = 2000;
@@ -44,12 +51,26 @@ const asyncHandler = (fn) => (req, res, next) => Promise.resolve(fn(req, res, ne
 function createApp(pool) {
   const app = express();
   app.disable('x-powered-by');
+  const openapi = YAML.parse(fs.readFileSync(OPENAPI_PATH, 'utf8'));
+
+  // Standard-CSP von helmet für alle Routen, auch für die Swagger UI unter /api/docs: Sie braucht
+  // keine Lockerung, weil swagger-ui-express Skripte (inkl. swagger-ui-init.js) und Styles als
+  // eigene Dateien von derselben Herkunft ausliefert und "Try it out" nur dieselbe Herkunft anfragt.
   app.use(helmet());
 
   // Test-Route zur Überprüfung der Datenbankverbindung
   app.get('/api/health', asyncHandler(async (req, res) => {
     const result = await pool.query('SELECT NOW()');
     res.json({ status: 'ok', time: result.rows[0].now });
+  }));
+
+  // API-Spezifikation und interaktive Doku (Swagger UI, Assets kommen aus dem npm-Paket, kein CDN)
+  app.get('/api/openapi.json', (req, res) => {
+    res.json(openapi);
+  });
+  app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(openapi, {
+    customSiteTitle: 'SpecimenOne API',
+    swaggerOptions: { displayRequestDuration: true },
   }));
 
   // Einfache Listen-Routen: SELECT * FROM <tabelle> → { <schluessel>: rows }
@@ -183,4 +204,4 @@ function createApp(pool) {
   return app;
 }
 
-module.exports = { createApp, parsePositiveInt, HttpError, MAX_LIMIT };
+module.exports = { createApp, parsePositiveInt, HttpError, MAX_LIMIT, MAX_PAGE, MAX_SEARCH_LENGTH, DEFAULT_LIMIT };

@@ -1,0 +1,575 @@
+openapi: 3.1.0
+info:
+  title: SpecimenOne API
+  version: 1.0.0 # muss mit server/package.json übereinstimmen (prüft der Vertragstest)
+  description: |
+    Lesende REST-API für **SpecimenOne**, ein Labor-Testmenü als Progressive Web App.
+    Die API liefert Tests, Referenzwerte, Versandinfos und Stammdaten aus einer PostgreSQL-Datenbank.
+
+    - Alle Endpunkte sind `GET` und verändern nichts.
+    - Es gibt keine Anmeldung und kein CORS: Die API wird über dieselbe Herkunft wie die App aufgerufen (`/api/…`).
+    - Die Feldnamen entsprechen den Spalten der Datenbank (`SELECT *`), daher auch Umlaute wie `durchführung`.
+    - Textfelder sind in der Datenbank oft leere Strings statt `null`. `null` kommt nur vor, wo die Spalte leer ist
+      (z. B. `dokumente`, `hinweise`, `farben_id` bei einigen Materialien).
+    - Die Beispiele in dieser Doku stammen aus der echten Datenbank und sind gekürzt.
+
+    Die Spezifikation liegt als `server/openapi.yaml` im Repository. Ein Vertragstest (`cd server && npm test`)
+    prüft, dass sie zu den Antworten der API passt und dass jede Route aus `app.js` darin steht.
+  license:
+    name: MIT
+    identifier: MIT
+externalDocs:
+  description: Quellcode und README auf GitHub
+  url: https://github.com/Sierra-Bravo-ger/SpecimenOne
+servers:
+  - url: /
+    description: Dieselbe Herkunft wie diese Seite
+tags:
+  - name: Tests
+    description: Laborparameter mit Suche, Paginierung, Referenzwerten und Versandinfos
+  - name: Stammdaten
+    description: Materialien, Einheiten, Profile, Farben sowie die Gesamtlisten für den Offline-Betrieb
+  - name: System
+    description: Gesundheitsprüfung und diese Spezifikation
+
+paths:
+  /api/health:
+    get:
+      tags: [System]
+      operationId: getHealth
+      summary: Gesundheitsprüfung
+      description: Fragt die Datenbank ab (`SELECT NOW()`) und liefert deren Zeit. Wird auch vom Docker-Healthcheck und vom Offline-Banner der App genutzt.
+      responses:
+        '200':
+          description: Datenbank erreichbar
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Health' }
+              examples:
+                ok:
+                  value: { status: ok, time: '2026-11-04T08:39:40.263Z' }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /api/openapi.json:
+    get:
+      tags: [System]
+      operationId: getOpenApi
+      summary: Diese Spezifikation als JSON
+      description: Die Datei `server/openapi.yaml`, als JSON ausgeliefert.
+      responses:
+        '200':
+          description: OpenAPI-Dokument
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [openapi, info, paths]
+                properties:
+                  openapi: { type: string, examples: ['3.1.0'] }
+                  info: { type: object }
+                  paths: { type: object }
+
+  /api/tests:
+    get:
+      tags: [Tests]
+      operationId: listTests
+      summary: Tests suchen und seitenweise abrufen
+      description: |
+        Sortiert nach `id`. Die Suche (`search`) ist eine Teilstring-Suche ohne Beachtung der Groß-/Kleinschreibung
+        in `name`, `id`, `loinc`, `kategorie` und in den Synonymen.
+      parameters:
+        - name: page
+          in: query
+          description: Seitennummer, beginnend bei 1
+          schema: { type: integer, minimum: 1, maximum: 100000, default: 1 }
+        - name: limit
+          in: query
+          description: Tests pro Seite. Die App lädt mit `2000` alle Tests auf einmal.
+          schema: { type: integer, minimum: 1, maximum: 2000, default: 20 }
+        - name: search
+          in: query
+          description: Suchtext (Name, ID, LOINC, Kategorie, Synonyme)
+          schema: { type: string, maxLength: 200 }
+          example: Lanoxin
+      responses:
+        '200':
+          description: Tests der angeforderten Seite samt Paginierung
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TestPage' }
+              examples:
+                synonymSuche:
+                  summary: "?search=Lanoxin (Synonym von Digoxin)"
+                  value:
+                    tests:
+                      - id: T0003
+                        name: Digoxin
+                        kategorie: Klinische Chemie
+                        material: [SE-00]
+                        synonyme: [Digitalis-Spiegel, Lanoxin, TDM-DIG, Digitalisglycosid, Herzglykosid-Spiegel]
+                        aktiv: true
+                        einheit_id: E36
+                        befundzeit: 1 Stunden
+                        durchführung: 24/7
+                        loinc: 10535-3
+                        mindestmenge_ml: 0,5
+                        lagerung: Standard
+                        dokumente: null
+                        hinweise: null
+                        ebm: ''
+                        goae: ''
+                    pagination: { page: 1, limit: 20, totalCount: 1, totalPages: 1 }
+        '400':
+          description: "`page`, `limit` oder `search` ungültig (keine positive Ganzzahl, außerhalb der Grenzen, mehrfach angegeben oder zu lang)"
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+              examples:
+                limitZuGross: { value: { error: limit muss zwischen 1 und 2000 liegen } }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /api/tests/{id}:
+    get:
+      tags: [Tests]
+      operationId: getTest
+      summary: Einen Test mit Referenzwerten und Versandinfos abrufen
+      description: Alle Felder des Tests plus `referenzwerte` und `versandinfos`. Versandinfos gibt es nur für Versandparameter, sonst ist die Liste leer.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Test-ID, z. B. `T0003`
+          schema: { type: string }
+          examples:
+            digoxin: { summary: Digoxin, value: T0003 }
+            vitaminA: { summary: Vitamin A (mit Versandinfo), value: T0567 }
+      responses:
+        '200':
+          description: Der Test
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TestDetail' }
+              examples:
+                digoxin:
+                  summary: Digoxin (T0003), ohne Versandinfo
+                  value:
+                    id: T0003
+                    name: Digoxin
+                    kategorie: Klinische Chemie
+                    material: [SE-00]
+                    synonyme: [Digitalis-Spiegel, Lanoxin, TDM-DIG, Digitalisglycosid, Herzglykosid-Spiegel]
+                    aktiv: true
+                    einheit_id: E36
+                    befundzeit: 1 Stunden
+                    durchführung: 24/7
+                    loinc: 10535-3
+                    mindestmenge_ml: 0,5
+                    lagerung: Standard
+                    dokumente: null
+                    hinweise: null
+                    ebm: ''
+                    goae: ''
+                    referenzwerte:
+                      - { id: 1319, test_id: T0003, geschlecht: 3000, alter_bis: 18, alter_von: 0, anzeige_label: '', besondere_bedingung: '', schwangerschaft: '', wert_obere_grenze: '2,5', wert_untere_grenze: '1,0' }
+                      - { id: 1320, test_id: T0003, geschlecht: 3000, alter_bis: 999, alter_von: 0, anzeige_label: '', besondere_bedingung: '', schwangerschaft: '', wert_obere_grenze: '2,0', wert_untere_grenze: '0,8' }
+                    versandinfos: []
+                vitaminA:
+                  summary: Vitamin A (T0567), Versandparameter (Referenzwerte gekürzt)
+                  value:
+                    id: T0567
+                    name: Vitamin A (Retinol) im Serum
+                    kategorie: Versand
+                    material: [SE-00]
+                    synonyme: [VITA, Vitamin A, Retinol]
+                    aktiv: true
+                    einheit_id: E14
+                    befundzeit: Versandparameter, siehe externer Befund
+                    durchführung: Mo-Fr
+                    loinc: folgt
+                    mindestmenge_ml: 0,5
+                    lagerung: Standard
+                    dokumente: null
+                    hinweise: null
+                    ebm: ''
+                    goae: ''
+                    referenzwerte:
+                      - { id: 85, test_id: T0567, geschlecht: 3000, alter_bis: 999, alter_von: 0, anzeige_label: '', besondere_bedingung: '', schwangerschaft: '', wert_obere_grenze: '71,0', wert_untere_grenze: '30,0' }
+                      - { id: 86, test_id: T0567, geschlecht: 3000, alter_bis: 6, alter_von: 0, anzeige_label: '', besondere_bedingung: '', schwangerschaft: '', wert_obere_grenze: '40,0', wert_untere_grenze: '20,0' }
+                    versandinfos:
+                      - { stations_bezlang: MVZ Labor PD. Dr. Volkmann und Kollegen, versandart_anz: lichtgeschützt }
+        '404':
+          description: Unbekannte Test-ID
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+              examples:
+                unbekannt: { value: { error: Test nicht gefunden } }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /api/referenzwerte:
+    get:
+      tags: [Stammdaten]
+      operationId: listReferenzwerte
+      summary: Alle Referenzwerte
+      description: Rund 1500 Zeilen, sortiert nach `test_id`, `id`. Zuordnung zum Test über `test_id`. Die App lädt sie beim Start, damit die Testdetails offline vollständig sind.
+      responses:
+        '200':
+          description: Alle Referenzwerte (Beispiel gekürzt)
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [referenzwerte]
+                properties:
+                  referenzwerte:
+                    type: array
+                    items: { $ref: '#/components/schemas/Referenzwert' }
+                unevaluatedProperties: false
+              examples:
+                gekuerzt:
+                  value:
+                    referenzwerte:
+                      - { id: 1319, test_id: T0003, geschlecht: 3000, alter_bis: 18, alter_von: 0, anzeige_label: '', besondere_bedingung: '', schwangerschaft: '', wert_obere_grenze: '2,5', wert_untere_grenze: '1,0' }
+                      - { id: 1320, test_id: T0003, geschlecht: 3000, alter_bis: 999, alter_von: 0, anzeige_label: '', besondere_bedingung: '', schwangerschaft: '', wert_obere_grenze: '2,0', wert_untere_grenze: '0,8' }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /api/versandinfos:
+    get:
+      tags: [Stammdaten]
+      operationId: listVersandinfos
+      summary: Alle Versandinfos
+      description: |
+        Rund 600 Zeilen, sortiert nach `test_nr`. `test_nr` ist der numerische Teil der Test-ID (`T0567` → `567`).
+        Bewusst nur diese drei Felder, keine weiteren Empfänger-Daten.
+      responses:
+        '200':
+          description: Alle Versandinfos (Beispiel gekürzt)
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [versandinfos]
+                properties:
+                  versandinfos:
+                    type: array
+                    items: { $ref: '#/components/schemas/VersandinfoMitTestNr' }
+                unevaluatedProperties: false
+              examples:
+                gekuerzt:
+                  value:
+                    versandinfos:
+                      - { test_nr: 298, stations_bezlang: MVZ Labor PD. Dr. Volkmann und Kollegen, versandart_anz: null }
+                      - { test_nr: 567, stations_bezlang: MVZ Labor PD. Dr. Volkmann und Kollegen, versandart_anz: lichtgeschützt }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /api/material:
+    get:
+      tags: [Stammdaten]
+      operationId: listMaterial
+      summary: Alle Materialien
+      description: Probenmaterialien (Serum, EDTA-Blut …). Der Schlüssel der Antwort heißt `materialien`.
+      responses:
+        '200':
+          description: Alle Materialien (Beispiel gekürzt)
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [materialien]
+                properties:
+                  materialien:
+                    type: array
+                    items: { $ref: '#/components/schemas/Material' }
+                unevaluatedProperties: false
+              examples:
+                gekuerzt:
+                  value:
+                    materialien:
+                      - { material_id: SE-00, material_bezeichnung: Serum, material_kurz: SE, material_farbe: Braun, farben_id: 8, material_erweiterung: 0, lagerung: 5 Tage im Kühlarchiv, probenroehre: Serum-Röhrchen, praekanalytik: noch keine Angabe, db_material_id: 1 }
+                      - { material_id: P4-87, material_bezeichnung: PET-4h-Wert, material_kurz: P4, material_farbe: Weiß, farben_id: null, material_erweiterung: 87, lagerung: 'Standard, siehe Handbuch', probenroehre: PET-4h-Wert-Röhrchen, praekanalytik: noch keine Angabe, db_material_id: 51 }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /api/einheiten:
+    get:
+      tags: [Stammdaten]
+      operationId: listEinheiten
+      summary: Alle Einheiten
+      description: Messeinheiten der Tests, verknüpft über `tests.einheit_id`.
+      responses:
+        '200':
+          description: Alle Einheiten (Beispiel gekürzt)
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [einheiten]
+                properties:
+                  einheiten:
+                    type: array
+                    items: { $ref: '#/components/schemas/Einheit' }
+                unevaluatedProperties: false
+              examples:
+                gekuerzt:
+                  value:
+                    einheiten:
+                      - { einheit_id: E36, si_einheit: '', beschreibung: noch keine Angabe, bezeichnung: ng/ml, einheit_id_db: 36, kategorie: noch keine Angabe }
+                      - { einheit_id: E4678, si_einheit: '', beschreibung: noch keine Angabe, bezeichnung: Index, einheit_id_db: 4678, kategorie: noch keine Angabe }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /api/profile:
+    get:
+      tags: [Stammdaten]
+      operationId: listProfile
+      summary: Alle Profile
+      description: Profile fassen mehrere Tests zusammen. Zur Form von `tests` siehe das Schema `Profil`.
+      responses:
+        '200':
+          description: Alle Profile (Beispiel gekürzt)
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [profile]
+                properties:
+                  profile:
+                    type: array
+                    items: { $ref: '#/components/schemas/Profil' }
+                unevaluatedProperties: false
+              examples:
+                gekuerzt:
+                  value:
+                    profile:
+                      - { id: P4825, name: Arginin-Test, tests: ['T4960|T4943|T4964|T5993|T4959|T5994|T4944|T5996|T5995|T5997|T5998|T5999'], aktiv: '', kategorie: Sonstige, hinweis: '', beschreibung: Arginin-Test, sortiernummer: 350 }
+                      - { id: P4776, name: HLA-B27, tests: [T3562], aktiv: '', kategorie: Sonstige, hinweis: '', beschreibung: HLA-B27, sortiernummer: 6180 }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /api/farben:
+    get:
+      tags: [Stammdaten]
+      operationId: listFarben
+      summary: Alle Farben
+      description: Farben der Probenröhrchen mit Hex-Wert und passender Textfarbe, verknüpft über `material.farben_id`.
+      responses:
+        '200':
+          description: Alle Farben (Beispiel gekürzt)
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [farben]
+                properties:
+                  farben:
+                    type: array
+                    items: { $ref: '#/components/schemas/Farbe' }
+                unevaluatedProperties: false
+              examples:
+                gekuerzt:
+                  value:
+                    farben:
+                      - { id: 1, bezeichnung: Gelb, hex: '#FFEB3B', textcolor: black }
+                      - { id: 2, bezeichnung: Grün, hex: '#4CAF50', textcolor: white }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+components:
+  responses:
+    ServerError:
+      description: Interner Fehler, z. B. Datenbank nicht erreichbar. Details stehen nur im Server-Log, nie in der Antwort.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+          examples:
+            serverfehler: { value: { error: Interner Serverfehler } }
+
+  schemas:
+    Error:
+      type: object
+      description: Einheitliches Fehlerformat (zentrale Error-Middleware). Auch unbekannte `/api/…`-Pfade antworten mit 404 `{"error":"Nicht gefunden"}`.
+      required: [error]
+      properties:
+        error: { type: string, description: Fehlermeldung ohne interne Details }
+      unevaluatedProperties: false
+
+    Health:
+      type: object
+      required: [status, time]
+      properties:
+        status: { type: string, const: ok }
+        time: { type: string, format: date-time, description: Aktuelle Zeit der Datenbank }
+      unevaluatedProperties: false
+
+    Pagination:
+      type: object
+      required: [page, limit, totalCount, totalPages]
+      properties:
+        page: { type: integer, minimum: 1, description: Aktuelle Seite }
+        limit: { type: integer, minimum: 1, maximum: 2000, description: Tests pro Seite }
+        totalCount: { type: integer, minimum: 0, description: Treffer insgesamt }
+        totalPages: { type: integer, minimum: 0, description: Seiten insgesamt (0 bei keinem Treffer) }
+      unevaluatedProperties: false
+
+    TestFelder:
+      type: object
+      description: Spalten der Tabelle `tests` (Grundlage für `Test` und `TestDetail`)
+      required: [id]
+      properties:
+        id: { type: string, maxLength: 50, description: 'Test-ID, z. B. T0003', examples: [T0003] }
+        name: { type: [string, 'null'], maxLength: 64 }
+        kategorie: { type: [string, 'null'], maxLength: 50 }
+        material:
+          type: [array, 'null']
+          description: Material-IDs, siehe `/api/material`
+          items: { type: string }
+        synonyme:
+          type: [array, 'null']
+          description: Alternative Bezeichnungen, werden von der Suche berücksichtigt
+          items: { type: string }
+        aktiv: { type: [boolean, 'null'] }
+        einheit_id: { type: [string, 'null'], maxLength: 50, description: Verweis auf `/api/einheiten` }
+        befundzeit: { type: [string, 'null'], maxLength: 50 }
+        durchführung: { type: [string, 'null'], maxLength: 50 }
+        loinc: { type: [string, 'null'], maxLength: 50 }
+        mindestmenge_ml: { type: [string, 'null'], maxLength: 50, description: Text mit deutschem Dezimalkomma, z. B. `0,5` }
+        lagerung: { type: [string, 'null'], maxLength: 50 }
+        dokumente: { type: [string, 'null'], maxLength: 50 }
+        hinweise:
+          type: [array, 'null']
+          description: Spalte vom Typ `jsonb` mit Default `[]`. In den aktuellen Daten durchgehend `null`.
+          items: {}
+        ebm: { type: [string, 'null'], maxLength: 50 }
+        goae: { type: [string, 'null'], maxLength: 50 }
+
+    Test:
+      description: Ein Laborparameter (Tabelle `tests`)
+      allOf:
+        - $ref: '#/components/schemas/TestFelder'
+      unevaluatedProperties: false
+
+    TestDetail:
+      description: Ein Test samt Referenzwerten und Versandinfos
+      allOf:
+        - $ref: '#/components/schemas/TestFelder'
+        - type: object
+          required: [referenzwerte, versandinfos]
+          properties:
+            referenzwerte:
+              type: array
+              items: { $ref: '#/components/schemas/Referenzwert' }
+            versandinfos:
+              type: array
+              description: Leer, wenn der Test kein Versandparameter ist
+              items: { $ref: '#/components/schemas/Versandinfo' }
+      unevaluatedProperties: false
+
+    TestPage:
+      type: object
+      required: [tests, pagination]
+      properties:
+        tests:
+          type: array
+          items: { $ref: '#/components/schemas/Test' }
+        pagination: { $ref: '#/components/schemas/Pagination' }
+      unevaluatedProperties: false
+
+    Referenzwert:
+      type: object
+      description: Referenzbereich eines Tests je Geschlecht und Altersgruppe (Tabelle `referenzwerte`)
+      required: [id]
+      properties:
+        id: { type: integer }
+        test_id: { type: [string, 'null'], maxLength: 50, description: Verweis auf `Test.id` }
+        geschlecht: { type: [integer, 'null'], description: 'Schlüsselwert, in den Daten z. B. 3000 für „alle“' }
+        alter_von: { type: [integer, 'null'], description: Untere Altersgrenze }
+        alter_bis: { type: [integer, 'null'], description: 'Obere Altersgrenze (999 = unbegrenzt)' }
+        anzeige_label: { type: [string, 'null'], maxLength: 50 }
+        besondere_bedingung: { type: [string, 'null'], maxLength: 50 }
+        schwangerschaft: { type: [string, 'null'], maxLength: 50 }
+        wert_obere_grenze: { type: [string, 'null'], maxLength: 50, description: Text mit Dezimalkomma, z. B. `2,5` }
+        wert_untere_grenze: { type: [string, 'null'], maxLength: 50, description: Text mit Dezimalkomma, z. B. `1,0` }
+      unevaluatedProperties: false
+
+    VersandinfoFelder:
+      type: object
+      properties:
+        stations_bezlang: { type: [string, 'null'], maxLength: 64, description: Name des Empfängers }
+        versandart_anz: { type: [string, 'null'], maxLength: 50, description: 'Versandart, z. B. „lichtgeschützt“' }
+
+    Versandinfo:
+      description: An wen und wie ein Versandparameter geschickt wird (Join aus `test_versand`, `empfaenger`, `versandart`)
+      allOf:
+        - $ref: '#/components/schemas/VersandinfoFelder'
+      unevaluatedProperties: false
+
+    VersandinfoMitTestNr:
+      description: Versandinfo der Gesamtliste, zusätzlich mit der numerischen Test-Nummer
+      allOf:
+        - $ref: '#/components/schemas/VersandinfoFelder'
+        - type: object
+          required: [test_nr]
+          properties:
+            test_nr: { type: integer, description: 'Numerischer Teil der Test-ID (T0567 → 567)' }
+      unevaluatedProperties: false
+
+    Material:
+      type: object
+      description: Probenmaterial (Tabelle `material`)
+      required: [material_id]
+      properties:
+        material_id: { type: string, maxLength: 50, examples: [SE-00] }
+        material_bezeichnung: { type: [string, 'null'], maxLength: 50 }
+        material_kurz: { type: [string, 'null'], maxLength: 50 }
+        material_farbe: { type: [string, 'null'], maxLength: 50, description: Farbname des Röhrchens }
+        farben_id: { type: [integer, 'null'], description: Verweis auf `/api/farben`; bei einigen Materialien `null` }
+        material_erweiterung: { type: [integer, 'null'] }
+        lagerung: { type: [string, 'null'], maxLength: 50 }
+        probenroehre: { type: [string, 'null'], maxLength: 50 }
+        praekanalytik: { type: [string, 'null'], maxLength: 50 }
+        db_material_id: { type: [integer, 'null'] }
+      unevaluatedProperties: false
+
+    Einheit:
+      type: object
+      description: Messeinheit (Tabelle `einheiten`)
+      required: [einheit_id]
+      properties:
+        einheit_id: { type: string, maxLength: 50, examples: [E36] }
+        si_einheit: { type: [string, 'null'], maxLength: 50 }
+        beschreibung: { type: [string, 'null'], maxLength: 50 }
+        bezeichnung: { type: [string, 'null'], maxLength: 50, description: 'Anzeigetext, z. B. `ng/ml`' }
+        einheit_id_db: { type: [integer, 'null'] }
+        kategorie: { type: [string, 'null'], maxLength: 50 }
+      unevaluatedProperties: false
+
+    Profil:
+      type: object
+      description: Zusammenstellung mehrerer Tests (Tabelle `profile`)
+      required: [id]
+      properties:
+        id: { type: string, maxLength: 50, examples: [P4825] }
+        name: { type: [string, 'null'], maxLength: 50 }
+        tests:
+          type: [array, 'null']
+          description: |
+            Test-IDs. Die Spalte ist ein `varchar[]`, in vielen Profilen steht aber **ein einziges Element mit
+            Pipe-getrennten IDs** (`["T4960|T4943|T4964"]`), in anderen ein Element je Test oder nur ein einzelner Test (`["T3562"]`).
+            Die API gibt die Daten unverändert zurück; Clients müssen die Elemente bei `|` trennen.
+          items: { type: string }
+          examples:
+            - ['T4960|T4943|T4964']
+            - [T3562]
+        aktiv: { type: [string, 'null'], maxLength: 50 }
+        kategorie: { type: [string, 'null'], maxLength: 50 }
+        hinweis: { type: [string, 'null'], maxLength: 50 }
+        beschreibung: { type: [string, 'null'], maxLength: 50 }
+        sortiernummer: { type: [integer, 'null'] }
+      unevaluatedProperties: false
+
+    Farbe:
+      type: object
+      description: Farbe eines Probenröhrchens (Tabelle `farben`)
+      required: [id]
+      properties:
+        id: { type: integer }
+        bezeichnung: { type: [string, 'null'], maxLength: 50 }
+        hex: { type: [string, 'null'], maxLength: 50, description: 'CSS-Farbwert, z. B. `#FFEB3B`' }
+        textcolor: { type: [string, 'null'], maxLength: 50, description: Passende Schriftfarbe (`black` oder `white`) }
+      unevaluatedProperties: false
