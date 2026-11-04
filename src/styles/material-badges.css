@@ -72,7 +72,6 @@
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Urin - U-03 */
 .material-u-03 {
@@ -90,24 +89,21 @@
 }
 /* Liquor - L-08 */
 .material-l-08 {
-  background-color: #2196F3;
+  background-color: #1a78c2;
   border-color: #1C7FCE;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* EDTA-Blut - E-79 */
 .material-e-79 {
-  background-color: #F44336;
+  background-color: #d73b30;
   border-color: #CF382D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Aphereseprodukt - AP-26 */
 .material-ap-26 {
-  background-color: #F44336;
+  background-color: #d73b30;
   border-color: #CF382D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Atemluft - AL-02 */
 .material-al-02 {
@@ -118,10 +114,9 @@
 }
 /* Citratblut - C-48 */
 .material-c-48 {
-  background-color: #4CAF50;
+  background-color: #38823b;
   border-color: #409444;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Dialysat - D-04 */
 .material-d-04 {
@@ -139,10 +134,9 @@
 }
 /* Virus-Transportmedium - VT-06 */
 .material-vt-06 {
-  background-color: #F44336;
+  background-color: #d73b30;
   border-color: #CF382D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Heparinblut - HB-13 */
 .material-hb-13 {
@@ -153,10 +147,9 @@
 }
 /* Heparinplasma - HP-14 */
 .material-hp-14 {
-  background-color: #2196F3;
+  background-color: #1a78c2;
   border-color: #1C7FCE;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Harnstein - HS-12 */
 .material-hs-12 {
@@ -167,10 +160,9 @@
 }
 /* Hämolysat - HA-11 */
 .material-ha-11 {
-  background-color: #F44336;
+  background-color: #d73b30;
   border-color: #CF382D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Infusionslösung - IL-15 */
 .material-il-15 {
@@ -181,10 +173,9 @@
 }
 /* Knochenmark - KM-16 */
 .material-km-16 {
-  background-color: #F44336;
+  background-color: #d73b30;
   border-color: #CF382D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Lithium-Heparin-Plasma - LP-01 */
 .material-lp-01 {
@@ -195,10 +186,9 @@
 }
 /* EDTA-Plasm. Versand - VP-17 */
 .material-vp-17 {
-  background-color: #F44336;
+  background-color: #d73b30;
   border-color: #CF382D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Sammelurin sauer - SA-18 */
 .material-sa-18 {
@@ -226,28 +216,24 @@
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Serum (Spezial) - SS-24 */
 .material-ss-24 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* EDTA-Molekular. - EM-22 */
 .material-em-22 {
-  background-color: #F44336;
+  background-color: #d73b30;
   border-color: #CF382D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Stuhl - SL-23 */
 .material-sl-23 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Sammelurin - SU-29 */
 .material-su-29 {
@@ -265,31 +251,27 @@
 }
 /* Citratplasma - CP-89 */
 .material-cp-89 {
-  background-color: #4CAF50;
+  background-color: #38823b;
   border-color: #409444;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Plasma aus Hämofilter - PF-39 */
 .material-pf-39 {
-  background-color: #4CAF50;
+  background-color: #38823b;
   border-color: #409444;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* EDTA-Versand - EV-21 */
 .material-ev-21 {
-  background-color: #F44336;
+  background-color: #d73b30;
   border-color: #CF382D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* EDTA-Plasma - EP-80 */
 .material-ep-80 {
-  background-color: #F44336;
+  background-color: #d73b30;
   border-color: #CF382D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Haar - HR-28 */
 .material-hr-28 {
@@ -310,7 +292,6 @@
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* LH-Plasma Profil 2 - LP-40 */
 .material-lp-40 {
@@ -328,17 +309,15 @@
 }
 /* Quantiferon AG1 - AG-42 */
 .material-ag-42 {
-  background-color: #4CAF50;
+  background-color: #38823b;
   border-color: #409444;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Quantiferon Mitogen - MI-41 */
 .material-mi-41 {
   background-color: #800080;
   border-color: #6C006C;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* PET-0-Wert - P0-78 */
 .material-p0-78 {
@@ -349,73 +328,63 @@
 }
 /* EDTA-Plasma gekühlt - ED-43 */
 .material-ed-43 {
-  background-color: #F44336;
+  background-color: #d73b30;
   border-color: #CF382D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* PET-4h-Wert - P4-87 */
 .material-p4-87 {
-  background-color: #9e9e9e;
+  background-color: #757575;
   border-color: #616161;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* PET-2h-Wert - P2-88 */
 .material-p2-88 {
-  background-color: #9e9e9e;
+  background-color: #757575;
   border-color: #616161;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Serum Profil 1 - S1-50 */
 .material-s1-50 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Serum Profil 2 - S2-51 */
 .material-s2-51 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Serum Profil 3 - S3-49 */
 .material-s3-49 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Serum Profil 4 - S4-53 */
 .material-s4-53 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Trockenblut - TR-44 */
 .material-tr-44 {
-  background-color: #FF00FF;
+  background-color: #cc00cc;
   border-color: #D800D8;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Serum Profil 5 - S5-54 */
 .material-s5-54 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Serum Profil 6 - S6-55 */
 .material-s6-55 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Nasensekret - NS-47 */
 .material-ns-47 {
@@ -429,7 +398,6 @@
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Speichel - SI-90 */
 .material-si-90 {
@@ -450,14 +418,12 @@
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Liquor Pathologie - PP-60 */
 .material-pp-60 {
-  background-color: #2196F3;
+  background-color: #1a78c2;
   border-color: #1C7FCE;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* ?? - ??-99 */
 .material-m---99 {
@@ -471,91 +437,78 @@
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Serum nach Gabe - SN-62 */
 .material-sn-62 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Wachstum 1 - WT-63 */
 .material-wt-63 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Wachstum 2 - WT-64 */
 .material-wt-64 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Wachstum 3 - WT-65 */
 .material-wt-65 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Wachstum 4 - WT-66 */
 .material-wt-66 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Wachstum 5 - WT-67 */
 .material-wt-67 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Wachstum 6 - WT-68 */
 .material-wt-68 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Wachstum 7 - WT-69 */
 .material-wt-69 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Wachstum 8 - WT-70 */
 .material-wt-70 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Wachstum 9 - WT-71 */
 .material-wt-71 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Wachstum 10 - WT-72 */
 .material-wt-72 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Wachstum 11 - WT-73 */
 .material-wt-73 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Atemluft - AL-76 */
 .material-al-76 {
@@ -583,35 +536,30 @@
   background-color: #9C27B0;
   border-color: #842195;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Serum 2h nach Gabe - N2-84 */
 .material-n2-84 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Serum 4h nach Gabe - N4-85 */
 .material-n4-85 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Serum 30min n. Gabe - N3-95 */
 .material-n3-95 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Serum 60min n. Gabe - N6-96 */
 .material-n6-96 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* PET-1h-Wert - PE-46 */
 .material-pe-46 {
@@ -625,56 +573,48 @@
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* EDTA-PL Profil 1 - E1-52 */
 .material-e1-52 {
-  background-color: #F44336;
+  background-color: #d73b30;
   border-color: #CF382D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* EDTA-PL Profil 2 - E2-57 */
 .material-e2-57 {
-  background-color: #F44336;
+  background-color: #d73b30;
   border-color: #CF382D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* EDTA-PL Profil 3 - E3-74 */
 .material-e3-74 {
-  background-color: #F44336;
+  background-color: #d73b30;
   border-color: #CF382D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* HN-arteriell - AH-33 */
 .material-ah-33 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* HN-venös - VH-34 */
 .material-vh-34 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* HN-Shunt - SH-59 */
 .material-sh-59 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Stoffwechsel - SO-86 */
 .material-so-86 {
-  background-color: #FF00FF;
+  background-color: #cc00cc;
   border-color: #D800D8;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Gluc 0 Na-Fluorid - N0-35 */
 .material-n0-35 {
@@ -720,45 +660,39 @@
 }
 /* Citrat Blut.-Zeit - CB-32 */
 .material-cb-32 {
-  background-color: #4CAF50;
+  background-color: #38823b;
   border-color: #409444;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* EDTA Immuncyto. - EZ-05 */
 .material-ez-05 {
-  background-color: #F44336;
+  background-color: #d73b30;
   border-color: #CF382D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Citrat Sonder - CS-91 */
 .material-cs-91 {
-  background-color: #4CAF50;
+  background-color: #38823b;
   border-color: #409444;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Quantiferon AG1 - AG-27 */
 .material-ag-27 {
-  background-color: #F44336;
+  background-color: #d73b30;
   border-color: #CF382D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Gluc 180 Na-Fluorid - GL-31 */
 .material-gl-31 {
-  background-color: #9e9e9e;
+  background-color: #757575;
   border-color: #616161;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* MAT - M-82 */
 .material-m-82 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Spontanurin sauer - SP-97 */
 .material-sp-97 {
@@ -781,14 +715,12 @@
   background-color: #9C27B0;
   border-color: #842195;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Farbe ID: 3 - Rot */
 .material-color-3 {
-  background-color: #F44336;
+  background-color: #d73b30;
   border-color: #CF382D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Farbe ID: 128 - Weiß */
 .material-color-128 {
@@ -799,10 +731,9 @@
 }
 /* Farbe ID: 2 - Grün */
 .material-color-2 {
-  background-color: #4CAF50;
+  background-color: #38823b;
   border-color: #409444;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Farbe ID: 1 - Gelb */
 .material-color-1 {
@@ -813,31 +744,27 @@
 }
 /* Farbe ID: 14 - Fuchsia */
 .material-color-14 {
-  background-color: #FF00FF;
+  background-color: #cc00cc;
   border-color: #D800D8;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Farbe ID: 4 - Blau */
 .material-color-4 {
-  background-color: #2196F3;
+  background-color: #1a78c2;
   border-color: #1C7FCE;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Farbe ID: 10 - Lila */
 .material-color-10 {
   background-color: #800080;
   border-color: #6C006C;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Farbe ID: 8 - Braun */
 .material-color-8 {
   background-color: #795548;
   border-color: #66483D;
   color: white;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 /* Fallback-Stil für andere Materialien */
 .material-default {
@@ -858,7 +785,7 @@
   }
   
   .material-badge-loading {
-    background-color: #424242;
+    background-color: #ffffff;
     color: #a0a0a0;
   }
   

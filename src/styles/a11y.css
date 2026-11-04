@@ -1,0 +1,45 @@
+/* Barrierefreiheit: sichtbarer Tastaturfokus und kleine Helfer */
+
+:root {
+  --focus-ring: #1a56db;            /* ≥ 7:1 auf Weiß */
+}
+.dark-theme {
+  --focus-ring: #8ab4ff;            /* ≥ 7:1 auf #242328 */
+}
+header {
+  --focus-ring: #ffffff;            /* Kopfzeile ist dunkelgrün */
+}
+
+:where(a, button, [role='switch'], [tabindex]:not([tabindex='-1'])):focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Testkarte: Der Namensknopf deckt die ganze Karte ab, daher zeigt die Karte den Fokus */
+.test-open:focus-visible {
+  outline: none;
+}
+.test-card:has(.test-open:focus-visible) {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Unsichtbare Checkboxen/Radios (sr-only): Fokus auf dem nachfolgenden Element zeigen */
+input.sr-only:focus-visible + * {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Horizontal scrollbare Leisten ohne sichtbare Scrollleiste (Tabs mobil) */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse {
+    animation: none;
+  }
+}

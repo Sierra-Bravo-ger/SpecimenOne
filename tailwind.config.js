@@ -15,6 +15,11 @@ export default {
           DEFAULT: '#6abf7b',
           dark: '#83d991',
         },
+        // Kopfzeile: dunkleres Grün, damit weißer Text mindestens 4,5:1 Kontrast hat
+        header: {
+          DEFAULT: '#2b7a40',
+          dark: '#1e4d2b',
+        },
         // Oberflächen- und Hintergrundfarben
         surface: {
           DEFAULT: '#FFFBFE',
