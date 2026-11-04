@@ -16,8 +16,9 @@ import { useTheme } from './contexts/ThemeContext'
 import { useMaterialService } from './services/MaterialService'
 import { EinheitenServiceProvider, useEinheitenService } from './services/EinheitenService'
 import { useProfileService } from './services/ProfileService.api'
-import { API_BASE_URL } from './services/apiConfig'
+import { API_BASE_URL, ALL_TESTS_PATH } from './services/apiConfig'
 import { useTestsService } from './services/TestsService'
+import OfflineBanner from './components/OfflineBanner'
 import '@material/web/button/filled-button.js'
 import '@material/web/button/text-button.js'
 import '@material/web/icon/icon.js'
@@ -107,22 +108,25 @@ function App() {
     localStorage.setItem('specimenOne.sortOption', sortOption);
     localStorage.setItem('specimenOne.sortDirection', sortDirection);
   }, [sortOption, sortDirection]);  useEffect(() => {
-    const fetchData = async () => {      try {
-        debugLog('App.jsx: Direkte API-Anfragen werden gesendet');
-        
-        // Direkte API-Anfrage für Tests - erhöhtes Limit für alle Tests
-        const testsResponse = await fetch(`${API_BASE_URL}/tests?limit=2000`);
-        const testsData = await testsResponse.json();
-        
+    const fetchJson = async (path) => {
+      const response = await fetch(`${API_BASE_URL}${path}`);
+      if (!response.ok) throw new Error(`HTTP ${response.status} bei ${path}`);
+      return response.json();
+    };
+
+    const fetchData = async () => {
+      try {
+        debugLog('App.jsx: Tests und Profile werden parallel geladen');
+        // Parallel statt nacheinander: offline kommen beide sofort aus dem Service-Worker-Cache
+        const [testsData, profileData] = await Promise.all([
+          fetchJson(ALL_TESTS_PATH),
+          fetchJson('/profile'),
+        ]);
+
         if (testsData && testsData.tests) {
           debugLog('API-Tests empfangen:', testsData.tests.length);
           setTests(testsData.tests);
         }
-        
-        // Direkte API-Anfrage für Profile
-        const profileResponse = await fetch(`${API_BASE_URL}/profile`);
-        const profileData = await profileResponse.json();
-        
         if (profileData && profileData.profile) {
           debugLog('API-Profile direkt empfangen:', profileData.profile.length);
           setProfile(profileData.profile);
@@ -299,6 +303,7 @@ function App() {
         <div className="flex items-center gap-5">
           <ThemeSwitcher />
         </div>      </header>      <main className="flex-1 p-4 w-full">
+        <OfflineBanner />
         {isLoading && <div className="flex justify-center my-8"><md-circular-progress indeterminate></md-circular-progress></div>}
         {error && <p className="bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 p-4 rounded border-l-4 border-red-600 dark:border-red-500">Fehler: {error}</p>}
         {!isLoading && !error && (  <>            <div className="mb-8">            <div className="mb-4 space-y-3 max-w-screen-2xl mx-auto">

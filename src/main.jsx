@@ -7,6 +7,7 @@ import './styles/kategorie-badges.css'
 import './styles/material-badges.css'
 import { ThemeProvider } from './contexts/ThemeContext'
 import { EinheitenServiceProvider } from './services/EinheitenService'
+import { DetailDataProvider } from './contexts/DetailDataContext'
 // Auth0Provider vorübergehend deaktiviert
 // import { Auth0Provider } from '@auth0/auth0-react'
 import { registerSW } from 'virtual:pwa-register'
@@ -28,7 +29,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
       <ThemeProvider>
         <EinheitenServiceProvider>
-          <App />
+          <DetailDataProvider>
+            <App />
+          </DetailDataProvider>
         </EinheitenServiceProvider>
       </ThemeProvider>
   </React.StrictMode>,

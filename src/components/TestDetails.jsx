@@ -10,6 +10,7 @@ import * as MaterialDesign from "react-icons/md"
 import { useMaterialService } from '../services/MaterialService'
 import { useEinheitenService } from '../services/EinheitenService'
 import { API_BASE_URL } from '../services/apiConfig'
+import { useDetailData } from '../contexts/DetailDataContext'
 import MaterialBadge from './MaterialBadge'
 import { debugLog } from '../utils/debug';
 import tailwindBtn from './tailwindBtn' // Importiere unsere zentrale Styling-Bibliothek
@@ -25,35 +26,41 @@ import tailwindBtn from './tailwindBtn' // Importiere unsere zentrale Styling-Bi
 function TestDetails({ test, onClose }) {
   // Ref für den Ausdruck
   const printContentRef = useRef(null);
-  // State für vollständige Testdetails (inkl. versandinfos etc.)
-  const [testDetails, setTestDetails] = useState(test);
-  const [referenzwerte, setReferenzwerte] = useState(test.referenzwerte || []);
+  // Die Testliste enthält bereits alle Spalten von tests; Referenzwerte und
+  // Versandinfos kommen aus dem beim Start geladenen DetailDataContext.
+  const testDetails = test;
+  const detailData = useDetailData();
+  // Nur falls die Gesamtdaten fehlen (status 'error'): einzeln über /api/tests/:id
+  const [fallback, setFallback] = useState(null);
   const { convertMaterialIdsToNames, isLoading: materialsLoading } = useMaterialService();
   const { formatEinheit, isLoading: einheitenLoading } = useEinheitenService();
 
-  // Nachladen der vollständigen Testdetails beim Mounten
   useEffect(() => {
+    if (detailData.status !== 'error') return undefined;
     let isMounted = true;
     const fetchTestDetails = async () => {
       try {
         const response = await fetch(`${API_BASE_URL}/tests/${test.id}`);
-        if (!response.ok) throw new Error('Fehler beim Laden der Test-Details');
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const testData = await response.json();
         if (isMounted) {
-          setTestDetails(testData);
-          setReferenzwerte(testData.referenzwerte || []);
+          setFallback({ referenzwerte: testData.referenzwerte || [], versandinfos: testData.versandinfos || [] });
         }
       } catch (error) {
-        console.error('Fehler beim Laden der Testdetails:', error);
-        if (isMounted) {
-          setTestDetails(test);
-          setReferenzwerte([]);
-        }
+        // Offline ohne Cache erwartbar: nur Hinweis, kein Fehler
+        console.warn(`Testdetails für ${test.id} nicht verfügbar:`, error.message);
       }
     };
     fetchTestDetails();
     return () => { isMounted = false; };
-  }, [test.id]);
+  }, [test.id, detailData.status]);
+
+  const referenzwerte = detailData.status === 'ready'
+    ? detailData.getReferenzwerte(test.id)
+    : (fallback?.referenzwerte || test.referenzwerte || []);
+  const versandinfos = detailData.status === 'ready'
+    ? detailData.getVersandinfos(test.id)
+    : (fallback?.versandinfos || []);
 
     // Übersetzt die Geschlechter-IDs in lesbare Bezeichnungen
   const getGeschlechtText = (geschlechtId) => {
@@ -433,7 +440,7 @@ function TestDetails({ test, onClose }) {
           <md-divider></md-divider>
         </div>
         {/* Versandinformationen */}
-        {Array.isArray(testDetails.versandinfos) && testDetails.versandinfos.length > 0 && (
+        {versandinfos.length > 0 && (
           <div className="details-section">
             <h3>Versandinformationen</h3>
             <table className="referenzwerte-tabelle">
@@ -444,7 +451,7 @@ function TestDetails({ test, onClose }) {
                 </tr>
               </thead>
               <tbody>
-                {testDetails.versandinfos.map((info, idx) => (
+                {versandinfos.map((info, idx) => (
                   <tr key={idx}>
                     <td>{info.stations_bezlang || '–'}</td>
                     <td>{info.versandart_anz || '–'}</td>

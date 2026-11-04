@@ -2,6 +2,17 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
+const DAY = 24 * 60 * 60
+
+// Icons des Web-App-Manifests (maskable mit Rand „-b“, any ohne)
+const ICON_SIZES = [72, 96, 144, 152, 192, 384, 512]
+const icons = [
+  { src: '/images/icons/frame1.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'maskable' },
+  ...ICON_SIZES.map((s) => ({ src: `/images/icons/icon-${s}x${s}-b.png`, sizes: `${s}x${s}`, type: 'image/png', purpose: 'maskable' })),
+  { src: '/images/icons/component.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' },
+  ...ICON_SIZES.map((s) => ({ src: `/images/icons/icon_${s}x${s}.png`, sizes: `${s}x${s}`, type: 'image/png', purpose: 'any' })),
+]
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -9,109 +20,54 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'robots.txt', 'images/**/*', 'fonts/**/*'],
+      // Einziges Manifest: vite-plugin-pwa erzeugt /manifest.webmanifest, verlinkt es
+      // in index.html und cacht es vorab (public/manifest.json gibt es nicht mehr).
       manifest: {
+        id: '/',
         name: 'SpecimenOne',
         short_name: 'SpecimenOne',
-        description: 'Offline-fähige Labor-Test-Verwaltung',
+        description: 'Offline-fähiges Labor-Test-Menü für medizinische Einrichtungen',
+        lang: 'de',
+        start_url: '/',
+        scope: '/',
+        display: 'standalone',
         theme_color: '#6abf7b',
-        background_color: '#ffffff',
-        icons: [
-          {
-            src: '/images/icons/frame1.svg',
-            sizes: 'any',
-            type: 'image/svg+xml',
-            purpose: 'maskable'
-          },
-          {
-            src: '/images/icons/icon-72x72-b.png',
-            sizes: '72x72',
-            type: 'image/png',
-            purpose: 'maskable'
-          },
-          {
-            src: '/images/icons/icon-96x96-b.png',
-            sizes: '96x96',
-            type: 'image/png',
-            purpose: 'maskable'
-          },
-          {
-            src: '/images/icons/icon-144x144-b.png',
-            sizes: '144x144',
-            type: 'image/png',
-            purpose: 'maskable'
-          },
-          {
-            src: '/images/icons/icon-192x192-b.png',
-            sizes: '192x192',
-            type: 'image/png'
-          },
-          {
-            src: '/images/icons/icon-512x512-b.png',
-            sizes: '512x512',
-            type: 'image/png',
-            purpose: 'maskable'
-          },
-          {
-            src: '/images/icons/component.svg',
-            sizes: 'any',
-            type: 'image/svg+xml',
-            purpose: 'any'
-          },
-          {
-            src: '/images/icons/icon_72x72.png',
-            sizes: '72x72',
-            type: 'image/png',
-            purpose: 'any'
-          },
-          {
-            src: '/images/icons/icon_96x96.png',
-            sizes: '96x96',
-            type: 'image/png',
-            purpose: 'any'
-          },
-          {
-            src: '/images/icons/icon_144x144.png',
-            sizes: '144x144',
-            type: 'image/png',
-            purpose: 'any'
-          },
-          {
-            src: '/images/icons/icon_192x192.png',
-            sizes: '192x192',
-            type: 'image/png',
-            purpose: 'any'
-          },
-          {
-            src: '/images/icons/icon_512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-            purpose: 'any'
-          }
-        ]
+        background_color: '#6abf7b',
+        icons,
       },
       workbox: {
         navigateFallback: '/index.html',
-        // Den großen Grafik-Chunk (@nivo) nicht vorab cachen: Er wird erst beim
-        // Öffnen der Grafiken-Ansicht geladen und dann zur Laufzeit gecacht.
-        globIgnores: ['**/TimelineView-*.js'],
+        // Alle Build-Chunks werden vorab gecacht, auch der Grafik-Chunk (TimelineView
+        // mit @nivo, ca. 280 kB). Er wird weiterhin erst beim Öffnen der Grafiken
+        // geladen (React.lazy), steht dann aber auch offline bereit.
+        // Größte Datei ist index-*.js mit ca. 400 kB, das Workbox-Limit von 2 MiB
+        // (maximumFileSizeToCacheInBytes) reicht.
         runtimeCaching: [
           {
+            // Auffangnetz für /assets/-Dateien, die nicht im Precache stehen
+            // (z.B. Chunks einer älteren Version in einem noch offenen Tab).
             urlPattern: ({ url }) => url.pathname.startsWith('/assets/'),
             handler: 'CacheFirst',
             options: {
               cacheName: 'lazy-assets',
-              expiration: { maxEntries: 20 }
+              expiration: { maxEntries: 20 },
+              cacheableResponse: { statuses: [200] },
             },
           },
           {
-            urlPattern: ({ url }) => url.pathname.startsWith('/api/'),
-            handler: 'NetworkFirst',
+            // API: sofort aus dem Cache antworten, im Hintergrund aktualisieren.
+            // Die Daten ändern sich praktisch nie; ohne Online-Besuch bleiben sie
+            // 30 Tage offline verfügbar. /api/health ist ausgenommen, weil
+            // useOnlineStatus damit die echte Erreichbarkeit prüft.
+            urlPattern: ({ url }) => url.pathname.startsWith('/api/') && url.pathname !== '/api/health',
+            handler: 'StaleWhileRevalidate',
             options: {
               cacheName: 'api-cache',
+              cacheableResponse: { statuses: [200] },
               expiration: {
-                maxAgeSeconds: 86400  // 1 Stunde
+                maxAgeSeconds: 30 * DAY,
+                maxEntries: 200,
               },
-              networkTimeoutSeconds: 10
             },
           },
           {

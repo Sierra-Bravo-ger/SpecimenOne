@@ -471,6 +471,7 @@ const appLayout = {
   successBanner: 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 p-4 rounded border-l-4 border-green-500',
   errorBanner: 'bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 p-4 rounded border-l-4 border-red-600 dark:border-red-500',
   infoBanner: 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 p-4 rounded border-l-4 border-blue-600 dark:border-blue-500',
+  offlineBanner: 'flex items-center gap-2 max-w-screen-2xl mx-auto mb-4 px-4 py-2 text-sm rounded border-l-4 bg-amber-50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200 border-amber-500 dark:border-amber-600',
   fadeIn: 'animate-fadeIn',
   slideIn: 'animate-slideIn',
   slideOut: 'animate-slideOut',
