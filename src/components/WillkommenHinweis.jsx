@@ -25,8 +25,8 @@ const LINKS = [
   { label: 'Portfolio', href: 'https://sebastian-bride.pages.dev' },
 ];
 
-const chip = 'inline-flex items-center rounded-full border border-primary/40 dark:border-primary-dark/60 bg-white dark:bg-gray-800 px-3 py-1 text-sm text-gray-800 dark:text-gray-100 cursor-pointer hover:bg-primary/10 dark:hover:bg-primary-dark/20 transition-colors';
-const linkCls = 'text-primary dark:text-primary-dark underline underline-offset-2 hover:no-underline';
+const chip = 'inline-flex items-center rounded-full border border-primary/40 dark:border-primary-dark/60 bg-white dark:bg-gray-800 px-2.5 py-0.5 text-[13px] text-gray-800 dark:text-gray-100 cursor-pointer hover:bg-primary/10 dark:hover:bg-primary-dark/20 transition-colors';
+const linkCls = 'text-green-800 dark:text-green-300 underline underline-offset-2 hover:no-underline';
 
 /**
  * Kompakter Einstieg für Erstbesucher über der Suche:
@@ -47,7 +47,7 @@ function WillkommenHinweis({ onBeispielSuche, onSchliessen }) {
     <section
       aria-label="Willkommen bei SpecimenOne"
       data-testid="willkommen-hinweis"
-      className={`relative p-3 pr-10 rounded-lg border ${tailwindBtn.colors.border.light} ${tailwindBtn.colors.border.dark} bg-primary/5 dark:bg-primary-dark/10 text-sm text-gray-700 dark:text-gray-300`}
+      className={`relative p-2.5 pr-11 rounded-lg border ${tailwindBtn.colors.border.light} ${tailwindBtn.colors.border.dark} bg-primary/5 dark:bg-primary-dark/10 text-[13px] text-gray-700 dark:text-gray-300`}
     >
       <button
         type="button"
@@ -58,10 +58,16 @@ function WillkommenHinweis({ onBeispielSuche, onSchliessen }) {
         <MaterialDesign.MdClose aria-hidden="true" />
       </button>
       <p className="m-0 leading-snug">
-        Leistungsverzeichnis eines Labors mit Referenzwerten, Material und Versand –
-        offline nutzbar und installierbar. Zum Ausprobieren:
+        Labor-Leistungsverzeichnis mit Referenzwerten<span className="hidden sm:inline">, Material und Versand</span> – offline nutzbar.{' '}
+        <button
+          type="button"
+          className={`${linkCls} border-none bg-transparent p-0 cursor-pointer text-[13px]`}
+          onClick={() => setInfoOffen(true)}
+        >
+          Über das Projekt
+        </button>
       </p>
-      <div className="mt-2 flex flex-wrap items-center gap-2">
+      <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
         {BEISPIEL_SUCHEN.map(({ begriff, hinweis }) => (
           <button
             key={begriff}
@@ -73,13 +79,6 @@ function WillkommenHinweis({ onBeispielSuche, onSchliessen }) {
             {begriff}
           </button>
         ))}
-        <button
-          type="button"
-          className={`${linkCls} border-none bg-transparent p-1 cursor-pointer text-sm`}
-          onClick={() => setInfoOffen(true)}
-        >
-          Über das Projekt
-        </button>
       </div>
 
       {infoOffen && (
@@ -99,7 +98,7 @@ function WillkommenHinweis({ onBeispielSuche, onSchliessen }) {
               SpecimenOne ist ein Portfolio-Projekt: ein durchsuchbares Labor-Leistungsverzeichnis
               als installierbare Web-App.
             </p>
-            <ul className="mb-3 pl-5 text-sm">
+            <ul className="mb-3 pl-5 text-sm list-disc">
               {STACK.map((s) => <li key={s}>{s}</li>)}
             </ul>
             <p className="my-2 text-sm flex flex-wrap gap-x-4 gap-y-1">
