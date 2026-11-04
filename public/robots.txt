@@ -1,0 +1,5 @@
+# SpecimenOne soll nicht in Suchmaschinen erscheinen.
+# Crawling bleibt erlaubt, damit Suchmaschinen das „noindex“ (Meta-Tag und X-Robots-Tag) sehen
+# und bereits bekannte Seiten aus dem Index entfernen. Ein „Disallow: /“ würde das verhindern.
+User-agent: *
+Allow: /

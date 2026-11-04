@@ -156,7 +156,8 @@ Secrets für den Docker-Hub-Push anlegen: Repository → **Settings** → **Secr
 ## Rechtliches
 
 - **Impressum:** liegt im Portfolio, <https://sebastian-bride.pages.dev/impressum>; der Footer-Link „Impressum“ führt dorthin.
-- **Datenschutz:** statische Seite [`public/datenschutz.html`](public/datenschutz.html), erreichbar unter `/datenschutz.html` (Footer-Link „Datenschutz“). Sie ist eigenständig (hell/dunkel, keine externen Ressourcen), von der SPA-Navigation ausgenommen (`navigateFallbackDenylist` in `vite.config.js`) und wird von nginx direkt ausgeliefert. Gelb markierte Stellen (`.platzhalter`) sind noch zu prüfen. Kein Rechtsrat.
+- **Datenschutz:** statische Seite [`public/datenschutz.html`](public/datenschutz.html), erreichbar unter `/datenschutz.html` (Footer-Link „Datenschutz“). Sie ist eigenständig (hell/dunkel, keine externen Ressourcen), von der SPA-Navigation ausgenommen (`navigateFallbackDenylist` in `vite.config.js`) und wird von nginx direkt ausgeliefert. Kein Rechtsrat.
+- **Suchmaschinen:** SpecimenOne soll nicht indexiert werden. nginx setzt auf allen Antworten `X-Robots-Tag: noindex, nofollow`, `index.html` hat das passende Meta-Tag. `public/robots.txt` erlaubt das Crawlen bewusst, sonst sähen Suchmaschinen das `noindex` nicht.
 
 ## Willkommenshinweis
 
